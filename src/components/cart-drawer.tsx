@@ -1,32 +1,66 @@
 "use client";
 
+import { useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
 import { useCart } from "@/components/cart-context";
 import { formatPrice } from "@/data/catalog";
+import type { Locale } from "@/i18n/routing";
 
 export function CartDrawer() {
+  const t = useTranslations("Cart");
+  const locale = useLocale() as Locale;
   const { items, total, drawerOpen, closeDrawer, removeItem, setQty } =
     useCart();
+  const [checkoutState, setCheckoutState] = useState<
+    "idle" | "loading" | "unavailable" | "error"
+  >("idle");
 
   if (!drawerOpen) return null;
+
+  const startCheckout = async () => {
+    setCheckoutState("loading");
+    try {
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          locale,
+          items: items.map(({ id, qty }) => ({ id, qty })),
+        }),
+      });
+      if (res.status === 503) {
+        setCheckoutState("unavailable");
+        return;
+      }
+      if (!res.ok) {
+        setCheckoutState("error");
+        return;
+      }
+      const { url } = (await res.json()) as { url: string };
+      window.location.assign(url);
+    } catch {
+      setCheckoutState("error");
+    }
+  };
 
   return (
     <div className="fixed inset-0 z-[90]">
       <button
         type="button"
-        aria-label="Fermer le panier"
+        aria-label={t("closeCart")}
         onClick={closeDrawer}
         className="absolute inset-0 cursor-default bg-black/60 backdrop-blur-[2px]"
       />
       <aside className="absolute top-0 right-0 flex h-full w-full max-w-[420px] flex-col border-l border-white/8 bg-[#0C1017] shadow-[-30px_0_80px_-30px_rgba(0,0,0,0.9)]">
         <div className="flex items-center justify-between border-b border-white/6 px-6 py-5">
           <div className="font-mono text-xs tracking-[0.2em] text-[#C4D2DE]">
-            PANIER
+            {t("title")}
           </div>
           <button
             type="button"
             onClick={closeDrawer}
             className="cursor-pointer font-mono text-xl leading-none text-[#8595A5] transition-colors hover:text-accent"
-            aria-label="Fermer"
+            aria-label={t("close")}
           >
             ×
           </button>
@@ -35,15 +69,13 @@ export function CartDrawer() {
         {items.length === 0 ? (
           <div className="flex flex-1 flex-col items-center justify-center gap-3 px-6 text-center">
             <span className="h-2 w-2 rotate-45 bg-accent shadow-[0_0_14px_rgba(255,106,43,0.9)]" />
-            <p className="text-[15px] text-[#93A2B1]">
-              Ton panier est vide. Le froid, lui, n&apos;attend pas.
-            </p>
+            <p className="text-[15px] text-[#93A2B1]">{t("empty")}</p>
             <a
-              href="/#gamme"
+              href={`/${locale}#gamme`}
               onClick={closeDrawer}
               className="mt-2 rounded-[10px] bg-accent px-5 py-[11px] text-sm font-semibold text-[#14100C] no-underline"
             >
-              Découvrir la gamme
+              {t("emptyCta")}
             </a>
           </div>
         ) : (
@@ -59,21 +91,21 @@ export function CartDrawer() {
                       {item.name}
                     </span>
                     <span className="font-mono text-[11px] tracking-[0.1em] text-[#8595A5]">
-                      {formatPrice(item.price)} / unité
+                      {t("perUnit", { price: formatPrice(item.price, locale) })}
                     </span>
                     <button
                       type="button"
                       onClick={() => removeItem(item.id)}
                       className="w-fit cursor-pointer font-mono text-[10px] tracking-[0.14em] text-[#66788A] transition-colors hover:text-accent"
                     >
-                      RETIRER
+                      {t("remove")}
                     </button>
                   </div>
                   <div className="flex items-center gap-2">
                     <button
                       type="button"
                       onClick={() => setQty(item.id, item.qty - 1)}
-                      aria-label={`Réduire la quantité de ${item.name}`}
+                      aria-label={t("decrease", { name: item.name })}
                       className="h-7 w-7 cursor-pointer rounded-md border border-white/12 font-mono text-sm text-[#C4D2DE] transition-colors hover:border-accent/60"
                     >
                       −
@@ -84,7 +116,7 @@ export function CartDrawer() {
                     <button
                       type="button"
                       onClick={() => setQty(item.id, item.qty + 1)}
-                      aria-label={`Augmenter la quantité de ${item.name}`}
+                      aria-label={t("increase", { name: item.name })}
                       className="h-7 w-7 cursor-pointer rounded-md border border-white/12 font-mono text-sm text-[#C4D2DE] transition-colors hover:border-accent/60"
                     >
                       +
@@ -96,22 +128,32 @@ export function CartDrawer() {
             <div className="border-t border-white/8 px-6 py-5">
               <div className="mb-4 flex items-baseline justify-between">
                 <span className="font-mono text-[11px] tracking-[0.18em] text-[#8FA1B3]">
-                  TOTAL
+                  {t("total")}
                 </span>
                 <span className="text-[26px] font-bold text-accent">
-                  {formatPrice(total)}
+                  {formatPrice(total, locale)}
                 </span>
               </div>
               <button
                 type="button"
-                disabled
-                title="Paiement bientôt disponible"
-                className="w-full cursor-not-allowed rounded-xl bg-accent/30 px-6 py-[14px] text-[15px] font-semibold text-[#14100C]"
+                onClick={startCheckout}
+                disabled={checkoutState === "loading"}
+                className="w-full cursor-pointer rounded-xl bg-accent px-6 py-[14px] text-[15px] font-semibold text-[#14100C] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_40px_-12px_rgba(255,106,43,0.6)] disabled:cursor-wait disabled:opacity-60"
               >
-                Commander — bientôt disponible
+                {t("checkout")}
               </button>
+              {checkoutState === "unavailable" ? (
+                <p className="mt-3 text-center font-mono text-[11px] tracking-[0.08em] text-accent">
+                  {t("checkoutSoon")}
+                </p>
+              ) : null}
+              {checkoutState === "error" ? (
+                <p className="mt-3 text-center font-mono text-[11px] tracking-[0.08em] text-accent">
+                  {t("checkoutError")}
+                </p>
+              ) : null}
               <p className="mt-3 text-center font-mono text-[10px] tracking-[0.14em] text-[#66788A]">
-                LIVRAISON OFFERTE DÈS 60 € — RETOURS 30 J
+                {t("reassurance")}
               </p>
             </div>
           </>

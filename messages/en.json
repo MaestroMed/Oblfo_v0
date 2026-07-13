@@ -1,0 +1,269 @@
+{
+  "Metadata": {
+    "title": "OBFLO — Portable warmth: heated gloves, slippers, USB heaters",
+    "description": "Heated gloves, heated slippers, mug warmer and portable space heater. Targeted warmth in seconds, right where winter bites. Free shipping over €60, 30-day returns."
+  },
+  "Announcement": {
+    "text": "FREE SHIPPING OVER €60 — 30-DAY RETURNS"
+  },
+  "Nav": {
+    "range": "The range",
+    "moments": "Moments",
+    "packs": "Bundles",
+    "techno": "Technology",
+    "faq": "FAQ",
+    "cart": "CART"
+  },
+  "Hero": {
+    "kicker": "OBFLO — PORTABLE WARMTH",
+    "titleLine1": "The cold",
+    "titleLine2": "stops here.",
+    "subtitle": "Gloves, slippers, mug warmer, space heater — targeted warmth in seconds, right where winter settles in.",
+    "ctaPrimary": "Explore the range",
+    "ctaSecondary": "See the bundles",
+    "reassurance": "UNIVERSAL USB  ·  HEATS IN SECONDS  ·  30-DAY RETURNS",
+    "thermalLive": "THERMAL VIEW — LIVE"
+  },
+  "Range": {
+    "label": "THE RANGE",
+    "title": "The whole range.",
+    "description": "Four products. One goal: cut the cold, right now.",
+    "addToCart": "Add"
+  },
+  "Moments": {
+    "label": "MOMENTS",
+    "title": "For every cold moment.",
+    "description": "Each product answers one precise moment. Nothing more, nothing useless."
+  },
+  "Packs": {
+    "label": "BUNDLES",
+    "title": "More warmth. Less money.",
+    "description": "Duos built around real moments — not random bundles.",
+    "packKicker": "BUNDLE",
+    "youSave": "YOU SAVE {amount}",
+    "bestDeal": "BEST DEAL",
+    "choose": "Pick my bundle"
+  },
+  "Techno": {
+    "label": "TECHNOLOGY",
+    "titleLine1": "Targeted warmth.",
+    "titleLine2": "Not just another accessory.",
+    "description": "OBFLO products deliver gentle, localized heat exactly where the cold bites: hands, feet, desk, small room.",
+    "camStandard": "STANDARD CAMERA",
+    "camStandardValue": "COLD HANDS — 8°C",
+    "camThermal": "THERMAL VIEW",
+    "camThermalValue": "ACTIVE ZONES — +42°C",
+    "sameHand": "SAME HAND — SAME MOMENT",
+    "features": [
+      "Heats up in seconds",
+      "USB powered",
+      "Portable format",
+      "Indoor & outdoor use"
+    ]
+  },
+  "Pourquoi": {
+    "label": "WHY OBFLO",
+    "items": [
+      {
+        "title": "Universal USB",
+        "text": "Works with your desk, home, or power bank."
+      },
+      {
+        "title": "Instant warmth",
+        "text": "Built for the moments you're cold right now."
+      },
+      {
+        "title": "Compact & portable",
+        "text": "Easy to move, store, take along."
+      },
+      {
+        "title": "30-day returns",
+        "text": "Try it with zero pressure."
+      },
+      {
+        "title": "Fast shipping",
+        "text": "Essential for winter products."
+      }
+    ]
+  },
+  "Avis": {
+    "label": "CUSTOMER REVIEWS",
+    "title": "They already cut the cold.",
+    "verified": "VERIFIED PURCHASE"
+  },
+  "Faq": {
+    "label": "FAQ",
+    "title": "Frequently asked questions.",
+    "subtitle": "Another question? Write to us — we reply within 24 h."
+  },
+  "Cart": {
+    "title": "CART",
+    "close": "Close",
+    "closeCart": "Close cart",
+    "empty": "Your cart is empty. The cold, however, won't wait.",
+    "emptyCta": "Explore the range",
+    "perUnit": "{price} / unit",
+    "remove": "REMOVE",
+    "decrease": "Decrease quantity of {name}",
+    "increase": "Increase quantity of {name}",
+    "total": "TOTAL",
+    "checkout": "Checkout",
+    "checkoutSoon": "Payments are being activated — try again soon.",
+    "checkoutError": "Checkout could not start. Please try again in a moment.",
+    "reassurance": "FREE SHIPPING OVER €60 — 30-DAY RETURNS",
+    "toastAdded": "ADDED TO CART — {name}"
+  },
+  "ProductPage": {
+    "breadcrumbHome": "HOME",
+    "breadcrumbRange": "THE RANGE",
+    "breadcrumbLabel": "Breadcrumb",
+    "kicker": "OBFLO — PORTABLE WARMTH",
+    "addToCart": "Add to cart",
+    "reassurance": "SHIPS IN 3–5 DAYS  ·  30-DAY RETURNS  ·  FREE OVER €60",
+    "specsKicker": "SPECS",
+    "specsLabel": "SPECIFICATIONS",
+    "packsKicker": "BUNDLES",
+    "packsLabel": "CHEAPER IN A BUNDLE",
+    "choosePack": "Pick this bundle",
+    "rangeKicker": "RANGE",
+    "rangeLabel": "COMPLETE THE KIT",
+    "metaDescription": "{tagline} {highlights}. Free shipping over €60, 30-day returns."
+  },
+  "Footer": {
+    "tagline": "Warmth, exactly where you need it.",
+    "newsletterTitle": "Get the cold-weather deals before everyone else.",
+    "newsletterPlaceholder": "your@email.com",
+    "subscribe": "Subscribe",
+    "subscribed": "GOT IT — WE'LL KEEP YOU WARM.",
+    "shop": "SHOP",
+    "packs": "The bundles",
+    "help": "HELP",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "orderTracking": "Order tracking",
+    "infos": "INFO",
+    "shipping": "Shipping & returns",
+    "legalNotice": "Legal notice",
+    "terms": "Terms of sale",
+    "privacy": "Privacy",
+    "copyright": "© 2026 OBFLO — BUILT FOR WINTER",
+    "region": "EN — EUR"
+  },
+  "NotFound": {
+    "kicker": "ERROR 404",
+    "titleLine1": "This page was left",
+    "titleLine2": "out in the cold.",
+    "text": "This address doesn't exist, or not anymore. The range, though, is nice and warm.",
+    "cta": "Back to home"
+  },
+  "Merci": {
+    "metaTitle": "Thank you for your order",
+    "kicker": "ORDER CONFIRMED",
+    "titleLine1": "Done.",
+    "titleLine2": "Warmth is on its way.",
+    "text": "Your order is confirmed. A confirmation email is on its way, followed by a tracking number as soon as it ships (within 24–48 business hours).",
+    "cta": "Back to the shop"
+  },
+  "ShippingPage": {
+    "metaTitle": "Shipping & returns",
+    "metaDescription": "OBFLO shipping times, costs and 30-day return policy. Free shipping over €60.",
+    "kicker": "INFO",
+    "title": "Shipping & returns.",
+    "intro": "Winter products need to arrive fast and be returnable without friction. Here's how it works.",
+    "sections": [
+      {
+        "title": "Shipping times",
+        "paragraphs": [
+          "Orders ship within 24 to 48 business hours. Delivery then takes 3 to 5 business days in metropolitan France. A tracking number is emailed to you as soon as your order ships."
+        ]
+      },
+      {
+        "title": "Shipping costs",
+        "paragraphs": [
+          "Shipping is free over €60. Below that, costs are calculated at checkout based on destination and shown before payment — no surprises."
+        ]
+      },
+      {
+        "title": "30-day returns",
+        "paragraphs": [
+          "You have 30 days after delivery to return a product, no questions asked. It just needs to be complete and in good condition. Contact us for a return label — the full refund goes out as soon as the product reaches us."
+        ]
+      },
+      {
+        "title": "Defective products",
+        "paragraphs": [
+          "If a product arrives damaged or fails under normal use, we replace or refund it — photos are enough, no mandatory return for obvious cases."
+        ]
+      }
+    ]
+  },
+  "ContactPage": {
+    "metaTitle": "Contact",
+    "metaDescription": "A question about an OBFLO product or your order? We reply within 24 business hours.",
+    "kicker": "HELP",
+    "title": "We reply within 24 h.",
+    "intro": "A question about a product, an order, a return? The FAQ covers the most common cases — otherwise write to us directly.",
+    "emailTitle": "By email",
+    "emailText": "Write to us at <tc>contact email</tc>, including your order number if your request concerns one. We reply within 24 business hours, Monday to Friday.",
+    "trackingTitle": "Order tracking",
+    "trackingText": "Your tracking number is emailed as soon as your order ships (check your spam folder). The carrier link shows your parcel's position in real time.",
+    "faqTitle": "Before writing",
+    "faqText": "Questions about heating, USB power, returns and delivery times are already covered in the <faqLink>FAQ</faqLink>."
+  },
+  "LegalNoticePage": {
+    "metaTitle": "Legal notice",
+    "metaDescription": "Legal notice for the OBFLO website.",
+    "kicker": "LEGAL",
+    "title": "Legal notice.",
+    "editorTitle": "Site publisher",
+    "editorP1": "The OBFLO website is published by <tc>company name</tc>, <tc>legal form and capital</tc>, registered under number <tc>SIREN / RCS</tc>, with registered office at <tc>registered address</tc>.",
+    "editorP2": "Intra-community VAT number: <tc>VAT</tc>. Publication director: <tc>name</tc>. Contact: <tc>contact email</tc>.",
+    "hostingTitle": "Hosting",
+    "hostingP1": "The site is hosted by Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA — vercel.com.",
+    "ipTitle": "Intellectual property",
+    "ipP1": "All site content (copy, visuals, logo, visual identity) is the exclusive property of the publisher. Any reproduction without prior written permission is prohibited."
+  },
+  "TermsPage": {
+    "metaTitle": "Terms of sale",
+    "metaDescription": "Terms of sale for the OBFLO shop.",
+    "kicker": "LEGAL",
+    "title": "Terms of sale.",
+    "intro": "Version applicable to any order placed on the OBFLO website.",
+    "s1Title": "1. Purpose",
+    "s1P1": "These terms govern sales concluded between <tc>company name</tc> and any customer placing an order on the OBFLO website.",
+    "s2Title": "2. Prices",
+    "s2P1": "Prices are shown in euros, all taxes included, excluding shipping. Shipping costs are displayed before order confirmation. Shipping is free over €60 in metropolitan France.",
+    "s3Title": "3. Orders and payment",
+    "s3P1": "Orders are final once payment is confirmed. Accepted payment methods: <tc>card, Apple Pay, PayPal…</tc>. Payments are secured by <tc>payment provider</tc>.",
+    "s4Title": "4. Delivery",
+    "s4P1": "Orders ship within 24 to 48 business hours, with delivery in 3 to 5 business days in metropolitan France, tracked. If delivery is delayed by more than 7 business days, the customer may cancel the order for a full refund.",
+    "s5Title": "5. Withdrawal and returns",
+    "s5P1": "Under the French Consumer Code, customers have 14 days to withdraw. OBFLO extends this to 30 days after delivery, no questions asked. The full refund is issued once the returned product arrives complete and in good condition.",
+    "s6Title": "6. Warranties",
+    "s6P1": "All products carry the legal warranties of conformity (2 years) and against hidden defects. For a defective product: replacement or refund, at the customer's choice.",
+    "s7Title": "7. Customer service",
+    "s7P1": "For any question or claim: <tc>support email</tc>. Reply within 24 business hours.",
+    "s8Title": "8. Disputes",
+    "s8P1": "These terms are governed by French law. In the event of a dispute, an amicable solution will be sought before any legal action; the customer may use the designated consumer mediator free of charge: <tc>designated mediator</tc>."
+  },
+  "PrivacyPage": {
+    "metaTitle": "Privacy policy",
+    "metaDescription": "OBFLO privacy and data protection policy.",
+    "kicker": "LEGAL",
+    "title": "Privacy.",
+    "intro": "What we collect, why, and what you can demand. Short and honest version.",
+    "s1Title": "Data we collect",
+    "s1P1": "When you order: name, delivery address, email, phone number (for the carrier). When you subscribe to the newsletter: email only. Payment data is handled directly by <tc>payment provider</tc> and never touches our servers.",
+    "s2Title": "How we use it",
+    "s2P1": "Your data is used to prepare, ship and track your order, answer your support requests, and — if you opted in — send you our offers. It is never sold.",
+    "s3Title": "Processors",
+    "s3P1": "Data strictly necessary for shipping is shared with our logistics partners and carriers, including outside the European Union, for the sole purpose of fulfilling your order. Hosting: Vercel Inc.",
+    "s4Title": "Your rights",
+    "s4P1": "Access, rectification, deletion, portability, objection: write to <tc>GDPR email</tc>. Reply within 30 days. You may also contact the CNIL (cnil.fr).",
+    "s5Title": "Cookies",
+    "s5P1": "The site currently uses no third-party tracking cookies. If that changes (analytics, advertising), a consent banner will be put in place first."
+  },
+  "ToComplete": {
+    "prefix": "[TO COMPLETE — "
+  }
+}

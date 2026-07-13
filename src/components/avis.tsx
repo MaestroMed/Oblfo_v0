@@ -1,5 +1,7 @@
+import { useTranslations } from "next-intl";
 import { SectionHeading } from "@/components/section-heading";
-import { reviews } from "@/data/catalog";
+import { getReviews } from "@/data/catalog";
+import type { Locale } from "@/i18n/routing";
 
 function Stars({ rating }: { rating: number }) {
   return (
@@ -10,18 +12,17 @@ function Stars({ rating }: { rating: number }) {
   );
 }
 
-export function Avis() {
+export function Avis({ locale }: { locale: Locale }) {
+  const t = useTranslations("Avis");
+  const reviews = getReviews(locale);
+
   return (
     <section
       id="avis"
       className="scroll-mt-20 border-y border-white/5 bg-night-2 py-[110px]"
     >
       <div className="mx-auto max-w-[1240px] px-8">
-        <SectionHeading
-          index="06"
-          label="AVIS CLIENTS"
-          title="Ils ont déjà coupé le froid."
-        />
+        <SectionHeading index="06" label={t("label")} title={t("title")} />
         <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-5">
           {reviews.map((review) => (
             <div
@@ -41,7 +42,7 @@ export function Avis() {
                     {review.author} — {review.city}
                   </span>
                   <span className="font-mono text-[10px] tracking-[0.14em] text-[#66788A]">
-                    ACHAT VÉRIFIÉ
+                    {t("verified")}
                   </span>
                 </div>
               </div>

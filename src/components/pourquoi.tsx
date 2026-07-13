@@ -1,15 +1,18 @@
+import { useTranslations } from "next-intl";
 import { SectionKicker } from "@/components/section-heading";
-import { pourquoiItems } from "@/data/catalog";
 
 export function Pourquoi() {
+  const t = useTranslations("Pourquoi");
+  const items = t.raw("items") as { title: string; text: string }[];
+
   return (
     <section id="pourquoi" className="scroll-mt-20 bg-night py-24">
       <div className="mx-auto max-w-[1240px] px-8">
         <div className="mb-11">
-          <SectionKicker index="05" label="POURQUOI OBFLO" />
+          <SectionKicker index="05" label={t("label")} />
         </div>
         <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-x-0 gap-y-7">
-          {pourquoiItems.map((item) => (
+          {items.map((item) => (
             <div
               key={item.title}
               className="flex flex-col gap-2.5 border-l border-white/8 px-6 py-1.5"

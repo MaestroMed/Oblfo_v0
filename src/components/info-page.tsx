@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import { SectionKicker } from "@/components/section-heading";
 
 /** Gabarit des pages éditoriales (légal, aide) — typographie prose sur fond nuit. */
@@ -53,9 +54,11 @@ export function InfoSection({
 
 /** Marqueur visible des informations légales à compléter avant mise en ligne. */
 export function ToComplete({ children }: { children: React.ReactNode }) {
+  const t = useTranslations("ToComplete");
   return (
     <span className="rounded-md border border-accent/40 bg-accent/10 px-2 py-0.5 font-mono text-[12px] tracking-[0.06em] text-accent">
-      [À COMPLÉTER — {children}]
+      {t("prefix")}
+      {children}]
     </span>
   );
 }

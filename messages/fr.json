@@ -1,0 +1,269 @@
+{
+  "Metadata": {
+    "title": "OBFLO — Chaleur portable : gants, chaussons, chauffages USB",
+    "description": "Gants chauffants, chaussons chauffants, chauffe-tasse et chauffage d'appoint USB. Une chaleur ciblée en quelques secondes, là où l'hiver s'installe. Livraison offerte dès 60 €, retours 30 jours."
+  },
+  "Announcement": {
+    "text": "LIVRAISON OFFERTE DÈS 60 € — RETOURS 30 JOURS"
+  },
+  "Nav": {
+    "range": "La gamme",
+    "moments": "Moments",
+    "packs": "Packs",
+    "techno": "Technologie",
+    "faq": "FAQ",
+    "cart": "PANIER"
+  },
+  "Hero": {
+    "kicker": "OBFLO — CHALEUR PORTABLE",
+    "titleLine1": "Le froid",
+    "titleLine2": "s'arrête ici.",
+    "subtitle": "Gants, chaussons, chauffe-tasse, chauffage d'appoint — une chaleur ciblée, en quelques secondes, là où l'hiver s'installe.",
+    "ctaPrimary": "Découvrir la gamme",
+    "ctaSecondary": "Voir les packs",
+    "reassurance": "USB UNIVERSEL  ·  CHAUFFE EN SECONDES  ·  RETOURS 30 J",
+    "thermalLive": "VUE THERMIQUE — LIVE"
+  },
+  "Range": {
+    "label": "LA GAMME",
+    "title": "Toute la gamme.",
+    "description": "Quatre produits. Un seul objectif : couper le froid, tout de suite.",
+    "addToCart": "Ajouter"
+  },
+  "Moments": {
+    "label": "MOMENTS",
+    "title": "Pour chaque moment froid.",
+    "description": "Chaque produit répond à un moment précis. Rien de plus, rien d'inutile."
+  },
+  "Packs": {
+    "label": "PACKS",
+    "title": "Plus de chaleur. Moins cher.",
+    "description": "Des duos pensés pour des moments réels — pas des bundles au hasard.",
+    "packKicker": "PACK",
+    "youSave": "TU ÉCONOMISES {amount}",
+    "bestDeal": "MEILLEURE AFFAIRE",
+    "choose": "Choisir mon pack"
+  },
+  "Techno": {
+    "label": "TECHNOLOGIE",
+    "titleLine1": "Une chaleur ciblée.",
+    "titleLine2": "Pas un simple accessoire.",
+    "description": "Les produits OBFLO diffusent une chaleur douce et localisée là où le froid se fait sentir : mains, pieds, bureau, pièce d'appoint.",
+    "camStandard": "CAMÉRA STANDARD",
+    "camStandardValue": "MAINS FROIDES — 8°C",
+    "camThermal": "VUE THERMIQUE",
+    "camThermalValue": "ZONES ACTIVES — +42°C",
+    "sameHand": "MÊME MAIN — MÊME INSTANT",
+    "features": [
+      "Chauffe en quelques secondes",
+      "Alimentation USB",
+      "Format portable",
+      "Usage intérieur & extérieur"
+    ]
+  },
+  "Pourquoi": {
+    "label": "POURQUOI OBFLO",
+    "items": [
+      {
+        "title": "USB universel",
+        "text": "Compatible bureau, maison, powerbank."
+      },
+      {
+        "title": "Chaleur instantanée",
+        "text": "Pensé pour les moments où tu as froid maintenant."
+      },
+      {
+        "title": "Compact & portable",
+        "text": "Facile à déplacer, ranger, emporter."
+      },
+      {
+        "title": "Retours 30 jours",
+        "text": "Tu testes sans pression."
+      },
+      {
+        "title": "Livraison rapide",
+        "text": "Essentiel pour des produits d'hiver."
+      }
+    ]
+  },
+  "Avis": {
+    "label": "AVIS CLIENTS",
+    "title": "Ils ont déjà coupé le froid.",
+    "verified": "ACHAT VÉRIFIÉ"
+  },
+  "Faq": {
+    "label": "FAQ",
+    "title": "Questions fréquentes.",
+    "subtitle": "Une autre question ? Écris-nous, on répond sous 24 h."
+  },
+  "Cart": {
+    "title": "PANIER",
+    "close": "Fermer",
+    "closeCart": "Fermer le panier",
+    "empty": "Ton panier est vide. Le froid, lui, n'attend pas.",
+    "emptyCta": "Découvrir la gamme",
+    "perUnit": "{price} / unité",
+    "remove": "RETIRER",
+    "decrease": "Réduire la quantité de {name}",
+    "increase": "Augmenter la quantité de {name}",
+    "total": "TOTAL",
+    "checkout": "Commander",
+    "checkoutSoon": "Paiement en cours d'activation — réessaie bientôt.",
+    "checkoutError": "Le paiement n'a pas pu démarrer. Réessaie dans un instant.",
+    "reassurance": "LIVRAISON OFFERTE DÈS 60 € — RETOURS 30 J",
+    "toastAdded": "AJOUTÉ AU PANIER — {name}"
+  },
+  "ProductPage": {
+    "breadcrumbHome": "ACCUEIL",
+    "breadcrumbRange": "LA GAMME",
+    "breadcrumbLabel": "Fil d'Ariane",
+    "kicker": "OBFLO — CHALEUR PORTABLE",
+    "addToCart": "Ajouter au panier",
+    "reassurance": "LIVRAISON 3–5 J  ·  RETOURS 30 J  ·  OFFERTE DÈS 60 €",
+    "specsKicker": "SPECS",
+    "specsLabel": "CARACTÉRISTIQUES",
+    "packsKicker": "PACKS",
+    "packsLabel": "MOINS CHER EN PACK",
+    "choosePack": "Choisir ce pack",
+    "rangeKicker": "GAMME",
+    "rangeLabel": "COMPLÉTER LA PANOPLIE",
+    "metaDescription": "{tagline} {highlights}. Livraison offerte dès 60 €, retours 30 jours."
+  },
+  "Footer": {
+    "tagline": "La chaleur, exactement là où tu en as besoin.",
+    "newsletterTitle": "Reçois les offres froides avant tout le monde.",
+    "newsletterPlaceholder": "ton@email.fr",
+    "subscribe": "S'inscrire",
+    "subscribed": "BIEN REÇU — ON TE TIENT AU CHAUD.",
+    "shop": "BOUTIQUE",
+    "packs": "Les packs",
+    "help": "AIDE",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "orderTracking": "Suivi de commande",
+    "infos": "INFOS",
+    "shipping": "Livraison & retours",
+    "legalNotice": "Mentions légales",
+    "terms": "CGV",
+    "privacy": "Confidentialité",
+    "copyright": "© 2026 OBFLO — CONÇU POUR L'HIVER",
+    "region": "FR — EUR"
+  },
+  "NotFound": {
+    "kicker": "ERREUR 404",
+    "titleLine1": "Cette page est restée",
+    "titleLine2": "dans le froid.",
+    "text": "L'adresse n'existe pas ou plus. La gamme, elle, est bien au chaud.",
+    "cta": "Retour à l'accueil"
+  },
+  "Merci": {
+    "metaTitle": "Merci pour ta commande",
+    "kicker": "COMMANDE CONFIRMÉE",
+    "titleLine1": "C'est parti.",
+    "titleLine2": "La chaleur arrive.",
+    "text": "Ta commande est confirmée. Tu reçois un e-mail de confirmation tout de suite, puis un numéro de suivi dès l'expédition (sous 24–48 h ouvrées).",
+    "cta": "Retour à la boutique"
+  },
+  "ShippingPage": {
+    "metaTitle": "Livraison & retours",
+    "metaDescription": "Délais de livraison, frais de port et politique de retours 30 jours OBFLO. Livraison offerte dès 60 € en France métropolitaine.",
+    "kicker": "INFOS",
+    "title": "Livraison & retours.",
+    "intro": "Des produits d'hiver doivent arriver vite et pouvoir être retournés sans friction. Voici comment ça se passe.",
+    "sections": [
+      {
+        "title": "Délais de livraison",
+        "paragraphs": [
+          "Les commandes sont expédiées sous 24 à 48 h ouvrées. La livraison en France métropolitaine prend ensuite 3 à 5 jours ouvrés. Un numéro de suivi t'est envoyé par e-mail dès l'expédition."
+        ]
+      },
+      {
+        "title": "Frais de port",
+        "paragraphs": [
+          "La livraison est offerte dès 60 € d'achat. En dessous, les frais sont calculés au checkout selon la destination et affichés avant le paiement — jamais de surprise."
+        ]
+      },
+      {
+        "title": "Retours sous 30 jours",
+        "paragraphs": [
+          "Tu as 30 jours après réception pour retourner un produit, sans justification. Il suffit qu'il soit complet et en bon état. Contacte-nous pour obtenir l'étiquette de retour, le remboursement intégral part dès que le produit nous revient."
+        ]
+      },
+      {
+        "title": "Produit défectueux",
+        "paragraphs": [
+          "Si un produit arrive endommagé ou tombe en panne dans des conditions normales d'utilisation, on le remplace ou on le rembourse — photos à l'appui, sans renvoi obligatoire pour les cas évidents."
+        ]
+      }
+    ]
+  },
+  "ContactPage": {
+    "metaTitle": "Contact",
+    "metaDescription": "Une question sur un produit OBFLO ou une commande ? On répond sous 24 h ouvrées.",
+    "kicker": "AIDE",
+    "title": "On te répond sous 24 h.",
+    "intro": "Une question sur un produit, une commande, un retour ? La FAQ répond aux cas les plus courants, sinon écris-nous directement.",
+    "emailTitle": "Par e-mail",
+    "emailText": "Écris-nous à <tc>e-mail de contact</tc> en précisant ton numéro de commande si ta demande en concerne une. Réponse sous 24 h ouvrées, du lundi au vendredi.",
+    "trackingTitle": "Suivi de commande",
+    "trackingText": "Ton numéro de suivi t'est envoyé par e-mail dès l'expédition (pense à vérifier les spams). Le lien du transporteur donne la position du colis en temps réel.",
+    "faqTitle": "Avant d'écrire",
+    "faqText": "Les questions sur la chauffe, l'alimentation USB, les retours et les délais sont déjà couvertes dans la <faqLink>FAQ</faqLink>."
+  },
+  "LegalNoticePage": {
+    "metaTitle": "Mentions légales",
+    "metaDescription": "Mentions légales du site OBFLO.",
+    "kicker": "LÉGAL",
+    "title": "Mentions légales.",
+    "editorTitle": "Éditeur du site",
+    "editorP1": "Le site OBFLO est édité par <tc>raison sociale</tc>, <tc>forme juridique et capital</tc>, immatriculée au RCS sous le numéro <tc>SIREN / RCS</tc>, dont le siège social est situé <tc>adresse du siège</tc>.",
+    "editorP2": "N° de TVA intracommunautaire : <tc>TVA</tc>. Directeur de la publication : <tc>nom</tc>. Contact : <tc>e-mail de contact</tc>.",
+    "hostingTitle": "Hébergement",
+    "hostingP1": "Le site est hébergé par Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis — vercel.com.",
+    "ipTitle": "Propriété intellectuelle",
+    "ipP1": "L'ensemble des contenus du site (textes, visuels, logo, charte graphique) est la propriété exclusive de l'éditeur. Toute reproduction sans autorisation écrite préalable est interdite."
+  },
+  "TermsPage": {
+    "metaTitle": "Conditions générales de vente",
+    "metaDescription": "Conditions générales de vente de la boutique OBFLO.",
+    "kicker": "LÉGAL",
+    "title": "Conditions générales de vente.",
+    "intro": "Version applicable à toute commande passée sur le site OBFLO.",
+    "s1Title": "1. Objet",
+    "s1P1": "Les présentes conditions régissent les ventes conclues entre <tc>raison sociale</tc> et tout client passant commande sur le site OBFLO.",
+    "s2Title": "2. Prix",
+    "s2P1": "Les prix sont indiqués en euros, toutes taxes comprises, hors frais de livraison. Les frais de livraison sont affichés avant validation de la commande. La livraison est offerte dès 60 € d'achat en France métropolitaine.",
+    "s3Title": "3. Commande et paiement",
+    "s3P1": "La commande est ferme dès validation du paiement. Moyens de paiement acceptés : <tc>CB, Apple Pay, PayPal…</tc>. Le paiement est sécurisé par <tc>prestataire de paiement</tc>.",
+    "s4Title": "4. Livraison",
+    "s4P1": "Expédition sous 24 à 48 h ouvrées, livraison en 3 à 5 jours ouvrés en France métropolitaine avec numéro de suivi. En cas de retard supérieur à 7 jours ouvrés, le client peut annuler la commande et être intégralement remboursé.",
+    "s5Title": "5. Droit de rétractation et retours",
+    "s5P1": "Conformément au Code de la consommation, le client dispose de 14 jours pour se rétracter. OBFLO étend ce délai à 30 jours après réception, sans justification. Le remboursement intégral intervient dès réception du produit retourné complet et en bon état.",
+    "s6Title": "6. Garanties",
+    "s6P1": "Tous les produits bénéficient des garanties légales de conformité (2 ans) et des vices cachés. En cas de produit défectueux, remplacement ou remboursement au choix du client.",
+    "s7Title": "7. Service client",
+    "s7P1": "Pour toute question ou réclamation : <tc>e-mail SAV</tc>. Réponse sous 24 h ouvrées.",
+    "s8Title": "8. Litiges",
+    "s8P1": "Les présentes conditions sont soumises au droit français. En cas de litige, une solution amiable sera recherchée avant toute action judiciaire ; le client peut recourir gratuitement au médiateur de la consommation <tc>médiateur désigné</tc>."
+  },
+  "PrivacyPage": {
+    "metaTitle": "Politique de confidentialité",
+    "metaDescription": "Politique de confidentialité et de protection des données OBFLO.",
+    "kicker": "LÉGAL",
+    "title": "Confidentialité.",
+    "intro": "Ce que nous collectons, pourquoi, et ce que tu peux exiger. Version courte et honnête.",
+    "s1Title": "Données collectées",
+    "s1P1": "Lors d'une commande : nom, adresse de livraison, e-mail, téléphone (pour le transporteur). Lors de l'inscription à la newsletter : e-mail uniquement. Les données de paiement sont traitées directement par <tc>prestataire de paiement</tc> et ne transitent jamais par nos serveurs.",
+    "s2Title": "Utilisation",
+    "s2P1": "Tes données servent à préparer, expédier et suivre ta commande, à répondre à tes demandes SAV, et — si tu y as consenti — à t'envoyer nos offres. Elles ne sont jamais revendues.",
+    "s3Title": "Sous-traitants",
+    "s3P1": "Les données strictement nécessaires à l'expédition sont transmises à nos partenaires logistiques et transporteurs, y compris hors Union européenne dans le cadre de l'exécution de la commande. Hébergement : Vercel Inc.",
+    "s4Title": "Tes droits",
+    "s4P1": "Accès, rectification, suppression, portabilité, opposition : écris-nous à <tc>e-mail RGPD</tc>. Réponse sous 30 jours. Tu peux aussi saisir la CNIL (cnil.fr).",
+    "s5Title": "Cookies",
+    "s5P1": "Le site n'utilise aujourd'hui aucun cookie de tracking tiers. Si cela change (mesure d'audience, publicité), un bandeau de consentement sera mis en place au préalable."
+  },
+  "ToComplete": {
+    "prefix": "[À COMPLÉTER — "
+  }
+}

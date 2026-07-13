@@ -1,52 +1,24 @@
+import { useLocale, useTranslations } from "next-intl";
 import { NewsletterForm } from "@/components/newsletter-form";
-import { products } from "@/data/catalog";
+import { getProducts } from "@/data/catalog";
+import { Link } from "@/i18n/navigation";
+import type { Locale } from "@/i18n/routing";
 
-const helpLinks = [
-  { href: "/#faq", label: "FAQ" },
-  { href: "/contact", label: "Contact" },
-  { href: "/contact", label: "Suivi de commande" },
-];
-
-const infoLinks = [
-  { href: "/livraison-retours", label: "Livraison & retours" },
-  { href: "/mentions-legales", label: "Mentions légales" },
-  { href: "/cgv", label: "CGV" },
-  { href: "/confidentialite", label: "Confidentialité" },
-];
-
-function FooterColumn({
-  title,
-  links,
-}: {
-  title: string;
-  links: { href: string; label: string }[];
-}) {
+function FooterHeading({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex min-w-[150px] flex-col gap-3">
-      <div className="mb-1 font-mono text-[10.5px] tracking-[0.2em] text-[#66788A]">
-        {title}
-      </div>
-      {links.map((link) => (
-        <a
-          key={link.label}
-          href={link.href}
-          className="text-[13.5px] text-[#A7B4C2] no-underline transition-colors hover:text-accent"
-        >
-          {link.label}
-        </a>
-      ))}
+    <div className="mb-1 font-mono text-[10.5px] tracking-[0.2em] text-[#66788A]">
+      {children}
     </div>
   );
 }
 
+const footerLinkClass =
+  "text-[13.5px] text-[#A7B4C2] no-underline transition-colors hover:text-accent";
+
 export function SiteFooter() {
-  const shopLinks = [
-    ...products.map((p) => ({
-      href: `/produits/${p.slug}`,
-      label: p.name,
-    })),
-    { href: "/#packs", label: "Les packs" },
-  ];
+  const t = useTranslations("Footer");
+  const locale = useLocale() as Locale;
+  const products = getProducts(locale);
 
   return (
     <footer className="mt-auto bg-night-3">
@@ -58,22 +30,64 @@ export function SiteFooter() {
               OBFLO<span className="text-accent">°</span>
             </div>
             <p className="text-sm leading-relaxed text-[#8595A5] text-pretty">
-              La chaleur, exactement là où tu en as besoin.
+              {t("tagline")}
             </p>
             <div className="mt-2.5 text-sm font-medium text-[#C9D4DF]">
-              Reçois les offres froides avant tout le monde.
+              {t("newsletterTitle")}
             </div>
             <NewsletterForm />
           </div>
           <div className="flex flex-wrap gap-14">
-            <FooterColumn title="BOUTIQUE" links={shopLinks} />
-            <FooterColumn title="AIDE" links={helpLinks} />
-            <FooterColumn title="INFOS" links={infoLinks} />
+            <div className="flex min-w-[150px] flex-col gap-3">
+              <FooterHeading>{t("shop")}</FooterHeading>
+              {products.map((product) => (
+                <Link
+                  key={product.id}
+                  href={{
+                    pathname: "/produits/[slug]",
+                    params: { slug: product.slug },
+                  }}
+                  className={footerLinkClass}
+                >
+                  {product.name}
+                </Link>
+              ))}
+              <a href={`/${locale}#packs`} className={footerLinkClass}>
+                {t("packs")}
+              </a>
+            </div>
+            <div className="flex min-w-[150px] flex-col gap-3">
+              <FooterHeading>{t("help")}</FooterHeading>
+              <a href={`/${locale}#faq`} className={footerLinkClass}>
+                {t("faq")}
+              </a>
+              <Link href="/contact" className={footerLinkClass}>
+                {t("contact")}
+              </Link>
+              <Link href="/contact" className={footerLinkClass}>
+                {t("orderTracking")}
+              </Link>
+            </div>
+            <div className="flex min-w-[150px] flex-col gap-3">
+              <FooterHeading>{t("infos")}</FooterHeading>
+              <Link href="/livraison-retours" className={footerLinkClass}>
+                {t("shipping")}
+              </Link>
+              <Link href="/mentions-legales" className={footerLinkClass}>
+                {t("legalNotice")}
+              </Link>
+              <Link href="/cgv" className={footerLinkClass}>
+                {t("terms")}
+              </Link>
+              <Link href="/confidentialite" className={footerLinkClass}>
+                {t("privacy")}
+              </Link>
+            </div>
           </div>
         </div>
         <div className="mt-14 flex flex-wrap justify-between gap-4 border-t border-white/6 pt-6 font-mono text-[11px] tracking-[0.12em] text-[#5A6774]">
-          <span>© 2026 OBFLO — CONÇU POUR L&apos;HIVER</span>
-          <span>FR — EUR</span>
+          <span>{t("copyright")}</span>
+          <span>{t("region")}</span>
         </div>
       </div>
     </footer>

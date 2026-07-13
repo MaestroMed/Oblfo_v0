@@ -1,26 +1,81 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-grotesk), sans-serif;
+  --font-mono: var(--font-plex-mono), monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  /* Direction artistique OBFLO — cf. design/OBFLO Homepage.dc.html */
+  --color-accent: #ff6a2b;
+  --color-ember: #e8451f;
+  --color-cold: #8fc1e3;
+  --color-night: #0a0c10;
+  --color-night-2: #0b0f16;
+  --color-night-3: #07090c;
+  --color-card: #0f141b;
+  --color-media: #0c1017;
+  --color-pack: #0d1016;
+  --color-ink: #f2f5f8;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-night);
+  color: #edf1f5;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(255, 106, 43, 0.35);
+}
+
+input::placeholder {
+  color: #5e6b7a;
+}
+
+details > summary {
+  list-style: none;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Halos lumineux — chaud (accent) et froid (bleu nuit) */
+.glow-warm {
+  background: radial-gradient(
+    closest-side,
+    rgba(255, 106, 43, 0.16),
+    transparent 70%
+  );
+}
+
+.glow-warm-strong {
+  background: radial-gradient(
+    closest-side,
+    rgba(255, 106, 43, 0.24),
+    transparent 70%
+  );
+}
+
+.glow-cold {
+  background: radial-gradient(
+    closest-side,
+    rgba(52, 104, 158, 0.18),
+    transparent 70%
+  );
+}
+
+/* Emplacement photo en attente d'assets */
+.slot-hatch {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.02) 0 10px,
+    transparent 10px 20px
+  );
 }

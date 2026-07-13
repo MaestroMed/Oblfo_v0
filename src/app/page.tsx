@@ -1,4 +1,3 @@
-import { AnnouncementBar } from "@/components/announcement-bar";
 import { Avis } from "@/components/avis";
 import { Faq } from "@/components/faq";
 import { Hero } from "@/components/hero";
@@ -6,10 +5,9 @@ import { Moments } from "@/components/moments";
 import { Packs } from "@/components/packs";
 import { Pourquoi } from "@/components/pourquoi";
 import { ProductGrid } from "@/components/product-grid";
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
 import { Techno } from "@/components/techno";
 import { faqItems, products } from "@/data/catalog";
+import { SITE_URL } from "@/lib/site";
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -17,6 +15,7 @@ const structuredData = {
     {
       "@type": "OnlineStore",
       name: "OBFLO",
+      url: SITE_URL,
       description:
         "Chaleur portable : gants chauffants, chaussons chauffants, chauffe-tasse et chauffage d'appoint USB.",
     },
@@ -28,6 +27,7 @@ const structuredData = {
         position: i + 1,
         name: product.name,
         description: product.tagline,
+        url: `${SITE_URL}/produits/${product.slug}`,
         offers: {
           "@type": "Offer",
           price: product.price,
@@ -50,8 +50,6 @@ const structuredData = {
 export default function HomePage() {
   return (
     <>
-      <AnnouncementBar />
-      <SiteHeader />
       <main>
         <Hero />
         <ProductGrid />
@@ -62,7 +60,6 @@ export default function HomePage() {
         <Avis />
         <Faq />
       </main>
-      <SiteFooter />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

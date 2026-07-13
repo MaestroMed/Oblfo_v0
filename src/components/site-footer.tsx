@@ -2,16 +2,16 @@ import { NewsletterForm } from "@/components/newsletter-form";
 import { products } from "@/data/catalog";
 
 const helpLinks = [
-  { href: "#faq", label: "FAQ" },
-  { href: "#", label: "Contact" },
-  { href: "#", label: "Suivi de commande" },
+  { href: "/#faq", label: "FAQ" },
+  { href: "/contact", label: "Contact" },
+  { href: "/contact", label: "Suivi de commande" },
 ];
 
 const infoLinks = [
-  { href: "#", label: "Livraison & retours" },
-  { href: "#", label: "Mentions légales" },
-  { href: "#", label: "CGV" },
-  { href: "#", label: "Confidentialité" },
+  { href: "/livraison-retours", label: "Livraison & retours" },
+  { href: "/mentions-legales", label: "Mentions légales" },
+  { href: "/cgv", label: "CGV" },
+  { href: "/confidentialite", label: "Confidentialité" },
 ];
 
 function FooterColumn({
@@ -41,12 +41,15 @@ function FooterColumn({
 
 export function SiteFooter() {
   const shopLinks = [
-    ...products.map((p) => ({ href: "#gamme", label: p.name })),
-    { href: "#packs", label: "Les packs" },
+    ...products.map((p) => ({
+      href: `/produits/${p.slug}`,
+      label: p.name,
+    })),
+    { href: "/#packs", label: "Les packs" },
   ];
 
   return (
-    <footer className="bg-night-3">
+    <footer className="mt-auto bg-night-3">
       <div className="h-px bg-[linear-gradient(90deg,transparent,#FF6A2B,transparent)]" />
       <div className="mx-auto max-w-[1240px] px-8 pt-[70px] pb-9">
         <div className="flex flex-wrap justify-between gap-14">

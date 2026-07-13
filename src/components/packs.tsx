@@ -58,7 +58,9 @@ export function Packs() {
                   </span>
                 </div>
                 <AddToCartButton
-                  product={pack.name}
+                  id={pack.slug}
+                  name={pack.name}
+                  price={pack.price}
                   className="cursor-pointer rounded-[11px] bg-[linear-gradient(135deg,#FF6A2B,#E8451F)] px-6 py-[13px] text-[15px] font-semibold text-[#14100C] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_36px_-12px_rgba(255,106,43,0.7)]"
                 >
                   Choisir mon pack

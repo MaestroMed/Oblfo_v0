@@ -3,18 +3,26 @@
 import { useCart } from "@/components/cart-context";
 
 export function AddToCartButton({
-  product,
+  id,
+  name,
+  price,
   className,
   children,
 }: {
-  product: string;
+  id: string;
+  name: string;
+  price: number;
   className?: string;
   children: React.ReactNode;
 }) {
-  const { addToCart } = useCart();
+  const { addItem } = useCart();
 
   return (
-    <button type="button" onClick={() => addToCart(product)} className={className}>
+    <button
+      type="button"
+      onClick={() => addItem({ id, name, price })}
+      className={className}
+    >
       {children}
     </button>
   );

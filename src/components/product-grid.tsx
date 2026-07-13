@@ -1,27 +1,35 @@
-import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { AddToCartButton } from "@/components/add-to-cart-button";
 import { ImageSlot } from "@/components/image-slot";
 import { SectionHeading } from "@/components/section-heading";
-import { formatPrice, products } from "@/data/catalog";
+import { formatPrice, getProducts } from "@/data/catalog";
+import { Link } from "@/i18n/navigation";
+import type { Locale } from "@/i18n/routing";
 
-export function ProductGrid() {
+export function ProductGrid({ locale }: { locale: Locale }) {
+  const t = useTranslations("Range");
+  const products = getProducts(locale);
+
   return (
     <section id="gamme" className="scroll-mt-20 bg-night py-[110px]">
       <div className="mx-auto max-w-[1240px] px-8">
         <SectionHeading
           index="01"
-          label="LA GAMME"
-          title="Toute la gamme."
-          description="Quatre produits. Un seul objectif : couper le froid, tout de suite."
+          label={t("label")}
+          title={t("title")}
+          description={t("description")}
         />
         <div className="grid grid-cols-[repeat(auto-fit,minmax(255px,1fr))] gap-5">
           {products.map((product) => (
             <div
-              key={product.slug}
+              key={product.id}
               className="flex flex-col overflow-hidden rounded-[18px] border border-white/7 bg-card transition-[border-color,box-shadow,transform] duration-[250ms] hover:-translate-y-[3px] hover:border-accent/55 hover:shadow-[0_24px_70px_-30px_rgba(255,106,43,0.45)]"
             >
               <Link
-                href={`/produits/${product.slug}`}
+                href={{
+                  pathname: "/produits/[slug]",
+                  params: { slug: product.slug },
+                }}
                 className="relative block aspect-square bg-media"
               >
                 <div
@@ -41,7 +49,10 @@ export function ProductGrid() {
                   ))}
                 </div>
                 <Link
-                  href={`/produits/${product.slug}`}
+                  href={{
+                    pathname: "/produits/[slug]",
+                    params: { slug: product.slug },
+                  }}
                   className="text-[19px] font-semibold text-ink no-underline transition-colors hover:text-accent"
                 >
                   {product.name}
@@ -51,15 +62,15 @@ export function ProductGrid() {
                 </p>
                 <div className="mt-1.5 flex items-center justify-between">
                   <div className="text-[25px] font-bold text-ink">
-                    {formatPrice(product.price)}
+                    {formatPrice(product.price, locale)}
                   </div>
                   <AddToCartButton
-                    id={product.slug}
+                    id={product.id}
                     name={product.name}
                     price={product.price}
                     className="cursor-pointer rounded-[10px] bg-accent px-5 py-[11px] text-sm font-semibold text-[#14100C] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_-10px_rgba(255,106,43,0.7)]"
                   >
-                    Ajouter
+                    {t("addToCart")}
                   </AddToCartButton>
                 </div>
               </div>

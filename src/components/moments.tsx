@@ -1,8 +1,13 @@
+import { useTranslations } from "next-intl";
 import { ImageSlot } from "@/components/image-slot";
 import { SectionHeading } from "@/components/section-heading";
-import { moments } from "@/data/catalog";
+import { getMoments } from "@/data/catalog";
+import type { Locale } from "@/i18n/routing";
 
-export function Moments() {
+export function Moments({ locale }: { locale: Locale }) {
+  const t = useTranslations("Moments");
+  const moments = getMoments(locale);
+
   return (
     <section
       id="moments"
@@ -11,9 +16,9 @@ export function Moments() {
       <div className="mx-auto max-w-[1240px] px-8">
         <SectionHeading
           index="02"
-          label="MOMENTS"
-          title="Pour chaque moment froid."
-          description="Chaque produit répond à un moment précis. Rien de plus, rien d'inutile."
+          label={t("label")}
+          title={t("title")}
+          description={t("description")}
         />
         <div className="grid grid-cols-[repeat(auto-fit,minmax(380px,1fr))] gap-5">
           {moments.map((moment) => (

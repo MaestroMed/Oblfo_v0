@@ -1,17 +1,22 @@
+import { useTranslations } from "next-intl";
 import { SectionKicker } from "@/components/section-heading";
-import { faqItems } from "@/data/catalog";
+import { getFaqItems } from "@/data/catalog";
+import type { Locale } from "@/i18n/routing";
 
-export function Faq() {
+export function Faq({ locale }: { locale: Locale }) {
+  const t = useTranslations("Faq");
+  const faqItems = getFaqItems(locale);
+
   return (
     <section id="faq" className="scroll-mt-20 bg-night py-[110px]">
       <div className="mx-auto grid max-w-[1240px] grid-cols-[repeat(auto-fit,minmax(340px,1fr))] gap-[60px] px-8">
         <div className="flex max-w-[420px] flex-col gap-3.5">
-          <SectionKicker index="07" label="FAQ" />
+          <SectionKicker index="07" label={t("label")} />
           <h2 className="text-[clamp(34px,4vw,52px)] font-bold leading-[1.04] tracking-[-0.02em] text-ink">
-            Questions fréquentes.
+            {t("title")}
           </h2>
           <p className="text-base leading-relaxed text-[#93A2B1] text-pretty">
-            Une autre question&nbsp;? Écris-nous, on répond sous 24&nbsp;h.
+            {t("subtitle")}
           </p>
         </div>
         <div className="border-t border-white/8">

@@ -1,8 +1,10 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 
 export function NewsletterForm() {
+  const t = useTranslations("Footer");
   const [subscribed, setSubscribed] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -14,7 +16,7 @@ export function NewsletterForm() {
   if (subscribed) {
     return (
       <div className="rounded-[10px] border border-accent/40 px-3.5 py-3 font-mono text-xs tracking-[0.08em] text-accent">
-        BIEN REÇU — ON TE TIENT AU CHAUD.
+        {t("subscribed")}
       </div>
     );
   }
@@ -24,7 +26,7 @@ export function NewsletterForm() {
       <input
         ref={inputRef}
         type="email"
-        placeholder="ton@email.fr"
+        placeholder={t("newsletterPlaceholder")}
         onKeyDown={(e) => {
           if (e.key === "Enter") subscribe();
         }}
@@ -35,7 +37,7 @@ export function NewsletterForm() {
         onClick={subscribe}
         className="cursor-pointer rounded-[10px] bg-accent px-5 py-3 font-sans text-sm font-semibold text-[#14100C] transition-transform duration-200 hover:-translate-y-0.5"
       >
-        S&apos;inscrire
+        {t("subscribe")}
       </button>
     </div>
   );

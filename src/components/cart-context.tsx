@@ -27,6 +27,7 @@ type CartContextValue = {
   addItem: (item: { id: string; name: string; price: number }) => void;
   removeItem: (id: string) => void;
   setQty: (id: string, qty: number) => void;
+  clearCart: () => void;
   openDrawer: () => void;
   closeDrawer: () => void;
 };
@@ -97,6 +98,10 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     );
   }, []);
 
+  const clearCart = useCallback(() => {
+    setItems([]);
+  }, []);
+
   const count = items.reduce((sum, i) => sum + i.qty, 0);
   const total = items.reduce((sum, i) => sum + i.price * i.qty, 0);
 
@@ -112,6 +117,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         addItem,
         removeItem,
         setQty,
+        clearCart,
         openDrawer: () => setDrawerOpen(true),
         closeDrawer: () => setDrawerOpen(false),
       }}

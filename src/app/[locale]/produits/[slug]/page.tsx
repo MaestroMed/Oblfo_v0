@@ -1,46 +1,80 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { AddToCartButton } from "@/components/add-to-cart-button";
 import { ImageSlot } from "@/components/image-slot";
 import {
   formatPrice,
   getPacksForProduct,
-  getProduct,
-  products,
+  getProductBySlug,
+  getProducts,
 } from "@/data/catalog";
+import { getPathname, Link } from "@/i18n/navigation";
+import { isLocale, routing, type Locale } from "@/i18n/routing";
 import { SITE_URL } from "@/lib/site";
 
-type Props = { params: Promise<{ slug: string }> };
+type Props = { params: Promise<{ locale: string; slug: string }> };
 
 export function generateStaticParams() {
-  return products.map((product) => ({ slug: product.slug }));
+  return routing.locales.flatMap((locale) =>
+    getProducts(locale).map((product) => ({ locale, slug: product.slug })),
+  );
+}
+
+function productAlternates(locale: Locale, slugs: Record<Locale, string>) {
+  const path = (l: Locale) =>
+    getPathname({
+      locale: l,
+      href: { pathname: "/produits/[slug]", params: { slug: slugs[l] } },
+    });
+
+  return {
+    canonical: path(locale),
+    languages: {
+      fr: path("fr"),
+      en: path("en"),
+      "x-default": path("fr"),
+    },
+  };
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
-  const product = getProduct(slug);
+  const { locale, slug } = await params;
+  if (!isLocale(locale)) return {};
+  const product = getProductBySlug(locale, slug);
   if (!product) return {};
+  const t = await getTranslations({ locale, namespace: "ProductPage" });
 
   return {
-    title: `${product.name} — ${formatPrice(product.price)}`,
-    description: `${product.tagline} ${product.highlights.join(", ")}. Livraison offerte dès 60 €, retours 30 jours.`,
-    alternates: { canonical: `/produits/${product.slug}` },
+    title: `${product.name} — ${formatPrice(product.price, locale)}`,
+    description: t("metaDescription", {
+      tagline: product.tagline,
+      highlights: product.highlights.join(", "),
+    }),
+    alternates: productAlternates(locale, product.slugs),
     openGraph: {
       title: `${product.name} | OBFLO`,
       description: product.tagline,
-      url: `/produits/${product.slug}`,
     },
   };
 }
 
 export default async function ProductPage({ params }: Props) {
-  const { slug } = await params;
-  const product = getProduct(slug);
+  const { locale, slug } = await params;
+  if (!isLocale(locale)) notFound();
+  setRequestLocale(locale);
+
+  const product = getProductBySlug(locale, slug);
   if (!product) notFound();
 
-  const packsWithProduct = getPacksForProduct(slug);
-  const otherProducts = products.filter((p) => p.slug !== slug);
+  const t = await getTranslations("ProductPage");
+  const packsWithProduct = getPacksForProduct(locale, product.id);
+  const otherProducts = getProducts(locale).filter((p) => p.id !== product.id);
+
+  const productUrl = `${SITE_URL}${getPathname({
+    locale,
+    href: { pathname: "/produits/[slug]", params: { slug: product.slug } },
+  })}`;
 
   const structuredData = {
     "@context": "https://schema.org",
@@ -49,25 +83,30 @@ export default async function ProductPage({ params }: Props) {
         "@type": "Product",
         name: product.name,
         description: product.tagline,
-        url: `${SITE_URL}/produits/${product.slug}`,
+        url: productUrl,
         brand: { "@type": "Brand", name: "OBFLO" },
         offers: {
           "@type": "Offer",
           price: product.price,
           priceCurrency: "EUR",
           availability: "https://schema.org/InStock",
-          url: `${SITE_URL}/produits/${product.slug}`,
+          url: productUrl,
         },
       },
       {
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Accueil", item: SITE_URL },
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: t("breadcrumbHome"),
+            item: `${SITE_URL}${getPathname({ locale, href: "/" })}`,
+          },
           {
             "@type": "ListItem",
             position: 2,
-            name: "La gamme",
-            item: `${SITE_URL}/#gamme`,
+            name: t("breadcrumbRange"),
+            item: `${SITE_URL}${getPathname({ locale, href: "/" })}#gamme`,
           },
           { "@type": "ListItem", position: 3, name: product.name },
         ],
@@ -84,21 +123,21 @@ export default async function ProductPage({ params }: Props) {
         />
         <div className="relative mx-auto max-w-[1240px] px-8 pt-8 pb-[90px]">
           <nav
-            aria-label="Fil d'Ariane"
+            aria-label={t("breadcrumbLabel")}
             className="mb-9 flex items-center gap-2.5 font-mono text-[10.5px] tracking-[0.16em] text-[#66788A]"
           >
             <Link
               href="/"
               className="text-[#8FA1B3] no-underline transition-colors hover:text-accent"
             >
-              ACCUEIL
+              {t("breadcrumbHome")}
             </Link>
             <span>/</span>
             <Link
-              href="/#gamme"
+              href={{ pathname: "/", hash: "gamme" }}
               className="text-[#8FA1B3] no-underline transition-colors hover:text-accent"
             >
-              LA GAMME
+              {t("breadcrumbRange")}
             </Link>
             <span>/</span>
             <span className="text-accent">{product.name.toUpperCase()}</span>
@@ -128,7 +167,7 @@ export default async function ProductPage({ params }: Props) {
             <div className="flex flex-col gap-6">
               <div className="flex items-center gap-3 font-mono text-[11px] tracking-[0.24em] text-[#8FA1B3]">
                 <span className="h-2 w-2 rotate-45 bg-accent shadow-[0_0_14px_rgba(255,106,43,0.9)]" />
-                OBFLO — CHALEUR PORTABLE
+                {t("kicker")}
               </div>
               <h1 className="text-[clamp(38px,4.4vw,60px)] font-bold leading-[1.02] tracking-[-0.025em] text-ink">
                 {product.name}
@@ -164,20 +203,19 @@ export default async function ProductPage({ params }: Props) {
               </ul>
               <div className="mt-2 flex flex-wrap items-center gap-5">
                 <div className="text-[38px] font-bold text-ink">
-                  {formatPrice(product.price)}
+                  {formatPrice(product.price, locale)}
                 </div>
                 <AddToCartButton
-                  id={product.slug}
+                  id={product.id}
                   name={product.name}
                   price={product.price}
                   className="cursor-pointer rounded-xl bg-accent px-[26px] py-[15px] text-[15px] font-semibold text-[#14100C] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_40px_-12px_rgba(255,106,43,0.6)]"
                 >
-                  Ajouter au panier
+                  {t("addToCart")}
                 </AddToCartButton>
               </div>
               <div className="font-mono text-[11px] tracking-[0.16em] text-[#66788A]">
-                LIVRAISON 3–5 J&nbsp;&nbsp;·&nbsp;&nbsp;RETOURS 30
-                J&nbsp;&nbsp;·&nbsp;&nbsp;OFFERTE DÈS 60 €
+                {t("reassurance")}
               </div>
             </div>
           </div>
@@ -188,9 +226,9 @@ export default async function ProductPage({ params }: Props) {
       <section className="border-y border-white/5 bg-night-2 py-[90px]">
         <div className="mx-auto max-w-[1240px] px-8">
           <div className="mb-10 flex items-center gap-3 font-mono text-[11px] tracking-[0.22em]">
-            <span className="text-[#66788A]">SPECS</span>
+            <span className="text-[#66788A]">{t("specsKicker")}</span>
             <span className="h-px w-7 bg-accent/50" />
-            <span className="text-accent">CARACTÉRISTIQUES</span>
+            <span className="text-accent">{t("specsLabel")}</span>
           </div>
           <dl className="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-4">
             {product.specs.map((spec) => (
@@ -215,14 +253,14 @@ export default async function ProductPage({ params }: Props) {
         <section className="bg-night py-[90px]">
           <div className="mx-auto max-w-[1240px] px-8">
             <div className="mb-10 flex items-center gap-3 font-mono text-[11px] tracking-[0.22em]">
-              <span className="text-[#66788A]">PACKS</span>
+              <span className="text-[#66788A]">{t("packsKicker")}</span>
               <span className="h-px w-7 bg-accent/50" />
-              <span className="text-accent">MOINS CHER EN PACK</span>
+              <span className="text-accent">{t("packsLabel")}</span>
             </div>
             <div className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-5">
               {packsWithProduct.map((pack) => (
                 <div
-                  key={pack.slug}
+                  key={pack.id}
                   className="flex flex-col gap-3 rounded-[18px] border border-white/8 bg-pack p-6 transition-[border-color,box-shadow] duration-[250ms] hover:border-accent/50 hover:shadow-[0_24px_70px_-30px_rgba(255,106,43,0.45)]"
                 >
                   <div className="text-[21px] font-bold tracking-[-0.01em] text-ink">
@@ -231,23 +269,23 @@ export default async function ProductPage({ params }: Props) {
                   <div className="text-sm text-[#93A2B1]">{pack.contents}</div>
                   <div className="mt-1 flex items-baseline gap-3">
                     <span className="font-mono text-sm text-[#66788A] line-through">
-                      {formatPrice(pack.compareAt)}
+                      {formatPrice(pack.compareAt, locale)}
                     </span>
                     <span className="text-[26px] font-bold text-accent">
-                      {formatPrice(pack.price)}
+                      {formatPrice(pack.price, locale)}
                     </span>
                     <span className="rounded-md border border-accent/40 px-2 py-0.5 font-mono text-[10px] tracking-[0.14em] text-accent">
-                      −{formatPrice(pack.compareAt - pack.price)}
+                      −{formatPrice(pack.compareAt - pack.price, locale)}
                     </span>
                   </div>
                   <div className="mt-2">
                     <AddToCartButton
-                      id={pack.slug}
+                      id={pack.id}
                       name={pack.name}
                       price={pack.price}
                       className="cursor-pointer rounded-[10px] bg-[linear-gradient(135deg,#FF6A2B,#E8451F)] px-5 py-[11px] text-sm font-semibold text-[#14100C] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_-10px_rgba(255,106,43,0.7)]"
                     >
-                      Choisir ce pack
+                      {t("choosePack")}
                     </AddToCartButton>
                   </div>
                 </div>
@@ -261,15 +299,18 @@ export default async function ProductPage({ params }: Props) {
       <section className="border-t border-white/5 bg-night-2 py-[90px]">
         <div className="mx-auto max-w-[1240px] px-8">
           <div className="mb-10 flex items-center gap-3 font-mono text-[11px] tracking-[0.22em]">
-            <span className="text-[#66788A]">GAMME</span>
+            <span className="text-[#66788A]">{t("rangeKicker")}</span>
             <span className="h-px w-7 bg-accent/50" />
-            <span className="text-accent">COMPLÉTER LA PANOPLIE</span>
+            <span className="text-accent">{t("rangeLabel")}</span>
           </div>
           <div className="grid grid-cols-[repeat(auto-fit,minmax(255px,1fr))] gap-5">
             {otherProducts.map((other) => (
               <Link
-                key={other.slug}
-                href={`/produits/${other.slug}`}
+                key={other.id}
+                href={{
+                  pathname: "/produits/[slug]",
+                  params: { slug: other.slug },
+                }}
                 className="flex flex-col overflow-hidden rounded-[18px] border border-white/7 bg-card no-underline transition-[border-color,box-shadow,transform] duration-[250ms] hover:-translate-y-[3px] hover:border-accent/55 hover:shadow-[0_24px_70px_-30px_rgba(255,106,43,0.45)]"
               >
                 <div className="relative aspect-[4/3] bg-media">
@@ -280,7 +321,7 @@ export default async function ProductPage({ params }: Props) {
                     {other.name}
                   </span>
                   <span className="text-[17px] font-bold text-accent">
-                    {formatPrice(other.price)}
+                    {formatPrice(other.price, locale)}
                   </span>
                 </div>
               </Link>

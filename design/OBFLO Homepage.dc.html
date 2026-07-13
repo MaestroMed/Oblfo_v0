@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <style>
+    :root { --accent:#FF6A2B; --accent-rgb:255,106,43; --glowO:1; --cold:#8FC1E3; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:#0A0C10; color:#EDF1F5; font-family:'Space Grotesk',sans-serif; -webkit-font-smoothing:antialiased; }
+    a { color:#8FC1E3; }
+    a:hover { color:var(--accent); }
+    ::selection { background:rgba(255,106,43,0.35); }
+    input::placeholder { color:#5E6B7A; }
+    details > summary { list-style:none; }
+    details > summary::-webkit-details-marker { display:none; }
+    details[open] summary > span:last-child { transform:rotate(45deg); }
+  </style>
+</helmet>
+
+<!-- ══════════ BANDEAU ANNONCE ══════════ -->
+<sc-if value="{{ showAnnonce }}" hint-placeholder-val="{{ true }}">
+  <div style="background:linear-gradient(90deg,rgba(var(--accent-rgb),0.14),rgba(var(--accent-rgb),0.04) 30%,rgba(var(--accent-rgb),0.04) 70%,rgba(var(--accent-rgb),0.14));border-bottom:1px solid rgba(var(--accent-rgb),0.2);color:rgba(var(--accent-rgb),0.95);font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.18em;text-align:center;padding:9px 16px">LIVRAISON OFFERTE DÈS 60&nbsp;€ — RETOURS 30 JOURS</div>
+</sc-if>
+
+<!-- ══════════ NAV ══════════ -->
+<header data-screen-label="Navigation" style="position:sticky;top:0;z-index:60;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(8,10,14,0.78);border-bottom:1px solid rgba(255,255,255,0.06)">
+  <div style="max-width:1240px;margin:0 auto;padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+    <a href="#" style="text-decoration:none;color:#F2F5F8;font-weight:700;font-size:21px;letter-spacing:0.05em">OBFLO<span style="color:var(--accent)">°</span></a>
+    <nav style="display:flex;align-items:center;gap:28px">
+      <a href="#gamme" style="text-decoration:none;color:#A7B4C2;font-size:13.5px" style-hover="color:#FFFFFF">La gamme</a>
+      <a href="#moments" style="text-decoration:none;color:#A7B4C2;font-size:13.5px" style-hover="color:#FFFFFF">Moments</a>
+      <a href="#packs" style="text-decoration:none;color:#A7B4C2;font-size:13.5px" style-hover="color:#FFFFFF">Packs</a>
+      <a href="#techno" style="text-decoration:none;color:#A7B4C2;font-size:13.5px" style-hover="color:#FFFFFF">Technologie</a>
+      <a href="#faq" style="text-decoration:none;color:#A7B4C2;font-size:13.5px" style-hover="color:#FFFFFF">FAQ</a>
+    </nav>
+    <button style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);color:#EDF1F5;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.12em;padding:9px 14px;border-radius:10px;cursor:pointer;transition:border-color .2s" style-hover="border-color:rgba(var(--accent-rgb),0.6)">PANIER<span style="min-width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;background:var(--accent);color:#14100C;border-radius:6px;font-weight:500;padding:0 5px">{{ cartCount }}</span></button>
+  </div>
+</header>
+
+<!-- ══════════ 1 · HERO ══════════ -->
+<section data-screen-label="Hero" style="position:relative;overflow:hidden;background:linear-gradient(180deg,#0B1119 0%,#0A0C10 70%)">
+  <div style="position:absolute;top:-180px;left:-160px;width:900px;height:640px;background:radial-gradient(closest-side,rgba(52,104,158,0.20),transparent 70%);opacity:var(--glowO);pointer-events:none"></div>
+  <div style="position:absolute;top:-60px;right:-220px;width:1000px;height:820px;background:radial-gradient(closest-side,rgba(var(--accent-rgb),0.16),transparent 68%);opacity:var(--glowO);pointer-events:none"></div>
+  <div style="position:relative;max-width:1240px;margin:0 auto;padding:80px 32px 110px;display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:64px;align-items:center;min-height:82vh">
+    <div style="display:flex;flex-direction:column;gap:26px">
+      <div style="display:flex;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.24em;color:#8FA1B3"><span style="width:8px;height:8px;background:var(--accent);transform:rotate(45deg);box-shadow:0 0 14px rgba(var(--accent-rgb),0.9)"></span>OBFLO — CHALEUR PORTABLE</div>
+      <h1 style="margin:0;font-size:clamp(54px,6.2vw,92px);font-weight:700;letter-spacing:-0.03em;line-height:0.98;color:#F2F5F8">Le froid<br><span style="color:var(--accent)">s'arrête ici.</span></h1>
+      <p style="margin:0;font-size:17.5px;line-height:1.6;color:#9AA9B8;max-width:480px;text-wrap:pretty">Gants, chaussons, chauffe-tasse, chauffage d'appoint — une chaleur ciblée, en quelques secondes, là où l'hiver s'installe.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:6px">
+        <a href="#gamme" style="text-decoration:none;background:var(--accent);color:#14100C;font-weight:600;font-size:15px;padding:15px 26px;border-radius:12px;transition:transform .2s, box-shadow .2s" style-hover="transform:translateY(-2px);box-shadow:0 14px 40px -12px rgba(var(--accent-rgb),0.6);color:#14100C">Découvrir la gamme</a>
+        <a href="#packs" style="text-decoration:none;border:1px solid rgba(255,255,255,0.16);color:#DCE4EC;font-weight:500;font-size:15px;padding:15px 26px;border-radius:12px;transition:border-color .2s" style-hover="border-color:rgba(var(--accent-rgb),0.7);color:#FFFFFF">Voir les packs</a>
+      </div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.16em;color:#66788A;margin-top:10px">USB UNIVERSEL&nbsp;&nbsp;·&nbsp;&nbsp;CHAUFFE EN SECONDES&nbsp;&nbsp;·&nbsp;&nbsp;RETOURS 30 J</div>
+    </div>
+    <div style="position:relative;aspect-ratio:4/4.6;max-height:640px;border-radius:22px;border:1px solid rgba(255,255,255,0.09);overflow:hidden;background:#0C1017">
+      <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="hero-gant" shape="rect" placeholder="PHOTO HERO — gant chauffant porté, fond sombre, lueur orange" hint-size="100%,100%" style="position:absolute;inset:0"></x-import>
+      <div style="position:absolute;top:16px;left:16px;display:flex;align-items:center;gap:8px;background:rgba(8,10,14,0.72);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:7px 11px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.16em;color:#C4D2DE;pointer-events:none"><span style="width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px rgba(var(--accent-rgb),1)"></span>VUE THERMIQUE — LIVE</div>
+      <div style="position:absolute;bottom:16px;right:16px;background:rgba(8,10,14,0.72);backdrop-filter:blur(8px);border:1px solid rgba(var(--accent-rgb),0.4);border-radius:8px;padding:8px 12px;font-family:'IBM Plex Mono',monospace;font-size:15px;color:var(--accent);pointer-events:none">+41,7°C</div>
+      <div style="position:absolute;top:10px;right:10px;width:14px;height:14px;border-top:2px solid rgba(var(--accent-rgb),0.8);border-right:2px solid rgba(var(--accent-rgb),0.8);pointer-events:none"></div>
+      <div style="position:absolute;bottom:10px;left:10px;width:14px;height:14px;border-bottom:2px solid rgba(var(--accent-rgb),0.8);border-left:2px solid rgba(var(--accent-rgb),0.8);pointer-events:none"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 2 · LA GAMME ══════════ -->
+<section id="gamme" data-screen-label="La gamme" style="scroll-margin-top:80px;padding:110px 0;background:#0A0C10">
+  <div style="max-width:1240px;margin:0 auto;padding:0 32px">
+    <div style="display:flex;flex-direction:column;gap:14px;max-width:720px;margin-bottom:54px">
+      <div style="display:flex;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.22em"><span style="color:#66788A">01</span><span style="width:28px;height:1px;background:rgba(var(--accent-rgb),0.5)"></span><span style="color:var(--accent)">LA GAMME</span></div>
+      <h2 style="margin:0;font-size:clamp(34px,4vw,52px);font-weight:700;letter-spacing:-0.02em;line-height:1.04;color:#F2F5F8">Toute la gamme.</h2>
+      <p style="margin:0;font-size:16.5px;line-height:1.6;color:#93A2B1;max-width:560px;text-wrap:pretty">Quatre produits. Un seul objectif&nbsp;: couper le froid, tout de suite.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:20px">
+
+      <div style="display:flex;flex-direction:column;background:#0F141B;border:1px solid rgba(255,255,255,0.07);border-radius:18px;overflow:hidden;transition:border-color .25s, box-shadow .25s, transform .25s" style-hover="border-color:rgba(var(--accent-rgb),0.55);box-shadow:0 24px 70px -30px rgba(var(--accent-rgb),0.45);transform:translateY(-3px)">
+        <div style="position:relative;aspect-ratio:1/1;background:#0C1017">
+          <div style="position:absolute;inset:0;background:radial-gradient(closest-side at 50% 60%,rgba(var(--accent-rgb),0.14),transparent 75%);opacity:var(--glowO);pointer-events:none;z-index:1"></div>
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="prod-gants" shape="rect" placeholder="PHOTO STUDIO — gants chauffants" hint-size="100%,100%" style="position:absolute;inset:0"></x-import>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;padding:20px 20px 22px">
+          <div style="display:flex;gap:8px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#9FB3C4;border:1px solid rgba(143,193,227,0.25);border-radius:6px;padding:4px 8px">USB</span><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#9FB3C4;border:1px solid rgba(143,193,227,0.25);border-radius:6px;padding:4px 8px">3 NIVEAUX</span></div>
+          <div style="font-size:19px;font-weight:600;color:#F2F5F8">Gants Chauffants</div>
+          <p style="margin:0;font-size:13.5px;line-height:1.5;color:#8595A5">Zones chauffantes paume et doigts, textile déperlant.</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px">
+            <div style="font-size:25px;font-weight:700;color:#F2F5F8">49&nbsp;€</div>
+            <button data-product="Gants Chauffants" onClick="{{ addToCart }}" style="background:var(--accent);color:#14100C;border:none;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14px;padding:11px 20px;border-radius:10px;cursor:pointer;transition:transform .2s, box-shadow .2s" style-hover="transform:translateY(-2px);box-shadow:0 10px 28px -10px rgba(var(--accent-rgb),0.7)">Ajouter</button>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;background:#0F141B;border:1px solid rgba(255,255,255,0.07);border-radius:18px;overflow:hidden;transition:border-color .25s, box-shadow .25s, transform .25s" style-hover="border-color:rgba(var(--accent-rgb),0.55);box-shadow:0 24px 70px -30px rgba(var(--accent-rgb),0.45);transform:translateY(-3px)">
+        <div style="position:relative;aspect-ratio:1/1;background:#0C1017">
+          <div style="position:absolute;inset:0;background:radial-gradient(closest-side at 50% 60%,rgba(64,120,176,0.16),transparent 75%);opacity:var(--glowO);pointer-events:none;z-index:1"></div>
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="prod-chaussons" shape="rect" placeholder="PHOTO STUDIO — chaussons chauffants" hint-size="100%,100%" style="position:absolute;inset:0"></x-import>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;padding:20px 20px 22px">
+          <div style="display:flex;gap:8px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#9FB3C4;border:1px solid rgba(143,193,227,0.25);border-radius:6px;padding:4px 8px">USB</span><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#9FB3C4;border:1px solid rgba(143,193,227,0.25);border-radius:6px;padding:4px 8px">CHALEUR RAPIDE</span></div>
+          <div style="font-size:19px;font-weight:600;color:#F2F5F8">Chaussons Chauffants</div>
+          <p style="margin:0;font-size:13.5px;line-height:1.5;color:#8595A5">Chaleur avant-pied, intérieur doux, port USB discret.</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px">
+            <div style="font-size:25px;font-weight:700;color:#F2F5F8">44&nbsp;€</div>
+            <button data-product="Chaussons Chauffants" onClick="{{ addToCart }}" style="background:var(--accent);color:#14100C;border:none;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14px;padding:11px 20px;border-radius:10px;cursor:pointer;transition:transform .2s, box-shadow .2s" style-hover="transform:translateY(-2px);box-shadow:0 10px 28px -10px rgba(var(--accent-rgb),0.7)">Ajouter</button>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;background:#0F141B;border:1px solid rgba(255,255,255,0.07);border-radius:18px;overflow:hidden;transition:border-color .25s, box-shadow .25s, transform .25s" style-hover="border-color:rgba(var(--accent-rgb),0.55);box-shadow:0 24px 70px -30px rgba(var(--accent-rgb),0.45);transform:translateY(-3px)">
+        <div style="position:relative;aspect-ratio:1/1;background:#0C1017">
+          <div style="position:absolute;inset:0;background:radial-gradient(closest-side at 50% 60%,rgba(var(--accent-rgb),0.14),transparent 75%);opacity:var(--glowO);pointer-events:none;z-index:1"></div>
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="prod-chauffage" shape="rect" placeholder="PHOTO STUDIO — chauffage d'appoint" hint-size="100%,100%" style="position:absolute;inset:0"></x-import>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;padding:20px 20px 22px">
+          <div style="display:flex;gap:8px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#9FB3C4;border:1px solid rgba(143,193,227,0.25);border-radius:6px;padding:4px 8px">3 NIVEAUX</span><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#9FB3C4;border:1px solid rgba(143,193,227,0.25);border-radius:6px;padding:4px 8px">COMPACT</span></div>
+          <div style="font-size:19px;font-weight:600;color:#F2F5F8">Chauffage d'Appoint</div>
+          <p style="margin:0;font-size:13.5px;line-height:1.5;color:#8595A5">Réchauffe une petite pièce en quelques minutes.</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px">
+            <div style="font-size:25px;font-weight:700;color:#F2F5F8">59&nbsp;€</div>
+            <button data-product="Chauffage d'Appoint" onClick="{{ addToCart }}" style="background:var(--accent);color:#14100C;border:none;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14px;padding:11px 20px;border-radius:10px;cursor:pointer;transition:transform .2s, box-shadow .2s" style-hover="transform:translateY(-2px);box-shadow:0 10px 28px -10px rgba(var(--accent-rgb),0.7)">Ajouter</button>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;background:#0F141B;border:1px solid rgba(255,255,255,0.07);border-radius:18px;overflow:hidden;transition:border-color .25s, box-shadow .25s, transform .25s" style-hover="border-color:rgba(var(--accent-rgb),0.55);box-shadow:0 24px 70px -30px rgba(var(--accent-rgb),0.45);transform:translateY(-3px)">
+        <div style="position:relative;aspect-ratio:1/1;background:#0C1017">
+          <div style="position:absolute;inset:0;background:radial-gradient(closest-side at 50% 60%,rgba(64,120,176,0.16),transparent 75%);opacity:var(--glowO);pointer-events:none;z-index:1"></div>
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="prod-tasse" shape="rect" placeholder="PHOTO STUDIO — mini chauffe-tasse" hint-size="100%,100%" style="position:absolute;inset:0"></x-import>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;padding:20px 20px 22px">
+          <div style="display:flex;gap:8px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#9FB3C4;border:1px solid rgba(143,193,227,0.25);border-radius:6px;padding:4px 8px">USB</span><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#9FB3C4;border:1px solid rgba(143,193,227,0.25);border-radius:6px;padding:4px 8px">COMPACT</span></div>
+          <div style="font-size:19px;font-weight:600;color:#F2F5F8">Mini Chauffe-Tasse</div>
+          <p style="margin:0;font-size:13.5px;line-height:1.5;color:#8595A5">Ton café reste à température, tout l'après-midi.</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px">
+            <div style="font-size:25px;font-weight:700;color:#F2F5F8">19&nbsp;€</div>
+            <button data-product="Mini Chauffe-Tasse" onClick="{{ addToCart }}" style="background:var(--accent);color:#14100C;border:none;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14px;padding:11px 20px;border-radius:10px;cursor:pointer;transition:transform .2s, box-shadow .2s" style-hover="transform:translateY(-2px);box-shadow:0 10px 28px -10px rgba(var(--accent-rgb),0.7)">Ajouter</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 3 · MOMENTS ══════════ -->
+<section id="moments" data-screen-label="Moments froids" style="scroll-margin-top:80px;padding:110px 0;background:#0B0F16;border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05)">
+  <div style="max-width:1240px;margin:0 auto;padding:0 32px">
+    <div style="display:flex;flex-direction:column;gap:14px;max-width:720px;margin-bottom:54px">
+      <div style="display:flex;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.22em"><span style="color:#66788A">02</span><span style="width:28px;height:1px;background:rgba(var(--accent-rgb),0.5)"></span><span style="color:var(--accent)">MOMENTS</span></div>
+      <h2 style="margin:0;font-size:clamp(34px,4vw,52px);font-weight:700;letter-spacing:-0.02em;line-height:1.04;color:#F2F5F8">Pour chaque moment froid.</h2>
+      <p style="margin:0;font-size:16.5px;line-height:1.6;color:#93A2B1;max-width:560px;text-wrap:pretty">Chaque produit répond à un moment précis. Rien de plus, rien d'inutile.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:20px">
+
+      <div style="position:relative;aspect-ratio:16/10;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,0.07);background:#0C1017">
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="scene-dehors" shape="rect" placeholder="PHOTO — rue froide, buée, gants portés" hint-size="100%,100%" style="position:absolute;inset:0"></x-import>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,10,14,0) 42%,rgba(8,10,14,0.9));pointer-events:none"></div>
+        <div style="position:absolute;left:24px;right:24px;bottom:22px;display:flex;flex-direction:column;gap:8px;pointer-events:none">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.22em;color:var(--accent)">DEHORS</div>
+          <div style="font-size:22px;font-weight:600;letter-spacing:-0.01em;color:#F2F5F8">Pour sortir sans subir l'hiver.</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#93A2B1">GANTS CHAUFFANTS — 49&nbsp;€</div>
+        </div>
+      </div>
+
+      <div style="position:relative;aspect-ratio:16/10;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,0.07);background:#0C1017">
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="scene-maison" shape="rect" placeholder="PHOTO — chaussons sur parquet, neige à la fenêtre" hint-size="100%,100%" style="position:absolute;inset:0"></x-import>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,10,14,0) 42%,rgba(8,10,14,0.9));pointer-events:none"></div>
+        <div style="position:absolute;left:24px;right:24px;bottom:22px;display:flex;flex-direction:column;gap:8px;pointer-events:none">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.22em;color:var(--accent)">À LA MAISON</div>
+          <div style="font-size:22px;font-weight:600;letter-spacing:-0.01em;color:#F2F5F8">Pour rentrer et couper le froid net.</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#93A2B1">CHAUSSONS CHAUFFANTS — 44&nbsp;€</div>
+        </div>
+      </div>
+
+      <div style="position:relative;aspect-ratio:16/10;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,0.07);background:#0C1017">
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="scene-bureau" shape="rect" placeholder="PHOTO — mug sur chauffe-tasse, laptop sombre" hint-size="100%,100%" style="position:absolute;inset:0"></x-import>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,10,14,0) 42%,rgba(8,10,14,0.9));pointer-events:none"></div>
+        <div style="position:absolute;left:24px;right:24px;bottom:22px;display:flex;flex-direction:column;gap:8px;pointer-events:none">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.22em;color:var(--accent)">AU BUREAU</div>
+          <div style="font-size:22px;font-weight:600;letter-spacing:-0.01em;color:#F2F5F8">Pour garder ton café chaud plus longtemps.</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#93A2B1">MINI CHAUFFE-TASSE — 19&nbsp;€</div>
+        </div>
+      </div>
+
+      <div style="position:relative;aspect-ratio:16/10;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,0.07);background:#0C1017">
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="scene-piece" shape="rect" placeholder="PHOTO — chauffage d'appoint sur bureau, ambiance soir" hint-size="100%,100%" style="position:absolute;inset:0"></x-import>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,10,14,0) 42%,rgba(8,10,14,0.9));pointer-events:none"></div>
+        <div style="position:absolute;left:24px;right:24px;bottom:22px;display:flex;flex-direction:column;gap:8px;pointer-events:none">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.22em;color:var(--accent)">PETITE PIÈCE</div>
+          <div style="font-size:22px;font-weight:600;letter-spacing:-0.01em;color:#F2F5F8">Pour réchauffer ton espace, pas toute la maison.</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#93A2B1">CHAUFFAGE D'APPOINT — 59&nbsp;€</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 4 · PACKS ══════════ -->
+<section id="packs" data-screen-label="Packs" style="scroll-margin-top:80px;padding:110px 0;background:#0A0C10">
+  <div style="max-width:1240px;margin:0 auto;padding:0 32px">
+    <div style="display:flex;flex-direction:column;gap:14px;max-width:720px;margin-bottom:54px">
+      <div style="display:flex;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.22em"><span style="color:#66788A">03</span><span style="width:28px;height:1px;background:rgba(var(--accent-rgb),0.5)"></span><span style="color:var(--accent)">PACKS</span></div>
+      <h2 style="margin:0;font-size:clamp(34px,4vw,52px);font-weight:700;letter-spacing:-0.02em;line-height:1.04;color:#F2F5F8">Plus de chaleur. Moins cher.</h2>
+      <p style="margin:0;font-size:16.5px;line-height:1.6;color:#93A2B1;max-width:560px;text-wrap:pretty">Des duos pensés pour des moments réels — pas des bundles au hasard.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:20px">
+
+      <div style="position:relative;overflow:hidden;display:flex;flex-wrap:wrap;align-items:stretch;background:#0D1016;border:1px solid rgba(255,255,255,0.08);border-radius:20px;transition:border-color .25s, box-shadow .25s" style-hover="border-color:rgba(var(--accent-rgb),0.5);box-shadow:0 30px 90px -40px rgba(var(--accent-rgb),0.5)">
+        <div style="position:absolute;top:-120px;right:-80px;width:620px;height:420px;background:radial-gradient(closest-side,rgba(var(--accent-rgb),0.17),transparent 70%);opacity:var(--glowO);pointer-events:none"></div>
+        <div style="position:relative;flex:0 0 280px;min-height:210px;background:#0C1017;border-right:1px solid rgba(255,255,255,0.06)">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="pack-sortie" shape="rect" placeholder="PHOTO — gants + chauffe-tasse ensemble" hint-size="100%,100%" style="position:absolute;inset:0"></x-import>
+        </div>
+        <div style="position:relative;flex:1 1 320px;display:flex;flex-direction:column;justify-content:center;gap:10px;padding:30px 34px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.22em;color:#8FA1B3">PACK</div>
+          <div style="font-size:27px;font-weight:700;letter-spacing:-0.015em;color:#F2F5F8">Pack Sortie Hiver</div>
+          <div style="font-size:15px;color:#93A2B1">Gants Chauffants + Mini Chauffe-Tasse</div>
+          <div style="margin-top:4px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.14em;color:var(--accent);border:1px solid rgba(var(--accent-rgb),0.4);border-radius:6px;padding:4px 9px">TU ÉCONOMISES 9&nbsp;€</span></div>
+        </div>
+        <div style="position:relative;flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-end;justify-content:center;gap:12px;padding:30px 34px">
+          <div style="display:flex;align-items:baseline;gap:12px"><span style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#66788A;text-decoration:line-through">68&nbsp;€</span><span style="font-size:34px;font-weight:700;color:var(--accent)">59&nbsp;€</span></div>
+          <button data-product="Pack Sortie Hiver" onClick="{{ addToCart }}" style="background:linear-gradient(135deg,var(--accent),#E8451F);color:#14100C;border:none;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;padding:13px 24px;border-radius:11px;cursor:pointer;transition:transform .2s, box-shadow .2s" style-hover="transform:translateY(-2px);box-shadow:0 14px 36px -12px rgba(var(--accent-rgb),0.7)">Choisir mon pack</button>
+        </div>
+      </div>
+
+      <div style="position:relative;overflow:hidden;display:flex;flex-wrap:wrap;align-items:stretch;background:#0D1016;border:1px solid rgba(255,255,255,0.08);border-radius:20px;transition:border-color .25s, box-shadow .25s" style-hover="border-color:rgba(var(--accent-rgb),0.5);box-shadow:0 30px 90px -40px rgba(var(--accent-rgb),0.5)">
+        <div style="position:absolute;top:-120px;right:-80px;width:620px;height:420px;background:radial-gradient(closest-side,rgba(var(--accent-rgb),0.17),transparent 70%);opacity:var(--glowO);pointer-events:none"></div>
+        <div style="position:relative;flex:0 0 280px;min-height:210px;background:#0C1017;border-right:1px solid rgba(255,255,255,0.06)">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="pack-maison" shape="rect" placeholder="PHOTO — chaussons + chauffage d'appoint" hint-size="100%,100%" style="position:absolute;inset:0"></x-import>
+        </div>
+        <div style="position:relative;flex:1 1 320px;display:flex;flex-direction:column;justify-content:center;gap:10px;padding:30px 34px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.22em;color:#8FA1B3">PACK</div>
+          <div style="font-size:27px;font-weight:700;letter-spacing:-0.015em;color:#F2F5F8">Pack Maison Chaude</div>
+          <div style="font-size:15px;color:#93A2B1">Chaussons Chauffants + Chauffage d'Appoint</div>
+          <div style="margin-top:4px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.14em;color:var(--accent);border:1px solid rgba(var(--accent-rgb),0.4);border-radius:6px;padding:4px 9px">TU ÉCONOMISES 14&nbsp;€</span></div>
+        </div>
+        <div style="position:relative;flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-end;justify-content:center;gap:12px;padding:30px 34px">
+          <div style="display:flex;align-items:baseline;gap:12px"><span style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#66788A;text-decoration:line-through">103&nbsp;€</span><span style="font-size:34px;font-weight:700;color:var(--accent)">89&nbsp;€</span></div>
+          <button data-product="Pack Maison Chaude" onClick="{{ addToCart }}" style="background:linear-gradient(135deg,var(--accent),#E8451F);color:#14100C;border:none;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;padding:13px 24px;border-radius:11px;cursor:pointer;transition:transform .2s, box-shadow .2s" style-hover="transform:translateY(-2px);box-shadow:0 14px 36px -12px rgba(var(--accent-rgb),0.7)">Choisir mon pack</button>
+        </div>
+      </div>
+
+      <div style="position:relative;overflow:hidden;display:flex;flex-wrap:wrap;align-items:stretch;background:linear-gradient(120deg,#141017 0%,#0D1016 55%);border:1px solid rgba(var(--accent-rgb),0.35);border-radius:20px;transition:border-color .25s, box-shadow .25s" style-hover="border-color:rgba(var(--accent-rgb),0.7);box-shadow:0 30px 90px -40px rgba(var(--accent-rgb),0.6)">
+        <div style="position:absolute;top:-140px;right:-60px;width:760px;height:480px;background:radial-gradient(closest-side,rgba(var(--accent-rgb),0.24),transparent 70%);opacity:var(--glowO);pointer-events:none"></div>
+        <div style="position:absolute;top:18px;right:18px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.18em;background:var(--accent);color:#14100C;border-radius:6px;padding:5px 9px;font-weight:500;z-index:2">MEILLEURE AFFAIRE</div>
+        <div style="position:relative;flex:0 0 280px;min-height:210px;background:#0C1017;border-right:1px solid rgba(255,255,255,0.06)">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="pack-full" shape="rect" placeholder="PHOTO — les 4 produits OBFLO réunis" hint-size="100%,100%" style="position:absolute;inset:0"></x-import>
+        </div>
+        <div style="position:relative;flex:1 1 320px;display:flex;flex-direction:column;justify-content:center;gap:10px;padding:30px 34px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.22em;color:#8FA1B3">PACK</div>
+          <div style="font-size:27px;font-weight:700;letter-spacing:-0.015em;color:#F2F5F8">Pack Full OBFLO</div>
+          <div style="font-size:15px;color:#93A2B1">Les 4 produits — mains, pieds, café, pièce</div>
+          <div style="margin-top:4px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.14em;color:var(--accent);border:1px solid rgba(var(--accent-rgb),0.4);border-radius:6px;padding:4px 9px">TU ÉCONOMISES 32&nbsp;€</span></div>
+        </div>
+        <div style="position:relative;flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-end;justify-content:center;gap:12px;padding:30px 34px">
+          <div style="display:flex;align-items:baseline;gap:12px"><span style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#66788A;text-decoration:line-through">171&nbsp;€</span><span style="font-size:34px;font-weight:700;color:var(--accent)">139&nbsp;€</span></div>
+          <button data-product="Pack Full OBFLO" onClick="{{ addToCart }}" style="background:linear-gradient(135deg,var(--accent),#E8451F);color:#14100C;border:none;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;padding:13px 24px;border-radius:11px;cursor:pointer;transition:transform .2s, box-shadow .2s" style-hover="transform:translateY(-2px);box-shadow:0 14px 36px -12px rgba(var(--accent-rgb),0.7)">Choisir mon pack</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 5 · LA CHALEUR RENDUE VISIBLE ══════════ -->
+<section id="techno" data-screen-label="Chaleur visible" style="scroll-margin-top:80px;position:relative;overflow:hidden;padding:110px 0;background:#0B0F16;border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05)">
+  <div style="position:absolute;top:20%;left:-200px;width:700px;height:600px;background:radial-gradient(closest-side,rgba(52,104,158,0.14),transparent 70%);opacity:var(--glowO);pointer-events:none"></div>
+  <div style="position:absolute;top:10%;right:-200px;width:700px;height:600px;background:radial-gradient(closest-side,rgba(var(--accent-rgb),0.12),transparent 70%);opacity:var(--glowO);pointer-events:none"></div>
+  <div style="position:relative;max-width:1240px;margin:0 auto;padding:0 32px">
+    <div style="display:flex;flex-direction:column;gap:14px;max-width:760px;margin-bottom:54px">
+      <div style="display:flex;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.22em"><span style="color:#66788A">04</span><span style="width:28px;height:1px;background:rgba(var(--accent-rgb),0.5)"></span><span style="color:var(--accent)">TECHNOLOGIE</span></div>
+      <h2 style="margin:0;font-size:clamp(34px,4vw,52px);font-weight:700;letter-spacing:-0.02em;line-height:1.04;color:#F2F5F8">Une chaleur ciblée.<br>Pas un simple accessoire.</h2>
+      <p style="margin:0;font-size:16.5px;line-height:1.6;color:#93A2B1;max-width:620px;text-wrap:pretty">Les produits OBFLO diffusent une chaleur douce et localisée là où le froid se fait sentir&nbsp;: mains, pieds, bureau, pièce d'appoint.</p>
+    </div>
+
+    <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:2px;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.09);background:rgba(255,255,255,0.09)">
+      <div style="position:relative;aspect-ratio:4/3;background:#0C1017">
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="thermo-normal" shape="rect" placeholder="PHOTO — main gantée, lumière froide bleutée" hint-size="100%,100%" style="position:absolute;inset:0"></x-import>
+        <div style="position:absolute;inset:0;background:linear-gradient(200deg,rgba(23,48,77,0.38),rgba(8,12,18,0.15) 60%);pointer-events:none"></div>
+        <div style="position:absolute;top:16px;left:16px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.18em;color:#AFC9DE;background:rgba(8,10,14,0.7);border:1px solid rgba(143,193,227,0.3);border-radius:8px;padding:7px 11px;pointer-events:none">CAMÉRA STANDARD</div>
+        <div style="position:absolute;bottom:16px;right:16px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#8FC1E3;background:rgba(8,10,14,0.7);border:1px solid rgba(143,193,227,0.3);border-radius:8px;padding:7px 11px;pointer-events:none">MAINS FROIDES — 8°C</div>
+      </div>
+      <div style="position:relative;aspect-ratio:4/3;background:#0C1017">
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="thermo-ir" shape="rect" placeholder="PHOTO — même main, vision thermique orange" hint-size="100%,100%" style="position:absolute;inset:0"></x-import>
+        <div style="position:absolute;inset:0;background:linear-gradient(160deg,rgba(var(--accent-rgb),0.14),rgba(8,12,18,0.1) 60%);pointer-events:none"></div>
+        <div style="position:absolute;top:16px;left:16px;display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.18em;color:#FFD2B8;background:rgba(8,10,14,0.7);border:1px solid rgba(var(--accent-rgb),0.4);border-radius:8px;padding:7px 11px;pointer-events:none"><span style="width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px rgba(var(--accent-rgb),1)"></span>VUE THERMIQUE</div>
+        <div style="position:absolute;bottom:16px;right:16px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);background:rgba(8,10,14,0.7);border:1px solid rgba(var(--accent-rgb),0.4);border-radius:8px;padding:7px 11px;pointer-events:none">ZONES ACTIVES — +42°C</div>
+      </div>
+      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.2em;color:#C4D2DE;background:rgba(8,10,14,0.85);border:1px solid rgba(255,255,255,0.14);border-radius:999px;padding:8px 14px;pointer-events:none;white-space:nowrap">MÊME MAIN — MÊME INSTANT</div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px;margin-top:36px">
+      <div style="display:flex;align-items:center;gap:12px;border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:16px 18px;background:rgba(255,255,255,0.02)"><span style="flex:none;width:8px;height:8px;background:var(--accent);transform:rotate(45deg);box-shadow:0 0 12px rgba(var(--accent-rgb),0.8)"></span><span style="font-size:15px;font-weight:500;color:#DCE4EC">Chauffe en quelques secondes</span></div>
+      <div style="display:flex;align-items:center;gap:12px;border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:16px 18px;background:rgba(255,255,255,0.02)"><span style="flex:none;width:8px;height:8px;background:var(--accent);transform:rotate(45deg);box-shadow:0 0 12px rgba(var(--accent-rgb),0.8)"></span><span style="font-size:15px;font-weight:500;color:#DCE4EC">Alimentation USB</span></div>
+      <div style="display:flex;align-items:center;gap:12px;border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:16px 18px;background:rgba(255,255,255,0.02)"><span style="flex:none;width:8px;height:8px;background:var(--accent);transform:rotate(45deg);box-shadow:0 0 12px rgba(var(--accent-rgb),0.8)"></span><span style="font-size:15px;font-weight:500;color:#DCE4EC">Format portable</span></div>
+      <div style="display:flex;align-items:center;gap:12px;border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:16px 18px;background:rgba(255,255,255,0.02)"><span style="flex:none;width:8px;height:8px;background:var(--accent);transform:rotate(45deg);box-shadow:0 0 12px rgba(var(--accent-rgb),0.8)"></span><span style="font-size:15px;font-weight:500;color:#DCE4EC">Usage intérieur &amp; extérieur</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 6 · POURQUOI OBFLO ══════════ -->
+<section id="pourquoi" data-screen-label="Pourquoi OBFLO" style="scroll-margin-top:80px;padding:96px 0;background:#0A0C10">
+  <div style="max-width:1240px;margin:0 auto;padding:0 32px">
+    <div style="display:flex;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.22em;margin-bottom:44px"><span style="color:#66788A">05</span><span style="width:28px;height:1px;background:rgba(var(--accent-rgb),0.5)"></span><span style="color:var(--accent)">POURQUOI OBFLO</span></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px 0">
+      <div style="display:flex;flex-direction:column;gap:10px;padding:6px 24px;border-left:1px solid rgba(255,255,255,0.08)">
+        <span style="width:9px;height:9px;background:var(--accent);transform:rotate(45deg);box-shadow:0 0 14px rgba(var(--accent-rgb),0.8);margin-bottom:6px"></span>
+        <div style="font-size:16px;font-weight:600;color:#F2F5F8">USB universel</div>
+        <p style="margin:0;font-size:13.5px;line-height:1.55;color:#8595A5">Compatible bureau, maison, powerbank.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;padding:6px 24px;border-left:1px solid rgba(255,255,255,0.08)">
+        <span style="width:9px;height:9px;background:var(--accent);transform:rotate(45deg);box-shadow:0 0 14px rgba(var(--accent-rgb),0.8);margin-bottom:6px"></span>
+        <div style="font-size:16px;font-weight:600;color:#F2F5F8">Chaleur instantanée</div>
+        <p style="margin:0;font-size:13.5px;line-height:1.55;color:#8595A5">Pensé pour les moments où tu as froid maintenant.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;padding:6px 24px;border-left:1px solid rgba(255,255,255,0.08)">
+        <span style="width:9px;height:9px;background:var(--accent);transform:rotate(45deg);box-shadow:0 0 14px rgba(var(--accent-rgb),0.8);margin-bottom:6px"></span>
+        <div style="font-size:16px;font-weight:600;color:#F2F5F8">Compact &amp; portable</div>
+        <p style="margin:0;font-size:13.5px;line-height:1.55;color:#8595A5">Facile à déplacer, ranger, emporter.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;padding:6px 24px;border-left:1px solid rgba(255,255,255,0.08)">
+        <span style="width:9px;height:9px;background:var(--accent);transform:rotate(45deg);box-shadow:0 0 14px rgba(var(--accent-rgb),0.8);margin-bottom:6px"></span>
+        <div style="font-size:16px;font-weight:600;color:#F2F5F8">Retours 30 jours</div>
+        <p style="margin:0;font-size:13.5px;line-height:1.55;color:#8595A5">Tu testes sans pression.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;padding:6px 24px;border-left:1px solid rgba(255,255,255,0.08)">
+        <span style="width:9px;height:9px;background:var(--accent);transform:rotate(45deg);box-shadow:0 0 14px rgba(var(--accent-rgb),0.8);margin-bottom:6px"></span>
+        <div style="font-size:16px;font-weight:600;color:#F2F5F8">Livraison rapide</div>
+        <p style="margin:0;font-size:13.5px;line-height:1.55;color:#8595A5">Essentiel pour des produits d'hiver.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 7 · AVIS CLIENTS ══════════ -->
+<section id="avis" data-screen-label="Avis clients" style="scroll-margin-top:80px;padding:110px 0;background:#0B0F16;border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05)">
+  <div style="max-width:1240px;margin:0 auto;padding:0 32px">
+    <div style="display:flex;flex-direction:column;gap:14px;max-width:720px;margin-bottom:54px">
+      <div style="display:flex;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.22em"><span style="color:#66788A">06</span><span style="width:28px;height:1px;background:rgba(var(--accent-rgb),0.5)"></span><span style="color:var(--accent)">AVIS CLIENTS</span></div>
+      <h2 style="margin:0;font-size:clamp(34px,4vw,52px);font-weight:700;letter-spacing:-0.02em;line-height:1.04;color:#F2F5F8">Ils ont déjà coupé le froid.</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px">
+
+      <div style="display:flex;flex-direction:column;gap:16px;background:#0F141B;border:1px solid rgba(255,255,255,0.07);border-radius:18px;padding:26px">
+        <div style="font-size:15px;letter-spacing:3px;color:var(--accent)">★★★★★</div>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#C9D4DF;text-wrap:pretty">«&nbsp;Je bosse souvent tard dans une pièce mal chauffée. Le chauffe-tasse est devenu indispensable.&nbsp;»</p>
+        <div style="display:flex;align-items:center;gap:12px;margin-top:auto">
+          <span style="width:38px;height:38px;border-radius:50%;background:rgba(143,193,227,0.1);border:1px solid rgba(143,193,227,0.25);display:inline-flex;align-items:center;justify-content:center;font-weight:600;font-size:14px;color:#AFC9DE">A</span>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <span style="font-size:14px;font-weight:600;color:#EDF1F5">Amine — Lyon</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#66788A">ACHAT VÉRIFIÉ</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:16px;background:#0F141B;border:1px solid rgba(255,255,255,0.07);border-radius:18px;padding:26px">
+        <div style="font-size:15px;letter-spacing:3px;color:var(--accent)">★★★★★</div>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#C9D4DF;text-wrap:pretty">«&nbsp;Les chaussons chauffent vite, parfait le soir devant la télé.&nbsp;»</p>
+        <div style="display:flex;align-items:center;gap:12px;margin-top:auto">
+          <span style="width:38px;height:38px;border-radius:50%;background:rgba(143,193,227,0.1);border:1px solid rgba(143,193,227,0.25);display:inline-flex;align-items:center;justify-content:center;font-weight:600;font-size:14px;color:#AFC9DE">L</span>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <span style="font-size:14px;font-weight:600;color:#EDF1F5">Laura — Lille</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#66788A">ACHAT VÉRIFIÉ</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:16px;background:#0F141B;border:1px solid rgba(255,255,255,0.07);border-radius:18px;padding:26px">
+        <div style="font-size:15px;letter-spacing:3px"><span style="color:var(--accent)">★★★★</span><span style="color:#3A4655">★</span></div>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#C9D4DF;text-wrap:pretty">«&nbsp;Les gants sont pratiques en scooter le matin.&nbsp;»</p>
+        <div style="display:flex;align-items:center;gap:12px;margin-top:auto">
+          <span style="width:38px;height:38px;border-radius:50%;background:rgba(143,193,227,0.1);border:1px solid rgba(143,193,227,0.25);display:inline-flex;align-items:center;justify-content:center;font-weight:600;font-size:14px;color:#AFC9DE">K</span>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <span style="font-size:14px;font-weight:600;color:#EDF1F5">Karim — Paris</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#66788A">ACHAT VÉRIFIÉ</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 8 · FAQ ══════════ -->
+<section id="faq" data-screen-label="FAQ" style="scroll-margin-top:80px;padding:110px 0;background:#0A0C10">
+  <div style="max-width:1240px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:60px">
+    <div style="display:flex;flex-direction:column;gap:14px;max-width:420px">
+      <div style="display:flex;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.22em"><span style="color:#66788A">07</span><span style="width:28px;height:1px;background:rgba(var(--accent-rgb),0.5)"></span><span style="color:var(--accent)">FAQ</span></div>
+      <h2 style="margin:0;font-size:clamp(34px,4vw,52px);font-weight:700;letter-spacing:-0.02em;line-height:1.04;color:#F2F5F8">Questions fréquentes.</h2>
+      <p style="margin:0;font-size:16px;line-height:1.6;color:#93A2B1;text-wrap:pretty">Une autre question&nbsp;? Écris-nous, on répond sous 24&nbsp;h.</p>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.08)">
+      <details style="border-bottom:1px solid rgba(255,255,255,0.08)">
+        <summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 0;cursor:pointer"><span style="font-size:16.5px;font-weight:500;color:#EDF1F5">Les gants fonctionnent avec une powerbank&nbsp;?</span><span style="font-family:'IBM Plex Mono',monospace;font-size:20px;color:var(--accent);transition:transform .25s;flex:none">+</span></summary>
+        <p style="margin:0;padding:0 40px 20px 0;font-size:14.5px;line-height:1.65;color:#8FA0B0;text-wrap:pretty">Oui. Tous nos produits s'alimentent en USB standard (5V). Une powerbank de 10&nbsp;000&nbsp;mAh fait fonctionner les gants ou les chaussons pendant plusieurs heures.</p>
+      </details>
+      <details style="border-bottom:1px solid rgba(255,255,255,0.08)">
+        <summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 0;cursor:pointer"><span style="font-size:16.5px;font-weight:500;color:#EDF1F5">Combien de temps faut-il pour chauffer&nbsp;?</span><span style="font-family:'IBM Plex Mono',monospace;font-size:20px;color:var(--accent);transition:transform .25s;flex:none">+</span></summary>
+        <p style="margin:0;padding:0 40px 20px 0;font-size:14.5px;line-height:1.65;color:#8FA0B0;text-wrap:pretty">Entre 30 secondes et 2 minutes selon le produit et le niveau choisi. La chaleur est perceptible quasi immédiatement.</p>
+      </details>
+      <details style="border-bottom:1px solid rgba(255,255,255,0.08)">
+        <summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 0;cursor:pointer"><span style="font-size:16.5px;font-weight:500;color:#EDF1F5">Les chaussons sont-ils lavables&nbsp;?</span><span style="font-family:'IBM Plex Mono',monospace;font-size:20px;color:var(--accent);transition:transform .25s;flex:none">+</span></summary>
+        <p style="margin:0;padding:0 40px 20px 0;font-size:14.5px;line-height:1.65;color:#8FA0B0;text-wrap:pretty">Oui, à la main et à l'eau froide, une fois le câble USB débranché. On évite le lave-linge et le sèche-linge.</p>
+      </details>
+      <details style="border-bottom:1px solid rgba(255,255,255,0.08)">
+        <summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 0;cursor:pointer"><span style="font-size:16.5px;font-weight:500;color:#EDF1F5">Le chauffage d'appoint consomme beaucoup&nbsp;?</span><span style="font-family:'IBM Plex Mono',monospace;font-size:20px;color:var(--accent);transition:transform .25s;flex:none">+</span></summary>
+        <p style="margin:0;padding:0 40px 20px 0;font-size:14.5px;line-height:1.65;color:#8FA0B0;text-wrap:pretty">Non. Il est conçu pour chauffer un espace réduit — un bureau, une chambre — pas toute la maison. C'est justement ce qui le rend économe.</p>
+      </details>
+      <details style="border-bottom:1px solid rgba(255,255,255,0.08)">
+        <summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 0;cursor:pointer"><span style="font-size:16.5px;font-weight:500;color:#EDF1F5">Peut-on retourner un produit&nbsp;?</span><span style="font-family:'IBM Plex Mono',monospace;font-size:20px;color:var(--accent);transition:transform .25s;flex:none">+</span></summary>
+        <p style="margin:0;padding:0 40px 20px 0;font-size:14.5px;line-height:1.65;color:#8FA0B0;text-wrap:pretty">Oui, sous 30 jours après réception, sans justification. Remboursement intégral dès que le produit nous revient.</p>
+      </details>
+      <details style="border-bottom:1px solid rgba(255,255,255,0.08)">
+        <summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 0;cursor:pointer"><span style="font-size:16.5px;font-weight:500;color:#EDF1F5">Quels sont les délais de livraison&nbsp;?</span><span style="font-family:'IBM Plex Mono',monospace;font-size:20px;color:var(--accent);transition:transform .25s;flex:none">+</span></summary>
+        <p style="margin:0;padding:0 40px 20px 0;font-size:14.5px;line-height:1.65;color:#8FA0B0;text-wrap:pretty">3 à 5 jours ouvrés en France métropolitaine, avec un numéro de suivi envoyé dès l'expédition.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 9 · FOOTER ══════════ -->
+<footer data-screen-label="Footer" style="background:#07090C">
+  <div style="height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent)"></div>
+  <div style="max-width:1240px;margin:0 auto;padding:70px 32px 36px">
+    <div style="display:flex;flex-wrap:wrap;gap:56px;justify-content:space-between">
+      <div style="display:flex;flex-direction:column;gap:18px;max-width:360px">
+        <div style="font-weight:700;font-size:24px;letter-spacing:0.05em;color:#F2F5F8">OBFLO<span style="color:var(--accent)">°</span></div>
+        <p style="margin:0;font-size:14px;line-height:1.6;color:#8595A5;text-wrap:pretty">La chaleur, exactement là où tu en as besoin.</p>
+        <div style="font-size:14px;font-weight:500;color:#C9D4DF;margin-top:10px">Reçois les offres froides avant tout le monde.</div>
+        <sc-if value="{{ notSubscribed }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;gap:10px">
+            <input ref="{{ nlRef }}" onKeyDown="{{ subscribeKey }}" type="email" placeholder="ton@email.fr" style="flex:1;min-width:0;background:#0C1017;border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:12px 14px;color:#EDF1F5;font-family:'Space Grotesk',sans-serif;font-size:14px;outline:none;transition:border-color .2s" style-focus="border-color:rgba(var(--accent-rgb),0.7)">
+            <button onClick="{{ subscribe }}" style="background:var(--accent);color:#14100C;border:none;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14px;padding:12px 20px;border-radius:10px;cursor:pointer;transition:transform .2s" style-hover="transform:translateY(-2px)">S'inscrire</button>
+          </div>
+        </sc-if>
+        <sc-if value="{{ subscribed }}" hint-placeholder-val="{{ false }}">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;color:var(--accent);border:1px solid rgba(var(--accent-rgb),0.4);border-radius:10px;padding:12px 14px">BIEN REÇU — ON TE TIENT AU CHAUD.</div>
+        </sc-if>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:56px">
+        <div style="display:flex;flex-direction:column;gap:12px;min-width:150px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.2em;color:#66788A;margin-bottom:4px">BOUTIQUE</div>
+          <a href="#gamme" style="text-decoration:none;color:#A7B4C2;font-size:13.5px" style-hover="color:var(--accent)">Gants Chauffants</a>
+          <a href="#gamme" style="text-decoration:none;color:#A7B4C2;font-size:13.5px" style-hover="color:var(--accent)">Chaussons Chauffants</a>
+          <a href="#gamme" style="text-decoration:none;color:#A7B4C2;font-size:13.5px" style-hover="color:var(--accent)">Chauffage d'Appoint</a>
+          <a href="#gamme" style="text-decoration:none;color:#A7B4C2;font-size:13.5px" style-hover="color:var(--accent)">Mini Chauffe-Tasse</a>
+          <a href="#packs" style="text-decoration:none;color:#A7B4C2;font-size:13.5px" style-hover="color:var(--accent)">Les packs</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;min-width:150px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.2em;color:#66788A;margin-bottom:4px">AIDE</div>
+          <a href="#faq" style="text-decoration:none;color:#A7B4C2;font-size:13.5px" style-hover="color:var(--accent)">FAQ</a>
+          <a href="#" style="text-decoration:none;color:#A7B4C2;font-size:13.5px" style-hover="color:var(--accent)">Contact</a>
+          <a href="#" style="text-decoration:none;color:#A7B4C2;font-size:13.5px" style-hover="color:var(--accent)">Suivi de commande</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;min-width:150px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.2em;color:#66788A;margin-bottom:4px">INFOS</div>
+          <a href="#" style="text-decoration:none;color:#A7B4C2;font-size:13.5px" style-hover="color:var(--accent)">Livraison &amp; retours</a>
+          <a href="#" style="text-decoration:none;color:#A7B4C2;font-size:13.5px" style-hover="color:var(--accent)">Mentions légales</a>
+          <a href="#" style="text-decoration:none;color:#A7B4C2;font-size:13.5px" style-hover="color:var(--accent)">CGV</a>
+          <a href="#" style="text-decoration:none;color:#A7B4C2;font-size:13.5px" style-hover="color:var(--accent)">Confidentialité</a>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;border-top:1px solid rgba(255,255,255,0.06);margin-top:56px;padding-top:24px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;color:#5A6774">
+      <span>© 2026 OBFLO — CONÇU POUR L'HIVER</span>
+      <span>FR — EUR</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════ TOAST PANIER ══════════ -->
+<sc-if value="{{ toastVisible }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;bottom:28px;left:50%;transform:translateX(-50%);z-index:100;display:flex;align-items:center;gap:10px;background:#121822;border:1px solid rgba(var(--accent-rgb),0.5);border-radius:12px;padding:13px 18px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;color:#EDF1F5;box-shadow:0 20px 60px -20px rgba(0,0,0,0.8);pointer-events:none;white-space:nowrap"><span style="width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px rgba(var(--accent-rgb),1)"></span>AJOUTÉ AU PANIER — {{ toastLabel }}</div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;accent&quot;: { &quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#FF6A2B&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#FF6A2B&quot;, &quot;#E8451F&quot;, &quot;#FFA23E&quot;], &quot;section&quot;: &quot;Direction artistique&quot; },
+  &quot;glow&quot;: { &quot;editor&quot;: &quot;range&quot;, &quot;default&quot;: 1, &quot;min&quot;: 0, &quot;max&quot;: 1.5, &quot;step&quot;: 0.05, &quot;tsType&quot;: &quot;number&quot;, &quot;section&quot;: &quot;Direction artistique&quot; },
+  &quot;annonce&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Contenu&quot; }
+}">
+class Component extends DCLogic {
+  state = { cart: 0, toastLabel: "", toastVisible: false, subscribed: false };
+  nlRef = React.createRef();
+
+  applyVars() {
+    const hex = (this.props.accent ?? "#FF6A2B").replace("#", "");
+    const r = parseInt(hex.slice(0, 2), 16);
+    const g = parseInt(hex.slice(2, 4), 16);
+    const b = parseInt(hex.slice(4, 6), 16);
+    const root = document.documentElement.style;
+    root.setProperty("--accent", "#" + hex);
+    root.setProperty("--accent-rgb", r + "," + g + "," + b);
+    root.setProperty("--glowO", String(this.props.glow ?? 1));
+  }
+  componentDidMount() { this.applyVars(); }
+  componentDidUpdate() { this.applyVars(); }
+  componentWillUnmount() { clearTimeout(this._t); }
+
+  addToCart = (e) => {
+    const label = e.currentTarget.getAttribute("data-product") || "Produit";
+    clearTimeout(this._t);
+    this.setState((s) => ({ cart: s.cart + 1, toastLabel: label.toUpperCase(), toastVisible: true }));
+    this._t = setTimeout(() => this.setState({ toastVisible: false }), 2400);
+  };
+
+  subscribe = () => {
+    const v = this.nlRef.current ? this.nlRef.current.value.trim() : "";
+    if (v) this.setState({ subscribed: true });
+  };
+  subscribeKey = (e) => { if (e.key === "Enter") this.subscribe(); };
+
+  renderVals() {
+    return {
+      cartCount: this.state.cart,
+      addToCart: this.addToCart,
+      showAnnonce: this.props.annonce ?? true,
+      toastVisible: this.state.toastVisible,
+      toastLabel: this.state.toastLabel,
+      subscribe: this.subscribe,
+      subscribeKey: this.subscribeKey,
+      subscribed: this.state.subscribed,
+      notSubscribed: !this.state.subscribed,
+      nlRef: this.nlRef
+    };
+  }
+}
+</script>
+</body>
+</html>

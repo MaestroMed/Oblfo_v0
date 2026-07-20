@@ -111,7 +111,25 @@
     "checkoutSoon": "Payments are being activated — try again soon.",
     "checkoutError": "Checkout could not start. Please try again in a moment.",
     "reassurance": "FREE SHIPPING OVER €60 — 30-DAY RETURNS",
-    "toastAdded": "ADDED TO CART — {name}"
+    "toastAdded": "ADDED TO CART — {name}",
+    "viewCart": "View cart"
+  },
+  "CartPage": {
+    "metaTitle": "Cart",
+    "kicker": "CART",
+    "title": "Your cart.",
+    "empty": "Your cart is empty. The cold, however, won't wait.",
+    "emptyCta": "Explore the range",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "shippingFree": "Free",
+    "freeShippingProgress": "{amount} away from free shipping",
+    "freeShippingReached": "Free shipping unlocked",
+    "total": "Total",
+    "checkout": "Checkout",
+    "continueShopping": "Continue shopping",
+    "crossSellKicker": "RANGE",
+    "crossSellLabel": "COMPLETE THE KIT"
   },
   "ProductPage": {
     "breadcrumbHome": "HOME",

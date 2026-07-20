@@ -658,5 +658,8 @@ export function translateProductSlug(
 }
 
 export function formatPrice(value: number, locale: Locale): string {
-  return locale === "fr" ? `${value} €` : `€${value}`;
+  const formatted = Number.isInteger(value)
+    ? String(value)
+    : value.toFixed(2).replace(".", locale === "fr" ? "," : ".");
+  return locale === "fr" ? `${formatted} €` : `€${formatted}`;
 }

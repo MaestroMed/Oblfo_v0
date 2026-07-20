@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { useCart } from "@/components/cart-context";
+import { useCheckout } from "@/components/use-checkout";
 import { formatPrice } from "@/data/catalog";
+import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 
 export function CartDrawer() {
@@ -11,37 +12,9 @@ export function CartDrawer() {
   const locale = useLocale() as Locale;
   const { items, total, drawerOpen, closeDrawer, removeItem, setQty } =
     useCart();
-  const [checkoutState, setCheckoutState] = useState<
-    "idle" | "loading" | "unavailable" | "error"
-  >("idle");
+  const { state: checkoutState, startCheckout } = useCheckout(locale);
 
   if (!drawerOpen) return null;
-
-  const startCheckout = async () => {
-    setCheckoutState("loading");
-    try {
-      const res = await fetch("/api/checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          locale,
-          items: items.map(({ id, qty }) => ({ id, qty })),
-        }),
-      });
-      if (res.status === 503) {
-        setCheckoutState("unavailable");
-        return;
-      }
-      if (!res.ok) {
-        setCheckoutState("error");
-        return;
-      }
-      const { url } = (await res.json()) as { url: string };
-      window.location.assign(url);
-    } catch {
-      setCheckoutState("error");
-    }
-  };
 
   return (
     <div className="fixed inset-0 z-[90]">
@@ -152,6 +125,13 @@ export function CartDrawer() {
                   {t("checkoutError")}
                 </p>
               ) : null}
+              <Link
+                href="/panier"
+                onClick={closeDrawer}
+                className="mt-3 block text-center font-mono text-[11px] tracking-[0.14em] text-[#8FA1B3] no-underline transition-colors hover:text-white"
+              >
+                {t("viewCart")}
+              </Link>
               <p className="mt-3 text-center font-mono text-[10px] tracking-[0.14em] text-[#66788A]">
                 {t("reassurance")}
               </p>

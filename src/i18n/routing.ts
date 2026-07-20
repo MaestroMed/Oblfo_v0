@@ -17,6 +17,10 @@ export const routing = defineRouting({
       en: "/shipping-returns",
     },
     "/contact": "/contact",
+    "/panier": {
+      fr: "/panier",
+      en: "/cart",
+    },
     "/mentions-legales": {
       fr: "/mentions-legales",
       en: "/legal-notice",

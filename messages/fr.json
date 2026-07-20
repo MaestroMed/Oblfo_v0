@@ -111,7 +111,25 @@
     "checkoutSoon": "Paiement en cours d'activation — réessaie bientôt.",
     "checkoutError": "Le paiement n'a pas pu démarrer. Réessaie dans un instant.",
     "reassurance": "LIVRAISON OFFERTE DÈS 60 € — RETOURS 30 J",
-    "toastAdded": "AJOUTÉ AU PANIER — {name}"
+    "toastAdded": "AJOUTÉ AU PANIER — {name}",
+    "viewCart": "Voir le panier"
+  },
+  "CartPage": {
+    "metaTitle": "Panier",
+    "kicker": "PANIER",
+    "title": "Ton panier.",
+    "empty": "Ton panier est vide. Le froid, lui, n'attend pas.",
+    "emptyCta": "Découvrir la gamme",
+    "subtotal": "Sous-total",
+    "shipping": "Livraison",
+    "shippingFree": "Offerte",
+    "freeShippingProgress": "Plus que {amount} pour la livraison offerte",
+    "freeShippingReached": "Livraison offerte débloquée",
+    "total": "Total",
+    "checkout": "Commander",
+    "continueShopping": "Continuer mes achats",
+    "crossSellKicker": "GAMME",
+    "crossSellLabel": "COMPLÉTER LA PANOPLIE"
   },
   "ProductPage": {
     "breadcrumbHome": "ACCUEIL",

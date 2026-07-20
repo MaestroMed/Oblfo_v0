@@ -3,11 +3,12 @@ import Stripe from "stripe";
 import { getSellableById } from "@/data/catalog";
 import { getPathname } from "@/i18n/navigation";
 import { isLocale, routing } from "@/i18n/routing";
+import { FREE_SHIPPING_THRESHOLD, STANDARD_SHIPPING } from "@/lib/shipping";
 import { SITE_URL } from "@/lib/site";
 
 // Livraison offerte dès 60 € (cf. bandeau + CGV), sinon forfait standard.
-const FREE_SHIPPING_THRESHOLD_CENTS = 60_00;
-const STANDARD_SHIPPING_CENTS = 4_90;
+const FREE_SHIPPING_THRESHOLD_CENTS = FREE_SHIPPING_THRESHOLD * 100;
+const STANDARD_SHIPPING_CENTS = Math.round(STANDARD_SHIPPING * 100);
 
 type CheckoutBody = {
   locale?: string;

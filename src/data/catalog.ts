@@ -16,6 +16,8 @@ type ProductSource = {
   id: string;
   slug: LText;
   price: number;
+  /** Passe à false pour retirer de la vente sans supprimer la page (rupture CJ). */
+  available?: boolean;
   glow: GlowTone;
   name: LText;
   tagline: LText;
@@ -35,6 +37,7 @@ type PackSource = {
   price: number;
   compareAt: number;
   imageLabel: string;
+  available?: boolean;
   featured?: boolean;
 };
 
@@ -44,6 +47,7 @@ export type Product = {
   /** Slug dans chaque locale — pour les alternates hreflang. */
   slugs: Record<Locale, string>;
   price: number;
+  available: boolean;
   glow: GlowTone;
   name: string;
   tagline: string;
@@ -63,6 +67,7 @@ export type Pack = {
   price: number;
   compareAt: number;
   imageLabel: string;
+  available: boolean;
   featured?: boolean;
 };
 
@@ -564,6 +569,7 @@ function localizeProduct(source: ProductSource, locale: Locale): Product {
     slug: source.slug[locale],
     slugs: source.slug,
     price: source.price,
+    available: source.available ?? true,
     glow: source.glow,
     name: source.name[locale],
     tagline: source.tagline[locale],
@@ -585,6 +591,7 @@ function localizePack(source: PackSource, locale: Locale): Pack {
     price: source.price,
     compareAt: source.compareAt,
     imageLabel: source.imageLabel,
+    available: source.available ?? true,
     featured: source.featured,
   };
 }
@@ -635,14 +642,24 @@ export function getFaqItems(locale: Locale): FaqItem[] {
 export function getSellableById(
   id: string,
   locale: Locale,
-): { id: string; name: string; price: number } | undefined {
+): { id: string; name: string; price: number; available: boolean } | undefined {
   const product = productSources.find((p) => p.id === id);
   if (product) {
-    return { id, name: product.name[locale], price: product.price };
+    return {
+      id,
+      name: product.name[locale],
+      price: product.price,
+      available: product.available ?? true,
+    };
   }
   const pack = packSources.find((p) => p.id === id);
   if (pack) {
-    return { id, name: pack.name[locale], price: pack.price };
+    return {
+      id,
+      name: pack.name[locale],
+      price: pack.price,
+      available: pack.available ?? true,
+    };
   }
   return undefined;
 }

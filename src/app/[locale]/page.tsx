@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
-import { Avis } from "@/components/avis";
 import { Faq } from "@/components/faq";
 import { Hero } from "@/components/hero";
 import { Moments } from "@/components/moments";
@@ -23,6 +22,12 @@ export async function generateMetadata({ params }: Props) {
     alternates: {
       canonical: path(locale),
       languages: { fr: path("fr"), en: path("en"), "x-default": path("fr") },
+    },
+    openGraph: {
+      url: path(locale),
+      siteName: "OBFLO",
+      locale: locale === "fr" ? "fr_FR" : "en_US",
+      type: "website",
     },
   };
 }
@@ -53,11 +58,16 @@ function buildStructuredData(locale: Locale) {
               params: { slug: product.slug },
             },
           })}`,
+          image: [
+            `${SITE_URL}/${locale}/produits/${product.slug}/opengraph-image`,
+          ],
           offers: {
             "@type": "Offer",
             price: product.price,
             priceCurrency: "EUR",
-            availability: "https://schema.org/InStock",
+            availability: product.available
+              ? "https://schema.org/InStock"
+              : "https://schema.org/OutOfStock",
           },
         })),
       },
@@ -87,7 +97,9 @@ export default async function HomePage({ params }: Props) {
         <Packs locale={locale} />
         <Techno />
         <Pourquoi />
-        <Avis locale={locale} />
+        {/* Section avis retirée tant qu'il n'y a pas de vrais avis clients
+            vérifiables (pratique commerciale trompeuse sinon — L121-4 C. conso).
+            Réactiver <Avis locale={locale} /> avec de vraies données. */}
         <Faq locale={locale} />
       </main>
       <script

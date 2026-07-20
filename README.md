@@ -66,6 +66,9 @@ Thème sombre « chaleur dans la nuit » : fond `#0A0C10`, accent orange `#FF6A2
 
 ## Avant mise en ligne
 
-- Compléter les marqueurs `[À COMPLÉTER]` des pages légales (entité juridique, e-mails, prestataire de paiement).
-- Renseigner `STRIPE_SECRET_KEY` + `STRIPE_WEBHOOK_SECRET` sur Vercel.
+- Entité : Opcodia LLC (Nouveau-Mexique, USA) — renseignée dans mentions légales et CGV. Restent `[À COMPLÉTER]` : e-mails (contact, SAV, RGPD), TVA/IOSS, médiateur de la consommation.
+- Renseigner `STRIPE_SECRET_KEY` + `STRIPE_WEBHOOK_SECRET` sur Vercel, et activer les reçus e-mail dans le dashboard Stripe (Settings → Customer emails).
+- `NEWSLETTER_WEBHOOK_URL` pour activer l'inscription newsletter (sinon le formulaire affiche « ouverture bientôt »).
 - Configurer obflo.fr → 301 obflo.com.
+- Section avis clients désactivée (aucun vrai avis — L121-4 C. conso). Réactiver `<Avis />` dans `src/app/[locale]/page.tsx` avec de vraies données.
+- Rupture de stock : passer `available: false` sur le produit/pack dans `src/data/catalog.ts` (bouton grisé + refus au checkout).

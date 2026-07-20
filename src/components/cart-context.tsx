@@ -8,6 +8,10 @@ import {
   useRef,
   useState,
 } from "react";
+import { useLocale } from "next-intl";
+import { getSellableById } from "@/data/catalog";
+import type { Locale } from "@/i18n/routing";
+import { MAX_QTY } from "@/lib/cart";
 
 export type CartItem = {
   /** Slug produit ou pack — identifiant stable pour l'app de pilotage. */
@@ -21,6 +25,7 @@ type CartContextValue = {
   items: CartItem[];
   count: number;
   total: number;
+  hydrated: boolean;
   drawerOpen: boolean;
   toastLabel: string;
   toastVisible: boolean;
@@ -36,7 +41,40 @@ const CartContext = createContext<CartContextValue | null>(null);
 
 const STORAGE_KEY = "obflo-cart-v1";
 
+/**
+ * Revalide un contenu de localStorage : structure saine + ids existants,
+ * nom/prix resynchronisés depuis le catalogue (source de vérité, bonne locale).
+ */
+function sanitizeStoredItems(raw: string | null, locale: Locale): CartItem[] {
+  if (!raw) return [];
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(raw);
+  } catch {
+    return [];
+  }
+  if (!Array.isArray(parsed)) return [];
+
+  const items: CartItem[] = [];
+  for (const entry of parsed) {
+    if (typeof entry !== "object" || entry === null) continue;
+    const { id, qty } = entry as { id?: unknown; qty?: unknown };
+    if (typeof id !== "string" || typeof qty !== "number") continue;
+    if (!Number.isFinite(qty) || qty < 1) continue;
+    const sellable = getSellableById(id, locale);
+    if (!sellable) continue;
+    items.push({
+      id,
+      name: sellable.name,
+      price: sellable.price,
+      qty: Math.min(Math.floor(qty), MAX_QTY),
+    });
+  }
+  return items;
+}
+
 export function CartProvider({ children }: { children: React.ReactNode }) {
+  const locale = useLocale() as Locale;
   const [items, setItems] = useState<CartItem[]>([]);
   const [hydrated, setHydrated] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -46,13 +84,12 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     try {
-      const raw = window.localStorage.getItem(STORAGE_KEY);
-      if (raw) setItems(JSON.parse(raw) as CartItem[]);
+      setItems(sanitizeStoredItems(window.localStorage.getItem(STORAGE_KEY), locale));
     } catch {
-      // stockage corrompu ou indisponible — on repart d'un panier vide
+      // stockage indisponible — panier vide
     }
     setHydrated(true);
-  }, []);
+  }, [locale]);
 
   useEffect(() => {
     if (!hydrated) return;
@@ -62,6 +99,16 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       // stockage indisponible (navigation privée) — panier non persisté
     }
   }, [items, hydrated]);
+
+  // Synchronisation entre onglets.
+  useEffect(() => {
+    const onStorage = (e: StorageEvent) => {
+      if (e.key !== STORAGE_KEY) return;
+      setItems(sanitizeStoredItems(e.newValue, locale));
+    };
+    window.addEventListener("storage", onStorage);
+    return () => window.removeEventListener("storage", onStorage);
+  }, [locale]);
 
   const showToast = useCallback((label: string) => {
     if (timer.current) clearTimeout(timer.current);
@@ -76,7 +123,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         const existing = prev.find((i) => i.id === item.id);
         if (existing) {
           return prev.map((i) =>
-            i.id === item.id ? { ...i, qty: i.qty + 1 } : i,
+            i.id === item.id ? { ...i, qty: Math.min(i.qty + 1, MAX_QTY) } : i,
           );
         }
         return [...prev, { ...item, qty: 1 }];
@@ -91,15 +138,21 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const setQty = useCallback((id: string, qty: number) => {
+    const clamped = Math.min(qty, MAX_QTY);
     setItems((prev) =>
-      qty <= 0
+      clamped <= 0
         ? prev.filter((i) => i.id !== id)
-        : prev.map((i) => (i.id === id ? { ...i, qty } : i)),
+        : prev.map((i) => (i.id === id ? { ...i, qty: clamped } : i)),
     );
   }, []);
 
   const clearCart = useCallback(() => {
     setItems([]);
+    try {
+      window.localStorage.setItem(STORAGE_KEY, "[]");
+    } catch {
+      // stockage indisponible — rien à purger
+    }
   }, []);
 
   const count = items.reduce((sum, i) => sum + i.qty, 0);
@@ -111,6 +164,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         items,
         count,
         total,
+        hydrated,
         drawerOpen,
         toastLabel,
         toastVisible,

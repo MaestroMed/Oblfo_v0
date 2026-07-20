@@ -3,6 +3,7 @@ import Stripe from "stripe";
 import { getSellableById } from "@/data/catalog";
 import { getPathname } from "@/i18n/navigation";
 import { isLocale, routing } from "@/i18n/routing";
+import { MAX_QTY } from "@/lib/cart";
 import { FREE_SHIPPING_THRESHOLD, STANDARD_SHIPPING } from "@/lib/shipping";
 import { SITE_URL } from "@/lib/site";
 
@@ -12,8 +13,31 @@ const STANDARD_SHIPPING_CENTS = Math.round(STANDARD_SHIPPING * 100);
 
 type CheckoutBody = {
   locale?: string;
-  items?: { id?: string; qty?: number }[];
+  items?: { id?: unknown; qty?: unknown }[];
 };
+
+/**
+ * Les URLs de retour Stripe ne doivent jamais pointer vers un domaine
+ * arbitraire fourni par le client (vecteur de phishing post-paiement).
+ * On n'accepte l'Origin de la requête qu'en dev local.
+ */
+function trustedOrigin(request: Request): string {
+  const origin = request.headers.get("origin");
+  if (!origin) return SITE_URL;
+  try {
+    const url = new URL(origin);
+    if (url.host === new URL(SITE_URL).host) return SITE_URL;
+    if (
+      process.env.NODE_ENV !== "production" &&
+      (url.hostname === "localhost" || url.hostname === "127.0.0.1")
+    ) {
+      return origin;
+    }
+  } catch {
+    // origin illisible — on retombe sur le domaine canonique
+  }
+  return SITE_URL;
+}
 
 export async function POST(request: Request) {
   const secretKey = process.env.STRIPE_SECRET_KEY;
@@ -39,12 +63,18 @@ export async function POST(request: Request) {
   }
 
   // Les prix viennent exclusivement du catalogue serveur — jamais du client.
+  // normalizedItems est la seule représentation qui part en metadata :
+  // elle reflète exactement ce qui est facturé.
   const lineItems: Stripe.Checkout.SessionCreateParams.LineItem[] = [];
+  const normalizedItems: { id: string; qty: number }[] = [];
   let subtotalCents = 0;
 
   for (const item of body.items) {
-    const qty = Math.floor(item.qty ?? 0);
-    if (!item.id || qty < 1 || qty > 50) {
+    if (typeof item.id !== "string" || typeof item.qty !== "number") {
+      return NextResponse.json({ error: "invalid_item" }, { status: 400 });
+    }
+    const qty = Math.floor(item.qty);
+    if (!Number.isFinite(qty) || qty < 1 || qty > MAX_QTY) {
       return NextResponse.json({ error: "invalid_item" }, { status: 400 });
     }
     const sellable = getSellableById(item.id, locale);
@@ -54,8 +84,15 @@ export async function POST(request: Request) {
         { status: 400 },
       );
     }
-    const unitAmount = sellable.price * 100;
+    if (!sellable.available) {
+      return NextResponse.json(
+        { error: "item_unavailable", id: item.id },
+        { status: 409 },
+      );
+    }
+    const unitAmount = Math.round(sellable.price * 100);
     subtotalCents += unitAmount * qty;
+    normalizedItems.push({ id: item.id, qty });
     lineItems.push({
       quantity: qty,
       price_data: {
@@ -69,7 +106,7 @@ export async function POST(request: Request) {
     });
   }
 
-  const origin = request.headers.get("origin") ?? SITE_URL;
+  const origin = trustedOrigin(request);
   const successPath = getPathname({ locale, href: "/merci" });
   const homePath = getPathname({ locale, href: "/" });
   const shippingCents =
@@ -84,8 +121,10 @@ export async function POST(request: Request) {
       mode: "payment",
       locale,
       line_items: lineItems,
+      // FR uniquement au lancement — étendre en même temps que CGV + grille
+      // de frais de port (l'audit a relevé l'incohérence CGV vs pays permis).
       shipping_address_collection: {
-        allowed_countries: ["FR", "BE", "LU", "MC", "CH", "DE", "ES", "IT", "NL", "PT"],
+        allowed_countries: ["FR"],
       },
       shipping_options: [
         {
@@ -110,9 +149,7 @@ export async function POST(request: Request) {
       success_url: `${origin}${successPath}?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}${homePath}`,
       metadata: {
-        obflo_items: JSON.stringify(
-          body.items.map((i) => ({ id: i.id, qty: i.qty })),
-        ),
+        obflo_items: JSON.stringify(normalizedItems),
       },
     });
 

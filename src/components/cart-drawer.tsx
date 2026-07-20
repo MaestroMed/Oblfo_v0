@@ -1,7 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { useCart } from "@/components/cart-context";
+import { TermsConsent } from "@/components/terms-consent";
 import { useCheckout } from "@/components/use-checkout";
 import { formatPrice } from "@/data/catalog";
 import { Link } from "@/i18n/navigation";
@@ -13,6 +15,7 @@ export function CartDrawer() {
   const { items, total, drawerOpen, closeDrawer, removeItem, setQty } =
     useCart();
   const { state: checkoutState, startCheckout } = useCheckout(locale);
+  const [termsAccepted, setTermsAccepted] = useState(false);
 
   if (!drawerOpen) return null;
 
@@ -99,19 +102,28 @@ export function CartDrawer() {
               ))}
             </ul>
             <div className="border-t border-white/8 px-6 py-5">
-              <div className="mb-4 flex items-baseline justify-between">
+              <div className="mb-1 flex items-baseline justify-between">
                 <span className="font-mono text-[11px] tracking-[0.18em] text-[#8FA1B3]">
-                  {t("total")}
+                  {t("subtotal")}
                 </span>
                 <span className="text-[26px] font-bold text-accent">
                   {formatPrice(total, locale)}
                 </span>
               </div>
+              <p className="mb-4 font-mono text-[10px] tracking-[0.12em] text-[#66788A]">
+                {t("shippingAtCheckout")}
+              </p>
+              <div className="mb-4">
+                <TermsConsent
+                  checked={termsAccepted}
+                  onChange={setTermsAccepted}
+                />
+              </div>
               <button
                 type="button"
                 onClick={startCheckout}
-                disabled={checkoutState === "loading"}
-                className="w-full cursor-pointer rounded-xl bg-accent px-6 py-[14px] text-[15px] font-semibold text-[#14100C] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_40px_-12px_rgba(255,106,43,0.6)] disabled:cursor-wait disabled:opacity-60"
+                disabled={checkoutState === "loading" || !termsAccepted}
+                className="w-full cursor-pointer rounded-xl bg-accent px-6 py-[14px] text-[15px] font-semibold text-[#14100C] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_40px_-12px_rgba(255,106,43,0.6)] disabled:cursor-not-allowed disabled:opacity-50"
               >
                 {t("checkout")}
               </button>

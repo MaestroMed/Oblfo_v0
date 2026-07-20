@@ -8,6 +8,7 @@ import type { Locale } from "@/i18n/routing";
 
 export function ProductGrid({ locale }: { locale: Locale }) {
   const t = useTranslations("Range");
+  const tCart = useTranslations("Cart");
   const products = getProducts(locale);
 
   return (
@@ -64,14 +65,20 @@ export function ProductGrid({ locale }: { locale: Locale }) {
                   <div className="text-[25px] font-bold text-ink">
                     {formatPrice(product.price, locale)}
                   </div>
-                  <AddToCartButton
-                    id={product.id}
-                    name={product.name}
-                    price={product.price}
-                    className="cursor-pointer rounded-[10px] bg-accent px-5 py-[11px] text-sm font-semibold text-[#14100C] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_-10px_rgba(255,106,43,0.7)]"
-                  >
-                    {t("addToCart")}
-                  </AddToCartButton>
+                  {product.available ? (
+                    <AddToCartButton
+                      id={product.id}
+                      name={product.name}
+                      price={product.price}
+                      className="cursor-pointer rounded-[10px] bg-accent px-5 py-[11px] text-sm font-semibold text-[#14100C] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_-10px_rgba(255,106,43,0.7)]"
+                    >
+                      {t("addToCart")}
+                    </AddToCartButton>
+                  ) : (
+                    <span className="rounded-[10px] border border-white/12 px-5 py-[11px] text-sm font-semibold text-[#66788A]">
+                      {tCart("unavailable")}
+                    </span>
+                  )}
                 </div>
               </div>
             </div>

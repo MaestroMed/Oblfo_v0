@@ -38,23 +38,35 @@ function productAlternates(locale: Locale, slugs: Record<Locale, string>) {
   };
 }
 
+/** Coupe au dernier mot entier sous `max` caractères (meta descriptions). */
+function truncateAtWord(text: string, max: number): string {
+  if (text.length <= max) return text;
+  const cut = text.slice(0, max);
+  return `${cut.slice(0, cut.lastIndexOf(" "))}…`;
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   if (!isLocale(locale)) return {};
   const product = getProductBySlug(locale, slug);
   if (!product) return {};
-  const t = await getTranslations({ locale, namespace: "ProductPage" });
+
+  const path = getPathname({
+    locale,
+    href: { pathname: "/produits/[slug]", params: { slug: product.slug } },
+  });
 
   return {
     title: `${product.name} — ${formatPrice(product.price, locale)}`,
-    description: t("metaDescription", {
-      tagline: product.tagline,
-      highlights: product.highlights.join(", "),
-    }),
+    description: truncateAtWord(product.description[0], 158),
     alternates: productAlternates(locale, product.slugs),
     openGraph: {
       title: `${product.name} | OBFLO`,
       description: product.tagline,
+      url: path,
+      siteName: "OBFLO",
+      locale: locale === "fr" ? "fr_FR" : "en_US",
+      type: "website",
     },
   };
 }
@@ -68,6 +80,7 @@ export default async function ProductPage({ params }: Props) {
   if (!product) notFound();
 
   const t = await getTranslations("ProductPage");
+  const tCart = await getTranslations("Cart");
   const packsWithProduct = getPacksForProduct(locale, product.id);
   const otherProducts = getProducts(locale).filter((p) => p.id !== product.id);
 
@@ -75,6 +88,9 @@ export default async function ProductPage({ params }: Props) {
     locale,
     href: { pathname: "/produits/[slug]", params: { slug: product.slug } },
   })}`;
+  // Visuel OG servi sur le chemin physique (segment interne + slug localisé) —
+  // remplacé par les vraies photos produit dès les shootings faits.
+  const productImageUrl = `${SITE_URL}/${locale}/produits/${product.slug}/opengraph-image`;
 
   const structuredData = {
     "@context": "https://schema.org",
@@ -84,12 +100,15 @@ export default async function ProductPage({ params }: Props) {
         name: product.name,
         description: product.tagline,
         url: productUrl,
+        image: [productImageUrl],
         brand: { "@type": "Brand", name: "OBFLO" },
         offers: {
           "@type": "Offer",
           price: product.price,
           priceCurrency: "EUR",
-          availability: "https://schema.org/InStock",
+          availability: product.available
+            ? "https://schema.org/InStock"
+            : "https://schema.org/OutOfStock",
           url: productUrl,
         },
       },
@@ -102,13 +121,7 @@ export default async function ProductPage({ params }: Props) {
             name: t("breadcrumbHome"),
             item: `${SITE_URL}${getPathname({ locale, href: "/" })}`,
           },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: t("breadcrumbRange"),
-            item: `${SITE_URL}${getPathname({ locale, href: "/" })}#gamme`,
-          },
-          { "@type": "ListItem", position: 3, name: product.name },
+          { "@type": "ListItem", position: 2, name: product.name },
         ],
       },
     ],
@@ -205,14 +218,20 @@ export default async function ProductPage({ params }: Props) {
                 <div className="text-[38px] font-bold text-ink">
                   {formatPrice(product.price, locale)}
                 </div>
-                <AddToCartButton
-                  id={product.id}
-                  name={product.name}
-                  price={product.price}
-                  className="cursor-pointer rounded-xl bg-accent px-[26px] py-[15px] text-[15px] font-semibold text-[#14100C] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_40px_-12px_rgba(255,106,43,0.6)]"
-                >
-                  {t("addToCart")}
-                </AddToCartButton>
+                {product.available ? (
+                  <AddToCartButton
+                    id={product.id}
+                    name={product.name}
+                    price={product.price}
+                    className="cursor-pointer rounded-xl bg-accent px-[26px] py-[15px] text-[15px] font-semibold text-[#14100C] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_40px_-12px_rgba(255,106,43,0.6)]"
+                  >
+                    {t("addToCart")}
+                  </AddToCartButton>
+                ) : (
+                  <span className="rounded-xl border border-white/12 px-[26px] py-[15px] text-[15px] font-semibold text-[#66788A]">
+                    {tCart("unavailable")}
+                  </span>
+                )}
               </div>
               <div className="font-mono text-[11px] tracking-[0.16em] text-[#66788A]">
                 {t("reassurance")}

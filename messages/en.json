@@ -112,7 +112,11 @@
     "checkoutError": "Checkout could not start. Please try again in a moment.",
     "reassurance": "FREE SHIPPING OVER €60 — 30-DAY RETURNS",
     "toastAdded": "ADDED TO CART — {name}",
-    "viewCart": "View cart"
+    "viewCart": "View cart",
+    "subtotal": "SUBTOTAL",
+    "shippingAtCheckout": "Shipping calculated at checkout",
+    "acceptTerms": "I accept the <terms>terms of sale</terms>",
+    "unavailable": "Sold out"
   },
   "CartPage": {
     "metaTitle": "Cart",
@@ -144,8 +148,7 @@
     "packsLabel": "CHEAPER IN A BUNDLE",
     "choosePack": "Pick this bundle",
     "rangeKicker": "RANGE",
-    "rangeLabel": "COMPLETE THE KIT",
-    "metaDescription": "{tagline} {highlights}. Free shipping over €60, 30-day returns."
+    "rangeLabel": "COMPLETE THE KIT"
   },
   "Footer": {
     "tagline": "Warmth, exactly where you need it.",
@@ -153,6 +156,8 @@
     "newsletterPlaceholder": "your@email.com",
     "subscribe": "Subscribe",
     "subscribed": "GOT IT — WE'LL KEEP YOU WARM.",
+    "newsletterSoon": "SIGN-UP OPENS VERY SOON.",
+    "newsletterError": "THAT DIDN'T WORK — TRY AGAIN.",
     "shop": "SHOP",
     "packs": "The bundles",
     "help": "HELP",
@@ -204,7 +209,7 @@
       {
         "title": "30-day returns",
         "paragraphs": [
-          "You have 30 days after delivery to return a product, no questions asked. It just needs to be complete and in good condition. Contact us for a return label — the full refund goes out as soon as the product reaches us."
+          "You have 30 days after delivery to return a product, no questions asked. It just needs to be complete and in good condition. Contact us before sending anything back: return shipping is at your expense (except for defective products or our error), and the full refund goes out as soon as the product reaches us."
         ]
       },
       {
@@ -234,8 +239,8 @@
     "kicker": "LEGAL",
     "title": "Legal notice.",
     "editorTitle": "Site publisher",
-    "editorP1": "The OBFLO website is published by <tc>company name</tc>, <tc>legal form and capital</tc>, registered under number <tc>SIREN / RCS</tc>, with registered office at <tc>registered address</tc>.",
-    "editorP2": "Intra-community VAT number: <tc>VAT</tc>. Publication director: <tc>name</tc>. Contact: <tc>contact email</tc>.",
+    "editorP1": "The OBFLO website is published by Opcodia LLC, a limited liability company registered in the State of New Mexico (United States), with registered office at 1209 Mountain Road Pl NE, Ste R, Albuquerque, NM 87110, USA.",
+    "editorP2": "Publication director: Mehdi Nafaa. Intra-community VAT number: <tc>VAT / IOSS pending</tc>. Contact: <tc>contact email</tc>.",
     "hostingTitle": "Hosting",
     "hostingP1": "The site is hosted by Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA — vercel.com.",
     "ipTitle": "Intellectual property",
@@ -248,15 +253,15 @@
     "title": "Terms of sale.",
     "intro": "Version applicable to any order placed on the OBFLO website.",
     "s1Title": "1. Purpose",
-    "s1P1": "These terms govern sales concluded between <tc>company name</tc> and any customer placing an order on the OBFLO website.",
+    "s1P1": "These terms govern sales concluded between Opcodia LLC (1209 Mountain Road Pl NE, Ste R, Albuquerque, NM 87110, USA) and any customer placing an order on the OBFLO website.",
     "s2Title": "2. Prices",
     "s2P1": "Prices are shown in euros, all taxes included, excluding shipping. Shipping costs are displayed before order confirmation. Shipping is free over €60 in metropolitan France.",
     "s3Title": "3. Orders and payment",
-    "s3P1": "Orders are final once payment is confirmed. Accepted payment methods: <tc>card, Apple Pay, PayPal…</tc>. Payments are secured by <tc>payment provider</tc>.",
+    "s3P1": "Orders are final once payment is confirmed. Accepted payment methods: bank card (plus Apple Pay / Google Pay depending on device). Payments are secured by Stripe; no card data ever touches our servers.",
     "s4Title": "4. Delivery",
     "s4P1": "Orders ship within 24 to 48 business hours, with delivery in 3 to 5 business days in metropolitan France, tracked. If delivery is delayed by more than 7 business days, the customer may cancel the order for a full refund.",
     "s5Title": "5. Withdrawal and returns",
-    "s5P1": "Under the French Consumer Code, customers have 14 days to withdraw. OBFLO extends this to 30 days after delivery, no questions asked. The full refund is issued once the returned product arrives complete and in good condition.",
+    "s5P1": "Under the French Consumer Code, customers have 14 days to withdraw. OBFLO extends this to 30 days after delivery, no questions asked. Return shipping costs are borne by the customer, except for defective products or our error. The full refund is issued once the returned product arrives complete and in good condition.",
     "s6Title": "6. Warranties",
     "s6P1": "All products carry the legal warranties of conformity (2 years) and against hidden defects. For a defective product: replacement or refund, at the customer's choice.",
     "s7Title": "7. Customer service",
@@ -271,7 +276,7 @@
     "title": "Privacy.",
     "intro": "What we collect, why, and what you can demand. Short and honest version.",
     "s1Title": "Data we collect",
-    "s1P1": "When you order: name, delivery address, email, phone number (for the carrier). When you subscribe to the newsletter: email only. Payment data is handled directly by <tc>payment provider</tc> and never touches our servers.",
+    "s1P1": "When you order: name, delivery address, email, phone number (for the carrier). When you subscribe to the newsletter: email only. Payment data is handled directly by Stripe and never touches our servers.",
     "s2Title": "How we use it",
     "s2P1": "Your data is used to prepare, ship and track your order, answer your support requests, and — if you opted in — send you our offers. It is never sold.",
     "s3Title": "Processors",

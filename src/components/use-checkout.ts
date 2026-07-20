@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useCart } from "@/components/cart-context";
 import type { Locale } from "@/i18n/routing";
 
@@ -10,6 +10,16 @@ export type CheckoutState = "idle" | "loading" | "unavailable" | "error";
 export function useCheckout(locale: Locale) {
   const { items } = useCart();
   const [state, setState] = useState<CheckoutState>("idle");
+
+  // Retour depuis Stripe via le bouton Précédent : le bfcache restaure l'état
+  // React tel quel — sans ce reset, le bouton resterait bloqué en "loading".
+  useEffect(() => {
+    const onPageShow = (e: PageTransitionEvent) => {
+      if (e.persisted) setState("idle");
+    };
+    window.addEventListener("pageshow", onPageShow);
+    return () => window.removeEventListener("pageshow", onPageShow);
+  }, []);
 
   const startCheckout = async () => {
     setState("loading");

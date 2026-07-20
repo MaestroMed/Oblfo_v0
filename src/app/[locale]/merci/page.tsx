@@ -1,13 +1,19 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import Stripe from "stripe";
 import { ClearCartOnMount } from "@/components/clear-cart-on-mount";
 import { Link } from "@/i18n/navigation";
 import { isLocale } from "@/i18n/routing";
 
-type Props = { params: Promise<{ locale: string }> };
+type Props = {
+  params: Promise<{ locale: string }>;
+  searchParams: Promise<{ session_id?: string }>;
+};
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: Pick<Props, "params">): Promise<Metadata> {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   const t = await getTranslations({ locale, namespace: "Merci" });
@@ -17,10 +23,34 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function MerciPage({ params }: Props) {
-  const { locale } = await params;
+/**
+ * Confirme la page uniquement pour une vraie session payée quand Stripe est
+ * configuré. Sans clé (dev), on affiche la page si un session_id est présent.
+ */
+async function isPaidSession(sessionId: string | undefined): Promise<boolean> {
+  if (!sessionId) return false;
+  const secretKey = process.env.STRIPE_SECRET_KEY;
+  if (!secretKey) return true;
+  try {
+    const stripe = new Stripe(secretKey);
+    const session = await stripe.checkout.sessions.retrieve(sessionId);
+    return session.payment_status === "paid";
+  } catch {
+    return false;
+  }
+}
+
+export default async function MerciPage({ params, searchParams }: Props) {
+  const [{ locale }, { session_id: sessionId }] = await Promise.all([
+    params,
+    searchParams,
+  ]);
   if (!isLocale(locale)) notFound();
   setRequestLocale(locale);
+
+  const paid = await isPaidSession(sessionId);
+  if (!paid) notFound();
+
   const t = await getTranslations("Merci");
 
   return (

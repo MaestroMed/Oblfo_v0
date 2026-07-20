@@ -1,8 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { useCart } from "@/components/cart-context";
 import { ImageSlot } from "@/components/image-slot";
+import { TermsConsent } from "@/components/terms-consent";
 import { useCheckout } from "@/components/use-checkout";
 import { formatPrice, getProducts } from "@/data/catalog";
 import { Link } from "@/i18n/navigation";
@@ -14,6 +16,7 @@ export function CartPageContent({ locale }: { locale: Locale }) {
   const tCart = useTranslations("Cart");
   const { items, total, removeItem, setQty } = useCart();
   const { state: checkoutState, startCheckout } = useCheckout(locale);
+  const [termsAccepted, setTermsAccepted] = useState(false);
 
   const shipping = shippingCostFor(total);
   const grandTotal = total + shipping;
@@ -149,11 +152,15 @@ export function CartPageContent({ locale }: { locale: Locale }) {
                 </div>
               </div>
 
+              <TermsConsent
+                checked={termsAccepted}
+                onChange={setTermsAccepted}
+              />
               <button
                 type="button"
                 onClick={startCheckout}
-                disabled={checkoutState === "loading"}
-                className="w-full cursor-pointer rounded-xl bg-accent px-6 py-[15px] text-[15px] font-semibold text-[#14100C] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_40px_-12px_rgba(255,106,43,0.6)] disabled:cursor-wait disabled:opacity-60"
+                disabled={checkoutState === "loading" || !termsAccepted}
+                className="w-full cursor-pointer rounded-xl bg-accent px-6 py-[15px] text-[15px] font-semibold text-[#14100C] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_40px_-12px_rgba(255,106,43,0.6)] disabled:cursor-not-allowed disabled:opacity-50"
               >
                 {t("checkout")}
               </button>

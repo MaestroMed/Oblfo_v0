@@ -21,6 +21,8 @@ export const routing = defineRouting({
       fr: "/panier",
       en: "/cart",
     },
+    "/guides": "/guides",
+    "/guides/[slug]": "/guides/[slug]",
     "/mentions-legales": {
       fr: "/mentions-legales",
       en: "/legal-notice",

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getProducts } from "@/data/catalog";
+import { getGuides } from "@/data/guides";
 import { getPathname } from "@/i18n/navigation";
 import { routing, type Locale } from "@/i18n/routing";
 import { SITE_URL } from "@/lib/site";
@@ -41,9 +42,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ),
   );
 
+  const guideEntries = getGuides(routing.defaultLocale).flatMap((guide) =>
+    entries(
+      (locale) => ({
+        pathname: "/guides/[slug]",
+        params: { slug: guide.slugs[locale] },
+      }),
+      0.7,
+      "monthly",
+    ),
+  );
+
   return [
     ...entries(() => "/", 1, "weekly"),
     ...productEntries,
+    ...entries(() => "/guides", 0.7, "weekly"),
+    ...guideEntries,
     ...entries(() => "/livraison-retours", 0.4, "monthly"),
     ...entries(() => "/contact", 0.4, "monthly"),
   ];

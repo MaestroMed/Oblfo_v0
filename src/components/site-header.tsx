@@ -36,6 +36,12 @@ export function SiteHeader() {
               {t(anchor.key)}
             </a>
           ))}
+          <a
+            href={`/${locale}/guides`}
+            className="text-[13.5px] text-[#A7B4C2] no-underline transition-colors hover:text-white"
+          >
+            {t("guides")}
+          </a>
         </nav>
         <div className="flex items-center gap-4">
           <LocaleSwitcher />

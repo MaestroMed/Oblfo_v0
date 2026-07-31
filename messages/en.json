@@ -12,7 +12,20 @@
     "packs": "Bundles",
     "techno": "Technology",
     "faq": "FAQ",
+    "guides": "Guides",
     "cart": "CART"
+  },
+  "Guides": {
+    "metaTitle": "Guides — choosing heated gear that actually works",
+    "metaDescription": "Honest buying guides: space heater running costs, USB vs battery heated gloves, real-world battery life. Choose without getting burned.",
+    "kicker": "GUIDES",
+    "title": "Choose without getting burned.",
+    "intro": "Short, honest guides — what spec sheets don't tell you, the numbers that matter, and which option makes sense for which use.",
+    "readTime": "{minutes} MIN READ",
+    "published": "PUBLISHED {date}",
+    "backToGuides": "ALL GUIDES",
+    "relatedLabel": "PRODUCTS IN THIS GUIDE",
+    "seeProduct": "See the product"
   },
   "Hero": {
     "kicker": "OBFLO — PORTABLE WARMTH",
@@ -161,6 +174,7 @@
     "shop": "SHOP",
     "packs": "The bundles",
     "help": "HELP",
+    "guides": "Guides",
     "faq": "FAQ",
     "contact": "Contact",
     "orderTracking": "Order tracking",

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { Analytics } from "@vercel/analytics/next";
 import { NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
@@ -80,6 +81,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             <CartToast />
           </CartProvider>
         </NextIntlClientProvider>
+        <Analytics />
       </body>
     </html>
   );

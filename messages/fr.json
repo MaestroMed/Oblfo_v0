@@ -12,7 +12,20 @@
     "packs": "Packs",
     "techno": "Technologie",
     "faq": "FAQ",
+    "guides": "Guides",
     "cart": "PANIER"
+  },
+  "Guides": {
+    "metaTitle": "Guides — bien choisir ses objets chauffants",
+    "metaDescription": "Guides d'achat honnêtes : chauffage d'appoint économique, gants chauffants USB ou batterie, autonomie réelle. Choisir sans se tromper.",
+    "kicker": "GUIDES",
+    "title": "Choisir sans se tromper.",
+    "intro": "Des guides courts et honnêtes — ce que les fiches produit ne disent pas, les chiffres qui comptent, et pour quel usage chaque option a du sens.",
+    "readTime": "{minutes} MIN DE LECTURE",
+    "published": "PUBLIÉ LE {date}",
+    "backToGuides": "TOUS LES GUIDES",
+    "relatedLabel": "LES PRODUITS DU GUIDE",
+    "seeProduct": "Voir le produit"
   },
   "Hero": {
     "kicker": "OBFLO — CHALEUR PORTABLE",
@@ -161,6 +174,7 @@
     "shop": "BOUTIQUE",
     "packs": "Les packs",
     "help": "AIDE",
+    "guides": "Guides",
     "faq": "FAQ",
     "contact": "Contact",
     "orderTracking": "Suivi de commande",

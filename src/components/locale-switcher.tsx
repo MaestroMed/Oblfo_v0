@@ -3,6 +3,7 @@
 import { useLocale } from "next-intl";
 import { usePathname as useRawPathname } from "next/navigation";
 import { translateProductSlug } from "@/data/catalog";
+import { translateGuideSlug } from "@/data/guides";
 import { routing, type Locale } from "@/i18n/routing";
 
 type PathnameValue = string | Record<Locale, string>;
@@ -30,6 +31,9 @@ function alternateHref(rawPathname: string, from: Locale, to: Locale): string {
     let param = match[1];
     if (param && internal === "/produits/[slug]") {
       param = translateProductSlug(param, from, to) ?? param;
+    }
+    if (param && internal === "/guides/[slug]") {
+      param = translateGuideSlug(param, from, to) ?? param;
     }
     const target = param
       ? toPattern.replace(/\[([^\]]+)\]/g, param)

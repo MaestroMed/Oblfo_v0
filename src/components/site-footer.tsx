@@ -58,6 +58,9 @@ export function SiteFooter() {
             </div>
             <div className="flex min-w-[150px] flex-col gap-3">
               <FooterHeading>{t("help")}</FooterHeading>
+              <Link href="/guides" className={footerLinkClass}>
+                {t("guides")}
+              </Link>
               <a href={`/${locale}#faq`} className={footerLinkClass}>
                 {t("faq")}
               </a>

@@ -167,9 +167,17 @@ details > summary::-webkit-details-marker {
     text-shadow 0.6s ease;
 }
 
+.logo-power svg {
+  transition: filter 0.6s ease;
+}
+
 .logo-power[data-on="true"] {
   color: #f07b2e;
   text-shadow: 0 0 18px rgba(240, 123, 46, 0.5);
+}
+
+.logo-power[data-on="true"] svg {
+  filter: drop-shadow(0 0 10px rgba(240, 123, 46, 0.8));
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -29,7 +29,7 @@ export function Hero() {
           {/* Marque animée — décorative, le vrai H1 est en dessous */}
           <div
             aria-hidden
-            className="hero-brand flex items-center font-serif text-[clamp(64px,10vw,130px)] leading-none font-semibold tracking-[0.04em]"
+            className="hero-brand flex items-baseline font-serif text-[clamp(64px,10vw,130px)] leading-none font-semibold tracking-[0.04em]"
           >
             {letters.map((letter, i) => (
               <span
@@ -41,10 +41,10 @@ export function Hero() {
               </span>
             ))}
             <span
-              className="hero-letter ml-[0.06em]"
+              className="hero-letter inline-block"
               style={{ "--stagger": 4 } as React.CSSProperties}
             >
-              <PowerGlyph className="hero-power h-[0.72em] w-[0.72em]" />
+              <PowerGlyph className="hero-power h-[0.72em] w-[0.74em]" />
             </span>
           </div>
 

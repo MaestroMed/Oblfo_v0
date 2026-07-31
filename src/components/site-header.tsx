@@ -33,21 +33,22 @@ export function SiteHeader() {
     <header className="sticky top-0 z-[60] border-b border-white/[0.06] bg-[rgba(18,13,9,0.9)] backdrop-blur-[14px]">
       <div className="mx-auto flex h-[68px] max-w-[1280px] items-center justify-between gap-6 px-8">
         <span
-          className="logo-power flex items-center font-serif text-[26px] font-semibold tracking-[0.06em] text-[#F5EFE6]"
+          className="logo-power flex items-baseline font-serif text-[26px] leading-none font-semibold tracking-[0.05em] text-[#F5EFE6]"
           data-on={heated}
         >
           <a href={`/${locale}`} className="text-current no-underline">
             OBFL
           </a>
-          {/* Le O final = bouton power : froid par défaut, chauffe au clic */}
+          {/* Le O final = bouton power : froid par défaut, chauffe au clic.
+              Bas du glyphe = baseline, hauteur calée sur les capitales. */}
           <button
             type="button"
             onClick={() => setHeated((h) => !h)}
             aria-pressed={heated}
             aria-label="OBFLO ON/OFF"
-            className="ml-[2px] inline-flex cursor-pointer items-center text-current"
+            className="inline-block cursor-pointer text-current"
           >
-            <PowerGlyph className="h-[19px] w-[19px]" />
+            <PowerGlyph className="h-[0.72em] w-[0.74em]" />
           </button>
         </span>
         <nav className="hidden items-center gap-6 lg:flex">

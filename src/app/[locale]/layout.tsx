@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { Analytics } from "@vercel/analytics/next";
 import { NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
+import { Fraunces, IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
 import "../globals.css";
 import { AnnouncementBar } from "@/components/announcement-bar";
 import { CartDrawer } from "@/components/cart-drawer";
@@ -24,6 +24,13 @@ const plexMono = IBM_Plex_Mono({
   variable: "--font-plex-mono",
   subsets: ["latin"],
   weight: ["400", "500"],
+});
+
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  weight: ["400", "500", "600"],
 });
 
 type Props = {
@@ -68,7 +75,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html
       lang={locale}
-      className={`${spaceGrotesk.variable} ${plexMono.variable} h-full antialiased`}
+      className={`${spaceGrotesk.variable} ${plexMono.variable} ${fraunces.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <NextIntlClientProvider>

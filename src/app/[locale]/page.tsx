@@ -1,12 +1,13 @@
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { Faq } from "@/components/faq";
-import { Hero } from "@/components/hero";
-import { Moments } from "@/components/moments";
-import { Packs } from "@/components/packs";
-import { Pourquoi } from "@/components/pourquoi";
-import { ProductGrid } from "@/components/product-grid";
-import { Techno } from "@/components/techno";
+import { About } from "@/components/home/about";
+import { Categories } from "@/components/home/categories";
+import { Essentials } from "@/components/home/essentials";
+import { Hero } from "@/components/home/hero";
+import { NewsletterBand } from "@/components/home/newsletter-band";
+import { PackFeature } from "@/components/home/pack-feature";
+import { Reassurance } from "@/components/home/reassurance";
 import { getFaqItems, getProducts } from "@/data/catalog";
 import { getPathname } from "@/i18n/navigation";
 import { isLocale, type Locale } from "@/i18n/routing";
@@ -59,7 +60,9 @@ function buildStructuredData(locale: Locale) {
             },
           })}`,
           image: [
-            `${SITE_URL}/${locale}/produits/${product.slug}/opengraph-image`,
+            product.image
+              ? `${SITE_URL}${product.image}`
+              : `${SITE_URL}/${locale}/produits/${product.slug}/opengraph-image`,
           ],
           offers: {
             "@type": "Offer",
@@ -92,15 +95,13 @@ export default async function HomePage({ params }: Props) {
     <>
       <main>
         <Hero />
-        <ProductGrid locale={locale} />
-        <Moments locale={locale} />
-        <Packs locale={locale} />
-        <Techno />
-        <Pourquoi />
-        {/* Section avis retirée tant qu'il n'y a pas de vrais avis clients
-            vérifiables (pratique commerciale trompeuse sinon — L121-4 C. conso).
-            Réactiver <Avis locale={locale} /> avec de vraies données. */}
+        <Categories />
+        <Essentials locale={locale} />
+        <PackFeature locale={locale} />
+        <Reassurance />
+        <About />
         <Faq locale={locale} />
+        <NewsletterBand />
       </main>
       <script
         type="application/ld+json"

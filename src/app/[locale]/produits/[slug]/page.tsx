@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { AddToCartButton } from "@/components/add-to-cart-button";
@@ -88,9 +89,10 @@ export default async function ProductPage({ params }: Props) {
     locale,
     href: { pathname: "/produits/[slug]", params: { slug: product.slug } },
   })}`;
-  // Visuel OG servi sur le chemin physique (segment interne + slug localisé) —
-  // remplacé par les vraies photos produit dès les shootings faits.
-  const productImageUrl = `${SITE_URL}/${locale}/produits/${product.slug}/opengraph-image`;
+  // Vraie photo produit si disponible, sinon visuel OG généré.
+  const productImageUrl = product.image
+    ? `${SITE_URL}${product.image}`
+    : `${SITE_URL}/${locale}/produits/${product.slug}/opengraph-image`;
 
   const structuredData = {
     "@context": "https://schema.org",
@@ -160,7 +162,18 @@ export default async function ProductPage({ params }: Props) {
             {/* Galerie */}
             <div className="flex flex-col gap-3">
               <div className="relative aspect-square overflow-hidden rounded-[22px] border border-white/9 bg-media">
-                <ImageSlot label={product.gallery[0]} />
+                {product.image ? (
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    priority
+                    sizes="(min-width: 1024px) 45vw, 100vw"
+                    className="object-cover"
+                  />
+                ) : (
+                  <ImageSlot label={product.gallery[0]} />
+                )}
                 <div className="pointer-events-none absolute top-2.5 right-2.5 h-3.5 w-3.5 border-t-2 border-r-2 border-accent/80" />
                 <div className="pointer-events-none absolute bottom-2.5 left-2.5 h-3.5 w-3.5 border-b-2 border-l-2 border-accent/80" />
               </div>

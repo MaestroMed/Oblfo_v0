@@ -19,10 +19,14 @@ type ProductSource = {
   /** Passe à false pour retirer de la vente sans supprimer la page (rupture CJ). */
   available?: boolean;
   glow: GlowTone;
+  /** Badge marketing véridique (ex. "new") — jamais de fausse mention best-seller. */
+  badge?: "new";
   name: LText;
   tagline: LText;
   tags: LTextList;
   imageLabel: string;
+  /** Photo produit (packshot studio) — chemin public/. Fallback : ImageSlot. */
+  image?: string;
   description: LTextList;
   highlights: LTextList;
   specs: LSpecs;
@@ -49,10 +53,12 @@ export type Product = {
   price: number;
   available: boolean;
   glow: GlowTone;
+  badge?: "new";
   name: string;
   tagline: string;
   tags: string[];
   imageLabel: string;
+  image?: string;
   description: string[];
   highlights: string[];
   specs: { label: string; value: string }[];
@@ -94,12 +100,14 @@ const productSources: ProductSource[] = [
   {
     id: "gants-chauffants",
     slug: { fr: "gants-chauffants", en: "heated-gloves" },
-    price: 49,
+    price: 59,
     glow: "warm",
-    name: { fr: "Gants Chauffants", en: "Heated Gloves" },
+    badge: "new",
+    image: "/images/products/gants.jpg",
+    name: { fr: "Gants Chauffants Pro 2026", en: "Heated Gloves Pro 2026" },
     tagline: {
-      fr: "Zones chauffantes paume et doigts, textile déperlant.",
-      en: "Heating zones on palm and fingers, water-repellent fabric.",
+      fr: "Chaleur rapide et réglable, paume et doigts.",
+      en: "Fast, adjustable warmth across palm and fingers.",
     },
     tags: {
       fr: ["USB", "3 NIVEAUX"],
@@ -164,10 +172,14 @@ const productSources: ProductSource[] = [
     slug: { fr: "chaussons-chauffants", en: "heated-slippers" },
     price: 44,
     glow: "cold",
-    name: { fr: "Chaussons Chauffants", en: "Heated Slippers" },
+    image: "/images/products/chaussons.jpg",
+    name: {
+      fr: "Chaussons Chauffants Confort",
+      en: "Comfort Heated Slippers",
+    },
     tagline: {
-      fr: "Chaleur avant-pied, intérieur doux, port USB discret.",
-      en: "Forefoot warmth, soft lining, discreet USB port.",
+      fr: "Douceur & chaleur enveloppante, port USB discret.",
+      en: "Soft, enveloping warmth with a discreet USB port.",
     },
     tags: {
       fr: ["USB", "CHALEUR RAPIDE"],
@@ -230,12 +242,14 @@ const productSources: ProductSource[] = [
   {
     id: "chauffage-appoint",
     slug: { fr: "chauffage-appoint", en: "portable-space-heater" },
-    price: 59,
+    price: 49,
     glow: "warm",
-    name: { fr: "Chauffage d'Appoint", en: "Portable Space Heater" },
+    badge: "new",
+    image: "/images/products/chauffage.jpg",
+    name: { fr: "Chauffage Céramique Pro", en: "Ceramic Heater Pro" },
     tagline: {
-      fr: "Réchauffe une petite pièce en quelques minutes.",
-      en: "Warms up a small room in minutes.",
+      fr: "Chauffe rapide, 2 niveaux, pour une petite pièce.",
+      en: "Fast heat, 2 levels, sized for a small room.",
     },
     tags: {
       fr: ["3 NIVEAUX", "COMPACT"],
@@ -294,10 +308,11 @@ const productSources: ProductSource[] = [
     slug: { fr: "mini-chauffe-tasse", en: "mug-warmer" },
     price: 19,
     glow: "cold",
-    name: { fr: "Mini Chauffe-Tasse", en: "Mini Mug Warmer" },
+    image: "/images/products/tasse.jpg",
+    name: { fr: "Mug Warmer Intelligent", en: "Smart Mug Warmer" },
     tagline: {
-      fr: "Ton café reste à température, tout l'après-midi.",
-      en: "Your coffee stays at temperature, all afternoon.",
+      fr: "Température constante, votre café reste chaud.",
+      en: "Constant temperature — your coffee stays hot.",
     },
     tags: {
       fr: ["USB", "COMPACT"],
@@ -363,7 +378,7 @@ const packSources: PackSource[] = [
     },
     items: ["gants-chauffants", "mini-chauffe-tasse"],
     price: 59,
-    compareAt: 68,
+    compareAt: 78,
     imageLabel: "PHOTO — gants + chauffe-tasse ensemble",
   },
   {
@@ -374,8 +389,8 @@ const packSources: PackSource[] = [
       en: "Heated Slippers + Portable Space Heater",
     },
     items: ["chaussons-chauffants", "chauffage-appoint"],
-    price: 89,
-    compareAt: 103,
+    price: 79,
+    compareAt: 93,
     imageLabel: "PHOTO — chaussons + chauffage d'appoint",
   },
   {
@@ -391,7 +406,7 @@ const packSources: PackSource[] = [
       "chauffage-appoint",
       "mini-chauffe-tasse",
     ],
-    price: 139,
+    price: 149,
     compareAt: 171,
     imageLabel: "PHOTO — les 4 produits OBFLO réunis",
     featured: true,
@@ -403,7 +418,7 @@ const momentSources: Record<Locale, Moment[]> = {
     {
       kicker: "DEHORS",
       title: "Pour sortir sans subir l'hiver.",
-      productLine: "GANTS CHAUFFANTS — 49 €",
+      productLine: "GANTS CHAUFFANTS — 59 €",
       imageLabel: "PHOTO — rue froide, buée, gants portés",
     },
     {
@@ -421,7 +436,7 @@ const momentSources: Record<Locale, Moment[]> = {
     {
       kicker: "PETITE PIÈCE",
       title: "Pour réchauffer ton espace, pas toute la maison.",
-      productLine: "CHAUFFAGE D'APPOINT — 59 €",
+      productLine: "CHAUFFAGE CÉRAMIQUE — 49 €",
       imageLabel: "PHOTO — chauffage d'appoint sur bureau, ambiance soir",
     },
   ],
@@ -429,7 +444,7 @@ const momentSources: Record<Locale, Moment[]> = {
     {
       kicker: "OUTSIDE",
       title: "To go out without suffering winter.",
-      productLine: "HEATED GLOVES — €49",
+      productLine: "HEATED GLOVES — €59",
       imageLabel: "PHOTO — rue froide, buée, gants portés",
     },
     {
@@ -447,7 +462,7 @@ const momentSources: Record<Locale, Moment[]> = {
     {
       kicker: "SMALL ROOM",
       title: "To warm your space, not the whole house.",
-      productLine: "PORTABLE SPACE HEATER — €59",
+      productLine: "CERAMIC HEATER — €49",
       imageLabel: "PHOTO — chauffage d'appoint sur bureau, ambiance soir",
     },
   ],
@@ -571,6 +586,8 @@ function localizeProduct(source: ProductSource, locale: Locale): Product {
     price: source.price,
     available: source.available ?? true,
     glow: source.glow,
+    badge: source.badge,
+    image: source.image,
     name: source.name[locale],
     tagline: source.tagline[locale],
     tags: source.tags[locale],

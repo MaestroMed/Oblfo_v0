@@ -20,10 +20,32 @@ export function SiteFooter() {
   const locale = useLocale() as Locale;
   const products = getProducts(locale);
 
+  const badges = [
+    ["badge1Title", "badge1Text"],
+    ["badge2Title", "badge2Text"],
+    ["badge3Title", "badge3Text"],
+    ["badge4Title", "badge4Text"],
+  ] as const;
+
   return (
-    <footer className="mt-auto bg-night-3">
-      <div className="h-px bg-[linear-gradient(90deg,transparent,#FF6A2B,transparent)]" />
-      <div className="mx-auto max-w-[1240px] px-8 pt-[70px] pb-9">
+    <footer className="mt-auto bg-[#100C08]">
+      <div className="h-px bg-[linear-gradient(90deg,transparent,#F07B2E,transparent)]" />
+      <div className="border-b border-white/[0.05]">
+        <div className="mx-auto grid max-w-[1240px] grid-cols-2 gap-6 px-8 py-8 lg:grid-cols-4">
+          {badges.map(([titleKey, textKey]) => (
+            <div key={titleKey} className="flex flex-col gap-1">
+              <span className="flex items-center gap-2 text-[13px] font-semibold text-[#EDE4D7]">
+                <span className="h-1.5 w-1.5 rotate-45 bg-accent" />
+                {t(titleKey)}
+              </span>
+              <span className="pl-3.5 text-[11.5px] text-[#8F8171]">
+                {t(textKey)}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="mx-auto max-w-[1240px] px-8 pt-[60px] pb-9">
         <div className="flex flex-wrap justify-between gap-14">
           <div className="flex max-w-[360px] flex-col gap-[18px]">
             <div className="text-2xl font-bold tracking-[0.05em] text-ink">

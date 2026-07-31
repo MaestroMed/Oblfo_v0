@@ -2,13 +2,22 @@
 
 @theme inline {
   --font-sans: var(--font-grotesk), sans-serif;
+  --font-serif: var(--font-fraunces), serif;
   --font-mono: var(--font-plex-mono), monospace;
 }
 
 @theme {
-  /* Direction artistique OBFLO — cf. design/OBFLO Homepage.dc.html */
-  --color-accent: #ff6a2b;
+  /* DA OBFLO v2 — concept homepage 07/2026 : héro sombre chaud + corps crème */
+  --color-accent: #f07b2e;
   --color-ember: #e8451f;
+  --color-copper: #c98a4b;
+  --color-cream: #f4efe7;
+  --color-cream-2: #ece5d8;
+  --color-espresso: #16110c;
+  --color-espresso-2: #201812;
+  --color-ink-warm: #241c14;
+  --color-muted-warm: #6f6252;
+  /* Palette héritée (pages intérieures, drawer, OG) */
   --color-cold: #8fc1e3;
   --color-night: #0a0c10;
   --color-night-2: #0b0f16;
@@ -69,6 +78,115 @@ details > summary::-webkit-details-marker {
     rgba(52, 104, 158, 0.18),
     transparent 70%
   );
+}
+
+/* ── Séquence héro « OBFLO s'allume » ─────────────────────────────
+   1. les lettres apparaissent une à une (--stagger)
+   2. le O final (bouton power) s'allume
+   3. le mot entier passe de froid à chauffant
+   4. le contenu (titre, CTA) apparaît
+   prefers-reduced-motion : tout est visible immédiatement. */
+
+@keyframes letter-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes brand-ignite {
+  from {
+    color: #d8d2c6;
+    text-shadow: none;
+  }
+  to {
+    color: #f07b2e;
+    text-shadow:
+      0 0 24px rgba(240, 123, 46, 0.55),
+      0 0 80px rgba(240, 123, 46, 0.3);
+  }
+}
+
+@keyframes content-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes power-ignite {
+  from {
+    stroke: #d8d2c6;
+    filter: none;
+  }
+  to {
+    stroke: #f07b2e;
+    filter: drop-shadow(0 0 14px rgba(240, 123, 46, 0.9));
+  }
+}
+
+.hero-letter {
+  display: inline-block;
+  opacity: 0;
+  animation: letter-in 0.5s cubic-bezier(0.2, 0.7, 0.3, 1) forwards;
+  animation-delay: calc(0.15s + var(--stagger) * 0.22s);
+}
+
+.hero-brand {
+  color: #d8d2c6;
+  animation: brand-ignite 0.9s ease forwards;
+  animation-delay: 1.75s;
+}
+
+.hero-power {
+  stroke: #d8d2c6;
+  animation: power-ignite 0.5s ease forwards;
+  animation-delay: 1.45s;
+}
+
+.hero-content {
+  opacity: 0;
+  animation: content-in 0.7s ease forwards;
+  animation-delay: 2.1s;
+}
+
+/* Logo header — O final = bouton power, à froid par défaut */
+.logo-power {
+  transition:
+    color 0.6s ease,
+    text-shadow 0.6s ease;
+}
+
+.logo-power[data-on="true"] {
+  color: #f07b2e;
+  text-shadow: 0 0 18px rgba(240, 123, 46, 0.5);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-letter,
+  .hero-content {
+    opacity: 1;
+    animation: none;
+  }
+  .hero-brand {
+    color: #f07b2e;
+    animation: none;
+    text-shadow: 0 0 24px rgba(240, 123, 46, 0.4);
+  }
+  .hero-power {
+    stroke: #f07b2e;
+    animation: none;
+  }
 }
 
 /* Emplacement photo en attente d'assets */

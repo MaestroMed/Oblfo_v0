@@ -52,12 +52,12 @@ export function SiteHeader() {
           </button>
         </span>
         <nav className="hidden items-center gap-6 lg:flex">
-          <a
-            href={`/${locale}#essentiels`}
+          <Link
+            href="/collection"
             className="text-[13px] font-medium tracking-[0.04em] text-[#C9BEB0] uppercase no-underline transition-colors hover:text-white"
           >
             {t("news")}
-          </a>
+          </Link>
           {productLink("gants-chauffants", t("hands"))}
           {productLink("chaussons-chauffants", t("feet"))}
           {productLink("mini-chauffe-tasse", t("desk"))}

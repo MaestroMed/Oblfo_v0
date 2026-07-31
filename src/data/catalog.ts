@@ -8,6 +8,17 @@ import type { Locale } from "@/i18n/routing";
 
 export type GlowTone = "warm" | "cold";
 
+/** Rayons du catalogue — libellés localisés dans messages (Categories.*). */
+export type Category = "mains" | "pieds" | "bureau" | "piece" | "maison" | "corps";
+export const CATEGORY_ORDER: Category[] = [
+  "mains",
+  "pieds",
+  "corps",
+  "maison",
+  "bureau",
+  "piece",
+];
+
 type LText = Record<Locale, string>;
 type LTextList = Record<Locale, string[]>;
 type LSpecs = Record<Locale, { label: string; value: string }[]>;
@@ -18,6 +29,7 @@ type ProductSource = {
   price: number;
   /** Passe à false pour retirer de la vente sans supprimer la page (rupture CJ). */
   available?: boolean;
+  category: Category;
   glow: GlowTone;
   /** Badge marketing véridique (ex. "new") — jamais de fausse mention best-seller. */
   badge?: "new";
@@ -52,6 +64,7 @@ export type Product = {
   slugs: Record<Locale, string>;
   price: number;
   available: boolean;
+  category: Category;
   glow: GlowTone;
   badge?: "new";
   name: string;
@@ -101,6 +114,7 @@ const productSources: ProductSource[] = [
     id: "gants-chauffants",
     slug: { fr: "gants-chauffants", en: "heated-gloves" },
     price: 59,
+    category: "mains",
     glow: "warm",
     badge: "new",
     image: "/images/products/gants.jpg",
@@ -171,6 +185,7 @@ const productSources: ProductSource[] = [
     id: "chaussons-chauffants",
     slug: { fr: "chaussons-chauffants", en: "heated-slippers" },
     price: 44,
+    category: "pieds",
     glow: "cold",
     image: "/images/products/chaussons.jpg",
     name: {
@@ -243,6 +258,7 @@ const productSources: ProductSource[] = [
     id: "chauffage-appoint",
     slug: { fr: "chauffage-appoint", en: "portable-space-heater" },
     price: 49,
+    category: "piece",
     glow: "warm",
     badge: "new",
     image: "/images/products/chauffage.jpg",
@@ -307,6 +323,7 @@ const productSources: ProductSource[] = [
     id: "mini-chauffe-tasse",
     slug: { fr: "mini-chauffe-tasse", en: "mug-warmer" },
     price: 19,
+    category: "bureau",
     glow: "cold",
     image: "/images/products/tasse.jpg",
     name: { fr: "Mug Warmer Intelligent", en: "Smart Mug Warmer" },
@@ -585,6 +602,7 @@ function localizeProduct(source: ProductSource, locale: Locale): Product {
     slugs: source.slug,
     price: source.price,
     available: source.available ?? true,
+    category: source.category,
     glow: source.glow,
     badge: source.badge,
     image: source.image,

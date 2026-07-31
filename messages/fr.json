@@ -69,6 +69,20 @@
     "newsletterTitle": "Ne manquez rien de chaud.",
     "newsletterText": "Nouveautés, offres exclusives, conseils confort… rejoignez la communauté OBFLO."
   },
+  "Collection": {
+    "metaTitle": "La collection — tous nos objets chauffants",
+    "metaDescription": "Toute la collection OBFLO : mains, pieds, bureau, maison. Objets chauffants intelligents, garantie 2 ans, livraison 3–5 jours.",
+    "title": "Toute la collection.",
+    "intro": "Chaque produit répond à un moment froid précis. Rayon par rayon, voici tout ce qu'OBFLO sait réchauffer."
+  },
+  "Categories": {
+    "mains": "Mains",
+    "pieds": "Pieds",
+    "bureau": "Bureau",
+    "piece": "Petite pièce",
+    "maison": "Maison",
+    "corps": "Corps"
+  },
   "Nav": {
     "news": "Nouveautés",
     "hands": "Mains",

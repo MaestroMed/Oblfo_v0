@@ -55,6 +55,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...entries(() => "/", 1, "weekly"),
+    ...entries(() => "/collection", 0.9, "weekly"),
     ...productEntries,
     ...entries(() => "/guides", 0.7, "weekly"),
     ...guideEntries,

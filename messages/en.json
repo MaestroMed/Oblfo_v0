@@ -69,6 +69,20 @@
     "newsletterTitle": "Never miss anything warm.",
     "newsletterText": "New products, exclusive offers, comfort tips… join the OBFLO community."
   },
+  "Collection": {
+    "metaTitle": "The collection — all our heated essentials",
+    "metaDescription": "The full OBFLO collection: hands, feet, desk, home. Smart heated products, 2-year warranty, 3–5 day shipping.",
+    "title": "The whole collection.",
+    "intro": "Every product answers one precise cold moment. Aisle by aisle, here is everything OBFLO knows how to warm."
+  },
+  "Categories": {
+    "mains": "Hands",
+    "pieds": "Feet",
+    "bureau": "Desk",
+    "piece": "Small room",
+    "maison": "Home",
+    "corps": "Body"
+  },
   "Nav": {
     "news": "New in",
     "hands": "Hands",

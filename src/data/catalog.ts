@@ -385,6 +385,409 @@ const productSources: ProductSource[] = [
   },
 ];
 
+const gilet: ProductSource = {
+    id: "gilet-chauffant",
+    slug: { fr: "gilet-chauffant", en: "heated-vest" },
+    price: 79,
+    category: "corps",
+    glow: "warm",
+    badge: "new",
+    image: "/images/products/gilet.jpg",
+    name: { fr: "Gilet Chauffant Graphène", en: "Graphene Heated Vest" },
+    tagline: {
+      fr: "Zones de chauffe graphène, du col aux lombaires.",
+      en: "Graphene heating zones, from collar to lower back.",
+    },
+    tags: {
+      fr: ["USB", "ZONES MULTIPLES"],
+      en: ["USB", "MULTI-ZONE"],
+    },
+    imageLabel: "PACKSHOT — gilet chauffant matelassé noir",
+    description: {
+      fr: [
+        "Le froid s'attaque d'abord au tronc — et c'est le tronc qui commande la sensation de chaleur de tout le corps. Le gilet chauffant OBFLO diffuse une chaleur graphène sur plusieurs zones indépendantes, du col aux lombaires, sous n'importe quelle veste.",
+        "Trois niveaux de chauffe, un textile matelassé léger qui se porte discrètement, et une alimentation USB universelle : branchez votre powerbank (non incluse — 20 W recommandés pour une chauffe optimale) dans la poche intérieure et gardez les mains libres.",
+      ],
+      en: [
+        "Cold goes for your core first — and your core drives how warm your whole body feels. The OBFLO heated vest delivers graphene warmth across several independent zones, from collar to lower back, under any jacket.",
+        "Three heat levels, a light quilted fabric that wears discreetly, and universal USB power: plug your power bank (not included — 20 W recommended for best heat) into the inner pocket and keep your hands free.",
+      ],
+    },
+    highlights: {
+      fr: [
+        "Zones de chauffe indépendantes (dos, lombaires, col)",
+        "3 niveaux de chauffe",
+        "Textile graphène léger, lavable en machine à froid",
+        "Fonctionne sur powerbank USB (non incluse)",
+      ],
+      en: [
+        "Independent heating zones (back, lower back, collar)",
+        "3 heat levels",
+        "Light graphene fabric, cold machine-washable",
+        "Runs on a USB power bank (not included)",
+      ],
+    },
+    specs: {
+      fr: [
+        { label: "Alimentation", value: "USB 5V — powerbank non incluse (20 W recommandés)" },
+        { label: "Niveaux de chauffe", value: "3 (≈ 25 / 35 / 45 °C annoncés)" },
+        {
+          label: "Autonomie sur powerbank 10 000 mAh",
+          value: "Jusqu'à ≈ 3 h à pleine puissance, davantage en mode éco",
+        },
+        {
+          label: "Tailles",
+          value: "S à 3XL — coupe asiatique : prenez UNE taille au-dessus de votre taille EU",
+        },
+        { label: "Entretien", value: "Lavage machine à froid, ne pas tordre" },
+      ],
+      en: [
+        { label: "Power", value: "USB 5V — power bank not included (20 W recommended)" },
+        { label: "Heat levels", value: "3 (≈ 25 / 35 / 45 °C claimed)" },
+        {
+          label: "Battery life on a 10,000 mAh power bank",
+          value: "Up to ≈ 3 h at full power, longer in eco mode",
+        },
+        {
+          label: "Sizes",
+          value: "S to 3XL — Asian cut: order ONE size up from your EU size",
+        },
+        { label: "Care", value: "Cold machine wash, do not wring" },
+      ],
+    },
+    gallery: [
+      "PACKSHOT — gilet chauffant matelassé noir, bouton power orange",
+      "PHOTO MACRO — zones de chauffe graphène dos",
+      "PHOTO — gilet porté sous une veste, ville d'hiver",
+      "PHOTO — poche intérieure avec powerbank branchée",
+    ],
+  };
+const plaid: ProductSource = {
+  id: "plaid-chauffant",
+  slug: { fr: "plaid-chauffant", en: "heated-throw-blanket" },
+  price: 79,
+  category: "maison",
+  glow: "warm",
+  badge: "new",
+  image: "/images/products/plaid.jpg",
+  name: { fr: "Plaid Chauffant Cocon", en: "Cocoon Heated Throw" },
+  tagline: {
+    fr: "Flanelle double face, chaleur en minutes, arrêt auto.",
+    en: "Double-sided flannel, warm in minutes, auto shut-off.",
+  },
+  tags: { fr: ["ARRÊT AUTO", "LAVABLE"], en: ["AUTO-OFF", "WASHABLE"] },
+  imageLabel: "PACKSHOT — plaid chauffant gris anthracite plié",
+  description: {
+    fr: [
+      "Le canapé d'hiver a un problème : la couverture met vingt minutes à devenir agréable. Le plaid chauffant OBFLO chauffe en quelques minutes grâce à son élément céramique PTC, et sa flanelle double face garde la chaleur même une fois éteint.",
+      "Plusieurs niveaux de température, une minuterie avec arrêt automatique pour s'endormir dessous sans y penser, et un contrôleur détachable pour passer le plaid en machine à 30 °C.",
+    ],
+    en: [
+      "Winter sofas have a problem: blankets take twenty minutes to feel good. The OBFLO heated throw warms up within minutes thanks to its PTC ceramic element, and its double-sided flannel holds the heat even after you switch it off.",
+      "Multiple temperature levels, a timer with automatic shut-off so you can doze off under it worry-free, and a detachable controller so the throw goes straight into a 30 °C machine wash.",
+    ],
+  },
+  highlights: {
+    fr: [
+      "Chauffe perceptible en quelques minutes (PTC)",
+      "Minuterie + arrêt automatique",
+      "Contrôleur détachable, lavable en machine à 30 °C",
+      "Flanelle douce double face, format canapé 130×180 cm",
+    ],
+    en: [
+      "Noticeably warm within minutes (PTC)",
+      "Timer + automatic shut-off",
+      "Detachable controller, 30 °C machine washable",
+      "Soft double-sided flannel, 130×180 cm sofa size",
+    ],
+  },
+  specs: {
+    fr: [
+      { label: "Alimentation", value: "Secteur 220–240 V, prise EU" },
+      { label: "Puissance", value: "≈ 100 W" },
+      { label: "Sécurité", value: "Arrêt automatique + protection anti-surchauffe" },
+      { label: "Dimensions", value: "≈ 130 × 180 cm" },
+      { label: "Entretien", value: "Machine à 30 °C, contrôleur détaché" },
+    ],
+    en: [
+      { label: "Power", value: "Mains 220–240 V, EU plug" },
+      { label: "Wattage", value: "≈ 100 W" },
+      { label: "Safety", value: "Auto shut-off + overheat protection" },
+      { label: "Dimensions", value: "≈ 130 × 180 cm" },
+      { label: "Care", value: "30 °C machine wash, controller detached" },
+    ],
+  },
+  gallery: [
+    "PACKSHOT — plaid chauffant gris anthracite plié, contrôleur posé dessus",
+    "PHOTO — plaid déplié sur canapé, soirée d'hiver",
+    "PHOTO MACRO — flanelle + contrôleur à molette",
+    "PHOTO — machine à laver, contrôleur détaché",
+  ],
+};
+
+const coussin: ProductSource = {
+  id: "coussin-chauffant",
+  slug: { fr: "coussin-chauffant-nuque", en: "neck-shoulder-heating-pad" },
+  price: 44,
+  category: "maison",
+  glow: "cold",
+  badge: "new",
+  image: "/images/products/coussin.jpg",
+  name: {
+    fr: "Coussin Chauffant Nuque & Épaules",
+    en: "Neck & Shoulder Heating Pad",
+  },
+  tagline: {
+    fr: "Chaleur ciblée sur les trapèzes, épouse la nuque.",
+    en: "Targeted warmth on the trapezius, shaped for the neck.",
+  },
+  tags: { fr: ["ARRÊT AUTO", "ERGONOMIQUE"], en: ["AUTO-OFF", "ERGONOMIC"] },
+  imageLabel: "PACKSHOT — coussin chauffant nuque-épaules gris",
+  description: {
+    fr: [
+      "Nuque raide après une journée d'écran, épaules nouées par le froid : c'est exactement là que ce coussin travaille. Sa forme en U épouse la nuque et descend sur les trapèzes, là où un coussin classique glisse.",
+      "Plusieurs niveaux de température, un arrêt automatique de sécurité, et une housse douce qui se retire pour le lavage. La chaleur détend — c'est le principe même de la thermothérapie du quotidien.",
+    ],
+    en: [
+      "Stiff neck after a screen day, shoulders knotted by the cold: that's exactly where this pad works. Its U-shape hugs the neck and reaches down over the trapezius, right where a classic pad slides off.",
+      "Multiple temperature levels, a safety auto shut-off, and a soft cover that comes off for washing. Heat relaxes — that's everyday heat-therapy working as intended.",
+    ],
+  },
+  highlights: {
+    fr: [
+      "Forme en U : nuque + trapèzes couverts",
+      "Plusieurs niveaux de température",
+      "Arrêt automatique de sécurité",
+      "Housse douce amovible et lavable",
+    ],
+    en: [
+      "U-shape covers neck + trapezius",
+      "Multiple temperature levels",
+      "Safety auto shut-off",
+      "Soft removable, washable cover",
+    ],
+  },
+  specs: {
+    fr: [
+      { label: "Alimentation", value: "Secteur 220–240 V, prise EU" },
+      { label: "Niveaux de chauffe", value: "Plusieurs niveaux (≈ 40–55 °C)" },
+      { label: "Sécurité", value: "Arrêt automatique + protection surchauffe" },
+      { label: "Zone couverte", value: "Nuque, épaules, haut du dos" },
+      { label: "Entretien", value: "Housse amovible lavable, module débranché" },
+    ],
+    en: [
+      { label: "Power", value: "Mains 220–240 V, EU plug" },
+      { label: "Heat levels", value: "Multiple levels (≈ 40–55 °C)" },
+      { label: "Safety", value: "Auto shut-off + overheat protection" },
+      { label: "Coverage", value: "Neck, shoulders, upper back" },
+      { label: "Care", value: "Removable washable cover, module unplugged" },
+    ],
+  },
+  gallery: [
+    "PACKSHOT — coussin nuque-épaules gris, contrôleur filaire",
+    "PHOTO — porté assis au bureau, détente",
+    "PHOTO MACRO — texture polaire + surpiqûres",
+    "PHOTO — housse retirée pour lavage",
+  ],
+};
+
+const chauffeMains: ProductSource = {
+  id: "chauffe-mains",
+  slug: { fr: "chauffe-mains-rechargeable", en: "rechargeable-hand-warmer" },
+  price: 39,
+  category: "mains",
+  glow: "warm",
+  badge: "new",
+  image: "/images/products/chauffe-mains.jpg",
+  name: {
+    fr: "Chauffe-Mains Rechargeable",
+    en: "Rechargeable Hand Warmer",
+  },
+  tagline: {
+    fr: "Deux galets magnétiques, chauds en secondes, powerbank intégrée.",
+    en: "Two magnetic pebbles, warm in seconds, built-in power bank.",
+  },
+  tags: { fr: ["2-EN-1", "SÉPARABLE"], en: ["2-IN-1", "SPLITS IN TWO"] },
+  imageLabel: "PACKSHOT — paire de chauffe-mains galets noirs",
+  description: {
+    fr: [
+      "Un galet dans chaque poche, et le trajet du matin change. Ce chauffe-mains se sépare magnétiquement en deux unités — une par main — qui montent en température en quelques secondes, avec trois niveaux jusqu'à 55 °C.",
+      "La batterie fait aussi powerbank : un port USB dépanne votre téléphone en fin de journée. Double face chauffante, corps aluminium doux au toucher, et contrôle de température embarqué contre la surchauffe.",
+    ],
+    en: [
+      "One pebble in each pocket changes the morning commute. This hand warmer splits magnetically into two units — one per hand — that heat up in seconds, with three levels up to 55 °C.",
+      "The battery doubles as a power bank: a USB port tops up your phone at the end of the day. Double-sided heating, soft-touch aluminium body, and on-board temperature control against overheating.",
+    ],
+  },
+  highlights: {
+    fr: [
+      "Se sépare en 2 unités magnétiques",
+      "3 niveaux jusqu'à ≈ 55 °C, chauffe en secondes",
+      "Fonction powerbank (sortie USB)",
+      "Contrôle de température anti-surchauffe",
+    ],
+    en: [
+      "Splits into 2 magnetic units",
+      "3 levels up to ≈ 55 °C, warm in seconds",
+      "Power bank function (USB output)",
+      "Overheat-protected temperature control",
+    ],
+  },
+  specs: {
+    fr: [
+      { label: "Batterie", value: "Lithium rechargeable (2 unités) — interdite en soute avion" },
+      { label: "Niveaux de chauffe", value: "3 (≈ 45 / 50 / 55 °C), double face" },
+      { label: "Autonomie réaliste", value: "≈ 4 à 8 h au niveau haut, selon capacité" },
+      { label: "Recharge", value: "USB, ≈ 2 h ; sortie powerbank USB" },
+      { label: "Entretien", value: "Chiffon sec — non lavable (électronique)" },
+    ],
+    en: [
+      { label: "Battery", value: "Rechargeable lithium (2 units) — not allowed in checked luggage" },
+      { label: "Heat levels", value: "3 (≈ 45 / 50 / 55 °C), double-sided" },
+      { label: "Realistic battery life", value: "≈ 4 to 8 h on high, capacity-dependent" },
+      { label: "Charging", value: "USB, ≈ 2 h; USB power-bank output" },
+      { label: "Care", value: "Dry cloth — not washable (electronics)" },
+    ],
+  },
+  gallery: [
+    "PACKSHOT — deux galets noirs magnétiques, LED ambre",
+    "PHOTO MACRO — séparation magnétique des deux unités",
+    "PHOTO — galet dans une main gantée, hiver",
+    "PHOTO — recharge USB-C sur bureau",
+  ],
+};
+
+const semelles: ProductSource = {
+  id: "semelles-chauffantes",
+  slug: { fr: "semelles-chauffantes", en: "heated-insoles" },
+  price: 49,
+  category: "pieds",
+  glow: "cold",
+  badge: "new",
+  image: "/images/products/semelles.jpg",
+  name: {
+    fr: "Semelles Chauffantes Télécommandées",
+    en: "Remote-Control Heated Insoles",
+  },
+  tagline: {
+    fr: "Batterie intégrée, télécommande, découpables à votre pointure.",
+    en: "Built-in battery, wireless remote, trim-to-fit sizing.",
+  },
+  tags: { fr: ["TÉLÉCOMMANDE", "DÉCOUPABLES"], en: ["REMOTE", "TRIM-TO-FIT"] },
+  imageLabel: "PACKSHOT — semelles chauffantes noires, zone avant-pied",
+  description: {
+    fr: [
+      "Les pieds sont les premiers à geler et les derniers à se réchauffer. Ces semelles intègrent la batterie directement dans la semelle — pas de boîtier à la cheville, pas de câble dans la chaussure — et se pilotent à la télécommande sans se déchausser.",
+      "Trois niveaux de chauffe centrés sur l'avant-pied, deux bases de tailles à découper proprement le long des lignes marquées, et une autonomie honnête : comptez 3 à 7 heures selon le niveau choisi.",
+    ],
+    en: [
+      "Feet freeze first and warm up last. These insoles build the battery into the sole itself — no ankle pack, no cable inside the shoe — and are controlled by a wireless remote without taking your shoes off.",
+      "Three heat levels focused on the forefoot, two size bases that trim cleanly along the marked lines, and honest battery life: expect 3 to 7 hours depending on the level.",
+    ],
+  },
+  highlights: {
+    fr: [
+      "Batterie intégrée — aucun boîtier externe",
+      "Télécommande sans fil, 3 niveaux",
+      "Découpables : EU 35–40 et EU 41–46",
+      "Chauffe ciblée avant-pied (≈ 35–55 °C)",
+    ],
+    en: [
+      "Built-in battery — no external pack",
+      "Wireless remote, 3 levels",
+      "Trim-to-fit: EU 35–40 and EU 41–46",
+      "Targeted forefoot heat (≈ 35–55 °C)",
+    ],
+  },
+  specs: {
+    fr: [
+      { label: "Batterie", value: "Lithium ≈ 2000 mAh intégrée par semelle, recharge USB" },
+      { label: "Niveaux de chauffe", value: "3 (≈ 35–55 °C), télécommande sans fil" },
+      { label: "Autonomie réaliste", value: "3 à 7 h selon le niveau" },
+      { label: "Pointures", value: "2 bases découpables : EU 35–40 / EU 41–46 (lignes marquées uniquement)" },
+      { label: "Entretien", value: "Chiffon humide — ne pas immerger" },
+    ],
+    en: [
+      { label: "Battery", value: "≈ 2000 mAh lithium built into each insole, USB charging" },
+      { label: "Heat levels", value: "3 (≈ 35–55 °C), wireless remote" },
+      { label: "Realistic battery life", value: "3 to 7 h depending on level" },
+      { label: "Sizes", value: "2 trim-to-fit bases: EU 35–40 / EU 41–46 (marked lines only)" },
+      { label: "Care", value: "Damp cloth — do not immerse" },
+    ],
+  },
+  gallery: [
+    "PACKSHOT — paire de semelles noires, motif de chauffe avant-pied",
+    "PHOTO MACRO — lignes de découpe pointures",
+    "PHOTO — télécommande en main, bottes d'hiver",
+    "PHOTO — recharge USB des deux semelles",
+  ],
+};
+
+const sousMain: ProductSource = {
+  id: "sous-main-chauffant",
+  slug: { fr: "sous-main-chauffant", en: "heated-desk-mat" },
+  price: 39,
+  category: "bureau",
+  glow: "warm",
+  badge: "new",
+  image: "/images/products/tapis-bureau.jpg",
+  name: { fr: "Sous-Main Chauffant", en: "Heated Desk Mat" },
+  tagline: {
+    fr: "Grand format 80×33 cm, mains et poignets au chaud en secondes.",
+    en: "Large 80×33 cm surface — warm hands and wrists in seconds.",
+  },
+  tags: { fr: ["ARRÊT AUTO", "GRAND FORMAT"], en: ["AUTO-OFF", "FULL SIZE"] },
+  imageLabel: "PACKSHOT — sous-main chauffant anthracite, coin relevé",
+  description: {
+    fr: [
+      "Les mains froides au clavier ruinent la concentration. Ce sous-main grand format chauffe toute la zone clavier + souris en quelques secondes, et garde mains et poignets à température de travail toute la journée.",
+      "Surface facile à nettoyer et résistante aux éclaboussures, plusieurs niveaux de température, et un arrêt automatique après quelques heures — la sécurité qui va avec un usage bureau prolongé.",
+    ],
+    en: [
+      "Cold hands on a keyboard ruin focus. This full-size desk mat heats the entire keyboard + mouse area within seconds and keeps hands and wrists at working temperature all day.",
+      "Easy-clean, splash-resistant surface, multiple temperature levels, and an automatic shut-off after a few hours — the safety that belongs with long desk sessions.",
+    ],
+  },
+  highlights: {
+    fr: [
+      "Grand format 80 × 33 cm (clavier + souris)",
+      "Chauffe en quelques secondes",
+      "Arrêt automatique de sécurité",
+      "Surface antidérapante, résistante aux éclaboussures",
+    ],
+    en: [
+      "Full 80 × 33 cm size (keyboard + mouse)",
+      "Heats up in seconds",
+      "Safety auto shut-off",
+      "Non-slip, splash-resistant surface",
+    ],
+  },
+  specs: {
+    fr: [
+      { label: "Alimentation", value: "Secteur 220–240 V, prise EU" },
+      { label: "Niveaux de chauffe", value: "3 niveaux (≈ 38–50 °C)" },
+      { label: "Sécurité", value: "Arrêt automatique ≈ 3 h + anti-surchauffe" },
+      { label: "Dimensions", value: "≈ 80 × 33 cm, épaisseur ≈ 3 mm" },
+      { label: "Entretien", value: "Chiffon humide, surface étanche aux éclaboussures" },
+    ],
+    en: [
+      { label: "Power", value: "Mains 220–240 V, EU plug" },
+      { label: "Heat levels", value: "3 levels (≈ 38–50 °C)" },
+      { label: "Safety", value: "≈ 3 h auto shut-off + overheat protection" },
+      { label: "Dimensions", value: "≈ 80 × 33 cm, ≈ 3 mm thin" },
+      { label: "Care", value: "Damp cloth, splash-proof surface" },
+    ],
+  },
+  gallery: [
+    "PACKSHOT — sous-main anthracite, commandes tactiles au bord",
+    "PHOTO — setup bureau complet clavier + souris dessus",
+    "PHOTO MACRO — commandes tactiles et témoin ambre",
+    "PHOTO — mains au clavier, lumière chaude",
+  ],
+};
+
+productSources.push(gilet, plaid, coussin, chauffeMains, semelles, sousMain);
+
 const packSources: PackSource[] = [
   {
     id: "pack-sortie-hiver",

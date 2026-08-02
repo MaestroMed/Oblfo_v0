@@ -385,9 +385,16 @@
     "s4Title": "Tes droits",
     "s4P1": "Accès, rectification, suppression, portabilité, opposition : écris-nous à <tc>e-mail RGPD</tc>. Réponse sous 30 jours. Tu peux aussi saisir la CNIL (cnil.fr).",
     "s5Title": "Cookies",
-    "s5P1": "Le site n'utilise aujourd'hui aucun cookie de tracking tiers. Si cela change (mesure d'audience, publicité), un bandeau de consentement sera mis en place au préalable."
+    "s5P1": "Le site dépose des cookies de mesure d'audience (Google Analytics) uniquement si vous les acceptez via le bandeau de consentement. Refuser n'enlève rien au fonctionnement du site. Vous pouvez revenir sur votre choix en vidant les données du site dans votre navigateur."
   },
   "ToComplete": {
     "prefix": "[À COMPLÉTER — "
+  },
+  "CookieBanner": {
+    "ariaLabel": "Consentement aux cookies",
+    "message": "On aimerait mesurer l'audience du site pour comprendre ce qui vous intéresse. Ça passe par des cookies, et seulement si vous êtes d'accord.",
+    "privacyLink": "En savoir plus",
+    "accept": "ACCEPTER",
+    "refuse": "REFUSER"
   }
 }

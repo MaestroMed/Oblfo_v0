@@ -385,9 +385,16 @@
     "s4Title": "Your rights",
     "s4P1": "Access, rectification, deletion, portability, objection: write to <tc>GDPR email</tc>. Reply within 30 days. You may also contact the CNIL (cnil.fr).",
     "s5Title": "Cookies",
-    "s5P1": "The site currently uses no third-party tracking cookies. If that changes (analytics, advertising), a consent banner will be put in place first."
+    "s5P1": "The site sets audience measurement cookies (Google Analytics) only if you accept them via the consent banner. Declining takes nothing away from how the site works. You can change your mind by clearing the site data in your browser."
   },
   "ToComplete": {
     "prefix": "[TO COMPLETE — "
+  },
+  "CookieBanner": {
+    "ariaLabel": "Cookie consent",
+    "message": "We would like to measure site traffic to understand what interests you. That relies on cookies, and only if you agree.",
+    "privacyLink": "Learn more",
+    "accept": "ACCEPT",
+    "refuse": "DECLINE"
   }
 }

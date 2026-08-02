@@ -12,6 +12,10 @@ import {
 } from "@/data/catalog";
 import { getPathname, Link } from "@/i18n/navigation";
 import { isLocale, routing, type Locale } from "@/i18n/routing";
+import {
+  MERCHANT_RETURN_POLICY,
+  OFFER_SHIPPING_DETAILS,
+} from "@/lib/shipping";
 import { SITE_URL } from "@/lib/site";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
@@ -112,6 +116,8 @@ export default async function ProductPage({ params }: Props) {
             ? "https://schema.org/InStock"
             : "https://schema.org/OutOfStock",
           url: productUrl,
+          hasMerchantReturnPolicy: MERCHANT_RETURN_POLICY,
+          shippingDetails: OFFER_SHIPPING_DETAILS,
         },
       },
       {

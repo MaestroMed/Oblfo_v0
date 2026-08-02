@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Analytics } from "@vercel/analytics/next";
+import { ConversionTracking } from "@/components/conversion-tracking";
+import { CookieBanner } from "@/components/cookie-banner";
+import { Ga4 } from "@/components/ga4";
 import { NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Fraunces, IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
@@ -87,8 +89,11 @@ export default async function LocaleLayout({ children, params }: Props) {
             <CartDrawer />
             <CartToast />
           </CartProvider>
+          {/* Dans le provider : le bandeau lit ses libellés via useTranslations. */}
+          <CookieBanner />
         </NextIntlClientProvider>
-        <Analytics />
+        <Ga4 />
+        <ConversionTracking />
       </body>
     </html>
   );

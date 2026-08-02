@@ -11,6 +11,10 @@ import { Reassurance } from "@/components/home/reassurance";
 import { getFaqItems, getProducts } from "@/data/catalog";
 import { getPathname } from "@/i18n/navigation";
 import { isLocale, type Locale } from "@/i18n/routing";
+import {
+  MERCHANT_RETURN_POLICY,
+  OFFER_SHIPPING_DETAILS,
+} from "@/lib/shipping";
 import { SITE_URL } from "@/lib/site";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -64,6 +68,10 @@ function buildStructuredData(locale: Locale) {
               ? `${SITE_URL}${product.image}`
               : `${SITE_URL}/${locale}/produits/${product.slug}/opengraph-image`,
           ],
+          // `brand` était absent ici alors que la fiche produit le déclare :
+          // c'était la cause du « aucun identifiant global fourni » sur 8
+          // éléments dans le rapport Fiches de marchand.
+          brand: { "@type": "Brand", name: "OBFLO" },
           offers: {
             "@type": "Offer",
             price: product.price,
@@ -71,6 +79,8 @@ function buildStructuredData(locale: Locale) {
             availability: product.available
               ? "https://schema.org/InStock"
               : "https://schema.org/OutOfStock",
+            hasMerchantReturnPolicy: MERCHANT_RETURN_POLICY,
+            shippingDetails: OFFER_SHIPPING_DETAILS,
           },
         })),
       },

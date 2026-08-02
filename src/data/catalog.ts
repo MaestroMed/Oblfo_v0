@@ -814,6 +814,30 @@ const packSources: PackSource[] = [
     imageLabel: "PHOTO — chaussons + chauffage d'appoint",
   },
   {
+    id: "pack-exterieur",
+    name: { fr: "Pack Extérieur Hiver", en: "Winter Outdoor Bundle" },
+    contents: {
+      fr: "Gants Pro + Semelles Chauffantes + Chauffe-Mains",
+      en: "Pro Gloves + Heated Insoles + Hand Warmer",
+    },
+    items: ["gants-chauffants", "semelles-chauffantes", "chauffe-mains"],
+    price: 129,
+    compareAt: 147,
+    imageLabel: "PHOTO — gants + semelles + chauffe-mains réunis",
+  },
+  {
+    id: "pack-cocooning",
+    name: { fr: "Pack Cocooning", en: "Cocooning Bundle" },
+    contents: {
+      fr: "Plaid Chauffant + Coussin Nuque & Épaules",
+      en: "Heated Throw + Neck & Shoulder Pad",
+    },
+    items: ["plaid-chauffant", "coussin-chauffant"],
+    price: 109,
+    compareAt: 123,
+    imageLabel: "PHOTO — plaid + coussin sur canapé",
+  },
+  {
     id: "pack-full-obflo",
     name: { fr: "Pack Full OBFLO", en: "Full OBFLO Bundle" },
     contents: {

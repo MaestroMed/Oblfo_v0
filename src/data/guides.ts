@@ -214,6 +214,315 @@ const guideSources: GuideSource[] = [
   },
 ];
 
+guideSources.push(
+  {
+    id: "plaid-chauffant-guide",
+    slug: {
+      fr: "plaid-chauffant-consommation",
+      en: "heated-blanket-running-costs",
+    },
+    datePublished: "2026-08-01",
+    readMinutes: 6,
+    relatedProductIds: ["plaid-chauffant", "pack-cocooning"],
+    title: {
+      fr: "Plaid chauffant : consommation réelle, sécurité et critères qui comptent",
+      en: "Heated throw blankets: real running costs, safety, and what actually matters",
+    },
+    metaDescription: {
+      fr: "Combien consomme un plaid chauffant ? Est-ce dangereux pour dormir ? Lavable ou pas ? Le guide honnête avant d'acheter une couverture chauffante.",
+      en: "How much does a heated blanket cost to run? Is it safe to fall asleep under? Washable or not? The honest guide before you buy.",
+    },
+    intro: {
+      fr: "Le plaid chauffant est l'objet le plus rentable de l'hiver : il chauffe la personne, pas la pièce. Mais entre les modèles qui ne se lavent pas, ceux qui ne s'éteignent jamais et les puissances fantaisistes, il y a de quoi trier. Voici ce qui compte vraiment.",
+      en: "A heated throw is winter's most cost-effective object: it heats the person, not the room. But between models you can't wash, models that never switch off and fantasy wattage claims, there's sorting to do. Here's what actually matters.",
+    },
+    sections: {
+      fr: [
+        {
+          title: "La consommation : quelques centimes par soirée",
+          paragraphs: [
+            "Un plaid chauffant consomme typiquement autour de 100 W — soit, à 0,25 €/kWh, environ 0,025 € par heure et 8 centimes pour une soirée de 3 heures. Un mois d'utilisation quotidienne coûte moins de 2,50 €. C'est 10 à 15 fois moins qu'un chauffage d'appoint, parce que la chaleur va directement sur vous au lieu de chauffer l'air.",
+            "Le calcul qui en découle est simple : baisser le thermostat du salon de 2 degrés et s'installer sous un plaid chauffant est l'un des meilleurs arbitrages confort/facture de l'hiver.",
+          ],
+        },
+        {
+          title: "Sécurité : les deux fonctions non négociables",
+          paragraphs: [
+            "L'arrêt automatique d'abord : un bon plaid s'éteint seul après un délai (typiquement 3 heures). C'est ce qui permet de s'endormir dessous sans y penser. Un modèle sans arrêt auto n'a pas sa place sur un canapé.",
+            "La protection anti-surchauffe ensuite : l'élément chauffant doit couper si un point de la couverture monte anormalement (couverture pliée, par exemple). Sur les produits sérieux, c'est un capteur double (PTC + NTC) qui s'en charge.",
+            "Enfin, la base : prise européenne 220–240 V et marquage CE avec un vrai certificat derrière — pour une couverture chauffante, la norme applicable est EN 60335-2-17. Un logo CE imprimé sans certificat ne protège personne.",
+          ],
+        },
+        {
+          title: "Lavable en machine : le critère qui départage tout",
+          paragraphs: [
+            "Un plaid vit sur un canapé : il prendra du café, des miettes et des poils de chat. S'il ne passe pas en machine, il finit roulé en boule dans un placard avant février.",
+            "Le mécanisme à vérifier : un contrôleur détachable. On débranche le boîtier de commande, et le textile part en machine à 30 °C, essorage doux, sans sèche-linge. Si la fiche produit ne mentionne pas clairement le contrôleur détachable, considérez le plaid comme non lavable.",
+          ],
+        },
+        {
+          title: "Taille et matière : ce qui change le confort",
+          paragraphs: [
+            "Le format 130 × 180 cm est le bon standard canapé : assez grand pour se couvrir des pieds aux épaules, assez compact pour rester un plaid et pas une couverture de lit. En dessous de 120 cm de large, on passe la soirée à se rebattre les jambes.",
+            "Côté matière, la flanelle double face (ou flanelle + sherpa) garde nettement mieux la chaleur entre deux cycles de chauffe qu'un polaire fin — le plaid reste chaud même éteint, ce qui permet d'utiliser la chauffe par intermittence et de consommer encore moins.",
+          ],
+        },
+      ],
+      en: [
+        {
+          title: "Running costs: pennies per evening",
+          paragraphs: [
+            "A heated throw typically draws around 100 W — at €0.25/kWh, that's about €0.025 per hour, or 8 cents for a 3-hour evening. A month of daily use costs under €2.50. That's 10 to 15 times less than a space heater, because the heat goes straight onto you instead of warming the air.",
+            "The obvious trade that follows: turn the living-room thermostat down 2 degrees and settle under a heated throw — one of winter's best comfort-per-euro moves.",
+          ],
+        },
+        {
+          title: "Safety: the two non-negotiable features",
+          paragraphs: [
+            "Auto shut-off first: a good throw switches itself off after a set time (typically 3 hours). That's what makes dozing off under it a non-event. A model without auto shut-off doesn't belong on a sofa.",
+            "Overheat protection second: the heating element must cut out if any spot runs abnormally hot (a folded blanket, for instance). Serious products use a dual sensor (PTC + NTC) for this.",
+            "And the basics: a 220–240 V EU plug and a CE marking backed by a real certificate — for heated blankets the applicable standard is EN 60335-2-17. A printed CE logo with no certificate behind it protects nobody.",
+          ],
+        },
+        {
+          title: "Machine washable: the criterion that settles everything",
+          paragraphs: [
+            "A throw lives on a sofa: it will collect coffee, crumbs and cat hair. If it can't go in the machine, it ends up balled in a cupboard before February.",
+            "The mechanism to check: a detachable controller. Unplug the control unit and the fabric goes into a 30 °C wash, gentle spin, no dryer. If the product page doesn't clearly mention a detachable controller, treat the blanket as not washable.",
+          ],
+        },
+        {
+          title: "Size and fabric: what changes the comfort",
+          paragraphs: [
+            "130 × 180 cm is the right sofa standard: big enough to cover you from feet to shoulders, compact enough to stay a throw rather than a bed blanket. Below 120 cm wide, you spend the evening re-tucking your legs.",
+            "On fabric: double-sided flannel (or flannel + sherpa) holds heat far better between heating cycles than thin fleece — the throw stays warm even switched off, which lets you heat intermittently and spend even less.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "gilet-chauffant-guide",
+    slug: { fr: "choisir-gilet-chauffant", en: "heated-vest-guide" },
+    datePublished: "2026-08-01",
+    readMinutes: 6,
+    relatedProductIds: ["gilet-chauffant", "chauffe-mains"],
+    title: {
+      fr: "Gilet chauffant : zones, autonomie réelle, tailles — le guide sans marketing",
+      en: "Heated vests: zones, real battery life, sizing — the no-marketing guide",
+    },
+    metaDescription: {
+      fr: "Combien de zones de chauffe faut-il vraiment ? Pourquoi l'autonomie annoncée est fausse ? Quelle taille commander ? Guide d'achat honnête du gilet chauffant USB.",
+      en: "How many heating zones do you really need? Why claimed battery life is wrong? What size to order? An honest USB heated vest buying guide.",
+    },
+    intro: {
+      fr: "Le gilet chauffant est le vêtement chauffant le plus efficace : il chauffe le tronc, et le corps redistribue. Mais c'est aussi la catégorie où le marketing exagère le plus — zones comptées généreusement, autonomies irréalistes, tailles trompeuses. Remettons les chiffres à l'endroit.",
+      en: "A heated vest is the most effective heated garment: it warms your core and the body redistributes. It's also the category where marketing exaggerates most — generously counted zones, unrealistic battery life, misleading sizes. Let's put the numbers straight.",
+    },
+    sections: {
+      fr: [
+        {
+          title: "Les zones de chauffe : l'emplacement compte plus que le nombre",
+          paragraphs: [
+            "Les fiches annoncent 9, 21, parfois 28 « zones ». En pratique, ce qui compte est ailleurs : le dos et les lombaires doivent être couverts (c'est là que la chaleur détend et se diffuse), le col est un vrai plus par grand froid, et des sections pilotables séparément (avant / arrière) évitent de surchauffer la poitrine pour avoir chaud au dos.",
+            "Un gilet à 6 zones bien placées et contrôlables bat un gilet à 28 micro-zones toutes reliées au même bouton.",
+          ],
+        },
+        {
+          title: "L'autonomie réelle (et pourquoi les fiches mentent)",
+          paragraphs: [
+            "Les « 8 à 10 heures » des annonces correspondent au niveau minimum, souvent avec une seule zone active. En usage réel sur une powerbank de 10 000 mAh, comptez environ 3 heures à pleine puissance — davantage en mode moyen ou éco. C'est suffisant pour un trajet, un match, une session de travail dans une pièce froide ; pas pour une journée de ski en continu.",
+            "Deux détails qui changent tout : la powerbank n'est presque jamais incluse (budget 15–25 € en plus), et la chauffe est nettement meilleure avec une powerbank capable de délivrer 20 W qu'avec un vieux modèle 10 W.",
+          ],
+        },
+        {
+          title: "Tailles : la règle de la taille au-dessus",
+          paragraphs: [
+            "La quasi-totalité des gilets chauffants du marché taillent asiatique : comptez une taille au-dessus de votre taille européenne habituelle — un M français commande un L, un L commande un XL. C'est la première cause de retour de la catégorie.",
+            "Le bon test à la réception : le gilet doit se porter près du corps (la chaleur se transmet par contact) mais laisser passer une couche fine dessous. Trop serré, il comprime les zones de chauffe ; trop ample, la chaleur se perd.",
+          ],
+        },
+        {
+          title: "Entretien et durée de vie",
+          paragraphs: [
+            "Un gilet graphène se lave en machine à froid, programme délicat, sans essorage fort et sans sèche-linge — après avoir retiré la powerbank de la poche. Ne jamais tordre le textile : c'est le geste qui casse les pistes chauffantes.",
+            "Au rangement de printemps, pliez-le sans écraser les zones de chauffe et stockez la powerbank à moitié chargée : c'est elle qui vieillit le plus vite.",
+          ],
+        },
+      ],
+      en: [
+        {
+          title: "Heating zones: placement beats the number",
+          paragraphs: [
+            "Listings advertise 9, 21, sometimes 28 'zones'. In practice what matters is elsewhere: the back and lower back must be covered (that's where heat relaxes and spreads), a heated collar is a real plus in deep cold, and separately controllable sections (front / back) stop you cooking your chest to warm your back.",
+            "A vest with 6 well-placed, controllable zones beats one with 28 micro-zones all wired to a single button.",
+          ],
+        },
+        {
+          title: "Real battery life (and why listings lie)",
+          paragraphs: [
+            "The advertised '8 to 10 hours' refers to the minimum level, often with a single zone active. In real use on a 10,000 mAh power bank, expect about 3 hours at full power — more in medium or eco mode. Enough for a commute, a match, or a session in a cold room; not for a full ski day.",
+            "Two details that change everything: the power bank is almost never included (budget €15–25 extra), and heating is noticeably stronger with a 20 W-capable power bank than with an old 10 W unit.",
+          ],
+        },
+        {
+          title: "Sizing: the one-size-up rule",
+          paragraphs: [
+            "Nearly every heated vest on the market uses Asian sizing: order one size above your usual EU size — an EU M orders L, an L orders XL. It's the category's number-one cause of returns.",
+            "The right test on delivery: the vest should sit close to the body (heat transfers by contact) while leaving room for one thin layer underneath. Too tight compresses the heating zones; too loose loses the heat.",
+          ],
+        },
+        {
+          title: "Care and lifespan",
+          paragraphs: [
+            "A graphene vest machine-washes cold on a delicate cycle, no hard spin, no dryer — after removing the power bank from the pocket. Never wring the fabric: that's the gesture that snaps heating tracks.",
+            "For spring storage, fold without creasing the heating zones and store the power bank half-charged: it's the part that ages fastest.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "pieds-froids-guide",
+    slug: { fr: "pieds-froids-solutions", en: "cold-feet-solutions" },
+    datePublished: "2026-08-01",
+    readMinutes: 5,
+    relatedProductIds: ["semelles-chauffantes", "chaussons-chauffants"],
+    title: {
+      fr: "Pieds froids : semelles chauffantes ou chaussons, que choisir selon votre cas",
+      en: "Cold feet: heated insoles or heated slippers — which one for your case",
+    },
+    metaDescription: {
+      fr: "Pieds gelés dehors, au bureau ou à la maison ? Semelles chauffantes vs chaussons chauffants : autonomie, usage, limites — le comparatif honnête.",
+      en: "Frozen feet outdoors, at your desk or at home? Heated insoles vs heated slippers: battery life, use cases, limits — the honest comparison.",
+    },
+    intro: {
+      fr: "Les pieds sont l'extrémité que le corps sacrifie en premier quand il a froid : la circulation y ralentit pour protéger le tronc. Résultat, on peut avoir chaud partout et les orteils gelés. Il existe deux réponses chauffantes — elles ne servent pas du tout au même moment.",
+      en: "Feet are the first extremity the body sacrifices in the cold: circulation slows there to protect the core. The result: you can feel warm everywhere with frozen toes. Two heated answers exist — and they serve completely different moments.",
+    },
+    sections: {
+      fr: [
+        {
+          title: "Dehors et en mouvement : les semelles chauffantes",
+          paragraphs: [
+            "Dès que vous êtes en chaussures — marche, chantier, stade, chasse, ski — la seule option qui fonctionne est la semelle chauffante à batterie intégrée. Les modèles récents logent la batterie dans la semelle elle-même : pas de boîtier à la cheville, pas de câble, et une télécommande pour changer de niveau sans se déchausser.",
+            "L'autonomie honnête : 3 à 7 heures selon le niveau. Les « 9 heures » des annonces correspondent au niveau minimum. Et un avertissement d'usine à prendre au sérieux : on découpe la semelle à sa pointure uniquement le long des lignes marquées — jamais dans la zone de l'élément chauffant.",
+          ],
+        },
+        {
+          title: "À la maison : les chaussons chauffants",
+          paragraphs: [
+            "À l'intérieur, le chausson chauffant est plus simple et plus confortable : chaleur sur l'avant-pied, intérieur doux qui garde la température, et alimentation USB sans batterie à gérer. C'est la solution du télétravail, du soir devant la télé et des rez-de-chaussée froids.",
+            "Sa limite est sa force : branché, il ne bouge pas loin. Pour circuler dans la maison, on privilégie un modèle à câble détachable qui garde la chaleur accumulée quelques dizaines de minutes.",
+          ],
+        },
+        {
+          title: "Les erreurs qui gâchent tout",
+          paragraphs: [
+            "Laver une semelle chauffante : l'eau — et même une transpiration très abondante — endommage l'élément chauffant. L'entretien correct, c'est un chiffon humide en surface, jamais d'immersion.",
+            "Superposer deux paires de chaussettes épaisses : cela comprime le pied, ralentit encore la circulation et isole le pied… de la semelle chauffante. Une seule paire de chaussettes de qualité, et la chaleur passe.",
+            "Attendre d'avoir les pieds gelés pour allumer : la chauffe sert à maintenir des pieds chauds, pas à réchauffer des pieds déjà froids à travers la corne du pied. On allume au moment de sortir, pas une heure après.",
+          ],
+        },
+      ],
+      en: [
+        {
+          title: "Outdoors and on the move: heated insoles",
+          paragraphs: [
+            "As soon as you're in shoes — walking, worksite, stadium, hunting, skiing — the only option that works is a heated insole with a built-in battery. Recent models fit the battery inside the sole itself: no ankle pack, no cable, and a wireless remote to change levels without taking your shoes off.",
+            "Honest battery life: 3 to 7 hours depending on the level. The advertised '9 hours' is the minimum setting. And a factory warning worth taking seriously: trim to size only along the marked lines — never into the heating-element area.",
+          ],
+        },
+        {
+          title: "At home: heated slippers",
+          paragraphs: [
+            "Indoors, heated slippers are simpler and more comfortable: forefoot warmth, a soft lining that holds temperature, and USB power with no battery to manage. That's the answer for home-office days, evenings on the sofa and cold ground floors.",
+            "Their limit is their strength: plugged in, they don't roam far. To move around the house, pick a model with a detachable cable that holds accumulated heat for a few dozen minutes.",
+          ],
+        },
+        {
+          title: "The mistakes that ruin everything",
+          paragraphs: [
+            "Washing a heated insole: water — and even very heavy sweat — damages the heating element. Correct care is a damp cloth on the surface, never immersion.",
+            "Stacking two thick pairs of socks: it compresses the foot, slows circulation further and insulates your foot… from the heated insole. One quality pair, and the heat gets through.",
+            "Waiting until your feet are frozen to switch on: heating maintains warm feet, it doesn't defrost cold ones through thick skin. Switch on when you head out, not an hour later.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "chauffe-mains-guide",
+    slug: {
+      fr: "chauffe-mains-rechargeable-guide",
+      en: "rechargeable-hand-warmer-guide",
+    },
+    datePublished: "2026-08-01",
+    readMinutes: 5,
+    relatedProductIds: ["chauffe-mains", "gants-chauffants"],
+    title: {
+      fr: "Chauffe-mains rechargeable : autonomie réelle, avion, et comment bien choisir",
+      en: "Rechargeable hand warmers: real battery life, flying rules, and how to choose",
+    },
+    metaDescription: {
+      fr: "mAh gonflés, autonomie réelle, règles en avion, chauffe-mains vs gants chauffants : le guide honnête du chauffe-mains électrique rechargeable.",
+      en: "Inflated mAh, real battery life, flying rules, hand warmer vs heated gloves: the honest guide to rechargeable electric hand warmers.",
+    },
+    intro: {
+      fr: "Le chauffe-mains rechargeable a remplacé les sachets jetables : quelques secondes pour chauffer, des centaines de cycles, et souvent une fonction powerbank en bonus. Mais la catégorie a ses pièges — capacités gonflées, autonomies théoriques, et des règles de transport que peu de fiches mentionnent.",
+      en: "Rechargeable hand warmers have replaced disposable packets: seconds to heat, hundreds of cycles, and often a power-bank function as a bonus. But the category has its traps — inflated capacities, theoretical battery life, and transport rules few product pages mention.",
+    },
+    sections: {
+      fr: [
+        {
+          title: "Autonomie : les vrais chiffres",
+          paragraphs: [
+            "Un chauffe-mains sérieux tient 4 à 8 heures au niveau haut — les « 15 heures » des annonces correspondent au niveau minimum d'un modèle double batterie. Trois niveaux entre 45 et 55 °C suffisent : au-delà, on ne tient plus l'objet en main.",
+            "Méfiez-vous des capacités annoncées : les « 10 000 mAh » à 8 € font souvent 5 000 mAh réels. Le format double galet magnétique — deux unités séparables, une par poche — est le plus polyvalent : chaleur des deux côtés en marchant, un seul bloc pour recharger.",
+          ],
+        },
+        {
+          title: "En avion : cabine oui, soute non",
+          paragraphs: [
+            "C'est une batterie lithium : elle voyage obligatoirement en cabine, jamais dans une valise en soute. La règle vaut pour tous les appareils à batterie intégrée. En pratique : glissez-le dans le sac à main ou la poche du manteau, et pas de souci jusqu'à 100 Wh — un chauffe-mains en fait typiquement 15 à 40.",
+            "Sur le même sujet sécurité : n'achetez pas l'entrée de gamme à 3–4 €. La catégorie fait l'objet d'une vraie surveillance des régulateurs, et l'écart de prix se joue précisément sur la puce de contrôle de température et la qualité de cellule.",
+          ],
+        },
+        {
+          title: "Chauffe-mains ou gants chauffants ?",
+          paragraphs: [
+            "Les deux ne s'excluent pas, ils se complètent. Le chauffe-mains gagne quand les mains doivent rester libres et nues par intermittence : photo, poussette, attente à l'arrêt de bus, bureau glacial. Les gants gagnent en continu dehors : vélo, scooter, randonnée.",
+            "Le combo le plus efficace par grand froid : gants chauffants aux mains, chauffe-mains dans les poches pour les pauses — c'est aussi une seconde source d'énergie de secours pour le téléphone.",
+          ],
+        },
+      ],
+      en: [
+        {
+          title: "Battery life: the real numbers",
+          paragraphs: [
+            "A serious hand warmer lasts 4 to 8 hours on high — the advertised '15 hours' is a dual-battery model on its minimum setting. Three levels between 45 and 55 °C are enough: beyond that you can't hold the thing.",
+            "Distrust claimed capacities: '10,000 mAh' at €8 is often 5,000 real mAh. The magnetic split-pebble format — two separable units, one per pocket — is the most versatile: warmth on both sides while walking, one block to recharge.",
+          ],
+        },
+        {
+          title: "Flying: cabin yes, hold no",
+          paragraphs: [
+            "It's a lithium battery: it must travel in the cabin, never in checked luggage. The rule covers every device with a built-in battery. In practice: keep it in your hand luggage or coat pocket, and you're fine up to 100 Wh — a hand warmer is typically 15 to 40.",
+            "On the same safety theme: skip the €3–4 entry level. The category is under real regulator scrutiny, and the price gap sits precisely in the temperature-control chip and cell quality.",
+          ],
+        },
+        {
+          title: "Hand warmer or heated gloves?",
+          paragraphs: [
+            "They don't compete — they combine. The hand warmer wins when hands must stay free and bare intermittently: photos, strollers, waiting for the bus, a freezing office. Gloves win for continuous outdoor use: cycling, scooters, hiking.",
+            "The most effective deep-cold combo: heated gloves on, hand warmer in the pockets for breaks — which doubles as emergency phone power.",
+          ],
+        },
+      ],
+    },
+  },
+);
+
 function localizeGuide(source: GuideSource, locale: Locale): Guide {
   return {
     id: source.id,

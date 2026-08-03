@@ -3,6 +3,7 @@
 import { useLocale } from "next-intl";
 import { usePathname as useRawPathname } from "next/navigation";
 import { translateProductSlug } from "@/data/catalog";
+import { translateCategorySlug } from "@/data/category-slugs";
 import { translateGuideSlug } from "@/data/guides-slugs";
 import { routing, type Locale } from "@/i18n/routing";
 
@@ -34,9 +35,12 @@ function alternateHref(rawPathname: string, from: Locale, to: Locale): string {
     }
     if (param && internal === "/guides/[slug]") {
       const translated = translateGuideSlug(param, from, to);
-      // Guide indisponible dans la locale cible (de/es) → accueil.
+      // Guide indisponible dans la locale cible → accueil.
       if (!translated) return `/${to}`;
       param = translated;
+    }
+    if (param && internal === "/collection/[category]") {
+      param = translateCategorySlug(param, from, to) ?? param;
     }
     const target = param
       ? toPattern.replace(/\[([^\]]+)\]/g, param)

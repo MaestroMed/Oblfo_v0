@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getProducts } from "@/data/catalog";
+import type { Category } from "@/data/catalog-types";
+import { CATEGORY_SLUGS } from "@/data/category-slugs";
 import { getGuides, guideLocales } from "@/data/guides";
 import { getPathname } from "@/i18n/navigation";
 import { routing, type Locale } from "@/i18n/routing";
@@ -63,9 +65,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const guidesIndexEntries = entries(() => "/guides", 0.7, "weekly");
 
+  const categoryEntries = (
+    Object.keys(CATEGORY_SLUGS) as Category[]
+  ).flatMap((category) =>
+    entries(
+      (locale) => ({
+        pathname: "/collection/[category]",
+        params: { category: CATEGORY_SLUGS[category][locale] },
+      }),
+      0.8,
+      "weekly",
+    ),
+  );
+
   return [
     ...entries(() => "/", 1, "weekly"),
     ...entries(() => "/collection", 0.9, "weekly"),
+    ...categoryEntries,
     ...productEntries,
     ...guidesIndexEntries,
     ...guideEntries,

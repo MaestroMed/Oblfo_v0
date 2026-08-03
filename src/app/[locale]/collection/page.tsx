@@ -3,7 +3,8 @@ import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ProductCard } from "@/components/product-card";
 import { CATEGORY_ORDER, getProducts } from "@/data/catalog";
-import { getPathname } from "@/i18n/navigation";
+import { CATEGORY_SLUGS } from "@/data/category-slugs";
+import { getPathname, Link } from "@/i18n/navigation";
 import { hreflangAlternates, isLocale, type Locale } from "@/i18n/routing";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -54,9 +55,30 @@ export default async function CollectionPage({ params }: Props) {
               <div className="mb-6 flex items-center gap-3">
                 <span className="h-1.5 w-1.5 rotate-45 bg-accent" />
                 <h2 className="font-serif text-[22px] font-medium text-ink-warm">
-                  {tCat(section.category)}
+                  <Link
+                    href={{
+                      pathname: "/collection/[category]",
+                      params: {
+                        category: CATEGORY_SLUGS[section.category][locale],
+                      },
+                    }}
+                    className="text-inherit no-underline transition-colors hover:text-accent"
+                  >
+                    {tCat(section.category)}
+                  </Link>
                 </h2>
                 <span className="h-px flex-1 bg-black/8" />
+                <Link
+                  href={{
+                    pathname: "/collection/[category]",
+                    params: {
+                      category: CATEGORY_SLUGS[section.category][locale],
+                    },
+                  }}
+                  className="font-mono text-[10.5px] tracking-[0.14em] text-muted-warm no-underline transition-colors hover:text-accent"
+                >
+                  →
+                </Link>
               </div>
               <div className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-6">
                 {section.items.map((product) => (

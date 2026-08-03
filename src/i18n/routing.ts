@@ -40,6 +40,12 @@ export const routing = defineRouting({
       de: "/kollektion",
       es: "/coleccion",
     },
+    "/collection/[category]": {
+      fr: "/collection/[category]",
+      en: "/collection/[category]",
+      de: "/kollektion/[category]",
+      es: "/coleccion/[category]",
+    },
     "/mentions-legales": {
       fr: "/mentions-legales",
       en: "/legal-notice",

@@ -75,6 +75,10 @@
     "title": "Die ganze Kollektion.",
     "intro": "Jedes Produkt beantwortet einen ganz bestimmten kalten Moment. Abteilung für Abteilung: alles, was OBFLO wärmen kann."
   },
+  "CategoryPage": {
+    "backToCollection": "ZUR GESAMTEN KOLLEKTION",
+    "guidesLabel": "RATGEBER ZU DIESER ABTEILUNG"
+  },
   "Categories": {
     "mains": "Hände",
     "pieds": "Füße",

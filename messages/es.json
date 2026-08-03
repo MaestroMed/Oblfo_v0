@@ -75,6 +75,10 @@
     "title": "Toda la colección.",
     "intro": "Cada producto responde a un momento de frío concreto. Sección a sección, todo lo que OBFLO sabe calentar."
   },
+  "CategoryPage": {
+    "backToCollection": "TODA LA COLECCIÓN",
+    "guidesLabel": "LAS GUÍAS DE ESTA SECCIÓN"
+  },
   "Categories": {
     "mains": "Manos",
     "pieds": "Pies",

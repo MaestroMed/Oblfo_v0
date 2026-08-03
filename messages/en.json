@@ -75,6 +75,10 @@
     "title": "The whole collection.",
     "intro": "Every product answers one precise cold moment. Aisle by aisle, here is everything OBFLO knows how to warm."
   },
+  "CategoryPage": {
+    "backToCollection": "THE WHOLE COLLECTION",
+    "guidesLabel": "GUIDES FOR THIS RANGE"
+  },
   "Categories": {
     "mains": "Hands",
     "pieds": "Feet",

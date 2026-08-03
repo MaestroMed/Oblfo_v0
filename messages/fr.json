@@ -75,6 +75,10 @@
     "title": "Toute la collection.",
     "intro": "Chaque produit répond à un moment froid précis. Rayon par rayon, voici tout ce qu'OBFLO sait réchauffer."
   },
+  "CategoryPage": {
+    "backToCollection": "TOUTE LA COLLECTION",
+    "guidesLabel": "LES GUIDES DU RAYON"
+  },
   "Categories": {
     "mains": "Mains",
     "pieds": "Pieds",

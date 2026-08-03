@@ -1,35 +1,41 @@
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
-import { getProductById } from "@/data/catalog";
+import type { Category } from "@/data/catalog-types";
+import { CATEGORY_SLUGS } from "@/data/category-slugs";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 
-const cards = [
+const cards: {
+  category: Category;
+  image: string;
+  kickerKey: "catHands" | "catFeet" | "catDesk" | "catRoom";
+  labelKey: "catHandsLabel" | "catFeetLabel" | "catDeskLabel" | "catRoomLabel";
+}[] = [
   {
-    productId: "gants-chauffants",
+    category: "mains",
     image: "/images/home/cat-mains.jpg",
     kickerKey: "catHands",
     labelKey: "catHandsLabel",
   },
   {
-    productId: "chaussons-chauffants",
+    category: "pieds",
     image: "/images/home/cat-pieds.jpg",
     kickerKey: "catFeet",
     labelKey: "catFeetLabel",
   },
   {
-    productId: "mini-chauffe-tasse",
+    category: "bureau",
     image: "/images/home/cat-bureau.jpg",
     kickerKey: "catDesk",
     labelKey: "catDeskLabel",
   },
   {
-    productId: "chauffage-appoint",
+    category: "piece",
     image: "/images/home/cat-piece.jpg",
     kickerKey: "catRoom",
     labelKey: "catRoomLabel",
   },
-] as const;
+];
 
 export function Categories() {
   const t = useTranslations("HomeV2");
@@ -40,14 +46,12 @@ export function Categories() {
       <div className="mx-auto -mt-[110px] max-w-[1280px] px-8">
         <div className="relative grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-5">
           {cards.map((card) => {
-            const product = getProductById(card.productId, locale);
-            if (!product) return null;
             return (
               <Link
-                key={card.productId}
+                key={card.category}
                 href={{
-                  pathname: "/produits/[slug]",
-                  params: { slug: product.slug },
+                  pathname: "/collection/[category]",
+                  params: { category: CATEGORY_SLUGS[card.category][locale] },
                 }}
                 className="group relative aspect-[4/3.4] overflow-hidden rounded-2xl border border-black/40 bg-espresso-2 no-underline shadow-[0_24px_60px_-28px_rgba(22,17,12,0.7)] transition-transform duration-[250ms] hover:-translate-y-1"
               >

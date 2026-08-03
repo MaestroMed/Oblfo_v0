@@ -5,7 +5,8 @@ import { useLocale, useTranslations } from "next-intl";
 import { useCart } from "@/components/cart-context";
 import { LocaleSwitcher } from "@/components/locale-switcher";
 import { PowerGlyph } from "@/components/power-glyph";
-import { getProductById } from "@/data/catalog";
+import type { Category } from "@/data/catalog-types";
+import { CATEGORY_SLUGS } from "@/data/category-slugs";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 
@@ -15,19 +16,18 @@ export function SiteHeader() {
   const locale = useLocale() as Locale;
   const [heated, setHeated] = useState(false);
 
-  const productLink = (id: string, label: string) => {
-    const product = getProductById(id, locale);
-    if (!product) return null;
-    return (
-      <Link
-        key={id}
-        href={{ pathname: "/produits/[slug]", params: { slug: product.slug } }}
-        className="text-[13px] font-medium tracking-[0.04em] text-[#C9BEB0] uppercase no-underline transition-colors hover:text-white"
-      >
-        {label}
-      </Link>
-    );
-  };
+  const categoryLink = (category: Category, label: string) => (
+    <Link
+      key={category}
+      href={{
+        pathname: "/collection/[category]",
+        params: { category: CATEGORY_SLUGS[category][locale] },
+      }}
+      className="text-[13px] font-medium tracking-[0.04em] text-[#C9BEB0] uppercase no-underline transition-colors hover:text-white"
+    >
+      {label}
+    </Link>
+  );
 
   return (
     <header className="sticky top-0 z-[60] border-b border-white/[0.06] bg-[rgba(18,13,9,0.9)] backdrop-blur-[14px]">
@@ -58,10 +58,10 @@ export function SiteHeader() {
           >
             {t("news")}
           </Link>
-          {productLink("gants-chauffants", t("hands"))}
-          {productLink("chaussons-chauffants", t("feet"))}
-          {productLink("mini-chauffe-tasse", t("desk"))}
-          {productLink("chauffage-appoint", t("room"))}
+          {categoryLink("mains", t("hands"))}
+          {categoryLink("pieds", t("feet"))}
+          {categoryLink("bureau", t("desk"))}
+          {categoryLink("piece", t("room"))}
           <a
             href={`/${locale}#pack`}
             className="text-[13px] font-medium tracking-[0.04em] text-[#C9BEB0] uppercase no-underline transition-colors hover:text-white"

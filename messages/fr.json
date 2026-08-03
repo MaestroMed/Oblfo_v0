@@ -112,6 +112,9 @@
     "kindGuide": "Guide",
     "kindCategory": "Rayon"
   },
+  "RecentlyViewed": {
+    "title": "RÉCEMMENT CONSULTÉS"
+  },
   "Plp": {
     "sortLabel": "Trier",
     "sortFeatured": "Sélection",

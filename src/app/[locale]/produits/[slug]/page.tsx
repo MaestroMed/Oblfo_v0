@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { AddToCartButton } from "@/components/add-to-cart-button";
 import { ImageSlot } from "@/components/image-slot";
+import { RecentlyViewed, TrackProductView } from "@/components/recently-viewed";
 import { VariantPicker } from "@/components/variant-picker";
 import {
   formatPrice,
@@ -87,7 +88,12 @@ export default async function ProductPage({ params }: Props) {
   const t = await getTranslations("ProductPage");
   const tCart = await getTranslations("Cart");
   const packsWithProduct = getPacksForProduct(locale, product.id);
-  const otherProducts = getProducts(locale).filter((p) => p.id !== product.id);
+  // Même rayon d'abord (le plus complémentaire), complété avec le reste — 4 max.
+  const siblings = getProducts(locale).filter((p) => p.id !== product.id);
+  const otherProducts = [
+    ...siblings.filter((p) => p.category === product.category),
+    ...siblings.filter((p) => p.category !== product.category),
+  ].slice(0, 4);
 
   const productUrl = `${SITE_URL}${getPathname({
     locale,
@@ -396,7 +402,17 @@ export default async function ProductPage({ params }: Props) {
                 className="flex flex-col overflow-hidden rounded-[18px] border border-white/7 bg-card no-underline transition-[border-color,box-shadow,transform] duration-[250ms] hover:-translate-y-[3px] hover:border-accent/55 hover:shadow-[0_24px_70px_-30px_rgba(255,106,43,0.45)]"
               >
                 <div className="relative aspect-[4/3] bg-media">
-                  <ImageSlot label={other.imageLabel} />
+                  {other.image ? (
+                    <Image
+                      src={other.image}
+                      alt={other.name}
+                      fill
+                      sizes="(min-width: 1024px) 22vw, 45vw"
+                      className="object-cover"
+                    />
+                  ) : (
+                    <ImageSlot label={other.imageLabel} />
+                  )}
                 </div>
                 <div className="flex items-center justify-between gap-3 px-5 py-4">
                   <span className="text-base font-semibold text-ink">
@@ -412,6 +428,9 @@ export default async function ProductPage({ params }: Props) {
         </div>
       </section>
 
+      <RecentlyViewed excludeId={product.id} />
+
+      <TrackProductView id={product.id} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

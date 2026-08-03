@@ -112,6 +112,9 @@
     "kindGuide": "Guide",
     "kindCategory": "Category"
   },
+  "RecentlyViewed": {
+    "title": "RECENTLY VIEWED"
+  },
   "Plp": {
     "sortLabel": "Sort",
     "sortFeatured": "Featured",

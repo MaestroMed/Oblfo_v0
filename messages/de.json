@@ -112,6 +112,9 @@
     "kindGuide": "Ratgeber",
     "kindCategory": "Kategorie"
   },
+  "RecentlyViewed": {
+    "title": "ZULETZT ANGESEHEN"
+  },
   "Plp": {
     "sortLabel": "Sortieren",
     "sortFeatured": "Empfohlen",

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { CartPageContent } from "@/components/cart-page-content";
+import { RecentlyViewed } from "@/components/recently-viewed";
 import { isLocale } from "@/i18n/routing";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -21,5 +22,10 @@ export default async function PanierPage({ params }: Props) {
   if (!isLocale(locale)) notFound();
   setRequestLocale(locale);
 
-  return <CartPageContent locale={locale} />;
+  return (
+    <>
+      <CartPageContent locale={locale} />
+      <RecentlyViewed />
+    </>
+  );
 }

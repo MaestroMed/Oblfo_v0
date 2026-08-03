@@ -131,12 +131,18 @@ export async function POST(request: Request) {
           shipping_rate_data: {
             display_name:
               shippingCents === 0
-                ? locale === "fr"
-                  ? "Livraison offerte"
-                  : "Free shipping"
-                : locale === "fr"
-                  ? "Livraison standard"
-                  : "Standard shipping",
+                ? {
+                    fr: "Livraison offerte",
+                    en: "Free shipping",
+                    de: "Gratisversand",
+                    es: "Envío gratis",
+                  }[locale]
+                : {
+                    fr: "Livraison standard",
+                    en: "Standard shipping",
+                    de: "Standardversand",
+                    es: "Envío estándar",
+                  }[locale],
             type: "fixed_amount",
             fixed_amount: { amount: shippingCents, currency: "eur" },
             delivery_estimate: {

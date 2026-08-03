@@ -10,7 +10,12 @@ import { PackFeature } from "@/components/home/pack-feature";
 import { Reassurance } from "@/components/home/reassurance";
 import { getFaqItems, getProducts } from "@/data/catalog";
 import { getPathname } from "@/i18n/navigation";
-import { isLocale, type Locale } from "@/i18n/routing";
+import {
+  hreflangAlternates,
+  isLocale,
+  ogLocale,
+  type Locale,
+} from "@/i18n/routing";
 import {
   MERCHANT_RETURN_POLICY,
   OFFER_SHIPPING_DETAILS,
@@ -24,14 +29,11 @@ export async function generateMetadata({ params }: Props) {
   if (!isLocale(locale)) return {};
   const path = (l: Locale) => getPathname({ locale: l, href: "/" });
   return {
-    alternates: {
-      canonical: path(locale),
-      languages: { fr: path("fr"), en: path("en"), "x-default": path("fr") },
-    },
+    alternates: hreflangAlternates(path, locale),
     openGraph: {
       url: path(locale),
       siteName: "OBFLO",
-      locale: locale === "fr" ? "fr_FR" : "en_US",
+      locale: ogLocale(locale),
       type: "website",
     },
   };

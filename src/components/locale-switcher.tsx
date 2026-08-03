@@ -33,7 +33,10 @@ function alternateHref(rawPathname: string, from: Locale, to: Locale): string {
       param = translateProductSlug(param, from, to) ?? param;
     }
     if (param && internal === "/guides/[slug]") {
-      param = translateGuideSlug(param, from, to) ?? param;
+      const translated = translateGuideSlug(param, from, to);
+      // Guide indisponible dans la locale cible (de/es) → accueil.
+      if (!translated) return `/${to}`;
+      param = translated;
     }
     const target = param
       ? toPattern.replace(/\[([^\]]+)\]/g, param)

@@ -1,0 +1,323 @@
+{
+  "Metadata": {
+    "title": "OBFLO — Tragbare Wärme: beheizbare Handschuhe, Hausschuhe, Heizlüfter",
+    "description": "Beheizbare Handschuhe, Hausschuhe, Tassenwärmer und Heizlüfter. Gezielte Wärme in Sekunden, genau dort, wo der Winter zubeißt. Kostenloser Versand ab 60 €, 30 Tage Rückgaberecht."
+  },
+  "Announcement": {
+    "text": "NEU 2026: smarte Heiztechnik der nächsten Generation — Versand in 3–5 Werktagen"
+  },
+  "HomeV2": {
+    "heroBadge": "NEUE GENERATION 2026",
+    "heroTitle1": "",
+    "heroAccent1": "Wärme",
+    "heroTitle2": ", genau dort, wo sie ",
+    "heroAccent2": "hingehört",
+    "heroTitle3": ".",
+    "heroSubtitle": "Smarte Thermotechnik. Premium-Komfort. Langlebiges Design.",
+    "heroCtaPrimary": "Kollektion entdecken",
+    "heroCtaSecondary": "Zum Set",
+    "catHands": "HÄNDE",
+    "catHandsLabel": "Beheizbare Handschuhe",
+    "catFeet": "FÜSSE",
+    "catFeetLabel": "Beheizbare Hausschuhe",
+    "catDesk": "SCHREIBTISCH",
+    "catDeskLabel": "Wärme im Alltag",
+    "catRoom": "KLEINER RAUM",
+    "catRoomLabel": "Heizlüfter",
+    "essentialsTitle": "Unsere Wärme-Essentials",
+    "essentialsSeeAll": "Ganze Kollektion ansehen",
+    "badgeNew": "NEU",
+    "packKicker": "DAS ULTIMATIVE SET",
+    "packTitle": "Full-OBFLO-Set",
+    "packSubtitle": "Ihr Komfort, komplett. Überall.",
+    "packFeat1Title": "4 Produkte",
+    "packFeat1Text": "Neueste Generation",
+    "packFeat2Title": "Ersparnis",
+    "packFeat2Text": "Sofort −22 €",
+    "packFeat3Title": "2 Jahre Gewährleistung",
+    "packFeat3Text": "Gesetzliche Gewährleistung",
+    "packFeat4Title": "Versand",
+    "packFeat4Text": "3–5 Werktage",
+    "packSave": "Sie sparen {amount}",
+    "packCta": "Set in den Warenkorb",
+    "reassur1Title": "Schnelles Aufheizen",
+    "reassur1Text": "Wärme in Sekunden",
+    "reassur2Title": "Mehrere Stufen",
+    "reassur2Text": "Nach Bedarf einstellbar",
+    "reassur3Title": "Premium-Komfort",
+    "reassur3Text": "Weiche, angenehme Materialien",
+    "reassur4Title": "Erweiterte Sicherheit",
+    "reassur4Text": "Überhitzungsschutz",
+    "reassur5Title": "Versand in 3–5 Tagen",
+    "reassur5Text": "Mit Sendungsverfolgung, sorgfältig verpackt",
+    "reassur6Title": "30 Tage Rückgabe",
+    "reassur6Text": "Einfach und schnell",
+    "aboutTitle": "OBFLO — Wärme, die den Alltag verändert.",
+    "aboutText": "Wir entwickeln smarte, langlebige und schöne Heizprodukte, die Komfort und Wohlbefinden bringen — wo immer Sie sind.",
+    "trust1Title": "2 Jahre Gewährleistung",
+    "trust1Text": "Gesetzliche Gewährleistung",
+    "trust2Title": "30 Tage Rückgabe",
+    "trust2Text": "Ohne Angabe von Gründen",
+    "trust3Title": "Sichere Zahlung",
+    "trust3Text": "Über Stripe, verschlüsselt",
+    "lifeDeskKicker": "Am Schreibtisch",
+    "lifeDeskTitle": "Konzentriert arbeiten — ohne zu frieren.",
+    "lifeHomeKicker": "Zuhause",
+    "lifeHomeTitle": "Entspannen Sie. Wir heizen.",
+    "lifeOutKicker": "Draußen",
+    "lifeOutTitle": "Der Kälte trotzen, warm bleiben.",
+    "newsletterTitle": "Verpassen Sie nichts Warmes.",
+    "newsletterText": "Neuheiten, exklusive Angebote, Komfort-Tipps … werden Sie Teil der OBFLO-Community."
+  },
+  "Collection": {
+    "metaTitle": "Die Kollektion — alle unsere Wärme-Essentials",
+    "metaDescription": "Die komplette OBFLO-Kollektion: Hände, Füße, Schreibtisch, Zuhause. Smarte Heizprodukte, 2 Jahre Gewährleistung, Versand in 3–5 Tagen.",
+    "title": "Die ganze Kollektion.",
+    "intro": "Jedes Produkt beantwortet einen ganz bestimmten kalten Moment. Abteilung für Abteilung: alles, was OBFLO wärmen kann."
+  },
+  "Categories": {
+    "mains": "Hände",
+    "pieds": "Füße",
+    "bureau": "Schreibtisch",
+    "piece": "Kleiner Raum",
+    "maison": "Zuhause",
+    "corps": "Körper"
+  },
+  "Nav": {
+    "news": "Neuheiten",
+    "hands": "Hände",
+    "feet": "Füße",
+    "desk": "Schreibtisch",
+    "room": "Kleiner Raum",
+    "packs": "Sets",
+    "faq": "FAQ",
+    "guides": "Ratgeber",
+    "cart": "WARENKORB"
+  },
+  "Guides": {
+    "metaTitle": "Ratgeber — Heizprodukte richtig auswählen",
+    "metaDescription": "Ehrliche Kaufratgeber: reale Verbrauchswerte, echte Akkulaufzeiten, worauf es wirklich ankommt.",
+    "kicker": "RATGEBER",
+    "title": "Auswählen, ohne sich zu verbrennen.",
+    "intro": "Kurze, ehrliche Ratgeber — was Produktseiten verschweigen, die Zahlen, die zählen, und welche Option zu welchem Einsatz passt.",
+    "readTime": "{minutes} MIN LESEZEIT",
+    "published": "VERÖFFENTLICHT AM {date}",
+    "backToGuides": "ALLE RATGEBER",
+    "relatedLabel": "PRODUKTE IN DIESEM RATGEBER",
+    "seeProduct": "Zum Produkt"
+  },
+  "Faq": {
+    "label": "FAQ",
+    "title": "Häufige Fragen.",
+    "subtitle": "Noch eine Frage? Schreiben Sie uns — Antwort innerhalb von 24 Std."
+  },
+  "Cart": {
+    "title": "WARENKORB",
+    "close": "Schließen",
+    "closeCart": "Warenkorb schließen",
+    "empty": "Ihr Warenkorb ist leer. Die Kälte wartet allerdings nicht.",
+    "emptyCta": "Kollektion entdecken",
+    "perUnit": "{price} / Stück",
+    "remove": "ENTFERNEN",
+    "decrease": "Menge von {name} verringern",
+    "increase": "Menge von {name} erhöhen",
+    "total": "GESAMT",
+    "checkout": "Zur Kasse",
+    "checkoutSoon": "Zahlungen werden gerade aktiviert — bitte bald erneut versuchen.",
+    "checkoutError": "Die Kasse konnte nicht starten. Bitte gleich noch einmal versuchen.",
+    "reassurance": "GRATISVERSAND AB 60 € — 30 TAGE RÜCKGABE",
+    "toastAdded": "IM WARENKORB — {name}",
+    "viewCart": "Warenkorb ansehen",
+    "subtotal": "ZWISCHENSUMME",
+    "shippingAtCheckout": "Versand wird an der Kasse berechnet",
+    "acceptTerms": "Ich akzeptiere die <terms>AGB</terms>",
+    "unavailable": "Ausverkauft"
+  },
+  "CartPage": {
+    "metaTitle": "Warenkorb",
+    "kicker": "WARENKORB",
+    "title": "Ihr Warenkorb.",
+    "empty": "Ihr Warenkorb ist leer. Die Kälte wartet allerdings nicht.",
+    "emptyCta": "Kollektion entdecken",
+    "subtotal": "Zwischensumme",
+    "shipping": "Versand",
+    "shippingFree": "Kostenlos",
+    "freeShippingProgress": "Noch {amount} bis zum Gratisversand",
+    "freeShippingReached": "Gratisversand freigeschaltet",
+    "total": "Gesamt",
+    "checkout": "Zur Kasse",
+    "continueShopping": "Weiter einkaufen",
+    "crossSellKicker": "KOLLEKTION",
+    "crossSellLabel": "DAS SET VERVOLLSTÄNDIGEN"
+  },
+  "ProductPage": {
+    "breadcrumbHome": "START",
+    "breadcrumbRange": "KOLLEKTION",
+    "breadcrumbLabel": "Brotkrumen-Navigation",
+    "kicker": "OBFLO — TRAGBARE WÄRME",
+    "addToCart": "In den Warenkorb",
+    "reassurance": "VERSAND 3–5 TAGE  ·  30 TAGE RÜCKGABE  ·  GRATIS AB 60 €",
+    "specsKicker": "SPECS",
+    "specsLabel": "TECHNISCHE DATEN",
+    "packsKicker": "SETS",
+    "packsLabel": "IM SET GÜNSTIGER",
+    "choosePack": "Dieses Set wählen",
+    "rangeKicker": "KOLLEKTION",
+    "rangeLabel": "DIE AUSSTATTUNG VERVOLLSTÄNDIGEN"
+  },
+  "Footer": {
+    "tagline": "Wärme, genau dort, wo Sie sie brauchen.",
+    "newsletterTitle": "Erhalten Sie die Winterangebote vor allen anderen.",
+    "newsletterPlaceholder": "ihre@email.de",
+    "subscribe": "Anmelden",
+    "subscribed": "ANGEKOMMEN — WIR HALTEN SIE WARM.",
+    "newsletterSoon": "DIE ANMELDUNG ÖFFNET SEHR BALD.",
+    "newsletterError": "DAS HAT NICHT GEKLAPPT — BITTE ERNEUT VERSUCHEN.",
+    "shop": "SHOP",
+    "packs": "Die Sets",
+    "help": "HILFE",
+    "guides": "Ratgeber",
+    "faq": "FAQ",
+    "contact": "Kontakt",
+    "orderTracking": "Sendungsverfolgung",
+    "infos": "INFOS",
+    "shipping": "Versand & Rückgabe",
+    "legalNotice": "Impressum",
+    "terms": "AGB",
+    "privacy": "Datenschutz",
+    "copyright": "© 2026 OBFLO — FÜR DEN WINTER GEBAUT",
+    "region": "DE — EUR",
+    "badge1Title": "Sichere Zahlung",
+    "badge1Text": "Stripe · 256-Bit-SSL",
+    "badge2Title": "Erreichbarer Support",
+    "badge2Text": "Antwort innerhalb von 24 Werktagsstunden",
+    "badge3Title": "Versand mit Tracking",
+    "badge3Text": "3–5 Werktage",
+    "badge4Title": "30 Tage Rückgabe",
+    "badge4Text": "Einfach und schnell"
+  },
+  "NotFound": {
+    "kicker": "FEHLER 404",
+    "titleLine1": "Diese Seite blieb",
+    "titleLine2": "in der Kälte stehen.",
+    "text": "Diese Adresse existiert nicht — oder nicht mehr. Die Kollektion dagegen ist schön warm.",
+    "cta": "Zur Startseite"
+  },
+  "Merci": {
+    "metaTitle": "Danke für Ihre Bestellung",
+    "kicker": "BESTELLUNG BESTÄTIGT",
+    "titleLine1": "Geschafft.",
+    "titleLine2": "Die Wärme ist unterwegs.",
+    "text": "Ihre Bestellung ist bestätigt. Eine Bestätigungs-E-Mail ist unterwegs, gefolgt von einer Sendungsnummer, sobald das Paket verschickt wird (innerhalb von 24–48 Werktagsstunden).",
+    "cta": "Zurück zum Shop"
+  },
+  "ShippingPage": {
+    "metaTitle": "Versand & Rückgabe",
+    "metaDescription": "OBFLO-Versandzeiten, Kosten und 30-Tage-Rückgaberecht. Gratisversand ab 60 €.",
+    "kicker": "INFOS",
+    "title": "Versand & Rückgabe.",
+    "intro": "Winterprodukte müssen schnell ankommen und sich reibungslos zurückgeben lassen. So funktioniert es.",
+    "sections": [
+      {
+        "title": "Versandzeiten",
+        "paragraphs": [
+          "Bestellungen werden innerhalb von 24 bis 48 Werktagsstunden verschickt. Die Lieferung dauert anschließend 3 bis 5 Werktage. Eine Sendungsnummer erhalten Sie per E-Mail, sobald Ihre Bestellung das Lager verlässt."
+        ]
+      },
+      {
+        "title": "Versandkosten",
+        "paragraphs": [
+          "Ab 60 € ist der Versand kostenlos. Darunter werden die Kosten an der Kasse nach Zielort berechnet und vor der Zahlung angezeigt — keine Überraschungen."
+        ]
+      },
+      {
+        "title": "30 Tage Rückgaberecht",
+        "paragraphs": [
+          "Sie haben 30 Tage nach Erhalt, um ein Produkt zurückzugeben — ohne Angabe von Gründen. Es muss lediglich vollständig und in gutem Zustand sein. Kontaktieren Sie uns vor dem Rückversand: Die Rücksendekosten tragen Sie (außer bei defekten Produkten oder unserem Fehler), die volle Rückerstattung geht raus, sobald das Produkt bei uns eintrifft."
+        ]
+      },
+      {
+        "title": "Defekte Produkte",
+        "paragraphs": [
+          "Kommt ein Produkt beschädigt an oder fällt es bei normaler Nutzung aus, ersetzen oder erstatten wir es — Fotos genügen, in eindeutigen Fällen ohne Pflicht zur Rücksendung."
+        ]
+      }
+    ]
+  },
+  "ContactPage": {
+    "metaTitle": "Kontakt",
+    "metaDescription": "Eine Frage zu einem OBFLO-Produkt oder Ihrer Bestellung? Wir antworten innerhalb von 24 Werktagsstunden.",
+    "kicker": "HILFE",
+    "title": "Antwort innerhalb von 24 Std.",
+    "intro": "Eine Frage zu einem Produkt, einer Bestellung, einer Rückgabe? Die FAQ deckt die häufigsten Fälle ab — sonst schreiben Sie uns direkt.",
+    "emailTitle": "Per E-Mail",
+    "emailText": "Schreiben Sie uns an <tc>Kontakt-E-Mail</tc> und nennen Sie Ihre Bestellnummer, falls es um eine Bestellung geht. Antwort innerhalb von 24 Werktagsstunden, Montag bis Freitag.",
+    "trackingTitle": "Sendungsverfolgung",
+    "trackingText": "Ihre Sendungsnummer erhalten Sie per E-Mail, sobald die Bestellung verschickt wird (auch im Spam-Ordner nachsehen). Der Link des Versanddienstleisters zeigt die Position des Pakets in Echtzeit.",
+    "faqTitle": "Bevor Sie schreiben",
+    "faqText": "Fragen zu Heizleistung, USB-Stromversorgung, Rückgaben und Lieferzeiten beantwortet bereits die <faqLink>FAQ</faqLink>."
+  },
+  "LegalNoticePage": {
+    "metaTitle": "Impressum",
+    "metaDescription": "Impressum der OBFLO-Website.",
+    "kicker": "RECHTLICHES",
+    "title": "Impressum.",
+    "editorTitle": "Betreiber der Website",
+    "editorP1": "Die OBFLO-Website wird betrieben von Opcodia LLC, einer Gesellschaft mit beschränkter Haftung nach US-Recht, eingetragen im Bundesstaat New Mexico (USA), mit Sitz in 1209 Mountain Road Pl NE, Ste R, Albuquerque, NM 87110, USA.",
+    "editorP2": "Verantwortlich für den Inhalt: Mehdi Nafaa. USt-IdNr.: <tc>USt-IdNr. / IOSS in Beantragung</tc>. Kontakt: <tc>Kontakt-E-Mail</tc>.",
+    "hostingTitle": "Hosting",
+    "hostingP1": "Die Website wird gehostet von Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA — vercel.com.",
+    "ipTitle": "Urheberrecht",
+    "ipP1": "Sämtliche Inhalte der Website (Texte, Bilder, Logo, Gestaltung) sind ausschließliches Eigentum des Betreibers. Jede Vervielfältigung ohne vorherige schriftliche Genehmigung ist untersagt."
+  },
+  "TermsPage": {
+    "metaTitle": "Allgemeine Geschäftsbedingungen",
+    "metaDescription": "Allgemeine Geschäftsbedingungen des OBFLO-Shops.",
+    "kicker": "RECHTLICHES",
+    "title": "Allgemeine Geschäftsbedingungen.",
+    "intro": "Gültig für jede Bestellung auf der OBFLO-Website.",
+    "s1Title": "1. Geltungsbereich",
+    "s1P1": "Diese Bedingungen regeln die Verkäufe zwischen Opcodia LLC (1209 Mountain Road Pl NE, Ste R, Albuquerque, NM 87110, USA) und jedem Kunden, der auf der OBFLO-Website bestellt.",
+    "s2Title": "2. Preise",
+    "s2P1": "Alle Preise sind in Euro inklusive Steuern, zuzüglich Versandkosten. Die Versandkosten werden vor Abschluss der Bestellung angezeigt. Ab 60 € ist der Versand kostenlos.",
+    "s3Title": "3. Bestellung und Zahlung",
+    "s3P1": "Die Bestellung ist mit Bestätigung der Zahlung verbindlich. Akzeptierte Zahlungsarten: Kreditkarte (sowie je nach Gerät Apple Pay / Google Pay). Die Zahlung wird über Stripe abgesichert; Kartendaten erreichen unsere Server zu keinem Zeitpunkt.",
+    "s4Title": "4. Lieferung",
+    "s4P1": "Versand innerhalb von 24 bis 48 Werktagsstunden, Lieferung in 3 bis 5 Werktagen mit Sendungsverfolgung. Bei einer Verzögerung von mehr als 7 Werktagen kann der Kunde die Bestellung stornieren und erhält den vollen Betrag zurück.",
+    "s5Title": "5. Widerruf und Rückgabe",
+    "s5P1": "Verbrauchern steht das gesetzliche 14-tägige Widerrufsrecht zu. OBFLO verlängert dieses auf 30 Tage nach Erhalt, ohne Angabe von Gründen. Die Rücksendekosten trägt der Kunde, außer bei defekten Produkten oder unserem Fehler. Die volle Rückerstattung erfolgt, sobald das vollständige, unbeschädigte Produkt bei uns eintrifft.",
+    "s6Title": "6. Gewährleistung",
+    "s6P1": "Für alle Produkte gilt die gesetzliche Gewährleistung (2 Jahre). Bei einem defekten Produkt: Ersatz oder Erstattung nach Wahl des Kunden.",
+    "s7Title": "7. Kundenservice",
+    "s7P1": "Für Fragen oder Reklamationen: <tc>Support-E-Mail</tc>. Antwort innerhalb von 24 Werktagsstunden.",
+    "s8Title": "8. Streitigkeiten",
+    "s8P1": "Es gilt das für Verbraucher zwingend anwendbare Recht. Im Streitfall wird vor rechtlichen Schritten eine gütliche Einigung angestrebt; Verbraucher können sich kostenfrei an die benannte Verbraucherschlichtungsstelle wenden: <tc>benannte Schlichtungsstelle</tc>."
+  },
+  "PrivacyPage": {
+    "metaTitle": "Datenschutzerklärung",
+    "metaDescription": "Datenschutz- und Datensicherheitsrichtlinie von OBFLO.",
+    "kicker": "RECHTLICHES",
+    "title": "Datenschutz.",
+    "intro": "Was wir erheben, warum, und was Sie verlangen können. Die kurze, ehrliche Version.",
+    "s1Title": "Erhobene Daten",
+    "s1P1": "Bei einer Bestellung: Name, Lieferadresse, E-Mail, Telefonnummer (für den Versanddienstleister). Bei der Newsletter-Anmeldung: nur die E-Mail. Zahlungsdaten verarbeitet ausschließlich Stripe — sie erreichen unsere Server nie.",
+    "s2Title": "Verwendung",
+    "s2P1": "Ihre Daten dienen der Vorbereitung, dem Versand und der Verfolgung Ihrer Bestellung, der Beantwortung von Support-Anfragen und — nur mit Ihrer Einwilligung — dem Zusenden unserer Angebote. Sie werden niemals verkauft.",
+    "s3Title": "Auftragsverarbeiter",
+    "s3P1": "Für den Versand zwingend nötige Daten werden an unsere Logistikpartner und Versanddienstleister weitergegeben, auch außerhalb der EU, ausschließlich zur Ausführung Ihrer Bestellung. Hosting: Vercel Inc.",
+    "s4Title": "Ihre Rechte",
+    "s4P1": "Auskunft, Berichtigung, Löschung, Übertragbarkeit, Widerspruch: Schreiben Sie an <tc>DSGVO-E-Mail</tc>. Antwort innerhalb von 30 Tagen. Sie können sich außerdem an die zuständige Aufsichtsbehörde wenden.",
+    "s5Title": "Cookies",
+    "s5P1": "Analyse-Cookies werden nur mit Ihrer vorherigen Einwilligung über das Cookie-Banner gesetzt. Ohne Einwilligung bleibt die Website ohne Tracking nutzbar."
+  },
+  "ToComplete": {
+    "prefix": "[ZU ERGÄNZEN — "
+  },
+  "CookieBanner": {
+    "ariaLabel": "Cookie-Einwilligung",
+    "message": "Wir würden gern die Nutzung der Website messen, um zu verstehen, was Sie interessiert. Dafür brauchen wir Cookies — und nur mit Ihrem Einverständnis.",
+    "privacyLink": "Mehr erfahren",
+    "accept": "AKZEPTIEREN",
+    "refuse": "ABLEHNEN"
+  }
+}

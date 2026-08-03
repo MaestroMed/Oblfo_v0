@@ -3,7 +3,15 @@
 
 import type { Locale } from "@/i18n/routing";
 
-type LText = Record<Locale, string>;
+/** Les guides existent pour l'instant en fr/en uniquement (de/es : masqués). */
+export type GuideLocale = "fr" | "en";
+export const GUIDE_LOCALES: GuideLocale[] = ["fr", "en"];
+
+export function isGuideLocale(locale: Locale): locale is GuideLocale {
+  return (GUIDE_LOCALES as readonly string[]).includes(locale);
+}
+
+type LText = Record<GuideLocale, string>;
 
 export type GuideSection = {
   title: string;
@@ -13,7 +21,7 @@ export type GuideSection = {
 export type Guide = {
   id: string;
   slug: string;
-  slugs: Record<Locale, string>;
+  slugs: Record<GuideLocale, string>;
   title: string;
   metaDescription: string;
   intro: string;
@@ -32,7 +40,7 @@ type GuideSource = {
   title: LText;
   metaDescription: LText;
   intro: LText;
-  sections: Record<Locale, GuideSection[]>;
+  sections: Record<GuideLocale, GuideSection[]>;
 };
 
 const guideSources: GuideSource[] = [
@@ -523,7 +531,7 @@ guideSources.push(
   },
 );
 
-function localizeGuide(source: GuideSource, locale: Locale): Guide {
+function localizeGuide(source: GuideSource, locale: GuideLocale): Guide {
   return {
     id: source.id,
     slug: source.slug[locale],
@@ -539,6 +547,7 @@ function localizeGuide(source: GuideSource, locale: Locale): Guide {
 }
 
 export function getGuides(locale: Locale): Guide[] {
+  if (!isGuideLocale(locale)) return [];
   return guideSources.map((g) => localizeGuide(g, locale));
 }
 
@@ -546,6 +555,7 @@ export function getGuideBySlug(
   locale: Locale,
   slug: string,
 ): Guide | undefined {
+  if (!isGuideLocale(locale)) return undefined;
   const source = guideSources.find((g) => g.slug[locale] === slug);
   return source ? localizeGuide(source, locale) : undefined;
 }
@@ -555,6 +565,7 @@ export function translateGuideSlug(
   from: Locale,
   to: Locale,
 ): string | undefined {
+  if (!isGuideLocale(from) || !isGuideLocale(to)) return undefined;
   const source = guideSources.find((g) => g.slug[from] === slug);
   return source?.slug[to];
 }

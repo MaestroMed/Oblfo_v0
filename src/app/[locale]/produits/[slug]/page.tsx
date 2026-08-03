@@ -11,7 +11,13 @@ import {
   getProducts,
 } from "@/data/catalog";
 import { getPathname, Link } from "@/i18n/navigation";
-import { isLocale, routing, type Locale } from "@/i18n/routing";
+import {
+  hreflangAlternates,
+  isLocale,
+  ogLocale,
+  routing,
+  type Locale,
+} from "@/i18n/routing";
 import {
   MERCHANT_RETURN_POLICY,
   OFFER_SHIPPING_DETAILS,
@@ -32,15 +38,7 @@ function productAlternates(locale: Locale, slugs: Record<Locale, string>) {
       locale: l,
       href: { pathname: "/produits/[slug]", params: { slug: slugs[l] } },
     });
-
-  return {
-    canonical: path(locale),
-    languages: {
-      fr: path("fr"),
-      en: path("en"),
-      "x-default": path("fr"),
-    },
-  };
+  return hreflangAlternates(path, locale);
 }
 
 /** Coupe au dernier mot entier sous `max` caractères (meta descriptions). */
@@ -70,7 +68,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: product.tagline,
       url: path,
       siteName: "OBFLO",
-      locale: locale === "fr" ? "fr_FR" : "en_US",
+      locale: ogLocale(locale),
       type: "website",
     },
   };
@@ -155,7 +153,7 @@ export default async function ProductPage({ params }: Props) {
             </Link>
             <span>/</span>
             <Link
-              href={{ pathname: "/", hash: "gamme" }}
+              href="/collection"
               className="text-[#8FA1B3] no-underline transition-colors hover:text-accent"
             >
               {t("breadcrumbRange")}

@@ -3,17 +3,14 @@ import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { InfoPage, InfoSection } from "@/components/info-page";
 import { getPathname } from "@/i18n/navigation";
-import { isLocale, type Locale } from "@/i18n/routing";
+import { hreflangAlternates, isLocale, type Locale } from "@/i18n/routing";
 
 type Props = { params: Promise<{ locale: string }> };
 
 function alternates(locale: Locale) {
   const path = (l: Locale) =>
     getPathname({ locale: l, href: "/livraison-retours" });
-  return {
-    canonical: path(locale),
-    languages: { fr: path("fr"), en: path("en"), "x-default": path("fr") },
-  };
+  return hreflangAlternates(path, locale);
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

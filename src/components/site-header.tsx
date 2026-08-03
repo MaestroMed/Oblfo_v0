@@ -6,6 +6,7 @@ import { useCart } from "@/components/cart-context";
 import { LocaleSwitcher } from "@/components/locale-switcher";
 import { PowerGlyph } from "@/components/power-glyph";
 import { getProductById } from "@/data/catalog";
+import { isGuideLocale } from "@/data/guides";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 
@@ -68,12 +69,14 @@ export function SiteHeader() {
           >
             {t("packs")}
           </a>
-          <Link
-            href="/guides"
-            className="text-[13px] font-medium tracking-[0.04em] text-[#C9BEB0] uppercase no-underline transition-colors hover:text-white"
-          >
-            {t("guides")}
-          </Link>
+          {isGuideLocale(locale) ? (
+            <Link
+              href="/guides"
+              className="text-[13px] font-medium tracking-[0.04em] text-[#C9BEB0] uppercase no-underline transition-colors hover:text-white"
+            >
+              {t("guides")}
+            </Link>
+          ) : null}
         </nav>
         <div className="flex items-center gap-4">
           <LocaleSwitcher />

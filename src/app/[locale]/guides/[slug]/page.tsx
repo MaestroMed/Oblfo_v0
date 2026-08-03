@@ -2,27 +2,36 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { formatPrice, getProductById, getSellableById } from "@/data/catalog";
-import { getGuideBySlug, getGuides } from "@/data/guides";
+import {
+  getGuideBySlug,
+  getGuides,
+  GUIDE_LOCALES,
+  isGuideLocale,
+  type GuideLocale,
+} from "@/data/guides";
 import { getPathname, Link } from "@/i18n/navigation";
-import { isLocale, routing, type Locale } from "@/i18n/routing";
+import { isLocale, type Locale } from "@/i18n/routing";
 import { SITE_URL } from "@/lib/site";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
 export function generateStaticParams() {
-  return routing.locales.flatMap((locale) =>
+  return GUIDE_LOCALES.flatMap((locale) =>
     getGuides(locale).map((guide) => ({ locale, slug: guide.slug })),
   );
 }
 
-function guideAlternates(locale: Locale, slugs: Record<Locale, string>) {
-  const path = (l: Locale) =>
+function guideAlternates(
+  locale: Locale,
+  slugs: Record<GuideLocale, string>,
+) {
+  const path = (l: GuideLocale) =>
     getPathname({
       locale: l,
       href: { pathname: "/guides/[slug]", params: { slug: slugs[l] } },
     });
   return {
-    canonical: path(locale),
+    canonical: isGuideLocale(locale) ? path(locale) : path("en"),
     languages: { fr: path("fr"), en: path("en"), "x-default": path("fr") },
   };
 }

@@ -14,27 +14,29 @@ export default async function OpengraphImage({
 }) {
   const { locale: requested } = await params;
   const locale = isLocale(requested) ? requested : routing.defaultLocale;
-  const [tHero, fonts] = await Promise.all([
-    getTranslations({ locale, namespace: "Hero" }),
+  const [t, tProduct, fonts] = await Promise.all([
+    getTranslations({ locale, namespace: "HomeV2" }),
+    getTranslations({ locale, namespace: "ProductPage" }),
     loadOgFonts(),
   ]);
 
+  const title = `${t("heroTitle1")}${t("heroAccent1")}${t("heroTitle2")}${t("heroAccent2")}${t("heroTitle3")}`;
+
   return new ImageResponse(
     (
-      <OgFrame kicker={tHero("kicker")} footerLeft={tHero("reassurance")}>
+      <OgFrame kicker={tProduct("kicker")} footerLeft={tProduct("reassurance")}>
         <div
           style={{
             display: "flex",
-            flexDirection: "column",
-            fontSize: 116,
+            fontSize: 88,
             fontWeight: 700,
-            letterSpacing: "-0.03em",
-            lineHeight: 1,
+            letterSpacing: "-0.02em",
+            lineHeight: 1.08,
             color: "#F2F5F8",
+            maxWidth: 1000,
           }}
         >
-          <span>{tHero("titleLine1")}</span>
-          <span style={{ color: "#FF6A2B" }}>{tHero("titleLine2")}</span>
+          {title}
         </div>
         <div
           style={{
@@ -43,10 +45,10 @@ export default async function OpengraphImage({
             fontSize: 30,
             fontWeight: 500,
             color: "#9AA9B8",
-            maxWidth: 820,
+            maxWidth: 860,
           }}
         >
-          {tHero("subtitle")}
+          {t("heroSubtitle")}
         </div>
       </OgFrame>
     ),

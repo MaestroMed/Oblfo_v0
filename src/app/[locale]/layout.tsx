@@ -13,7 +13,7 @@ import { CartProvider } from "@/components/cart-context";
 import { CartToast } from "@/components/cart-toast";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { isLocale, routing } from "@/i18n/routing";
+import { isLocale, ogLocale, routing } from "@/i18n/routing";
 import { SITE_URL } from "@/lib/site";
 
 const spaceGrotesk = Space_Grotesk({
@@ -60,7 +60,7 @@ export async function generateMetadata({
     description: t("description"),
     openGraph: {
       siteName: "OBFLO",
-      locale: locale === "fr" ? "fr_FR" : "en_US",
+      locale: ogLocale(locale),
       type: "website",
     },
     twitter: {

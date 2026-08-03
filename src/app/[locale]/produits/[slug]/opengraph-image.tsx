@@ -16,9 +16,8 @@ export default async function ProductOpengraphImage({
   const { locale: requested, slug } = await params;
   const locale = isLocale(requested) ? requested : routing.defaultLocale;
   const product = getProductBySlug(locale, slug);
-  const [t, tHero, fonts] = await Promise.all([
+  const [t, fonts] = await Promise.all([
     getTranslations({ locale, namespace: "ProductPage" }),
-    getTranslations({ locale, namespace: "Hero" }),
     loadOgFonts(),
   ]);
 
@@ -26,7 +25,7 @@ export default async function ProductOpengraphImage({
     // Slug inconnu — on sert le visuel générique plutôt qu'une erreur.
     return new ImageResponse(
       (
-        <OgFrame kicker={tHero("kicker")} footerLeft={tHero("reassurance")}>
+        <OgFrame kicker={t("kicker")} footerLeft={t("reassurance")}>
           <div
             style={{
               display: "flex",
@@ -46,7 +45,7 @@ export default async function ProductOpengraphImage({
 
   return new ImageResponse(
     (
-      <OgFrame kicker={tHero("kicker")} footerLeft={t("reassurance")}>
+      <OgFrame kicker={t("kicker")} footerLeft={t("reassurance")}>
         <div style={{ display: "flex", gap: 14 }}>
           {product.tags.map((tag) => (
             <div
@@ -122,7 +121,7 @@ export default async function ProductOpengraphImage({
               padding: "10px 20px",
             }}
           >
-            {locale === "fr" ? "+41,7°C" : "+41.7°C"}
+            {locale === "en" ? "+41.7°C" : "+41,7°C"}
           </div>
         </div>
       </OgFrame>

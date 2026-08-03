@@ -47,7 +47,7 @@ export function CartDrawer() {
             <span className="h-2 w-2 rotate-45 bg-accent shadow-[0_0_14px_rgba(255,106,43,0.9)]" />
             <p className="text-[15px] text-[#93A2B1]">{t("empty")}</p>
             <a
-              href={`/${locale}#gamme`}
+              href={`/${locale}#essentiels`}
               onClick={closeDrawer}
               className="mt-2 rounded-[10px] bg-accent px-5 py-[11px] text-sm font-semibold text-[#14100C] no-underline"
             >

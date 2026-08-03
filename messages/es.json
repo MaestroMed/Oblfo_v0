@@ -1,0 +1,323 @@
+{
+  "Metadata": {
+    "title": "OBFLO — Calor portátil: guantes, zapatillas y calefactores",
+    "description": "Guantes calefactables, zapatillas calefactables, calientatazas y calefactor cerámico. Calor dirigido en segundos, justo donde muerde el invierno. Envío gratis desde 60 €, devoluciones de 30 días."
+  },
+  "Announcement": {
+    "text": "NOVEDADES 2026: calefacción inteligente de nueva generación — Envío en 3–5 días laborables"
+  },
+  "HomeV2": {
+    "heroBadge": "NUEVA GENERACIÓN 2026",
+    "heroTitle1": "El ",
+    "heroAccent1": "calor",
+    "heroTitle2": ", exactamente donde hace ",
+    "heroAccent2": "falta",
+    "heroTitle3": ".",
+    "heroSubtitle": "Tecnología térmica inteligente. Confort premium. Diseño duradero.",
+    "heroCtaPrimary": "Descubrir la colección",
+    "heroCtaSecondary": "Ver el pack",
+    "catHands": "MANOS",
+    "catHandsLabel": "Guantes calefactables",
+    "catFeet": "PIES",
+    "catFeetLabel": "Zapatillas calefactables",
+    "catDesk": "ESCRITORIO",
+    "catDeskLabel": "Calor en el día a día",
+    "catRoom": "HABITACIÓN PEQUEÑA",
+    "catRoomLabel": "Calefactor",
+    "essentialsTitle": "Nuestros esenciales del calor",
+    "essentialsSeeAll": "Ver toda la colección",
+    "badgeNew": "NUEVO",
+    "packKicker": "EL PACK DEFINITIVO",
+    "packTitle": "Pack Full OBFLO",
+    "packSubtitle": "Tu confort, completo. En todas partes.",
+    "packFeat1Title": "4 productos",
+    "packFeat1Text": "Última generación",
+    "packFeat2Title": "Ahorro",
+    "packFeat2Text": "−22 € al instante",
+    "packFeat3Title": "Garantía 2 años",
+    "packFeat3Text": "Garantía legal de conformidad",
+    "packFeat4Title": "Envío",
+    "packFeat4Text": "3–5 días laborables",
+    "packSave": "Ahorras {amount}",
+    "packCta": "Añadir el pack al carrito",
+    "reassur1Title": "Calentamiento rápido",
+    "reassur1Text": "Calor en segundos",
+    "reassur2Title": "Varios niveles",
+    "reassur2Text": "Ajusta según tus necesidades",
+    "reassur3Title": "Confort premium",
+    "reassur3Text": "Materiales suaves y agradables",
+    "reassur4Title": "Seguridad avanzada",
+    "reassur4Text": "Protección contra sobrecalentamiento",
+    "reassur5Title": "Envío en 3–5 días",
+    "reassur5Text": "Con seguimiento y bien embalado",
+    "reassur6Title": "Devoluciones 30 días",
+    "reassur6Text": "Simples y rápidas",
+    "aboutTitle": "OBFLO, el calor que cambia el día a día.",
+    "aboutText": "Diseñamos productos calefactables inteligentes, duraderos y bonitos para darte confort y bienestar, estés donde estés.",
+    "trust1Title": "Garantía 2 años",
+    "trust1Text": "Garantía legal de conformidad",
+    "trust2Title": "Devoluciones 30 días",
+    "trust2Text": "Sin justificación",
+    "trust3Title": "Pago seguro",
+    "trust3Text": "Vía Stripe, datos cifrados",
+    "lifeDeskKicker": "En el escritorio",
+    "lifeDeskTitle": "Concéntrate, sin tiritar.",
+    "lifeHomeKicker": "En casa",
+    "lifeHomeTitle": "Relájate, nosotros calentamos.",
+    "lifeOutKicker": "Al aire libre",
+    "lifeOutTitle": "Planta cara al frío, mantente caliente.",
+    "newsletterTitle": "No te pierdas nada caliente.",
+    "newsletterText": "Novedades, ofertas exclusivas, consejos de confort… únete a la comunidad OBFLO."
+  },
+  "Collection": {
+    "metaTitle": "La colección — todos nuestros esenciales del calor",
+    "metaDescription": "La colección OBFLO completa: manos, pies, escritorio, casa. Productos calefactables inteligentes, garantía de 2 años, envío en 3–5 días.",
+    "title": "Toda la colección.",
+    "intro": "Cada producto responde a un momento de frío concreto. Sección a sección, todo lo que OBFLO sabe calentar."
+  },
+  "Categories": {
+    "mains": "Manos",
+    "pieds": "Pies",
+    "bureau": "Escritorio",
+    "piece": "Habitación pequeña",
+    "maison": "Casa",
+    "corps": "Cuerpo"
+  },
+  "Nav": {
+    "news": "Novedades",
+    "hands": "Manos",
+    "feet": "Pies",
+    "desk": "Escritorio",
+    "room": "Habitación",
+    "packs": "Packs",
+    "faq": "FAQ",
+    "guides": "Guías",
+    "cart": "CARRITO"
+  },
+  "Guides": {
+    "metaTitle": "Guías — elegir bien tus productos calefactables",
+    "metaDescription": "Guías de compra honestas: consumos reales, autonomías reales y lo que de verdad importa.",
+    "kicker": "GUÍAS",
+    "title": "Elegir sin quemarse.",
+    "intro": "Guías cortas y honestas — lo que las fichas de producto no cuentan, las cifras que importan y qué opción encaja con cada uso.",
+    "readTime": "{minutes} MIN DE LECTURA",
+    "published": "PUBLICADO EL {date}",
+    "backToGuides": "TODAS LAS GUÍAS",
+    "relatedLabel": "LOS PRODUCTOS DE ESTA GUÍA",
+    "seeProduct": "Ver el producto"
+  },
+  "Faq": {
+    "label": "FAQ",
+    "title": "Preguntas frecuentes.",
+    "subtitle": "¿Otra pregunta? Escríbenos: respondemos en 24 h."
+  },
+  "Cart": {
+    "title": "CARRITO",
+    "close": "Cerrar",
+    "closeCart": "Cerrar el carrito",
+    "empty": "Tu carrito está vacío. El frío, en cambio, no espera.",
+    "emptyCta": "Descubrir la colección",
+    "perUnit": "{price} / unidad",
+    "remove": "QUITAR",
+    "decrease": "Reducir la cantidad de {name}",
+    "increase": "Aumentar la cantidad de {name}",
+    "total": "TOTAL",
+    "checkout": "Tramitar pedido",
+    "checkoutSoon": "Los pagos se están activando — inténtalo de nuevo pronto.",
+    "checkoutError": "No se pudo iniciar el pago. Inténtalo de nuevo en un momento.",
+    "reassurance": "ENVÍO GRATIS DESDE 60 € — DEVOLUCIONES 30 DÍAS",
+    "toastAdded": "AÑADIDO AL CARRITO — {name}",
+    "viewCart": "Ver el carrito",
+    "subtotal": "SUBTOTAL",
+    "shippingAtCheckout": "Envío calculado al pagar",
+    "acceptTerms": "Acepto las <terms>condiciones de venta</terms>",
+    "unavailable": "Agotado"
+  },
+  "CartPage": {
+    "metaTitle": "Carrito",
+    "kicker": "CARRITO",
+    "title": "Tu carrito.",
+    "empty": "Tu carrito está vacío. El frío, en cambio, no espera.",
+    "emptyCta": "Descubrir la colección",
+    "subtotal": "Subtotal",
+    "shipping": "Envío",
+    "shippingFree": "Gratis",
+    "freeShippingProgress": "Te faltan {amount} para el envío gratis",
+    "freeShippingReached": "Envío gratis desbloqueado",
+    "total": "Total",
+    "checkout": "Tramitar pedido",
+    "continueShopping": "Seguir comprando",
+    "crossSellKicker": "COLECCIÓN",
+    "crossSellLabel": "COMPLETAR EL EQUIPO"
+  },
+  "ProductPage": {
+    "breadcrumbHome": "INICIO",
+    "breadcrumbRange": "COLECCIÓN",
+    "breadcrumbLabel": "Ruta de navegación",
+    "kicker": "OBFLO — CALOR PORTÁTIL",
+    "addToCart": "Añadir al carrito",
+    "reassurance": "ENVÍO 3–5 DÍAS  ·  DEVOLUCIONES 30 DÍAS  ·  GRATIS DESDE 60 €",
+    "specsKicker": "SPECS",
+    "specsLabel": "CARACTERÍSTICAS",
+    "packsKicker": "PACKS",
+    "packsLabel": "MÁS BARATO EN PACK",
+    "choosePack": "Elegir este pack",
+    "rangeKicker": "COLECCIÓN",
+    "rangeLabel": "COMPLETAR EL EQUIPO"
+  },
+  "Footer": {
+    "tagline": "El calor, exactamente donde lo necesitas.",
+    "newsletterTitle": "Recibe las ofertas de invierno antes que nadie.",
+    "newsletterPlaceholder": "tu@email.es",
+    "subscribe": "Suscribirme",
+    "subscribed": "RECIBIDO — TE MANTENDREMOS CALIENTE.",
+    "newsletterSoon": "LA SUSCRIPCIÓN ABRE MUY PRONTO.",
+    "newsletterError": "NO HA FUNCIONADO — INTÉNTALO DE NUEVO.",
+    "shop": "TIENDA",
+    "packs": "Los packs",
+    "help": "AYUDA",
+    "guides": "Guías",
+    "faq": "FAQ",
+    "contact": "Contacto",
+    "orderTracking": "Seguimiento del pedido",
+    "infos": "INFO",
+    "shipping": "Envíos y devoluciones",
+    "legalNotice": "Aviso legal",
+    "terms": "Condiciones de venta",
+    "privacy": "Privacidad",
+    "copyright": "© 2026 OBFLO — HECHO PARA EL INVIERNO",
+    "region": "ES — EUR",
+    "badge1Title": "Pago seguro",
+    "badge1Text": "Stripe · SSL de 256 bits",
+    "badge2Title": "Soporte que responde",
+    "badge2Text": "Respuesta en 24 h laborables",
+    "badge3Title": "Envío con seguimiento",
+    "badge3Text": "3–5 días laborables",
+    "badge4Title": "Devoluciones 30 días",
+    "badge4Text": "Simples y rápidas"
+  },
+  "NotFound": {
+    "kicker": "ERROR 404",
+    "titleLine1": "Esta página se quedó",
+    "titleLine2": "fuera, en el frío.",
+    "text": "Esta dirección no existe, o ya no. La colección, en cambio, está calentita.",
+    "cta": "Volver al inicio"
+  },
+  "Merci": {
+    "metaTitle": "Gracias por tu pedido",
+    "kicker": "PEDIDO CONFIRMADO",
+    "titleLine1": "Hecho.",
+    "titleLine2": "El calor está en camino.",
+    "text": "Tu pedido está confirmado. Te llega ahora un email de confirmación y, en cuanto salga el paquete (en 24–48 h laborables), el número de seguimiento.",
+    "cta": "Volver a la tienda"
+  },
+  "ShippingPage": {
+    "metaTitle": "Envíos y devoluciones",
+    "metaDescription": "Plazos de envío, costes y política de devoluciones de 30 días de OBFLO. Envío gratis desde 60 €.",
+    "kicker": "INFO",
+    "title": "Envíos y devoluciones.",
+    "intro": "Los productos de invierno tienen que llegar rápido y poder devolverse sin fricción. Así funciona.",
+    "sections": [
+      {
+        "title": "Plazos de envío",
+        "paragraphs": [
+          "Los pedidos salen en 24 a 48 horas laborables. La entrega tarda después 3 a 5 días laborables. Recibirás un número de seguimiento por email en cuanto salga tu pedido."
+        ]
+      },
+      {
+        "title": "Gastos de envío",
+        "paragraphs": [
+          "El envío es gratis a partir de 60 €. Por debajo, los gastos se calculan al pagar según el destino y se muestran antes del pago — sin sorpresas."
+        ]
+      },
+      {
+        "title": "Devoluciones de 30 días",
+        "paragraphs": [
+          "Tienes 30 días desde la entrega para devolver un producto, sin justificación. Solo debe estar completo y en buen estado. Contáctanos antes de enviar nada: los gastos de devolución corren de tu cuenta (salvo producto defectuoso o error nuestro) y el reembolso íntegro sale en cuanto el producto nos llega."
+        ]
+      },
+      {
+        "title": "Productos defectuosos",
+        "paragraphs": [
+          "Si un producto llega dañado o falla con un uso normal, lo sustituimos o lo reembolsamos — bastan fotos, sin devolución obligatoria en los casos evidentes."
+        ]
+      }
+    ]
+  },
+  "ContactPage": {
+    "metaTitle": "Contacto",
+    "metaDescription": "¿Una pregunta sobre un producto OBFLO o tu pedido? Respondemos en 24 horas laborables.",
+    "kicker": "AYUDA",
+    "title": "Te respondemos en 24 h.",
+    "intro": "¿Una pregunta sobre un producto, un pedido, una devolución? La FAQ cubre los casos más comunes — si no, escríbenos directamente.",
+    "emailTitle": "Por email",
+    "emailText": "Escríbenos a <tc>email de contacto</tc> indicando tu número de pedido si tu consulta trata de uno. Respuesta en 24 horas laborables, de lunes a viernes.",
+    "trackingTitle": "Seguimiento del pedido",
+    "trackingText": "Tu número de seguimiento te llega por email en cuanto sale el pedido (revisa también el spam). El enlace del transportista muestra la posición del paquete en tiempo real.",
+    "faqTitle": "Antes de escribir",
+    "faqText": "Las dudas sobre calentamiento, alimentación USB, devoluciones y plazos ya están cubiertas en la <faqLink>FAQ</faqLink>."
+  },
+  "LegalNoticePage": {
+    "metaTitle": "Aviso legal",
+    "metaDescription": "Aviso legal del sitio web OBFLO.",
+    "kicker": "LEGAL",
+    "title": "Aviso legal.",
+    "editorTitle": "Editor del sitio",
+    "editorP1": "El sitio OBFLO está editado por Opcodia LLC, sociedad de responsabilidad limitada de derecho estadounidense registrada en el estado de Nuevo México (EE. UU.), con domicilio en 1209 Mountain Road Pl NE, Ste R, Albuquerque, NM 87110, EE. UU.",
+    "editorP2": "Director de la publicación: Mehdi Nafaa. NIF-IVA intracomunitario: <tc>IVA / IOSS en trámite</tc>. Contacto: <tc>email de contacto</tc>.",
+    "hostingTitle": "Alojamiento",
+    "hostingP1": "El sitio está alojado por Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, EE. UU. — vercel.com.",
+    "ipTitle": "Propiedad intelectual",
+    "ipP1": "Todo el contenido del sitio (textos, imágenes, logotipo, identidad gráfica) es propiedad exclusiva del editor. Queda prohibida cualquier reproducción sin autorización previa por escrito."
+  },
+  "TermsPage": {
+    "metaTitle": "Condiciones generales de venta",
+    "metaDescription": "Condiciones generales de venta de la tienda OBFLO.",
+    "kicker": "LEGAL",
+    "title": "Condiciones generales de venta.",
+    "intro": "Versión aplicable a cualquier pedido realizado en el sitio OBFLO.",
+    "s1Title": "1. Objeto",
+    "s1P1": "Las presentes condiciones rigen las ventas entre Opcodia LLC (1209 Mountain Road Pl NE, Ste R, Albuquerque, NM 87110, EE. UU.) y cualquier cliente que realice un pedido en el sitio OBFLO.",
+    "s2Title": "2. Precios",
+    "s2P1": "Los precios se muestran en euros, impuestos incluidos, sin gastos de envío. Los gastos de envío se muestran antes de confirmar el pedido. El envío es gratis a partir de 60 €.",
+    "s3Title": "3. Pedido y pago",
+    "s3P1": "El pedido es firme desde la confirmación del pago. Medios de pago aceptados: tarjeta (y según el dispositivo, Apple Pay / Google Pay). El pago está protegido por Stripe; ningún dato bancario pasa por nuestros servidores.",
+    "s4Title": "4. Entrega",
+    "s4P1": "Expedición en 24 a 48 horas laborables, entrega en 3 a 5 días laborables con seguimiento. Si el retraso supera los 7 días laborables, el cliente puede anular el pedido y recibir el reembolso íntegro.",
+    "s5Title": "5. Desistimiento y devoluciones",
+    "s5P1": "El cliente dispone del derecho legal de desistimiento de 14 días. OBFLO lo amplía a 30 días tras la recepción, sin justificación. Los gastos de devolución corren a cargo del cliente, salvo producto defectuoso o error nuestro. El reembolso íntegro se efectúa al recibir el producto completo y en buen estado.",
+    "s6Title": "6. Garantías",
+    "s6P1": "Todos los productos cuentan con la garantía legal de conformidad (2 años). En caso de producto defectuoso: sustitución o reembolso, a elección del cliente.",
+    "s7Title": "7. Atención al cliente",
+    "s7P1": "Para cualquier consulta o reclamación: <tc>email de soporte</tc>. Respuesta en 24 horas laborables.",
+    "s8Title": "8. Litigios",
+    "s8P1": "Se aplica la normativa imperativa de protección de los consumidores. En caso de litigio se buscará una solución amistosa antes de cualquier acción judicial; el cliente puede recurrir gratuitamente al mediador de consumo designado: <tc>mediador designado</tc>."
+  },
+  "PrivacyPage": {
+    "metaTitle": "Política de privacidad",
+    "metaDescription": "Política de privacidad y protección de datos de OBFLO.",
+    "kicker": "LEGAL",
+    "title": "Privacidad.",
+    "intro": "Qué recopilamos, por qué y qué puedes exigir. La versión corta y honesta.",
+    "s1Title": "Datos que recopilamos",
+    "s1P1": "Al hacer un pedido: nombre, dirección de entrega, email, teléfono (para el transportista). Al suscribirte a la newsletter: solo el email. Los datos de pago los trata directamente Stripe y nunca pasan por nuestros servidores.",
+    "s2Title": "Uso",
+    "s2P1": "Tus datos sirven para preparar, enviar y seguir tu pedido, responder a tus consultas y — solo si lo has aceptado — enviarte nuestras ofertas. Nunca se venden.",
+    "s3Title": "Encargados del tratamiento",
+    "s3P1": "Los datos estrictamente necesarios para el envío se comparten con nuestros socios logísticos y transportistas, también fuera de la UE, con el único fin de ejecutar tu pedido. Alojamiento: Vercel Inc.",
+    "s4Title": "Tus derechos",
+    "s4P1": "Acceso, rectificación, supresión, portabilidad, oposición: escribe a <tc>email RGPD</tc>. Respuesta en 30 días. También puedes dirigirte a la autoridad de control competente.",
+    "s5Title": "Cookies",
+    "s5P1": "Las cookies de analítica solo se instalan con tu consentimiento previo a través del banner. Sin consentimiento, el sitio funciona sin seguimiento."
+  },
+  "ToComplete": {
+    "prefix": "[POR COMPLETAR — "
+  },
+  "CookieBanner": {
+    "ariaLabel": "Consentimiento de cookies",
+    "message": "Nos gustaría medir la audiencia del sitio para entender qué te interesa. Eso requiere cookies, y solo si estás de acuerdo.",
+    "privacyLink": "Saber más",
+    "accept": "ACEPTAR",
+    "refuse": "RECHAZAR"
+  }
+}

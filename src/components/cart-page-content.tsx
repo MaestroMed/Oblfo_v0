@@ -44,7 +44,7 @@ export function CartPageContent({ locale }: { locale: Locale }) {
             <span className="h-2 w-2 rotate-45 bg-accent shadow-[0_0_14px_rgba(255,106,43,0.9)]" />
             <p className="text-[16px] text-[#93A2B1]">{t("empty")}</p>
             <a
-              href={`/${locale}#gamme`}
+              href={`/${locale}#essentiels`}
               className="rounded-xl bg-accent px-[26px] py-[14px] text-[15px] font-semibold text-[#14100C] no-underline transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_40px_-12px_rgba(255,106,43,0.6)]"
             >
               {t("emptyCta")}
@@ -175,7 +175,7 @@ export function CartPageContent({ locale }: { locale: Locale }) {
                 </p>
               ) : null}
               <a
-                href={`/${locale}#gamme`}
+                href={`/${locale}#essentiels`}
                 className="text-center font-mono text-[11px] tracking-[0.14em] text-[#66788A] no-underline transition-colors hover:text-white"
               >
                 {t("continueShopping")}

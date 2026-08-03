@@ -117,7 +117,7 @@ export function OgFrame({
             fontFamily: "IBM Plex Mono",
             fontSize: 20,
             letterSpacing: "0.16em",
-            color: "#66788A",
+            color: "#6D8093",
           }}
         >
           {footerLeft}

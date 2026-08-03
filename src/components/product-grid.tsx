@@ -75,7 +75,7 @@ export function ProductGrid({ locale }: { locale: Locale }) {
                       {t("addToCart")}
                     </AddToCartButton>
                   ) : (
-                    <span className="rounded-[10px] border border-white/12 px-5 py-[11px] text-sm font-semibold text-[#66788A]">
+                    <span className="rounded-[10px] border border-white/12 px-5 py-[11px] text-sm font-semibold text-[#6D8093]">
                       {tCart("unavailable")}
                     </span>
                   )}

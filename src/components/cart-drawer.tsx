@@ -77,7 +77,7 @@ export function CartDrawer() {
                     <button
                       type="button"
                       onClick={() => removeItem(lineKey(item))}
-                      className="w-fit cursor-pointer font-mono text-[10px] tracking-[0.14em] text-[#66788A] transition-colors hover:text-accent"
+                      className="w-fit cursor-pointer font-mono text-[10px] tracking-[0.14em] text-[#6D8093] transition-colors hover:text-accent"
                     >
                       {t("remove")}
                     </button>
@@ -115,7 +115,7 @@ export function CartDrawer() {
                   {formatPrice(total, locale)}
                 </span>
               </div>
-              <p className="mb-4 font-mono text-[10px] tracking-[0.12em] text-[#66788A]">
+              <p className="mb-4 font-mono text-[10px] tracking-[0.12em] text-[#6D8093]">
                 {t("shippingAtCheckout")}
               </p>
               <div className="mb-4">
@@ -149,7 +149,7 @@ export function CartDrawer() {
               >
                 {t("viewCart")}
               </Link>
-              <p className="mt-3 text-center font-mono text-[10px] tracking-[0.14em] text-[#66788A]">
+              <p className="mt-3 text-center font-mono text-[10px] tracking-[0.14em] text-[#6D8093]">
                 {t("reassurance")}
               </p>
             </div>

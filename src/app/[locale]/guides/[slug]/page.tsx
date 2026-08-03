@@ -112,7 +112,7 @@ export default async function GuidePage({ params }: Props) {
         </nav>
 
         <header className="mb-12 flex flex-col gap-4">
-          <div className="flex flex-wrap items-center gap-4 font-mono text-[10.5px] tracking-[0.18em] text-[#66788A]">
+          <div className="flex flex-wrap items-center gap-4 font-mono text-[10.5px] tracking-[0.18em] text-[#6D8093]">
             <span className="text-accent">
               {t("readTime", { minutes: guide.readMinutes })}
             </span>

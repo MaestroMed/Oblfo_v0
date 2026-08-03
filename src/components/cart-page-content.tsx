@@ -30,7 +30,7 @@ export function CartPageContent({ locale }: { locale: Locale }) {
       <div className="mx-auto max-w-[1240px] px-8">
         <div className="mb-10 flex flex-col gap-3.5">
           <div className="flex items-center gap-3 font-mono text-[11px] tracking-[0.22em]">
-            <span className="text-[#66788A]">—</span>
+            <span className="text-[#6D8093]">—</span>
             <span className="h-px w-7 bg-accent/50" />
             <span className="text-accent">{t("kicker")}</span>
           </div>
@@ -76,7 +76,7 @@ export function CartPageContent({ locale }: { locale: Locale }) {
                     <button
                       type="button"
                       onClick={() => removeItem(lineKey(item))}
-                      className="w-fit cursor-pointer font-mono text-[10px] tracking-[0.14em] text-[#66788A] transition-colors hover:text-accent"
+                      className="w-fit cursor-pointer font-mono text-[10px] tracking-[0.14em] text-[#6D8093] transition-colors hover:text-accent"
                     >
                       {tCart("remove")}
                     </button>
@@ -181,11 +181,11 @@ export function CartPageContent({ locale }: { locale: Locale }) {
               ) : null}
               <a
                 href={`/${locale}#essentiels`}
-                className="text-center font-mono text-[11px] tracking-[0.14em] text-[#66788A] no-underline transition-colors hover:text-white"
+                className="text-center font-mono text-[11px] tracking-[0.14em] text-[#6D8093] no-underline transition-colors hover:text-white"
               >
                 {t("continueShopping")}
               </a>
-              <p className="text-center font-mono text-[10px] tracking-[0.14em] text-[#66788A]">
+              <p className="text-center font-mono text-[10px] tracking-[0.14em] text-[#6D8093]">
                 {tCart("reassurance")}
               </p>
             </div>
@@ -196,7 +196,7 @@ export function CartPageContent({ locale }: { locale: Locale }) {
         {items.length > 0 && crossSell.length > 0 ? (
           <div className="mt-16">
             <div className="mb-8 flex items-center gap-3 font-mono text-[11px] tracking-[0.22em]">
-              <span className="text-[#66788A]">{t("crossSellKicker")}</span>
+              <span className="text-[#6D8093]">{t("crossSellKicker")}</span>
               <span className="h-px w-7 bg-accent/50" />
               <span className="text-accent">{t("crossSellLabel")}</span>
             </div>

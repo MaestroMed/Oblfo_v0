@@ -23,8 +23,12 @@ export function ProductCard({
         href={{ pathname: "/produits/[slug]", params: { slug: product.slug } }}
         className="relative block aspect-square overflow-hidden bg-[#F7F3EC]"
       >
+        {/* Pastille « nouveau » — texte espresso et non blanc : blanc sur
+            l'orange accent ne donne que 2,77:1, très en dessous des 4,5
+            attendus pour du 9,5 px. L'espresso monte à 6,77:1 sans changer
+            l'allure de la pastille. */}
         {product.badge === "new" ? (
-          <span className="absolute top-4 left-4 z-[1] rounded-full bg-accent px-3 py-1 font-mono text-[9.5px] font-medium tracking-[0.16em] text-white">
+          <span className="absolute top-4 left-4 z-[1] rounded-full bg-accent px-3 py-1 font-mono text-[9.5px] font-medium tracking-[0.16em] text-espresso">
             {t("badgeNew")}
           </span>
         ) : null}

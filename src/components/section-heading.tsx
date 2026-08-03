@@ -7,7 +7,7 @@ export function SectionKicker({
 }) {
   return (
     <div className="flex items-center gap-3 font-mono text-[11px] tracking-[0.22em]">
-      <span className="text-[#66788A]">{index}</span>
+      <span className="text-[#6D8093]">{index}</span>
       <span className="h-px w-7 bg-accent/50" />
       <span className="text-accent">{label}</span>
     </div>

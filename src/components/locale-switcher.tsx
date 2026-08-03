@@ -65,7 +65,7 @@ export function LocaleSwitcher() {
           ) : (
             <a
               href={alternateHref(rawPathname, locale, l)}
-              className="text-[#66788A] no-underline transition-colors hover:text-white"
+              className="text-[#6D8093] no-underline transition-colors hover:text-white"
             >
               {l.toUpperCase()}
             </a>

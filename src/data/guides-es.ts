@@ -224,4 +224,111 @@ export const guidesEs: Record<string, GuideL10n> = {
       },
     ],
   },
+  "chaussons-guide": {
+    title:
+      "Zapatillas calefactables: USB, lavado, seguridad — la guía antes de comprar",
+    metaDescription:
+      "¿Zapatillas calefactables USB o de semillas para microondas? ¿Lavables o no? Cable desmontable, talla única, seguridad: qué comprobar antes de comprar.",
+    intro:
+      "El suelo es la superficie más fría de la casa, y los pies se pasan la tarde sobre él. Las zapatillas calefactables atacan el problema en su origen — pero la categoría mezcla tres productos muy distintos bajo el mismo nombre. Aquí tienes cómo distinguirlos y qué hace que una compra sea buena.",
+    sections: [
+      {
+        title: "Tres productos bajo un mismo nombre",
+        paragraphs: [
+          "La zapatilla calefactable eléctrica (USB): zonas de calor activas en la parte delantera del pie, alimentadas por cable. Calor constante y regulable — es la categoría de esta guía, y la única que calienta de verdad de forma continua.",
+          "La zapatilla tipo «saco térmico de microondas»: semillas que devuelven el calor durante 20 a 30 minutos. Sin cables, pero se enfría rápido y vuelve a pasar por el microondas toda la tarde.",
+          "La zapatilla aislante a secas (sherpa, lana): conserva el calor del pie pero no lo produce — si ya tienes los pies fríos, no te los calentará. Es la trampa clásica de las fichas ambiguas: busca las palabras «zonas de calor» y una alimentación explícita.",
+        ],
+      },
+      {
+        title: "USB 5 V: lo que implica en el día a día",
+        paragraphs: [
+          "La alimentación USB de 5 V es una ventaja: ninguna tensión peligrosa a la altura de los pies, compatibilidad con cualquier cargador, powerbank o puerto de ordenador, y un calor perceptible en menos de un minuto en la parte delantera del pie — la zona que más tarda en calentarse de forma natural.",
+          "Su contrapartida es el cable. El criterio que lo cambia todo: un cable desmontable. Te levantas, lo desconectas, caminas — y el acolchado aislante conserva el calor acumulado durante largos minutos. Un modelo con cable fijo convierte cada desplazamiento en una maniobra.",
+        ],
+      },
+      {
+        title: "Lavado, talla, suela: las tres comprobaciones",
+        paragraphs: [
+          "¿Lavables, de verdad? Una zapatilla vive en el suelo y algún día habrá que lavarla. La regla: lavado a mano con agua fría, una vez desconectado el cable — y nunca secadora, que rompe los elementos calefactores. Una ficha que no dice nada sobre el lavado suele esconder un producto no lavable.",
+          "La talla única (a menudo EU 36–45) funciona gracias a un interior adaptable — comprueba de todos modos el rango exacto si calzas un 35 o un 46.",
+          "La suela antideslizante no es opcional: una zapatilla mullida sobre parquet es un resbalón en potencia. Suela texturizada obligatoria, y uso solo en interior.",
+        ],
+      },
+      {
+        title: "Para quién es la compra acertada",
+        paragraphs: [
+          "La zapatilla calefactable es la solución del puesto fijo: teletrabajo, lectura, tarde de sofá, planta baja fría. Para moverte por la casa, el dúo ganador es zapatilla con cable desmontable + pequeñas sesiones de recarga de calor. Y si tu problema está fuera — botas, obra, estadio — lo que necesitas son plantillas calefactables, no zapatillas.",
+        ],
+      },
+    ],
+  },
+  "chauffe-tasse-guide": {
+    title:
+      "Calientatazas USB: mantener caliente, sí — recalentar, no. La guía honesta",
+    metaDescription:
+      "Un calientatazas USB mantiene tu café a ~55 °C, no recalienta un café frío. Tazas compatibles, apagado automático, consumo: la guía honesta.",
+    intro:
+      "Es el objeto de 19 € que elimina un ritual absurdo: el viaje de ida y vuelta al microondas cada cuarenta minutos. Pero la categoría sufre un malentendido masivo sobre lo que hace realmente — y casi todas las decepciones vienen de ahí. Lo aclaramos en cuatro minutos.",
+    sections: [
+      {
+        title: "El malentendido n.º 1: mantener caliente ≠ recalentar",
+        paragraphs: [
+          "Un calientatazas USB entrega de 5 a 10 W. Es exactamente lo justo para compensar el calor que pierde una taza — y no lo suficiente para devolver un café frío a su temperatura. Física elemental: recalentar exige diez veces más potencia que mantener.",
+          "El buen uso se deduce solo: apoya el café caliente recién servido, y se mantendrá a temperatura de degustación toda la tarde. Apoya un café olvidado hace una hora, y obtendrás un café tibio — es la queja n.º 1 en las reseñas de toda la categoría, y apunta a un uso, no a un defecto.",
+        ],
+      },
+      {
+        title: "La taza hace la mitad del trabajo",
+        paragraphs: [
+          "El calor pasa por conducción: hace falta una base plana y un contacto franco con la placa. Las tazas de base gruesa o curvada aíslan su propio contenido — las bases finas y planas son las que mejor transmiten.",
+          "Dos casos particulares: las tazas de doble pared, diseñadas precisamente para bloquear la transferencia de calor, neutralizan el calientatazas; y los vasos de cartón funcionan, pero mejor una taza — la placa se calienta en torno a 55 °C.",
+        ],
+      },
+      {
+        title: "Seguridad y consumo: las dos buenas noticias",
+        paragraphs: [
+          "El apagado automático al retirar la taza es el criterio de seguridad que hay que exigir: la placa se apaga sola cuando te vas a una reunión. A ~55 °C de temperatura de placa, hablamos de un objeto menos caliente que una taza de té recién servida.",
+          "En cuanto al consumo, de 5 a 10 W durante una tarde suponen alrededor de un céntimo de electricidad — menos que el microondas al que sustituye, y sin el sabor a café recocido.",
+        ],
+      },
+      {
+        title: "Para quién, y con qué combinarlo",
+        paragraphs: [
+          "El perfil típico: oficina o teletrabajo, café o té que se alarga, habitación fresca. Se combina de forma natural con el resto del puesto de trabajo de invierno — alfombrilla de escritorio térmica para las manos, calefactor para la habitación. Un trío que cabe en 60 W donde un radiador pide 1.500.",
+        ],
+      },
+    ],
+  },
+  "sous-main-guide": {
+    title:
+      "Manos frías en la oficina: por qué pasa y qué funciona de verdad",
+    metaDescription:
+      "¿Dedos helados en el teclado incluso a 19 °C? La causa es la inmovilidad. Alfombrilla de escritorio térmica, temperaturas seguras, setup completo: la guía.",
+    intro:
+      "Se puede pasar frío en las manos en una habitación a 19 grados. No es una impresión: ocho horas de inmovilidad reducen la circulación hacia las extremidades, y el teclado no ayuda. Aquí tienes la mecánica del problema, y las soluciones ordenadas por eficacia real.",
+    sections: [
+      {
+        title: "Por qué se te hielan las manos en el teclado",
+        paragraphs: [
+          "Sentado e inmóvil, el cuerpo reduce la circulación periférica — es el mismo mecanismo que te congela los pies en el cine. Las manos apoyadas en un escritorio añaden dos agravantes: el contacto permanente con una superficie fría que bombea el calor hacia fuera, y una posición elevada que no ayuda al retorno venoso.",
+          "Consecuencia directa: calentar toda la habitación es la respuesta más cara al problema más localizado de la casa. El calor de contacto, en cambio, actúa exactamente donde se instala el frío.",
+        ],
+      },
+      {
+        title: "La alfombrilla de escritorio térmica: la solución de contacto",
+        paragraphs: [
+          "Una alfombrilla de escritorio térmica de gran formato (80 × 33 cm) cubre la zona de teclado + ratón: las muñecas y las palmas descansan de forma permanente sobre una superficie templada, y los dedos se mantienen ágiles. El calor llega en unos segundos — esa es la diferencia con un radiador, que tarda una hora en cambiar tu confort.",
+          "Los dos criterios de seguridad: un apagado automático tras ~3 horas (el olvido al final del día es la regla, no la excepción) y una temperatura de superficie limitada en torno a 45–50 °C. Por encima de 43 °C en contacto permanente prolongado, la piel no lo lleva bien — los niveles regulables existen precisamente para encontrar el punto templado cómodo, no para asarte.",
+        ],
+      },
+      {
+        title: "Qué lo complementa (y qué no funciona)",
+        paragraphs: [
+          "El trío eficaz del escritorio de invierno: alfombrilla térmica para las manos, calientatazas para el café y, si la habitación es realmente fría, un calefactor cerámico orientado hacia ti. Todo junto consume menos que una bombilla halógena de las de antes.",
+          "Lo que decepciona: los mitones gruesos en el teclado (pérdida de precisión, sudor) y el radiador en la otra punta de la habitación (el aire caliente sube al techo antes de llegar a tus dedos). Lo que ayuda gratis: dos minutos de movimiento cada hora — la circulación se reactiva, y el calor de contacto hace el resto.",
+        ],
+      },
+    ],
+  },
 };

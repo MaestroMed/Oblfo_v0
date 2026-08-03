@@ -41,6 +41,24 @@ export const GUIDE_SLUGS: Record<string, Record<Locale, string>> = {
     de: "handwaermer-ratgeber",
     es: "guia-calientamanos",
   },
+  "chaussons-guide": {
+    fr: "choisir-chaussons-chauffants",
+    en: "heated-slippers-guide",
+    de: "beheizbare-hausschuhe-ratgeber",
+    es: "guia-zapatillas-calefactables",
+  },
+  "chauffe-tasse-guide": {
+    fr: "chauffe-tasse-usb-guide",
+    en: "mug-warmer-guide",
+    de: "tassenwaermer-ratgeber",
+    es: "guia-calientatazas",
+  },
+  "sous-main-guide": {
+    fr: "mains-froides-bureau",
+    en: "cold-hands-desk-guide",
+    de: "kalte-haende-schreibtisch",
+    es: "manos-frias-escritorio",
+  },
 };
 
 export function translateGuideSlug(

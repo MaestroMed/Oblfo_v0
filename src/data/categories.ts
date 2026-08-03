@@ -69,7 +69,7 @@ const content: Record<Category, CategoryContent> = {
       de: "Füße frieren zuerst und werden zuletzt warm — das ist Mechanik: Der Körper opfert seine Extremitäten, um den Rumpf zu schützen. Zwei Antworten je nach Moment: beheizbare Hausschuhe, die die Kälte beim Nachhausekommen kappen, und Einlegesohlen mit integriertem Akku, um draußen zu bleiben, ohne die Minuten zu zählen.",
       es: "Los pies se congelan primero y se calientan los últimos — es mecánico: el cuerpo sacrifica sus extremidades para proteger el tronco. Dos respuestas según el momento: zapatillas calefactables para cortar el frío al llegar a casa y plantillas con batería integrada para quedarse fuera sin contar los minutos.",
     },
-    guideIds: ["pieds-froids-guide"],
+    guideIds: ["pieds-froids-guide", "chaussons-guide"],
   },
   corps: {
     metaTitle: {
@@ -150,7 +150,7 @@ const content: Record<Category, CategoryContent> = {
       de: "Ein 17-Grad-Raum verzeiht an Bildschirmtagen nichts: halb getrunkener kalter Kaffee, steife Finger auf der Tastatur, bröckelnde Konzentration. Die Schreibtisch-Abteilung löst beide Reibungspunkte — ein Tassenwärmer, der die Trinktemperatur hält, und eine großformatige Unterlage, die Hände und Handgelenke auf Arbeitstemperatur hält.",
       es: "Una habitación a 17 grados no perdona en los días de pantalla: café frío a medio beber, dedos rígidos en el teclado, concentración que se desmorona. La sección de escritorio arregla ambos puntos de fricción: un calientatazas que mantiene la temperatura de consumo y una alfombrilla de gran formato que mantiene manos y muñecas a temperatura de trabajo.",
     },
-    guideIds: [],
+    guideIds: ["sous-main-guide", "chauffe-tasse-guide"],
   },
   piece: {
     metaTitle: {

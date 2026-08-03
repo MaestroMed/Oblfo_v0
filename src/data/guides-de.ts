@@ -224,4 +224,111 @@ export const guidesDe: Record<string, GuideL10n> = {
       },
     ],
   },
+  "chaussons-guide": {
+    title:
+      "Beheizbare Hausschuhe: USB, Waschen, Sicherheit — der Ratgeber vor dem Kauf",
+    metaDescription:
+      "Beheizbare Hausschuhe mit USB oder Körnerkissen? Waschbar oder nicht? Abnehmbares Kabel, Einheitsgröße, Sicherheit: was Sie vor dem Kauf prüfen sollten.",
+    intro:
+      "Der Boden ist die kälteste Fläche im Haus — und genau dort verbringen Ihre Füße den Abend. Beheizbare Hausschuhe lösen das Problem an der Wurzel. Doch die Kategorie vermischt drei sehr unterschiedliche Produkte unter demselben Namen. Hier erfahren Sie, wie Sie sie auseinanderhalten — und was einen guten Kauf ausmacht.",
+    sections: [
+      {
+        title: "Drei Produkte unter einem Namen",
+        paragraphs: [
+          "Der elektrisch beheizte Hausschuh (USB): aktive Heizzonen am Vorfuß, per Kabel versorgt. Konstante, regelbare Wärme — das ist die Kategorie dieses Ratgebers und die einzige, die wirklich dauerhaft heizt.",
+          "Der Hausschuh als Mikrowellen-Körnerkissen: eine Füllung aus Körnern, die die Wärme 20 bis 30 Minuten abgibt. Kabellos — aber er kühlt schnell aus und wandert den ganzen Abend immer wieder zurück in die Mikrowelle.",
+          "Der einfache isolierende Hausschuh (Sherpa, Wolle): Er bewahrt die Eigenwärme des Fußes, erzeugt aber keine — sind Ihre Füße bereits kalt, wärmt er sie nicht auf. Das ist die klassische Falle mehrdeutiger Produktseiten: Achten Sie auf das Wort „Heizzonen“ und eine ausdrücklich genannte Stromversorgung.",
+        ],
+      },
+      {
+        title: "USB 5V: was das im Alltag bedeutet",
+        paragraphs: [
+          "Die USB-Versorgung mit 5V ist eine Stärke: keine gefährliche Spannung auf Fußhöhe, kompatibel mit jedem Ladegerät, jeder Powerbank und jedem Laptop-Anschluss — und spürbare Wärme in weniger als einer Minute am Vorfuß, der Zone, die sich von Natur aus am langsamsten erwärmt.",
+          "Die Kehrseite ist das Kabel. Das Kriterium, das alles ändert: ein abnehmbares Kabel. Aufstehen, ausklinken, losgehen — und die isolierende Polsterung hält die gespeicherte Wärme viele Minuten lang. Ein Modell mit fest verbautem Kabel macht aus jedem Gang in die Küche ein Manöver.",
+        ],
+      },
+      {
+        title: "Waschen, Größe, Sohle: die drei Prüfpunkte",
+        paragraphs: [
+          "Wirklich waschbar? Ein Hausschuh lebt auf dem Boden und muss irgendwann in die Wäsche. Die Regel: Handwäsche in kaltem Wasser, mit abgezogenem Kabel — und niemals in den Trockner, der die Heizelemente zerstört. Eine Produktseite, die zum Waschen schweigt, verbirgt in der Regel ein nicht waschbares Produkt.",
+          "Die Einheitsgröße (oft EU 36–45) funktioniert dank eines anpassungsfähigen Innenfutters — prüfen Sie dennoch die genaue Spanne, wenn Sie Größe 35 oder 46 tragen.",
+          "Die rutschfeste Sohle ist keine Option: Ein flauschiger Hausschuh auf Parkett ist ein Ausrutscher in Wartestellung. Strukturierte Sohle Pflicht, Nutzung ausschließlich drinnen.",
+        ],
+      },
+      {
+        title: "Für wen sich der Kauf lohnt",
+        paragraphs: [
+          "Der beheizte Hausschuh ist die Lösung für den festen Platz: Homeoffice, Lesen, Sofaabend, kaltes Erdgeschoss. Wer sich in der Wohnung bewegt, fährt am besten mit dem Duo aus Hausschuh mit abnehmbarem Kabel und kurzen Wärme-Nachladephasen. Und liegt Ihr Problem draußen — Stiefel, Baustelle, Stadion — brauchen Sie beheizbare Einlegesohlen, keine Hausschuhe.",
+        ],
+      },
+    ],
+  },
+  "chauffe-tasse-guide": {
+    title:
+      "USB-Tassenwärmer: warmhalten ja — aufwärmen nein. Der ehrliche Ratgeber",
+    metaDescription:
+      "Ein USB-Tassenwärmer hält Ihren Kaffee bei ~55 °C — kalten Kaffee wärmt er nicht auf. Passende Tassen, Abschaltautomatik, Verbrauch: der ehrliche Ratgeber.",
+    intro:
+      "Es ist das 19-€-Objekt, das ein absurdes Ritual abschafft: den Gang zur Mikrowelle alle vierzig Minuten. Doch die Kategorie leidet unter einem massiven Missverständnis darüber, was sie wirklich leistet — und fast jede Enttäuschung kommt genau daher. Eine Klarstellung in vier Minuten.",
+    sections: [
+      {
+        title: "Missverständnis Nr. 1: warmhalten ≠ aufwärmen",
+        paragraphs: [
+          "Ein USB-Tassenwärmer liefert 5 bis 10 W. Das ist exakt genug, um die Wärme auszugleichen, die eine Tasse verliert — und nicht genug, um kalten Kaffee wieder auf Temperatur zu bringen. Einfache Physik: Aufwärmen braucht zehnmal mehr Leistung als Warmhalten.",
+          "Daraus folgt die richtige Nutzung: Stellen Sie den Kaffee heiß ab, sobald er eingeschenkt ist — dann bleibt er den ganzen Nachmittag auf Trinktemperatur. Stellen Sie eine seit einer Stunde vergessene Tasse ab, bekommen Sie lauwarmen Kaffee — das ist Kritikpunkt Nr. 1 in den Bewertungen der gesamten Kategorie, und er zielt auf eine Nutzung, nicht auf einen Defekt.",
+        ],
+      },
+      {
+        title: "Die Tasse macht die halbe Arbeit",
+        paragraphs: [
+          "Die Wärme wird durch Wärmeleitung übertragen: Es braucht einen flachen Boden und satten Kontakt mit der Heizplatte. Tassen mit dickem oder gewölbtem Boden isolieren ihren eigenen Inhalt — dünne, flache Böden übertragen am besten.",
+          "Zwei Sonderfälle: Doppelwandige Tassen, die genau dafür gebaut sind, Wärmeübertragung zu blockieren, neutralisieren den Tassenwärmer; und Pappbecher funktionieren zwar, eine Tasse ist aber die bessere Wahl — die Platte erreicht rund 55 °C.",
+        ],
+      },
+      {
+        title: "Sicherheit und Verbrauch: die zwei guten Nachrichten",
+        paragraphs: [
+          "Die automatische Abschaltung beim Anheben der Tasse ist das Sicherheitskriterium, auf dem Sie bestehen sollten: Die Platte schaltet sich von selbst ab, wenn Sie ins Meeting gehen. Bei ~55 °C Plattentemperatur reden wir von einem Objekt, das kühler ist als eine frisch servierte Tasse Tee.",
+          "Beim Verbrauch entsprechen 5 bis 10 W über einen Nachmittag etwa einem Cent Strom — weniger als die Mikrowelle, die er ersetzt, und ohne den Geschmack von wieder aufgekochtem Kaffee.",
+        ],
+      },
+      {
+        title: "Für wen — und womit kombinieren",
+        paragraphs: [
+          "Das typische Profil: Büro oder Homeoffice, Kaffee oder Tee, der vor sich hin steht, ein kühler Raum. Der Tassenwärmer fügt sich natürlich in den restlichen Winter-Arbeitsplatz ein — beheizbare Schreibtischunterlage für die Hände, Zusatzheizung für den Raum. Ein Trio, das mit 60 W auskommt, wo ein Heizkörper 1.500 verlangt.",
+        ],
+      },
+    ],
+  },
+  "sous-main-guide": {
+    title:
+      "Kalte Hände am Schreibtisch: warum das passiert — und was wirklich hilft",
+    metaDescription:
+      "Eiskalte Finger auf der Tastatur trotz 19 °C im Raum? Schuld ist das Stillsitzen. Beheizbare Schreibtischunterlage, sichere Temperaturen, Setup: der Ratgeber.",
+    intro:
+      "Man kann in einem 19 Grad warmen Raum kalte Hände haben. Das ist keine Einbildung: Acht Stunden Bewegungslosigkeit drosseln die Durchblutung der Extremitäten, und die Tastatur macht es nicht besser. Hier ist die Mechanik hinter dem Problem — und die Lösungen, geordnet nach tatsächlicher Wirksamkeit.",
+    sections: [
+      {
+        title: "Warum die Hände an der Tastatur frieren",
+        paragraphs: [
+          "Wer still sitzt, dessen Körper drosselt die periphere Durchblutung — derselbe Mechanismus, der im Kino die Füße gefrieren lässt. Auf dem Schreibtisch liegende Hände fügen zwei Verstärker hinzu: den dauerhaften Kontakt mit einer kalten Oberfläche, die Wärme abzieht, und eine erhöhte Position, die dem venösen Rückfluss nicht hilft.",
+          "Die direkte Konsequenz: Den ganzen Raum zu heizen ist die teuerste Antwort auf das am stärksten lokalisierte Problem im Haus. Kontaktwärme dagegen wirkt genau dort, wo sich die Kälte festsetzt.",
+        ],
+      },
+      {
+        title: "Die beheizbare Schreibtischunterlage: die Kontaktlösung",
+        paragraphs: [
+          "Eine großformatige beheizbare Schreibtischunterlage (80 × 33 cm) deckt die Zone von Tastatur und Maus ab: Handgelenke und Handflächen ruhen dauerhaft auf einer angenehm warmen Fläche, die Finger bleiben geschmeidig. Die Wärme kommt in wenigen Sekunden — das ist der Unterschied zum Heizkörper, der eine Stunde braucht, um Ihren Komfort zu verändern.",
+          "Die zwei Sicherheitskriterien: eine automatische Abschaltung nach ~3 Stunden (das abendliche Vergessen ist die Regel, nicht die Ausnahme) und eine auf rund 45–50 °C begrenzte Oberflächentemperatur. Oberhalb von 43 °C bei längerem Dauerkontakt macht die Haut nicht mit — regelbare Stufen gibt es genau dafür: um den angenehm warmen Punkt zu finden, nicht um zu garen.",
+        ],
+      },
+      {
+        title: "Was das Setup ergänzt (und was nicht funktioniert)",
+        paragraphs: [
+          "Das wirksame Winter-Schreibtisch-Trio: beheizbare Schreibtischunterlage für die Hände, Tassenwärmer für den Kaffee — und wenn der Raum wirklich kalt ist, eine auf Sie gerichtete Keramikheizung. Zusammen verbraucht das Ganze weniger als eine alte Halogenlampe.",
+          "Was enttäuscht: dicke fingerlose Handschuhe an der Tastatur (Präzisionsverlust, Schwitzen) und der Heizkörper am anderen Ende des Raums (die warme Luft erreicht die Decke, bevor sie Ihre Finger erreicht). Was gratis hilft: zwei Minuten Bewegung pro Stunde — die Durchblutung springt wieder an, die Kontaktwärme erledigt den Rest.",
+        ],
+      },
+    ],
+  },
 };

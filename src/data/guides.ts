@@ -542,6 +542,247 @@ guideSources.push(
   },
 );
 
+guideSources.push(
+  {
+    id: "chaussons-guide",
+    slug: {
+      fr: "choisir-chaussons-chauffants",
+      en: "heated-slippers-guide",
+    },
+    datePublished: "2026-08-02",
+    readMinutes: 5,
+    relatedProductIds: ["chaussons-chauffants", "pack-maison-chaude"],
+    title: {
+      fr: "Chaussons chauffants : USB, lavage, sécurité — le guide avant d'acheter",
+      en: "Heated slippers: USB power, washing, safety — the pre-purchase guide",
+    },
+    metaDescription: {
+      fr: "Chaussons chauffants USB ou bouillotte sèche ? Lavables ou pas ? Câble détachable, taille unique, sécurité : ce qu'il faut vérifier avant d'acheter.",
+      en: "USB heated slippers or microwavable ones? Washable or not? Detachable cable, one-size fit, safety: what to check before buying.",
+    },
+    intro: {
+      fr: "Le sol est la surface la plus froide de la maison, et les pieds y passent la soirée. Les chaussons chauffants règlent le problème à la source — mais la catégorie mélange trois produits très différents sous le même nom. Voici comment les distinguer et ce qui fait un bon achat.",
+      en: "The floor is the coldest surface in the house, and your feet spend the evening on it. Heated slippers fix the problem at the source — but the category mixes three very different products under one name. Here's how to tell them apart and what makes a good buy.",
+    },
+    sections: {
+      fr: [
+        {
+          title: "Trois produits sous un seul nom",
+          paragraphs: [
+            "Le chausson chauffant électrique (USB) : des zones de chauffe actives sur l'avant-pied, alimentées par câble. Chaleur constante et réglable — c'est la catégorie de ce guide, et la seule qui chauffe vraiment en continu.",
+            "Le chausson « bouillotte sèche » à passer au micro-ondes : des graines qui restituent la chaleur 20 à 30 minutes. Sans fil, mais il refroidit vite et repasse par la case micro-ondes toute la soirée.",
+            "Le chausson isolant simple (sherpa, laine) : il conserve la chaleur du pied mais n'en produit pas — si vos pieds sont déjà froids, il ne les réchauffera pas. C'est le piège classique des fiches ambiguës : cherchez les mots « zones chauffantes » et une alimentation explicite.",
+          ],
+        },
+        {
+          title: "USB 5V : ce que ça implique au quotidien",
+          paragraphs: [
+            "L'alimentation USB 5V est une force : aucune tension dangereuse au niveau des pieds, compatible avec n'importe quel chargeur, powerbank ou port d'ordinateur, et une chauffe perceptible en moins d'une minute sur l'avant-pied — la zone la plus lente à se réchauffer naturellement.",
+            "Sa contrepartie est le câble. Le critère qui change tout : un câble détachable. On se lève, on se détache, on marche — et le rembourrage isolant garde la chaleur accumulée pendant de longues minutes. Un modèle à câble fixe transforme chaque déplacement en manœuvre.",
+          ],
+        },
+        {
+          title: "Lavage, taille, semelle : les trois vérifications",
+          paragraphs: [
+            "Lavables, vraiment ? Un chausson vit au sol et se lave forcément un jour. La règle : lavage à la main à l'eau froide, une fois le câble débranché — et jamais de sèche-linge, qui casse les éléments chauffants. Une fiche qui ne dit rien sur le lavage cache généralement un produit non lavable.",
+            "La taille unique (souvent EU 36–45) fonctionne grâce à un intérieur adaptatif — vérifiez quand même la plage exacte si vous chaussez du 35 ou du 46.",
+            "La semelle antidérapante n'est pas une option : un chausson moelleux sur du parquet, c'est une glissade en puissance. Semelle texturée obligatoire, usage intérieur uniquement.",
+          ],
+        },
+        {
+          title: "Pour qui c'est le bon achat",
+          paragraphs: [
+            "Le chausson chauffant est la solution du poste fixe : télétravail, lecture, soirée canapé, rez-de-chaussée froid. Pour circuler dans la maison, le duo gagnant est chausson à câble détachable + petites sessions de recharge de chaleur. Et si votre problème est dehors — bottes, chantier, stade — ce sont des semelles chauffantes qu'il vous faut, pas des chaussons.",
+          ],
+        },
+      ],
+      en: [
+        {
+          title: "Three products under one name",
+          paragraphs: [
+            "The electric (USB) heated slipper: active heating zones on the forefoot, powered by cable. Constant, adjustable warmth — that's this guide's category, and the only one that genuinely heats continuously.",
+            "The microwavable 'dry hot-water-bottle' slipper: grain filling that releases heat for 20 to 30 minutes. Cordless, but it cools fast and goes back to the microwave all evening.",
+            "The plain insulating slipper (sherpa, wool): it keeps the foot's own heat but produces none — if your feet are already cold, it won't warm them up. That's the classic trap of ambiguous listings: look for the words 'heating zones' and an explicit power source.",
+          ],
+        },
+        {
+          title: "USB 5V: what it means day to day",
+          paragraphs: [
+            "5V USB power is a strength: no dangerous voltage at foot level, compatibility with any charger, power bank or laptop port, and noticeable warmth in under a minute on the forefoot — the area slowest to warm up naturally.",
+            "Its trade-off is the cable. The criterion that changes everything: a detachable cable. You stand up, unclip, walk — and the insulating lining holds the accumulated heat for long minutes. A fixed-cable model turns every trip to the kitchen into a manoeuvre.",
+          ],
+        },
+        {
+          title: "Washing, sizing, sole: the three checks",
+          paragraphs: [
+            "Washable, really? A slipper lives on the floor and will need washing one day. The rule: hand wash in cold water, cable unplugged — and never the dryer, which kills heating elements. A listing that says nothing about washing usually hides a non-washable product.",
+            "One-size fits (often EU 36–45) work thanks to an adaptive lining — still check the exact range if you wear a 35 or a 46.",
+            "A non-slip sole is not optional: a plush slipper on hardwood is a slip waiting to happen. Textured sole required, indoor use only.",
+          ],
+        },
+        {
+          title: "Who it's the right buy for",
+          paragraphs: [
+            "Heated slippers are the fixed-station answer: home office, reading, sofa evenings, cold ground floors. To move around the house, the winning combo is a detachable-cable slipper plus short heat top-up sessions. And if your problem is outdoors — boots, worksites, stadiums — you need heated insoles, not slippers.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "chauffe-tasse-guide",
+    slug: {
+      fr: "chauffe-tasse-usb-guide",
+      en: "mug-warmer-guide",
+    },
+    datePublished: "2026-08-02",
+    readMinutes: 4,
+    relatedProductIds: ["mini-chauffe-tasse", "sous-main-chauffant"],
+    title: {
+      fr: "Chauffe-tasse USB : maintenir chaud, oui — réchauffer, non. Le guide honnête",
+      en: "USB mug warmers: keeping hot, yes — reheating, no. The honest guide",
+    },
+    metaDescription: {
+      fr: "Un chauffe-tasse USB maintient votre café à ~55 °C, il ne réchauffe pas un café froid. Mugs compatibles, arrêt auto, consommation : le guide honnête.",
+      en: "A USB mug warmer keeps coffee at ~55 °C — it won't reheat a cold cup. Compatible mugs, auto-off, power use: the honest guide.",
+    },
+    intro: {
+      fr: "C'est l'objet à 19 € qui supprime un rituel absurde : l'aller-retour au micro-ondes toutes les quarante minutes. Mais la catégorie souffre d'un malentendu massif sur ce qu'elle fait vraiment — et les déceptions viennent presque toutes de là. Mise au point en quatre minutes.",
+      en: "It's the €19 object that removes an absurd ritual: the microwave round-trip every forty minutes. But the category suffers from one massive misunderstanding about what it actually does — and nearly every disappointment comes from there. Let's clear it up in four minutes.",
+    },
+    sections: {
+      fr: [
+        {
+          title: "Le malentendu n° 1 : maintenir ≠ réchauffer",
+          paragraphs: [
+            "Un chauffe-tasse USB délivre 5 à 10 W. C'est exactement assez pour compenser la chaleur qu'un mug perd — et pas assez pour remonter un café froid à température. Physique simple : réchauffer demande dix fois plus de puissance que maintenir.",
+            "Le bon usage en découle : posez le café chaud dès qu'il est servi, et il reste à température de dégustation tout l'après-midi. Posez un café oublié depuis une heure, et vous obtiendrez un café tiède — c'est le reproche n° 1 dans les avis de toute la catégorie, et il vise un usage, pas un défaut.",
+          ],
+        },
+        {
+          title: "Le mug fait la moitié du résultat",
+          paragraphs: [
+            "La chaleur passe par conduction : il faut un fond plat et un contact franc avec le plateau. Les mugs à fond épais ou incurvé isolent leur propre contenu — les fonds fins et plats transmettent le mieux.",
+            "Deux cas particuliers : les tasses à double paroi, conçues précisément pour bloquer les transferts de chaleur, neutralisent le chauffe-tasse ; et les gobelets en carton fonctionnent, mais mieux vaut un mug — le plateau chauffe autour de 55 °C.",
+          ],
+        },
+        {
+          title: "Sécurité et consommation : les deux bonnes nouvelles",
+          paragraphs: [
+            "L'arrêt automatique au retrait de la tasse est le critère de sécurité à exiger : le plateau s'éteint seul quand vous partez en réunion. À ~55 °C de température de plateau, on parle d'un objet moins chaud qu'une tasse de thé fraîchement servie.",
+            "Côté consommation, 5 à 10 W pendant un après-midi représentent environ un centime d'électricité — moins que le micro-ondes qu'il remplace, et sans le goût de café recuit.",
+          ],
+        },
+        {
+          title: "Pour qui, et avec quoi",
+          paragraphs: [
+            "Le profil type : bureau ou télétravail, café ou thé qui traîne, pièce fraîche. Il se combine naturellement avec le reste du poste de travail d'hiver — sous-main chauffant pour les mains, chauffage d'appoint pour la pièce. Un trio qui tient dans 60 W là où un radiateur en demande 1 500.",
+          ],
+        },
+      ],
+      en: [
+        {
+          title: "Misunderstanding #1: keeping ≠ reheating",
+          paragraphs: [
+            "A USB mug warmer delivers 5 to 10 W. That's exactly enough to offset the heat a mug loses — and not enough to bring a cold coffee back up to temperature. Simple physics: reheating takes ten times more power than maintaining.",
+            "The right usage follows: set your coffee down hot as soon as it's poured, and it stays at drinking temperature all afternoon. Set down a cup forgotten an hour ago, and you'll get a lukewarm coffee — that's complaint #1 in reviews across the category, and it targets a usage, not a defect.",
+          ],
+        },
+        {
+          title: "The mug does half the work",
+          paragraphs: [
+            "Heat transfers by conduction: you need a flat bottom and firm contact with the plate. Thick or curved-bottom mugs insulate their own contents — thin, flat bottoms transmit best.",
+            "Two special cases: double-walled cups, designed precisely to block heat transfer, neutralise a mug warmer; and paper cups work, but a mug is better — the plate runs at around 55 °C.",
+          ],
+        },
+        {
+          title: "Safety and power use: the two pieces of good news",
+          paragraphs: [
+            "Auto-off when the mug is lifted is the safety criterion to demand: the plate switches itself off when you leave for a meeting. At ~55 °C plate temperature, we're talking about an object cooler than a freshly served cup of tea.",
+            "On consumption, 5 to 10 W across an afternoon is roughly one cent of electricity — less than the microwave it replaces, and without the re-cooked coffee taste.",
+          ],
+        },
+        {
+          title: "Who it's for, and what to pair it with",
+          paragraphs: [
+            "The typical profile: office or home office, coffee or tea that lingers, a cool room. It pairs naturally with the rest of the winter desk setup — a heated desk mat for the hands, a space heater for the room. A trio that fits in 60 W where a radiator asks for 1,500.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "sous-main-guide",
+    slug: {
+      fr: "mains-froides-bureau",
+      en: "cold-hands-desk-guide",
+    },
+    datePublished: "2026-08-02",
+    readMinutes: 5,
+    relatedProductIds: ["sous-main-chauffant", "mini-chauffe-tasse"],
+    title: {
+      fr: "Mains froides au bureau : pourquoi ça arrive et ce qui marche vraiment",
+      en: "Cold hands at your desk: why it happens and what actually works",
+    },
+    metaDescription: {
+      fr: "Doigts gelés au clavier même dans une pièce à 19 °C ? L'immobilité en est la cause. Sous-main chauffant, températures sûres, setup complet : le guide.",
+      en: "Frozen fingers on the keyboard even at 19 °C? Immobility is the cause. Heated desk mats, safe temperatures, the full setup: the guide.",
+    },
+    intro: {
+      fr: "On peut avoir froid aux mains dans une pièce à 19 degrés. Ce n'est pas une impression : huit heures d'immobilité réduisent la circulation vers les extrémités, et le clavier n'arrange rien. Voici la mécanique du problème, et les solutions classées par efficacité réelle.",
+      en: "You can have cold hands in a 19-degree room. It's not in your head: eight hours of sitting still reduce circulation to the extremities, and the keyboard doesn't help. Here's the mechanics of the problem, and the solutions ranked by real effectiveness.",
+    },
+    sections: {
+      fr: [
+        {
+          title: "Pourquoi les mains gèlent au clavier",
+          paragraphs: [
+            "Assis immobile, le corps réduit la circulation périphérique — c'est le même mécanisme qui gèle les pieds au cinéma. Les mains posées sur un bureau y ajoutent deux aggravants : le contact permanent avec une surface froide qui pompe la chaleur, et une position surélevée qui n'aide pas le retour veineux.",
+            "Conséquence directe : chauffer la pièce entière est la réponse la plus chère au problème le plus localisé de la maison. La chaleur de contact, elle, agit exactement où le froid s'installe.",
+          ],
+        },
+        {
+          title: "Le sous-main chauffant : la solution de contact",
+          paragraphs: [
+            "Un sous-main chauffant grand format (80 × 33 cm) couvre la zone clavier + souris : les poignets et les paumes reposent en permanence sur une surface tiède, et les doigts restent souples. La chauffe arrive en quelques secondes — c'est la différence avec un radiateur, qui met une heure à changer votre confort.",
+            "Les deux critères de sécurité : un arrêt automatique après ~3 heures (l'oubli du soir est la règle, pas l'exception) et une température de surface plafonnée autour de 45–50 °C. Au-delà de 43 °C en contact permanent prolongé, la peau n'aime pas — les niveaux réglables existent précisément pour trouver le point tiède confortable, pas pour cuire.",
+          ],
+        },
+        {
+          title: "Ce qui complète (et ce qui ne marche pas)",
+          paragraphs: [
+            "Le trio bureau d'hiver efficace : sous-main chauffant pour les mains, chauffe-tasse pour le café, et si la pièce est vraiment froide, un chauffage céramique orienté vers vous. Le tout consomme moins qu'une ampoule halogène d'époque.",
+            "Ce qui déçoit : les mitaines épaisses au clavier (perte de précision, transpiration), et le radiateur à l'autre bout de la pièce (l'air chaud monte au plafond avant d'atteindre vos doigts). Ce qui aide gratuitement : deux minutes de mouvement par heure — la circulation repart, la chaleur de contact fait le reste.",
+          ],
+        },
+      ],
+      en: [
+        {
+          title: "Why hands freeze at the keyboard",
+          paragraphs: [
+            "Sitting still, the body reduces peripheral circulation — the same mechanism that freezes your feet at the cinema. Hands resting on a desk add two aggravators: permanent contact with a cold surface that pumps heat away, and a raised position that doesn't help venous return.",
+            "The direct consequence: heating the whole room is the most expensive answer to the most localised problem in the house. Contact warmth, by contrast, acts exactly where the cold sets in.",
+          ],
+        },
+        {
+          title: "The heated desk mat: the contact solution",
+          paragraphs: [
+            "A full-size heated desk mat (80 × 33 cm) covers the keyboard + mouse zone: wrists and palms rest permanently on a warm surface, and fingers stay supple. The heat arrives within seconds — that's the difference from a radiator, which takes an hour to change your comfort.",
+            "The two safety criteria: an automatic shut-off after ~3 hours (forgetting it at night is the rule, not the exception) and a surface temperature capped around 45–50 °C. Beyond 43 °C in prolonged permanent contact, skin doesn't like it — adjustable levels exist precisely to find the comfortable warm point, not to cook.",
+          ],
+        },
+        {
+          title: "What completes it (and what doesn't work)",
+          paragraphs: [
+            "The effective winter desk trio: a heated desk mat for the hands, a mug warmer for the coffee, and if the room is genuinely cold, a ceramic heater aimed at you. The whole thing draws less than an old halogen bulb.",
+            "What disappoints: thick fingerless gloves at the keyboard (lost precision, sweat), and a radiator across the room (warm air reaches the ceiling before your fingers). What helps for free: two minutes of movement per hour — circulation restarts, and contact warmth does the rest.",
+          ],
+        },
+      ],
+    },
+  },
+);
+
 function localizeGuide(source: GuideSource, locale: Locale): Guide | undefined {
   const slugs = GUIDE_SLUGS[source.id];
   if (!slugs) return undefined;

@@ -6,7 +6,7 @@ import type { Locale } from "@/i18n/routing";
 
 function FooterHeading({ children }: { children: React.ReactNode }) {
   return (
-    <div className="mb-1 font-mono text-[10.5px] tracking-[0.2em] text-[#66788A]">
+    <div className="mb-1 font-mono text-[10.5px] tracking-[0.2em] text-[#6D8093]">
       {children}
     </div>
   );
@@ -110,7 +110,7 @@ export function SiteFooter() {
             </div>
           </div>
         </div>
-        <div className="mt-14 flex flex-wrap justify-between gap-4 border-t border-white/6 pt-6 font-mono text-[11px] tracking-[0.12em] text-[#5A6774]">
+        <div className="mt-14 flex flex-wrap justify-between gap-4 border-t border-white/6 pt-6 font-mono text-[11px] tracking-[0.12em] text-[#708090]">
           <span>{t("copyright")}</span>
           <span>{t("region")}</span>
         </div>

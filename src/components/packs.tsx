@@ -57,7 +57,7 @@ export function Packs({ locale }: { locale: Locale }) {
               </div>
               <div className="relative flex flex-none flex-col items-end justify-center gap-3 px-[34px] py-[30px]">
                 <div className="flex items-baseline gap-3">
-                  <span className="font-mono text-[15px] text-[#66788A] line-through">
+                  <span className="font-mono text-[15px] text-[#6D8093] line-through">
                     {formatPrice(pack.compareAt, locale)}
                   </span>
                   <span className="text-[34px] font-bold text-accent">

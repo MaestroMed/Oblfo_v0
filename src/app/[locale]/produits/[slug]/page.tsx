@@ -145,7 +145,7 @@ export default async function ProductPage({ params }: Props) {
         <div className="relative mx-auto max-w-[1240px] px-8 pt-8 pb-[90px]">
           <nav
             aria-label={t("breadcrumbLabel")}
-            className="mb-9 flex items-center gap-2.5 font-mono text-[10.5px] tracking-[0.16em] text-[#66788A]"
+            className="mb-9 flex items-center gap-2.5 font-mono text-[10.5px] tracking-[0.16em] text-[#6D8093]"
           >
             <Link
               href="/"
@@ -270,12 +270,12 @@ export default async function ProductPage({ params }: Props) {
                   <div className="text-[38px] font-bold text-ink">
                     {formatPrice(product.price, locale)}
                   </div>
-                  <span className="rounded-xl border border-white/12 px-[26px] py-[15px] text-[15px] font-semibold text-[#66788A]">
+                  <span className="rounded-xl border border-white/12 px-[26px] py-[15px] text-[15px] font-semibold text-[#6D8093]">
                     {tCart("unavailable")}
                   </span>
                 </div>
               )}
-              <div className="font-mono text-[11px] tracking-[0.16em] text-[#66788A]">
+              <div className="font-mono text-[11px] tracking-[0.16em] text-[#6D8093]">
                 {t("reassurance")}
               </div>
             </div>
@@ -287,7 +287,7 @@ export default async function ProductPage({ params }: Props) {
       <section className="border-y border-white/5 bg-night-2 py-[90px]">
         <div className="mx-auto max-w-[1240px] px-8">
           <div className="mb-10 flex items-center gap-3 font-mono text-[11px] tracking-[0.22em]">
-            <span className="text-[#66788A]">{t("specsKicker")}</span>
+            <span className="text-[#6D8093]">{t("specsKicker")}</span>
             <span className="h-px w-7 bg-accent/50" />
             <span className="text-accent">{t("specsLabel")}</span>
           </div>
@@ -297,7 +297,7 @@ export default async function ProductPage({ params }: Props) {
                 key={spec.label}
                 className="flex flex-col gap-2 rounded-[14px] border border-white/8 bg-white/[0.02] px-5 py-4"
               >
-                <dt className="font-mono text-[10.5px] tracking-[0.18em] text-[#66788A] uppercase">
+                <dt className="font-mono text-[10.5px] tracking-[0.18em] text-[#6D8093] uppercase">
                   {spec.label}
                 </dt>
                 <dd className="text-[15px] font-medium text-[#DCE4EC]">
@@ -314,7 +314,7 @@ export default async function ProductPage({ params }: Props) {
         <section className="bg-night py-[90px]">
           <div className="mx-auto max-w-[1240px] px-8">
             <div className="mb-10 flex items-center gap-3 font-mono text-[11px] tracking-[0.22em]">
-              <span className="text-[#66788A]">{t("packsKicker")}</span>
+              <span className="text-[#6D8093]">{t("packsKicker")}</span>
               <span className="h-px w-7 bg-accent/50" />
               <span className="text-accent">{t("packsLabel")}</span>
             </div>
@@ -329,7 +329,7 @@ export default async function ProductPage({ params }: Props) {
                   </div>
                   <div className="text-sm text-[#93A2B1]">{pack.contents}</div>
                   <div className="mt-1 flex items-baseline gap-3">
-                    <span className="font-mono text-sm text-[#66788A] line-through">
+                    <span className="font-mono text-sm text-[#6D8093] line-through">
                       {formatPrice(pack.compareAt, locale)}
                     </span>
                     <span className="text-[26px] font-bold text-accent">
@@ -381,7 +381,7 @@ export default async function ProductPage({ params }: Props) {
       <section className="border-t border-white/5 bg-night-2 py-[90px]">
         <div className="mx-auto max-w-[1240px] px-8">
           <div className="mb-10 flex items-center gap-3 font-mono text-[11px] tracking-[0.22em]">
-            <span className="text-[#66788A]">{t("rangeKicker")}</span>
+            <span className="text-[#6D8093]">{t("rangeKicker")}</span>
             <span className="h-px w-7 bg-accent/50" />
             <span className="text-accent">{t("rangeLabel")}</span>
           </div>

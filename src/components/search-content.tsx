@@ -54,7 +54,7 @@ export function SearchContent({ entries }: { entries: SearchEntry[] }) {
         placeholder={t("placeholder")}
         aria-label={t("placeholder")}
         autoFocus
-        className="w-full rounded-xl border border-white/15 bg-white/[0.04] px-5 py-4 text-[16px] text-ink outline-none transition-colors placeholder:text-[#66788A] focus:border-accent/70"
+        className="w-full rounded-xl border border-white/15 bg-white/[0.04] px-5 py-4 text-[16px] text-ink outline-none transition-colors placeholder:text-[#6D8093] focus:border-accent/70"
       />
       <p
         aria-live="polite"

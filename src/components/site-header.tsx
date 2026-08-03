@@ -40,13 +40,21 @@ export function SiteHeader() {
             OBFL
           </a>
           {/* Le O final = bouton power : froid par défaut, chauffe au clic.
-              Bas du glyphe = baseline, hauteur calée sur les capitales. */}
+              Bas du glyphe = baseline, hauteur calée sur les capitales.
+
+              La zone tactile est agrandie par padding, annulé par une marge
+              négative de même valeur : le glyphe ne bouge pas d'un pixel et
+              le mot-symbole garde exactement sa largeur, mais la cible passe
+              de 19 × 19 à 25 × 25 — le minimum est de 24. L'agrandissement
+              est mis à DROITE, où il n'y a rien : symétrique, il aurait
+              chevauché le lien « OBFL » et la règle serait retombée sur
+              l'espacement entre cibles voisines. */}
           <button
             type="button"
             onClick={() => setHeated((h) => !h)}
             aria-pressed={heated}
             aria-label="OBFLO ON/OFF"
-            className="inline-block cursor-pointer text-current"
+            className="-my-[3px] -mr-[6px] inline-block cursor-pointer py-[3px] pr-[6px] text-current"
           >
             <PowerGlyph className="h-[0.72em] w-[0.74em]" />
           </button>

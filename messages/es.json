@@ -112,6 +112,15 @@
     "kindGuide": "Guía",
     "kindCategory": "Sección"
   },
+  "Plp": {
+    "sortLabel": "Ordenar",
+    "sortFeatured": "Destacados",
+    "sortPriceAsc": "Precio: de menor a mayor",
+    "sortPriceDesc": "Precio: de mayor a menor",
+    "sortNewest": "Novedades",
+    "inStockOnly": "En stock",
+    "count": "{count, plural, =0 {Sin productos} one {# producto} other {# productos}}"
+  },
   "Guides": {
     "metaTitle": "Guías — elegir bien tus productos calefactables",
     "metaDescription": "Guías de compra honestas: consumos reales, autonomías reales y lo que de verdad importa.",

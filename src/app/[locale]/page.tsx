@@ -43,6 +43,15 @@ function buildStructuredData(locale: Locale) {
   const products = getProducts(locale);
   const faqItems = getFaqItems(locale);
 
+  // Politique de retour et grilles de port déclarées UNE fois dans le @graph
+  // puis référencées par @id depuis les 10 offres : mêmes données pour Google,
+  // ~10 kB de HTML en moins (les blobs étaient répétés par produit).
+  const returnPolicyId = `${SITE_URL}/#retour-30j`;
+  const shippingIds = [
+    `${SITE_URL}/#livraison-standard`,
+    `${SITE_URL}/#livraison-offerte`,
+  ];
+
   return {
     "@context": "https://schema.org",
     "@graph": [
@@ -51,6 +60,11 @@ function buildStructuredData(locale: Locale) {
         name: "OBFLO",
         url: SITE_URL,
       },
+      { ...MERCHANT_RETURN_POLICY, "@id": returnPolicyId },
+      ...OFFER_SHIPPING_DETAILS.map((details, i) => ({
+        ...details,
+        "@id": shippingIds[i],
+      })),
       {
         "@type": "ItemList",
         itemListElement: products.map((product, i) => ({
@@ -81,8 +95,8 @@ function buildStructuredData(locale: Locale) {
             availability: product.available
               ? "https://schema.org/InStock"
               : "https://schema.org/OutOfStock",
-            hasMerchantReturnPolicy: MERCHANT_RETURN_POLICY,
-            shippingDetails: OFFER_SHIPPING_DETAILS,
+            hasMerchantReturnPolicy: { "@id": returnPolicyId },
+            shippingDetails: shippingIds.map((id) => ({ "@id": id })),
           },
         })),
       },

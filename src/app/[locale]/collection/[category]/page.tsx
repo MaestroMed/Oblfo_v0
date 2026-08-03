@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { ProductCard } from "@/components/product-card";
+import { toCardProduct } from "@/components/product-card";
+import { ProductGrid } from "@/components/product-grid";
 import { getProducts } from "@/data/catalog";
 import type { Category } from "@/data/catalog-types";
 import { getCategoryContent } from "@/data/categories";
@@ -160,11 +161,10 @@ export default async function CategoryPage({ params }: Props) {
           </p>
         </div>
 
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-6">
-          {products.map((product) => (
-            <ProductCard key={product.id} product={product} locale={locale} />
-          ))}
-        </div>
+        <ProductGrid
+          products={products.map(toCardProduct)}
+          locale={locale}
+        />
 
         {guides.length > 0 ? (
           <section className="mt-16">

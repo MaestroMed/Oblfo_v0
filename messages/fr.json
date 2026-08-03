@@ -112,6 +112,15 @@
     "kindGuide": "Guide",
     "kindCategory": "Rayon"
   },
+  "Plp": {
+    "sortLabel": "Trier",
+    "sortFeatured": "Sélection",
+    "sortPriceAsc": "Prix croissant",
+    "sortPriceDesc": "Prix décroissant",
+    "sortNewest": "Nouveautés",
+    "inStockOnly": "En stock",
+    "count": "{count, plural, =0 {Aucun produit} one {# produit} other {# produits}}"
+  },
   "Guides": {
     "metaTitle": "Guides — bien choisir ses objets chauffants",
     "metaDescription": "Guides d'achat honnêtes : chauffage d'appoint économique, gants chauffants USB ou batterie, autonomie réelle. Choisir sans se tromper.",

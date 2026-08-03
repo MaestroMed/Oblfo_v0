@@ -112,6 +112,15 @@
     "kindGuide": "Ratgeber",
     "kindCategory": "Kategorie"
   },
+  "Plp": {
+    "sortLabel": "Sortieren",
+    "sortFeatured": "Empfohlen",
+    "sortPriceAsc": "Preis aufsteigend",
+    "sortPriceDesc": "Preis absteigend",
+    "sortNewest": "Neuheiten",
+    "inStockOnly": "Auf Lager",
+    "count": "{count, plural, =0 {Keine Produkte} one {# Produkt} other {# Produkte}}"
+  },
   "Guides": {
     "metaTitle": "Ratgeber — Heizprodukte richtig auswählen",
     "metaDescription": "Ehrliche Kaufratgeber: reale Verbrauchswerte, echte Akkulaufzeiten, worauf es wirklich ankommt.",

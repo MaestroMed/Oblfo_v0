@@ -6,12 +6,46 @@ import { formatPrice, type Product } from "@/data/catalog";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 
+/**
+ * Champs strictement nécessaires à la carte — c'est ce sous-ensemble qui est
+ * sérialisé vers les composants client (grille triable), jamais le Product
+ * complet (description, specs, gallery restent côté serveur).
+ */
+export type CardProduct = Pick<
+  Product,
+  | "id"
+  | "slug"
+  | "price"
+  | "available"
+  | "badge"
+  | "name"
+  | "tagline"
+  | "image"
+  | "imageLabel"
+  | "variant"
+>;
+
+export function toCardProduct(p: Product): CardProduct {
+  return {
+    id: p.id,
+    slug: p.slug,
+    price: p.price,
+    available: p.available,
+    badge: p.badge,
+    name: p.name,
+    tagline: p.tagline,
+    image: p.image,
+    imageLabel: p.imageLabel,
+    variant: p.variant,
+  };
+}
+
 /** Carte produit fond clair (homepage essentiels + page collection). */
 export function ProductCard({
   product,
   locale,
 }: {
-  product: Product;
+  product: CardProduct;
   locale: Locale;
 }) {
   const t = useTranslations("HomeV2");

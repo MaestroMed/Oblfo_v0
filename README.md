@@ -73,5 +73,7 @@ Thème sombre « chaleur dans la nuit » : fond `#0A0C10`, accent orange `#FF6A2
 - `ORDERS_WEBHOOK_URL` pour transmettre les commandes payées à l'app de pilotage / l'automatisation CJ (sinon : trace logs uniquement — à configurer avant tout volume réel).
 - Configurer obflo.fr → 301 obflo.com.
 - Flux Google Merchant Center prêts : `/api/merchant-feed/fr|en|de|es` (RSS g:, une entrée par variante avec `item_group_id`). À déclarer dans Merchant Center une fois le paiement actif.
+- IndexNow (Bing/Copilot) : clé servie à la racine, `POST /api/indexnow` soumet les 124 URLs du sitemap — à appeler après chaque déploiement significatif (`INDEXNOW_SUBMIT_SECRET` optionnel pour verrouiller).
 - Section avis clients désactivée (aucun vrai avis — L121-4 C. conso). Réactiver `<Avis />` dans `src/app/[locale]/page.tsx` avec de vraies données.
 - Rupture de stock : passer `available: false` sur le produit/pack dans `src/data/catalog.ts` (bouton grisé + refus au checkout).
+- Compte client : volontairement absent à ce stade — exige une base de données + un fournisseur d'auth, décisions qui appartiennent à l'app de pilotage à venir. Le tunnel invité (Stripe Checkout + reçus e-mail + webhook commandes) couvre le lancement.

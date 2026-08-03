@@ -112,6 +112,15 @@
     "kindGuide": "Guide",
     "kindCategory": "Category"
   },
+  "Plp": {
+    "sortLabel": "Sort",
+    "sortFeatured": "Featured",
+    "sortPriceAsc": "Price: low to high",
+    "sortPriceDesc": "Price: high to low",
+    "sortNewest": "New in",
+    "inStockOnly": "In stock",
+    "count": "{count, plural, =0 {No products} one {# product} other {# products}}"
+  },
   "Guides": {
     "metaTitle": "Guides — choosing heated gear that actually works",
     "metaDescription": "Honest buying guides: space heater running costs, USB vs battery heated gloves, real-world battery life. Choose without getting burned.",

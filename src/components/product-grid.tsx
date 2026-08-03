@@ -1,90 +1,90 @@
+"use client";
+
+import { useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
-import { AddToCartButton } from "@/components/add-to-cart-button";
-import { ImageSlot } from "@/components/image-slot";
-import { SectionHeading } from "@/components/section-heading";
-import { formatPrice, getProducts } from "@/data/catalog";
-import { Link } from "@/i18n/navigation";
+import { ProductCard, type CardProduct } from "@/components/product-card";
 import type { Locale } from "@/i18n/routing";
 
-export function ProductGrid({ locale }: { locale: Locale }) {
-  const t = useTranslations("Range");
-  const tCart = useTranslations("Cart");
-  const products = getProducts(locale);
+type SortKey = "featured" | "priceAsc" | "priceDesc" | "newest";
+
+/**
+ * Grille produits triable/filtrable (pages catégorie). La liste complète est
+ * rendue en SSR dans l'ordre éditorial — le tri/filtre ne fait que réordonner
+ * côté client, le SEO ne voit jamais une grille vide.
+ */
+export function ProductGrid({
+  products,
+  locale,
+}: {
+  products: CardProduct[];
+  locale: Locale;
+}) {
+  const t = useTranslations("Plp");
+  const [sort, setSort] = useState<SortKey>("featured");
+  const [inStockOnly, setInStockOnly] = useState(false);
+
+  const visible = useMemo(() => {
+    const list = inStockOnly ? products.filter((p) => p.available) : products;
+    switch (sort) {
+      case "priceAsc":
+        return [...list].sort((a, b) => a.price - b.price);
+      case "priceDesc":
+        return [...list].sort((a, b) => b.price - a.price);
+      case "newest":
+        // Tri stable : les nouveautés d'abord, ordre éditorial préservé ensuite.
+        return [...list].sort(
+          (a, b) => Number(b.badge === "new") - Number(a.badge === "new"),
+        );
+      default:
+        return list;
+    }
+  }, [products, sort, inStockOnly]);
+
+  const sortOptions: { value: SortKey; label: string }[] = [
+    { value: "featured", label: t("sortFeatured") },
+    { value: "priceAsc", label: t("sortPriceAsc") },
+    { value: "priceDesc", label: t("sortPriceDesc") },
+    { value: "newest", label: t("sortNewest") },
+  ];
 
   return (
-    <section id="gamme" className="scroll-mt-20 bg-night py-[110px]">
-      <div className="mx-auto max-w-[1240px] px-8">
-        <SectionHeading
-          index="01"
-          label={t("label")}
-          title={t("title")}
-          description={t("description")}
-        />
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(255px,1fr))] gap-5">
-          {products.map((product) => (
-            <div
-              key={product.id}
-              className="flex flex-col overflow-hidden rounded-[18px] border border-white/7 bg-card transition-[border-color,box-shadow,transform] duration-[250ms] hover:-translate-y-[3px] hover:border-accent/55 hover:shadow-[0_24px_70px_-30px_rgba(255,106,43,0.45)]"
-            >
-              <Link
-                href={{
-                  pathname: "/produits/[slug]",
-                  params: { slug: product.slug },
-                }}
-                className="relative block aspect-square bg-media"
-              >
-                <div
-                  className={`${product.glow === "warm" ? "glow-warm" : "glow-cold"} pointer-events-none absolute inset-0 z-[1]`}
-                />
-                <ImageSlot label={product.imageLabel} />
-              </Link>
-              <div className="flex flex-col gap-3 px-5 pt-5 pb-[22px]">
-                <div className="flex gap-2">
-                  {product.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-md border border-cold/25 px-2 py-1 font-mono text-[10px] tracking-[0.14em] text-[#9FB3C4]"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <Link
-                  href={{
-                    pathname: "/produits/[slug]",
-                    params: { slug: product.slug },
-                  }}
-                  className="text-[19px] font-semibold text-ink no-underline transition-colors hover:text-accent"
-                >
-                  {product.name}
-                </Link>
-                <p className="text-[13.5px] leading-normal text-[#8595A5]">
-                  {product.tagline}
-                </p>
-                <div className="mt-1.5 flex items-center justify-between">
-                  <div className="text-[25px] font-bold text-ink">
-                    {formatPrice(product.price, locale)}
-                  </div>
-                  {product.available ? (
-                    <AddToCartButton
-                      id={product.id}
-                      name={product.name}
-                      price={product.price}
-                      className="cursor-pointer rounded-[10px] bg-accent px-5 py-[11px] text-sm font-semibold text-[#14100C] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_-10px_rgba(255,106,43,0.7)]"
-                    >
-                      {t("addToCart")}
-                    </AddToCartButton>
-                  ) : (
-                    <span className="rounded-[10px] border border-white/12 px-5 py-[11px] text-sm font-semibold text-[#66788A]">
-                      {tCart("unavailable")}
-                    </span>
-                  )}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+    <div className="flex flex-col gap-6">
+      <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+        <label className="flex items-center gap-2.5 font-mono text-[10.5px] tracking-[0.14em] text-muted-warm uppercase">
+          {t("sortLabel")}
+          <select
+            value={sort}
+            onChange={(e) => setSort(e.target.value as SortKey)}
+            className="cursor-pointer rounded-lg border border-black/12 bg-white px-3 py-2 font-sans text-[13px] normal-case tracking-normal text-ink-warm outline-none focus:border-accent/70"
+          >
+            {sortOptions.map((o) => (
+              <option key={o.value} value={o.value}>
+                {o.label}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label className="flex cursor-pointer items-center gap-2 font-mono text-[10.5px] tracking-[0.14em] text-muted-warm uppercase">
+          <input
+            type="checkbox"
+            checked={inStockOnly}
+            onChange={(e) => setInStockOnly(e.target.checked)}
+            className="h-4 w-4 cursor-pointer accent-[#F07B2E]"
+          />
+          {t("inStockOnly")}
+        </label>
+        <span
+          aria-live="polite"
+          className="ml-auto font-mono text-[10.5px] tracking-[0.14em] text-muted-warm uppercase"
+        >
+          {t("count", { count: visible.length })}
+        </span>
       </div>
-    </section>
+      <div className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-6">
+        {visible.map((product) => (
+          <ProductCard key={product.id} product={product} locale={locale} />
+        ))}
+      </div>
+    </div>
   );
 }

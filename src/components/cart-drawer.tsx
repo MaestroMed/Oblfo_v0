@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { useCart } from "@/components/cart-context";
+import { lineKey, useCart } from "@/components/cart-context";
 import { TermsConsent } from "@/components/terms-consent";
 import { useCheckout } from "@/components/use-checkout";
 import { formatPrice } from "@/data/catalog";
@@ -59,19 +59,24 @@ export function CartDrawer() {
             <ul className="flex-1 overflow-y-auto px-6 py-4">
               {items.map((item) => (
                 <li
-                  key={item.id}
+                  key={lineKey(item)}
                   className="flex items-center justify-between gap-4 border-b border-white/6 py-4 last:border-b-0"
                 >
                   <div className="flex min-w-0 flex-col gap-1">
                     <span className="truncate text-[15px] font-semibold text-ink">
                       {item.name}
                     </span>
+                    {item.variant ? (
+                      <span className="font-mono text-[10px] tracking-[0.12em] text-accent">
+                        {item.variant}
+                      </span>
+                    ) : null}
                     <span className="font-mono text-[11px] tracking-[0.1em] text-[#8595A5]">
                       {t("perUnit", { price: formatPrice(item.price, locale) })}
                     </span>
                     <button
                       type="button"
-                      onClick={() => removeItem(item.id)}
+                      onClick={() => removeItem(lineKey(item))}
                       className="w-fit cursor-pointer font-mono text-[10px] tracking-[0.14em] text-[#66788A] transition-colors hover:text-accent"
                     >
                       {t("remove")}
@@ -80,7 +85,7 @@ export function CartDrawer() {
                   <div className="flex items-center gap-2">
                     <button
                       type="button"
-                      onClick={() => setQty(item.id, item.qty - 1)}
+                      onClick={() => setQty(lineKey(item), item.qty - 1)}
                       aria-label={t("decrease", { name: item.name })}
                       className="h-7 w-7 cursor-pointer rounded-md border border-white/12 font-mono text-sm text-[#C4D2DE] transition-colors hover:border-accent/60"
                     >
@@ -91,7 +96,7 @@ export function CartDrawer() {
                     </span>
                     <button
                       type="button"
-                      onClick={() => setQty(item.id, item.qty + 1)}
+                      onClick={() => setQty(lineKey(item), item.qty + 1)}
                       aria-label={t("increase", { name: item.name })}
                       className="h-7 w-7 cursor-pointer rounded-md border border-white/12 font-mono text-sm text-[#C4D2DE] transition-colors hover:border-accent/60"
                     >

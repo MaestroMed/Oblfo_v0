@@ -190,7 +190,7 @@
   "Faq": {
     "label": "FAQ",
     "title": "Frequently asked questions.",
-    "subtitle": "Another question? Write to us — we reply within 24 h."
+    "subtitle": "Another question? Write to us — we reply within 1–2 business days."
   },
   "Cart": {
     "title": "CART",
@@ -212,7 +212,9 @@
     "subtotal": "SUBTOTAL",
     "shippingAtCheckout": "Shipping calculated at checkout",
     "acceptTerms": "I accept the <terms>terms of sale</terms>",
-    "unavailable": "Sold out"
+    "unavailable": "Sold out",
+    "variantRequired": "Pick a {label} first",
+    "chooseOnProduct": "Choose"
   },
   "CartPage": {
     "metaTitle": "Cart",
@@ -271,7 +273,7 @@
     "badge1Title": "Secure payment",
     "badge1Text": "Stripe · 256-bit SSL",
     "badge2Title": "Responsive support",
-    "badge2Text": "Replies within 24 business hours",
+    "badge2Text": "Replies within 1–2 business days",
     "badge3Title": "Tracked shipping",
     "badge3Text": "3–5 business days",
     "badge4Title": "30-day returns",
@@ -327,12 +329,12 @@
   },
   "ContactPage": {
     "metaTitle": "Contact",
-    "metaDescription": "A question about an OBFLO product or your order? We reply within 24 business hours.",
+    "metaDescription": "A question about an OBFLO product or your order? We reply within 1–2 business days.",
     "kicker": "HELP",
-    "title": "We reply within 24 h.",
+    "title": "We reply within 1–2 business days.",
     "intro": "A question about a product, an order, a return? The FAQ covers the most common cases — otherwise write to us directly.",
     "emailTitle": "By email",
-    "emailText": "Write to us at <tc>contact email</tc>, including your order number if your request concerns one. We reply within 24 business hours, Monday to Friday.",
+    "emailText": "Write to us at <tc>contact email</tc>, including your order number if your request concerns one. We reply within 1–2 business days, Monday to Friday.",
     "trackingTitle": "Order tracking",
     "trackingText": "Your tracking number is emailed as soon as your order ships (check your spam folder). The carrier link shows your parcel's position in real time.",
     "faqTitle": "Before writing",
@@ -370,7 +372,7 @@
     "s6Title": "6. Warranties",
     "s6P1": "All products carry the legal warranties of conformity (2 years) and against hidden defects. For a defective product: replacement or refund, at the customer's choice.",
     "s7Title": "7. Customer service",
-    "s7P1": "For any question or claim: <tc>support email</tc>. Reply within 24 business hours.",
+    "s7P1": "For any question or claim: <tc>support email</tc>. Reply within 1–2 business days.",
     "s8Title": "8. Disputes",
     "s8P1": "These terms are governed by French law. In the event of a dispute, an amicable solution will be sought before any legal action; the customer may use the designated consumer mediator free of charge: <tc>designated mediator</tc>."
   },

@@ -39,7 +39,8 @@ Préfixe locale systématique + chemins et slugs localisés. `/` négocie et red
 - `POST /api/checkout` crée une session Stripe Checkout — les prix sont revalidés côté serveur depuis le catalogue, jamais pris du client.
 - Livraison : offerte dès 60 €, sinon 4,90 € (3–5 j ouvrés).
 - Sans `STRIPE_SECRET_KEY`, l'API répond 503 et le panier affiche « paiement en cours d'activation ».
-- Webhook `POST /api/webhooks/stripe` (signature vérifiée) — point de branchement futur pour la transmission des commandes à CJDropshipping / l'app de pilotage.
+- Webhook `POST /api/webhooks/stripe` (signature vérifiée) : sur `checkout.session.completed`, la commande est normalisée (session, items+variantes, montants, adresse, e-mail) puis POSTée à `ORDERS_WEBHOOK_URL` avec `x-idempotency-key` = id de session ; échec de transmission ⇒ 500 ⇒ Stripe réessaie. Trace `[obflo:order]` systématique dans les logs.
+- Produits à déclinaison (taille, pointure) : la variante est obligatoire au checkout (`400 invalid_variant` sinon) et voyage dans la metadata `obflo_items`.
 - Variables : voir `.env.example`.
 
 ## Développement
@@ -69,6 +70,7 @@ Thème sombre « chaleur dans la nuit » : fond `#0A0C10`, accent orange `#FF6A2
 - Entité : Opcodia LLC (Nouveau-Mexique, USA) — renseignée dans mentions légales et CGV. Restent `[À COMPLÉTER]` : e-mails (contact, SAV, RGPD), TVA/IOSS, médiateur de la consommation.
 - Renseigner `STRIPE_SECRET_KEY` + `STRIPE_WEBHOOK_SECRET` sur Vercel, et activer les reçus e-mail dans le dashboard Stripe (Settings → Customer emails).
 - `NEWSLETTER_WEBHOOK_URL` pour activer l'inscription newsletter (sinon le formulaire affiche « ouverture bientôt »).
+- `ORDERS_WEBHOOK_URL` pour transmettre les commandes payées à l'app de pilotage / l'automatisation CJ (sinon : trace logs uniquement — à configurer avant tout volume réel).
 - Configurer obflo.fr → 301 obflo.com.
 - Section avis clients désactivée (aucun vrai avis — L121-4 C. conso). Réactiver `<Avis />` dans `src/app/[locale]/page.tsx` avec de vraies données.
 - Rupture de stock : passer `available: false` sur le produit/pack dans `src/data/catalog.ts` (bouton grisé + refus au checkout).

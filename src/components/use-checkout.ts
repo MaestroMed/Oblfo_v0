@@ -29,7 +29,7 @@ export function useCheckout(locale: Locale) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           locale,
-          items: items.map(({ id, qty }) => ({ id, qty })),
+          items: items.map(({ id, qty, variant }) => ({ id, qty, variant })),
         }),
       });
       if (res.status === 503) {

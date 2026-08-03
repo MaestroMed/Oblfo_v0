@@ -4,11 +4,13 @@ import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { AddToCartButton } from "@/components/add-to-cart-button";
 import { ImageSlot } from "@/components/image-slot";
+import { VariantPicker } from "@/components/variant-picker";
 import {
   formatPrice,
   getPacksForProduct,
   getProductBySlug,
   getProducts,
+  getSellableById,
 } from "@/data/catalog";
 import { getPathname, Link } from "@/i18n/navigation";
 import {
@@ -231,25 +233,48 @@ export default async function ProductPage({ params }: Props) {
                   </li>
                 ))}
               </ul>
-              <div className="mt-2 flex flex-wrap items-center gap-5">
-                <div className="text-[38px] font-bold text-ink">
-                  {formatPrice(product.price, locale)}
-                </div>
-                {product.available ? (
-                  <AddToCartButton
-                    id={product.id}
-                    name={product.name}
-                    price={product.price}
-                    className="cursor-pointer rounded-xl bg-accent px-[26px] py-[15px] text-[15px] font-semibold text-[#14100C] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_40px_-12px_rgba(255,106,43,0.6)]"
-                  >
-                    {t("addToCart")}
-                  </AddToCartButton>
+              {product.available ? (
+                product.variant ? (
+                  <div className="mt-2 flex flex-col gap-4">
+                    <div className="text-[38px] font-bold text-ink">
+                      {formatPrice(product.price, locale)}
+                    </div>
+                    <VariantPicker
+                      id={product.id}
+                      name={product.name}
+                      price={product.price}
+                      label={product.variant.label}
+                      options={product.variant.options}
+                      layout="pills"
+                      buttonLabel={t("addToCart")}
+                      buttonClassName="cursor-pointer rounded-xl bg-accent px-[26px] py-[15px] text-[15px] font-semibold text-[#14100C] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_40px_-12px_rgba(255,106,43,0.6)]"
+                    />
+                  </div>
                 ) : (
+                  <div className="mt-2 flex flex-wrap items-center gap-5">
+                    <div className="text-[38px] font-bold text-ink">
+                      {formatPrice(product.price, locale)}
+                    </div>
+                    <AddToCartButton
+                      id={product.id}
+                      name={product.name}
+                      price={product.price}
+                      className="cursor-pointer rounded-xl bg-accent px-[26px] py-[15px] text-[15px] font-semibold text-[#14100C] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_40px_-12px_rgba(255,106,43,0.6)]"
+                    >
+                      {t("addToCart")}
+                    </AddToCartButton>
+                  </div>
+                )
+              ) : (
+                <div className="mt-2 flex flex-wrap items-center gap-5">
+                  <div className="text-[38px] font-bold text-ink">
+                    {formatPrice(product.price, locale)}
+                  </div>
                   <span className="rounded-xl border border-white/12 px-[26px] py-[15px] text-[15px] font-semibold text-[#66788A]">
                     {tCart("unavailable")}
                   </span>
-                )}
-              </div>
+                </div>
+              )}
               <div className="font-mono text-[11px] tracking-[0.16em] text-[#66788A]">
                 {t("reassurance")}
               </div>
@@ -315,14 +340,35 @@ export default async function ProductPage({ params }: Props) {
                     </span>
                   </div>
                   <div className="mt-2">
-                    <AddToCartButton
-                      id={pack.id}
-                      name={pack.name}
-                      price={pack.price}
-                      className="cursor-pointer rounded-[10px] bg-[linear-gradient(135deg,#FF6A2B,#E8451F)] px-5 py-[11px] text-sm font-semibold text-[#14100C] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_-10px_rgba(255,106,43,0.7)]"
-                    >
-                      {t("choosePack")}
-                    </AddToCartButton>
+                    {(() => {
+                      const sellable = getSellableById(pack.id, locale);
+                      const packBtn =
+                        "cursor-pointer rounded-[10px] bg-[linear-gradient(135deg,#FF6A2B,#E8451F)] px-5 py-[11px] text-sm font-semibold text-[#14100C] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_-10px_rgba(255,106,43,0.7)]";
+                      if (sellable?.variant) {
+                        return (
+                          <VariantPicker
+                            id={pack.id}
+                            name={pack.name}
+                            price={pack.price}
+                            label={sellable.variant.label}
+                            options={sellable.variant.options}
+                            layout="select"
+                            buttonLabel={t("choosePack")}
+                            buttonClassName={packBtn}
+                          />
+                        );
+                      }
+                      return (
+                        <AddToCartButton
+                          id={pack.id}
+                          name={pack.name}
+                          price={pack.price}
+                          className={packBtn}
+                        >
+                          {t("choosePack")}
+                        </AddToCartButton>
+                      );
+                    })()}
                   </div>
                 </div>
               ))}

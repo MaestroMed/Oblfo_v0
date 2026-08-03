@@ -26,6 +26,17 @@ export type LSpecs = { fr: Spec[]; en: Spec[] } & Partial<
   Record<ExtraLocale, Spec[]>
 >;
 
+/**
+ * Déclinaison obligatoire à choisir avant l'ajout au panier (taille, pointure).
+ * Un produit qui en a une ne peut JAMAIS être vendu sans — validé côté serveur.
+ */
+export type ProductVariant = {
+  /** Libellé du sélecteur : « Taille », « Pointure »… */
+  name: LText;
+  /** Valeurs proposées, telles qu'affichées et stockées (ex. "M", "EU 35–40"). */
+  options: string[];
+};
+
 export type ProductSource = {
   id: string;
   slug: LText;
@@ -42,6 +53,7 @@ export type ProductSource = {
   imageLabel: string;
   /** Photo produit (packshot studio) — chemin public/. Fallback : ImageSlot. */
   image?: string;
+  variant?: ProductVariant;
   description: LTextList;
   highlights: LTextList;
   specs: LSpecs;

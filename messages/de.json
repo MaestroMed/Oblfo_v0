@@ -113,7 +113,7 @@
   "Faq": {
     "label": "FAQ",
     "title": "Häufige Fragen.",
-    "subtitle": "Noch eine Frage? Schreiben Sie uns — Antwort innerhalb von 24 Std."
+    "subtitle": "Noch eine Frage? Schreiben Sie uns — Antwort innerhalb von 1–2 Werktagen."
   },
   "Cart": {
     "title": "WARENKORB",
@@ -135,7 +135,9 @@
     "subtotal": "ZWISCHENSUMME",
     "shippingAtCheckout": "Versand wird an der Kasse berechnet",
     "acceptTerms": "Ich akzeptiere die <terms>AGB</terms>",
-    "unavailable": "Ausverkauft"
+    "unavailable": "Ausverkauft",
+    "variantRequired": "Bitte zuerst wählen: {label}",
+    "chooseOnProduct": "Auswählen"
   },
   "CartPage": {
     "metaTitle": "Warenkorb",
@@ -194,7 +196,7 @@
     "badge1Title": "Sichere Zahlung",
     "badge1Text": "Stripe · 256-Bit-SSL",
     "badge2Title": "Erreichbarer Support",
-    "badge2Text": "Antwort innerhalb von 24 Werktagsstunden",
+    "badge2Text": "Antwort innerhalb von 1–2 Werktagen",
     "badge3Title": "Versand mit Tracking",
     "badge3Text": "3–5 Werktage",
     "badge4Title": "30 Tage Rückgabe",
@@ -250,12 +252,12 @@
   },
   "ContactPage": {
     "metaTitle": "Kontakt",
-    "metaDescription": "Eine Frage zu einem OBFLO-Produkt oder Ihrer Bestellung? Wir antworten innerhalb von 24 Werktagsstunden.",
+    "metaDescription": "Eine Frage zu einem OBFLO-Produkt oder Ihrer Bestellung? Wir antworten innerhalb von 1–2 Werktagen.",
     "kicker": "HILFE",
-    "title": "Antwort innerhalb von 24 Std.",
+    "title": "Antwort innerhalb von 1–2 Werktagen.",
     "intro": "Eine Frage zu einem Produkt, einer Bestellung, einer Rückgabe? Die FAQ deckt die häufigsten Fälle ab — sonst schreiben Sie uns direkt.",
     "emailTitle": "Per E-Mail",
-    "emailText": "Schreiben Sie uns an <tc>Kontakt-E-Mail</tc> und nennen Sie Ihre Bestellnummer, falls es um eine Bestellung geht. Antwort innerhalb von 24 Werktagsstunden, Montag bis Freitag.",
+    "emailText": "Schreiben Sie uns an <tc>Kontakt-E-Mail</tc> und nennen Sie Ihre Bestellnummer, falls es um eine Bestellung geht. Antwort innerhalb von 1–2 Werktagen, Montag bis Freitag.",
     "trackingTitle": "Sendungsverfolgung",
     "trackingText": "Ihre Sendungsnummer erhalten Sie per E-Mail, sobald die Bestellung verschickt wird (auch im Spam-Ordner nachsehen). Der Link des Versanddienstleisters zeigt die Position des Pakets in Echtzeit.",
     "faqTitle": "Bevor Sie schreiben",
@@ -293,7 +295,7 @@
     "s6Title": "6. Gewährleistung",
     "s6P1": "Für alle Produkte gilt die gesetzliche Gewährleistung (2 Jahre). Bei einem defekten Produkt: Ersatz oder Erstattung nach Wahl des Kunden.",
     "s7Title": "7. Kundenservice",
-    "s7P1": "Für Fragen oder Reklamationen: <tc>Support-E-Mail</tc>. Antwort innerhalb von 24 Werktagsstunden.",
+    "s7P1": "Für Fragen oder Reklamationen: <tc>Support-E-Mail</tc>. Antwort innerhalb von 1–2 Werktagen.",
     "s8Title": "8. Streitigkeiten",
     "s8P1": "Es gilt das für Verbraucher zwingend anwendbare Recht. Im Streitfall wird vor rechtlichen Schritten eine gütliche Einigung angestrebt; Verbraucher können sich kostenfrei an die benannte Verbraucherschlichtungsstelle wenden: <tc>benannte Schlichtungsstelle</tc>."
   },

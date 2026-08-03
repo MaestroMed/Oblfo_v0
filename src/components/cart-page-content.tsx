@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { useCart } from "@/components/cart-context";
+import { lineKey, useCart } from "@/components/cart-context";
 import { ImageSlot } from "@/components/image-slot";
 import { TermsConsent } from "@/components/terms-consent";
 import { useCheckout } from "@/components/use-checkout";
@@ -56,13 +56,18 @@ export function CartPageContent({ locale }: { locale: Locale }) {
             <ul className="min-w-[320px] flex-[1_1_560px] rounded-[18px] border border-white/7 bg-card px-7">
               {items.map((item) => (
                 <li
-                  key={item.id}
+                  key={lineKey(item)}
                   className="flex flex-wrap items-center justify-between gap-4 border-b border-white/6 py-6 last:border-b-0"
                 >
                   <div className="flex min-w-0 flex-col gap-1.5">
                     <span className="text-[17px] font-semibold text-ink">
                       {item.name}
                     </span>
+                    {item.variant ? (
+                      <span className="font-mono text-[10.5px] tracking-[0.12em] text-accent">
+                        {item.variant}
+                      </span>
+                    ) : null}
                     <span className="font-mono text-[11px] tracking-[0.1em] text-[#8595A5]">
                       {tCart("perUnit", {
                         price: formatPrice(item.price, locale),
@@ -70,7 +75,7 @@ export function CartPageContent({ locale }: { locale: Locale }) {
                     </span>
                     <button
                       type="button"
-                      onClick={() => removeItem(item.id)}
+                      onClick={() => removeItem(lineKey(item))}
                       className="w-fit cursor-pointer font-mono text-[10px] tracking-[0.14em] text-[#66788A] transition-colors hover:text-accent"
                     >
                       {tCart("remove")}
@@ -80,7 +85,7 @@ export function CartPageContent({ locale }: { locale: Locale }) {
                     <div className="flex items-center gap-2">
                       <button
                         type="button"
-                        onClick={() => setQty(item.id, item.qty - 1)}
+                        onClick={() => setQty(lineKey(item), item.qty - 1)}
                         aria-label={tCart("decrease", { name: item.name })}
                         className="h-8 w-8 cursor-pointer rounded-md border border-white/12 font-mono text-sm text-[#C4D2DE] transition-colors hover:border-accent/60"
                       >
@@ -91,7 +96,7 @@ export function CartPageContent({ locale }: { locale: Locale }) {
                       </span>
                       <button
                         type="button"
-                        onClick={() => setQty(item.id, item.qty + 1)}
+                        onClick={() => setQty(lineKey(item), item.qty + 1)}
                         aria-label={tCart("increase", { name: item.name })}
                         className="h-8 w-8 cursor-pointer rounded-md border border-white/12 font-mono text-sm text-[#C4D2DE] transition-colors hover:border-accent/60"
                       >

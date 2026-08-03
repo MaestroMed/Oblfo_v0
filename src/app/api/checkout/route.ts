@@ -13,7 +13,7 @@ const STANDARD_SHIPPING_CENTS = Math.round(STANDARD_SHIPPING * 100);
 
 type CheckoutBody = {
   locale?: string;
-  items?: { id?: unknown; qty?: unknown }[];
+  items?: { id?: unknown; qty?: unknown; variant?: unknown }[];
 };
 
 /**
@@ -40,14 +40,9 @@ function trustedOrigin(request: Request): string {
 }
 
 export async function POST(request: Request) {
-  const secretKey = process.env.STRIPE_SECRET_KEY;
-  if (!secretKey) {
-    return NextResponse.json(
-      { error: "payment_not_configured" },
-      { status: 503 },
-    );
-  }
-
+  // La validation du panier précède volontairement le contrôle de la clé
+  // Stripe : le contrat d'API (400 variante manquante, 409 indisponible…)
+  // reste testable même sans paiement configuré.
   let body: CheckoutBody;
   try {
     body = (await request.json()) as CheckoutBody;
@@ -66,7 +61,7 @@ export async function POST(request: Request) {
   // normalizedItems est la seule représentation qui part en metadata :
   // elle reflète exactement ce qui est facturé.
   const lineItems: Stripe.Checkout.SessionCreateParams.LineItem[] = [];
-  const normalizedItems: { id: string; qty: number }[] = [];
+  const normalizedItems: { id: string; qty: number; variant?: string }[] = [];
   let subtotalCents = 0;
 
   for (const item of body.items) {
@@ -90,20 +85,50 @@ export async function POST(request: Request) {
         { status: 409 },
       );
     }
+    // Un produit à déclinaison ne part JAMAIS sans elle (et jamais avec une
+    // valeur hors liste) ; un produit sans déclinaison en refuse une.
+    if (sellable.variant) {
+      if (
+        typeof item.variant !== "string" ||
+        !sellable.variant.options.includes(item.variant)
+      ) {
+        return NextResponse.json(
+          { error: "invalid_variant", id: item.id },
+          { status: 400 },
+        );
+      }
+    } else if (item.variant !== undefined) {
+      return NextResponse.json(
+        { error: "invalid_variant", id: item.id },
+        { status: 400 },
+      );
+    }
+    const variant = sellable.variant ? (item.variant as string) : undefined;
     const unitAmount = Math.round(sellable.price * 100);
     subtotalCents += unitAmount * qty;
-    normalizedItems.push({ id: item.id, qty });
+    normalizedItems.push({ id: item.id, qty, variant });
     lineItems.push({
       quantity: qty,
       price_data: {
         currency: "eur",
         unit_amount: unitAmount,
         product_data: {
-          name: sellable.name,
-          metadata: { obflo_id: sellable.id },
+          name: variant ? `${sellable.name} — ${variant}` : sellable.name,
+          metadata: {
+            obflo_id: sellable.id,
+            ...(variant ? { obflo_variant: variant } : {}),
+          },
         },
       },
     });
+  }
+
+  const secretKey = process.env.STRIPE_SECRET_KEY;
+  if (!secretKey) {
+    return NextResponse.json(
+      { error: "payment_not_configured" },
+      { status: 503 },
+    );
   }
 
   const origin = trustedOrigin(request);
@@ -156,6 +181,7 @@ export async function POST(request: Request) {
       cancel_url: `${origin}${homePath}`,
       metadata: {
         obflo_items: JSON.stringify(normalizedItems),
+        obflo_locale: locale,
       },
     });
 

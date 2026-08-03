@@ -16,10 +16,17 @@ import { MAX_QTY } from "@/lib/cart";
 export type CartItem = {
   /** Slug produit ou pack — identifiant stable pour l'app de pilotage. */
   id: string;
+  /** Déclinaison choisie (taille, pointure) — obligatoire si le produit en a. */
+  variant?: string;
   name: string;
   price: number;
   qty: number;
 };
+
+/** Identité d'une ligne de panier : un même produit en 2 tailles = 2 lignes. */
+export function lineKey(item: Pick<CartItem, "id" | "variant">): string {
+  return item.variant ? `${item.id}::${item.variant}` : item.id;
+}
 
 type CartContextValue = {
   items: CartItem[];
@@ -29,9 +36,14 @@ type CartContextValue = {
   drawerOpen: boolean;
   toastLabel: string;
   toastVisible: boolean;
-  addItem: (item: { id: string; name: string; price: number }) => void;
-  removeItem: (id: string) => void;
-  setQty: (id: string, qty: number) => void;
+  addItem: (item: {
+    id: string;
+    name: string;
+    price: number;
+    variant?: string;
+  }) => void;
+  removeItem: (key: string) => void;
+  setQty: (key: string, qty: number) => void;
   clearCart: () => void;
   openDrawer: () => void;
   closeDrawer: () => void;
@@ -58,13 +70,27 @@ function sanitizeStoredItems(raw: string | null, locale: Locale): CartItem[] {
   const items: CartItem[] = [];
   for (const entry of parsed) {
     if (typeof entry !== "object" || entry === null) continue;
-    const { id, qty } = entry as { id?: unknown; qty?: unknown };
+    const { id, qty, variant } = entry as {
+      id?: unknown;
+      qty?: unknown;
+      variant?: unknown;
+    };
     if (typeof id !== "string" || typeof qty !== "number") continue;
     if (!Number.isFinite(qty) || qty < 1) continue;
     const sellable = getSellableById(id, locale);
     if (!sellable) continue;
+    // Une variante requise absente/invalide rend la ligne invendable : on la retire.
+    if (sellable.variant) {
+      if (
+        typeof variant !== "string" ||
+        !sellable.variant.options.includes(variant)
+      ) {
+        continue;
+      }
+    }
     items.push({
       id,
+      variant: sellable.variant ? (variant as string) : undefined,
       name: sellable.name,
       price: sellable.price,
       qty: Math.min(Math.floor(qty), MAX_QTY),
@@ -118,31 +144,32 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const addItem = useCallback(
-    (item: { id: string; name: string; price: number }) => {
+    (item: { id: string; name: string; price: number; variant?: string }) => {
+      const key = lineKey(item);
       setItems((prev) => {
-        const existing = prev.find((i) => i.id === item.id);
+        const existing = prev.find((i) => lineKey(i) === key);
         if (existing) {
           return prev.map((i) =>
-            i.id === item.id ? { ...i, qty: Math.min(i.qty + 1, MAX_QTY) } : i,
+            lineKey(i) === key ? { ...i, qty: Math.min(i.qty + 1, MAX_QTY) } : i,
           );
         }
         return [...prev, { ...item, qty: 1 }];
       });
-      showToast(item.name);
+      showToast(item.variant ? `${item.name} · ${item.variant}` : item.name);
     },
     [showToast],
   );
 
-  const removeItem = useCallback((id: string) => {
-    setItems((prev) => prev.filter((i) => i.id !== id));
+  const removeItem = useCallback((key: string) => {
+    setItems((prev) => prev.filter((i) => lineKey(i) !== key));
   }, []);
 
-  const setQty = useCallback((id: string, qty: number) => {
+  const setQty = useCallback((key: string, qty: number) => {
     const clamped = Math.min(qty, MAX_QTY);
     setItems((prev) =>
       clamped <= 0
-        ? prev.filter((i) => i.id !== id)
-        : prev.map((i) => (i.id === id ? { ...i, qty: clamped } : i)),
+        ? prev.filter((i) => lineKey(i) !== key)
+        : prev.map((i) => (lineKey(i) === key ? { ...i, qty: clamped } : i)),
     );
   }, []);
 

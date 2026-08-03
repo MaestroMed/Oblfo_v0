@@ -190,7 +190,7 @@
   "Faq": {
     "label": "FAQ",
     "title": "Questions fréquentes.",
-    "subtitle": "Une autre question ? Écris-nous, on répond sous 24 h."
+    "subtitle": "Une autre question ? Écris-nous, on répond sous 1 à 2 jours ouvrés."
   },
   "Cart": {
     "title": "PANIER",
@@ -212,7 +212,9 @@
     "subtotal": "SOUS-TOTAL",
     "shippingAtCheckout": "Livraison calculée au paiement",
     "acceptTerms": "J'accepte les <terms>conditions générales de vente</terms>",
-    "unavailable": "Épuisé"
+    "unavailable": "Épuisé",
+    "variantRequired": "Choisissez d'abord : {label}",
+    "chooseOnProduct": "Choisir"
   },
   "CartPage": {
     "metaTitle": "Panier",
@@ -271,7 +273,7 @@
     "badge1Title": "Paiement sécurisé",
     "badge1Text": "Stripe · SSL 256 bits",
     "badge2Title": "Service client en français",
-    "badge2Text": "Réponse sous 24 h ouvrées",
+    "badge2Text": "Réponse sous 1–2 jours ouvrés",
     "badge3Title": "Livraison suivie",
     "badge3Text": "3–5 jours ouvrés",
     "badge4Title": "Retours 30 jours",
@@ -327,12 +329,12 @@
   },
   "ContactPage": {
     "metaTitle": "Contact",
-    "metaDescription": "Une question sur un produit OBFLO ou une commande ? On répond sous 24 h ouvrées.",
+    "metaDescription": "Une question sur un produit OBFLO ou une commande ? On répond sous 1 à 2 jours ouvrés.",
     "kicker": "AIDE",
-    "title": "On te répond sous 24 h.",
+    "title": "On te répond sous 1 à 2 jours ouvrés.",
     "intro": "Une question sur un produit, une commande, un retour ? La FAQ répond aux cas les plus courants, sinon écris-nous directement.",
     "emailTitle": "Par e-mail",
-    "emailText": "Écris-nous à <tc>e-mail de contact</tc> en précisant ton numéro de commande si ta demande en concerne une. Réponse sous 24 h ouvrées, du lundi au vendredi.",
+    "emailText": "Écris-nous à <tc>e-mail de contact</tc> en précisant ton numéro de commande si ta demande en concerne une. Réponse sous 1 à 2 jours ouvrés, du lundi au vendredi.",
     "trackingTitle": "Suivi de commande",
     "trackingText": "Ton numéro de suivi t'est envoyé par e-mail dès l'expédition (pense à vérifier les spams). Le lien du transporteur donne la position du colis en temps réel.",
     "faqTitle": "Avant d'écrire",
@@ -370,7 +372,7 @@
     "s6Title": "6. Garanties",
     "s6P1": "Tous les produits bénéficient des garanties légales de conformité (2 ans) et des vices cachés. En cas de produit défectueux, remplacement ou remboursement au choix du client.",
     "s7Title": "7. Service client",
-    "s7P1": "Pour toute question ou réclamation : <tc>e-mail SAV</tc>. Réponse sous 24 h ouvrées.",
+    "s7P1": "Pour toute question ou réclamation : <tc>e-mail SAV</tc>. Réponse sous 1 à 2 jours ouvrés.",
     "s8Title": "8. Litiges",
     "s8P1": "Les présentes conditions sont soumises au droit français. En cas de litige, une solution amiable sera recherchée avant toute action judiciaire ; le client peut recourir gratuitement au médiateur de la consommation <tc>médiateur désigné</tc>."
   },

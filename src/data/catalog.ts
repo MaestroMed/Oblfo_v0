@@ -13,6 +13,7 @@ import type {
   LTextList,
   PackSource,
   ProductSource,
+  ProductVariant,
   Spec,
 } from "./catalog-types";
 import type { Locale } from "@/i18n/routing";
@@ -45,6 +46,8 @@ export type Product = {
   tags: string[];
   imageLabel: string;
   image?: string;
+  /** Déclinaison obligatoire (taille, pointure) — libellé localisé + options. */
+  variant?: { label: string; options: string[] };
   description: string[];
   highlights: string[];
   specs: Spec[];
@@ -104,6 +107,12 @@ function localizeProduct(source: ProductSource, locale: Locale): Product {
     tagline: pickL(source.tagline, locale),
     tags: pickL(source.tags, locale),
     imageLabel: source.imageLabel,
+    variant: source.variant
+      ? {
+          label: pickL(source.variant.name, locale),
+          options: source.variant.options,
+        }
+      : undefined,
     description: pickL(source.description, locale),
     highlights: pickL(source.highlights, locale),
     specs: pickL(source.specs, locale),
@@ -162,11 +171,33 @@ export function getFaqItems(locale: Locale): FaqItem[] {
   }));
 }
 
+export type Sellable = {
+  id: string;
+  name: string;
+  price: number;
+  available: boolean;
+  /**
+   * Déclinaison à choisir obligatoirement avant la vente. Pour un pack, elle
+   * est héritée du produit à variantes qu'il contient — par construction un
+   * pack ne peut contenir qu'UN produit à variantes (garde-fou ci-dessous).
+   */
+  variant?: { label: string; options: string[] };
+};
+
+function variantOf(
+  source: ProductVariant | undefined,
+  locale: Locale,
+): Sellable["variant"] {
+  return source
+    ? { label: pickL(source.name, locale), options: source.options }
+    : undefined;
+}
+
 /** Prix d'un article vendable (produit ou pack) par id — source de vérité du checkout. */
 export function getSellableById(
   id: string,
   locale: Locale,
-): { id: string; name: string; price: number; available: boolean } | undefined {
+): Sellable | undefined {
   const product = productSources.find((p) => p.id === id);
   if (product) {
     return {
@@ -174,15 +205,31 @@ export function getSellableById(
       name: pickL(product.name, locale),
       price: product.price,
       available: product.available ?? true,
+      variant: variantOf(product.variant, locale),
     };
   }
   const pack = packSources.find((p) => p.id === id);
   if (pack) {
+    const variantItems = pack.items
+      .map((itemId) => productSources.find((p) => p.id === itemId))
+      .filter((p): p is ProductSource => Boolean(p?.variant));
+    if (variantItems.length > 1) {
+      // Un pack avec plusieurs produits à variantes n'est pas vendable en
+      // l'état (une seule sélection par ligne de panier) — on le bloque
+      // plutôt que de vendre une offre ambiguë.
+      return {
+        id,
+        name: pickL(pack.name, locale),
+        price: pack.price,
+        available: false,
+      };
+    }
     return {
       id,
       name: pickL(pack.name, locale),
       price: pack.price,
       available: pack.available ?? true,
+      variant: variantOf(variantItems[0]?.variant, locale),
     };
   }
   return undefined;

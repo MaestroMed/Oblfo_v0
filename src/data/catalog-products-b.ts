@@ -15,6 +15,10 @@ export const productsB: ProductSource[] = [
     glow: "warm",
     badge: "new",
     image: "/images/products/gilet.jpg",
+    variant: {
+      name: { fr: "Taille", en: "Size", de: "Größe", es: "Talla" },
+      options: ["S", "M", "L", "XL", "2XL", "3XL"],
+    },
     name: {
       fr: "Gilet Chauffant Graphène",
       en: "Graphene Heated Vest",
@@ -548,6 +552,10 @@ export const productsB: ProductSource[] = [
     glow: "cold",
     badge: "new",
     image: "/images/products/semelles.jpg",
+    variant: {
+      name: { fr: "Pointure", en: "Shoe size", de: "Schuhgröße", es: "Talla" },
+      options: ["EU 35–40", "EU 41–46"],
+    },
     name: {
       fr: "Semelles Chauffantes Télécommandées",
       en: "Remote-Control Heated Insoles",

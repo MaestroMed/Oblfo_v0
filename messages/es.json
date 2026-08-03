@@ -113,7 +113,7 @@
   "Faq": {
     "label": "FAQ",
     "title": "Preguntas frecuentes.",
-    "subtitle": "¿Otra pregunta? Escríbenos: respondemos en 24 h."
+    "subtitle": "¿Otra pregunta? Escríbenos: respondemos en 1–2 días laborables."
   },
   "Cart": {
     "title": "CARRITO",
@@ -135,7 +135,9 @@
     "subtotal": "SUBTOTAL",
     "shippingAtCheckout": "Envío calculado al pagar",
     "acceptTerms": "Acepto las <terms>condiciones de venta</terms>",
-    "unavailable": "Agotado"
+    "unavailable": "Agotado",
+    "variantRequired": "Elige primero: {label}",
+    "chooseOnProduct": "Elegir"
   },
   "CartPage": {
     "metaTitle": "Carrito",
@@ -194,7 +196,7 @@
     "badge1Title": "Pago seguro",
     "badge1Text": "Stripe · SSL de 256 bits",
     "badge2Title": "Soporte que responde",
-    "badge2Text": "Respuesta en 24 h laborables",
+    "badge2Text": "Respuesta en 1–2 días laborables",
     "badge3Title": "Envío con seguimiento",
     "badge3Text": "3–5 días laborables",
     "badge4Title": "Devoluciones 30 días",
@@ -250,12 +252,12 @@
   },
   "ContactPage": {
     "metaTitle": "Contacto",
-    "metaDescription": "¿Una pregunta sobre un producto OBFLO o tu pedido? Respondemos en 24 horas laborables.",
+    "metaDescription": "¿Una pregunta sobre un producto OBFLO o tu pedido? Respondemos en 1–2 días laborables.",
     "kicker": "AYUDA",
-    "title": "Te respondemos en 24 h.",
+    "title": "Te respondemos en 1–2 días laborables.",
     "intro": "¿Una pregunta sobre un producto, un pedido, una devolución? La FAQ cubre los casos más comunes — si no, escríbenos directamente.",
     "emailTitle": "Por email",
-    "emailText": "Escríbenos a <tc>email de contacto</tc> indicando tu número de pedido si tu consulta trata de uno. Respuesta en 24 horas laborables, de lunes a viernes.",
+    "emailText": "Escríbenos a <tc>email de contacto</tc> indicando tu número de pedido si tu consulta trata de uno. Respuesta en 1–2 días laborables, de lunes a viernes.",
     "trackingTitle": "Seguimiento del pedido",
     "trackingText": "Tu número de seguimiento te llega por email en cuanto sale el pedido (revisa también el spam). El enlace del transportista muestra la posición del paquete en tiempo real.",
     "faqTitle": "Antes de escribir",
@@ -293,7 +295,7 @@
     "s6Title": "6. Garantías",
     "s6P1": "Todos los productos cuentan con la garantía legal de conformidad (2 años). En caso de producto defectuoso: sustitución o reembolso, a elección del cliente.",
     "s7Title": "7. Atención al cliente",
-    "s7P1": "Para cualquier consulta o reclamación: <tc>email de soporte</tc>. Respuesta en 24 horas laborables.",
+    "s7P1": "Para cualquier consulta o reclamación: <tc>email de soporte</tc>. Respuesta en 1–2 días laborables.",
     "s8Title": "8. Litigios",
     "s8P1": "Se aplica la normativa imperativa de protección de los consumidores. En caso de litigio se buscará una solución amistosa antes de cualquier acción judicial; el cliente puede recurrir gratuitamente al mediador de consumo designado: <tc>mediador designado</tc>."
   },

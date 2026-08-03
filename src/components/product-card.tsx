@@ -58,14 +58,27 @@ export function ProductCard({
             {formatPrice(product.price, locale)}
           </span>
           {product.available ? (
-            <AddToCartButton
-              id={product.id}
-              name={product.name}
-              price={product.price}
-              className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-lg bg-accent text-lg leading-none font-semibold text-white transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_24px_-10px_rgba(240,123,46,0.8)]"
-            >
-              +
-            </AddToCartButton>
+            product.variant ? (
+              <Link
+                href={{
+                  pathname: "/produits/[slug]",
+                  params: { slug: product.slug },
+                }}
+                aria-label={`${tCart("chooseOnProduct")} — ${product.variant.label}`}
+                className="flex h-9 items-center justify-center rounded-lg bg-accent px-3 text-[12px] font-semibold text-white no-underline transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_24px_-10px_rgba(240,123,46,0.8)]"
+              >
+                {tCart("chooseOnProduct")}
+              </Link>
+            ) : (
+              <AddToCartButton
+                id={product.id}
+                name={product.name}
+                price={product.price}
+                className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-lg bg-accent text-lg leading-none font-semibold text-white transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_24px_-10px_rgba(240,123,46,0.8)]"
+              >
+                +
+              </AddToCartButton>
+            )
           ) : (
             <span className="text-[12px] font-semibold text-muted-warm">
               {tCart("unavailable")}

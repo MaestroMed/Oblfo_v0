@@ -96,7 +96,21 @@
     "packs": "Bundles",
     "faq": "FAQ",
     "guides": "Guides",
+    "search": "Search",
     "cart": "CART"
+  },
+  "SearchPage": {
+    "metaTitle": "Search",
+    "metaDescription": "Search OBFLO heated products, buying guides and categories.",
+    "kicker": "Search",
+    "title": "What are you looking for?",
+    "intro": "Products, buying guides and categories — the whole site in one search.",
+    "placeholder": "Gloves, blanket, desk…",
+    "count": "{count, plural, =0 {No results} one {# result} other {# results}}",
+    "noResults": "Nothing found. Try another word — or browse the collection.",
+    "kindProduct": "Product",
+    "kindGuide": "Guide",
+    "kindCategory": "Category"
   },
   "Guides": {
     "metaTitle": "Guides — choosing heated gear that actually works",

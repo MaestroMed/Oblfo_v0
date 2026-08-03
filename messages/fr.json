@@ -96,7 +96,21 @@
     "packs": "Packs",
     "faq": "FAQ",
     "guides": "Guides",
+    "search": "Rechercher",
     "cart": "PANIER"
+  },
+  "SearchPage": {
+    "metaTitle": "Recherche",
+    "metaDescription": "Cherche un produit chauffant, un guide d'achat ou un rayon OBFLO.",
+    "kicker": "Recherche",
+    "title": "Tu cherches quoi ?",
+    "intro": "Produits, guides d'achat et rayons — tout le site en une recherche.",
+    "placeholder": "Gants, plaid, bureau…",
+    "count": "{count, plural, =0 {Aucun résultat} one {# résultat} other {# résultats}}",
+    "noResults": "Rien trouvé. Essaie un autre mot — ou explore la collection.",
+    "kindProduct": "Produit",
+    "kindGuide": "Guide",
+    "kindCategory": "Rayon"
   },
   "Guides": {
     "metaTitle": "Guides — bien choisir ses objets chauffants",

@@ -108,8 +108,13 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const [toastVisible, setToastVisible] = useState(false);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  // Hydratation du panier après montage : le setState synchrone est voulu —
+  // une seule cascade au premier rendu client, et le state reste ensuite
+  // possédé par React (useSyncExternalStore ne convient pas à du state
+  // mutable qui n'est persisté que par effet de bord).
   useEffect(() => {
     try {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setItems(sanitizeStoredItems(window.localStorage.getItem(STORAGE_KEY), locale));
     } catch {
       // stockage indisponible — panier vide

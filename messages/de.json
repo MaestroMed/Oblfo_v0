@@ -96,7 +96,21 @@
     "packs": "Sets",
     "faq": "FAQ",
     "guides": "Ratgeber",
+    "search": "Suchen",
     "cart": "WARENKORB"
+  },
+  "SearchPage": {
+    "metaTitle": "Suche",
+    "metaDescription": "Durchsuchen Sie beheizbare Produkte, Kaufberater und Kategorien von OBFLO.",
+    "kicker": "Suche",
+    "title": "Wonach suchen Sie?",
+    "intro": "Produkte, Kaufberater und Kategorien — die ganze Website in einer Suche.",
+    "placeholder": "Handschuhe, Heizdecke, Schreibtisch…",
+    "count": "{count, plural, =0 {Keine Treffer} one {# Treffer} other {# Treffer}}",
+    "noResults": "Nichts gefunden. Versuchen Sie ein anderes Wort — oder stöbern Sie in der Kollektion.",
+    "kindProduct": "Produkt",
+    "kindGuide": "Ratgeber",
+    "kindCategory": "Kategorie"
   },
   "Guides": {
     "metaTitle": "Ratgeber — Heizprodukte richtig auswählen",

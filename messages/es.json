@@ -96,7 +96,21 @@
     "packs": "Packs",
     "faq": "FAQ",
     "guides": "Guías",
+    "search": "Buscar",
     "cart": "CARRITO"
+  },
+  "SearchPage": {
+    "metaTitle": "Búsqueda",
+    "metaDescription": "Busca productos calefactables, guías de compra y secciones de OBFLO.",
+    "kicker": "Búsqueda",
+    "title": "¿Qué estás buscando?",
+    "intro": "Productos, guías de compra y secciones: todo el sitio en una sola búsqueda.",
+    "placeholder": "Guantes, manta, escritorio…",
+    "count": "{count, plural, =0 {Sin resultados} one {# resultado} other {# resultados}}",
+    "noResults": "No hay resultados. Prueba con otra palabra o explora la colección.",
+    "kindProduct": "Producto",
+    "kindGuide": "Guía",
+    "kindCategory": "Sección"
   },
   "Guides": {
     "metaTitle": "Guías — elegir bien tus productos calefactables",

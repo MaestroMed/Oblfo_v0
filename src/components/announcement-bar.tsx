@@ -1,31 +1,45 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { useTranslations } from "next-intl";
 
 const DISMISS_KEY = "obflo-annonce-2026";
+const DISMISS_EVENT = "obflo:annonce-dismiss";
+
+// Repli mémoire : en navigation privée la fermeture n'est pas persistée,
+// mais elle doit au moins tenir le temps de la session.
+let sessionDismissed = false;
+
+function subscribe(onChange: () => void) {
+  window.addEventListener(DISMISS_EVENT, onChange);
+  return () => window.removeEventListener(DISMISS_EVENT, onChange);
+}
+
+function getSnapshot() {
+  if (sessionDismissed) return true;
+  try {
+    return Boolean(window.localStorage.getItem(DISMISS_KEY));
+  } catch {
+    return false;
+  }
+}
 
 export function AnnouncementBar() {
   const t = useTranslations("Announcement");
-  const [dismissed, setDismissed] = useState(false);
-
-  useEffect(() => {
-    try {
-      if (window.localStorage.getItem(DISMISS_KEY)) setDismissed(true);
-    } catch {
-      // stockage indisponible — bandeau affiché
-    }
-  }, []);
+  // Rendu serveur : bandeau affiché ; le snapshot client le masque après
+  // hydratation si une fermeture est déjà enregistrée.
+  const dismissed = useSyncExternalStore(subscribe, getSnapshot, () => false);
 
   if (dismissed) return null;
 
   const dismiss = () => {
-    setDismissed(true);
+    sessionDismissed = true;
     try {
       window.localStorage.setItem(DISMISS_KEY, "1");
     } catch {
       // stockage indisponible — fermeture non persistée
     }
+    window.dispatchEvent(new Event(DISMISS_EVENT));
   };
 
   return (

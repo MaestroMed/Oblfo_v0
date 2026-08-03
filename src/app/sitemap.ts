@@ -85,6 +85,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...productEntries,
     ...guidesIndexEntries,
     ...guideEntries,
+    ...entries(() => "/recherche", 0.3, "monthly"),
     ...entries(() => "/livraison-retours", 0.4, "monthly"),
     ...entries(() => "/contact", 0.4, "monthly"),
   ];

@@ -76,6 +76,25 @@ export function SiteHeader() {
           </Link>
         </nav>
         <div className="flex items-center gap-4">
+          <Link
+            href="/recherche"
+            aria-label={t("search")}
+            title={t("search")}
+            className="flex h-8 w-8 items-center justify-center rounded-full text-[#C9BEB0] no-underline transition-colors hover:text-white"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              className="h-[17px] w-[17px]"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              aria-hidden="true"
+            >
+              <circle cx="10.5" cy="10.5" r="6.5" />
+              <line x1="15.4" y1="15.4" x2="21" y2="21" />
+            </svg>
+          </Link>
           <LocaleSwitcher />
           <button
             type="button"

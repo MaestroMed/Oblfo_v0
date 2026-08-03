@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 
@@ -24,20 +24,40 @@ export type CookieConsent = {
 export const CONSENT_STORAGE_KEY = "cookie-consent";
 export const CONSENT_EVENT = "cookie-consent:updated";
 
+// Repli mémoire : en navigation privée le choix n'est pas persisté mais doit
+// masquer le bandeau pour la session en cours.
+let sessionChoiceMade = false;
+
+function subscribe(onChange: () => void) {
+  window.addEventListener(CONSENT_EVENT, onChange);
+  return () => window.removeEventListener(CONSENT_EVENT, onChange);
+}
+
+function getSnapshot() {
+  if (sessionChoiceMade) return false;
+  try {
+    // Rien n'est affiché tant qu'un choix existe déjà.
+    return !localStorage.getItem(CONSENT_STORAGE_KEY);
+  } catch {
+    return true;
+  }
+}
+
 export function CookieBanner() {
   const t = useTranslations("CookieBanner");
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    // Rien n'est affiché tant qu'un choix existe déjà.
-    setVisible(!localStorage.getItem(CONSENT_STORAGE_KEY));
-  }, []);
+  // Rendu serveur : masqué ; le snapshot client l'affiche après hydratation
+  // si aucun choix n'est enregistré (même timing que l'ancien useEffect).
+  const visible = useSyncExternalStore(subscribe, getSnapshot, () => false);
 
   const save = (analytics: boolean) => {
     const prefs: CookieConsent = { necessary: true, analytics };
-    localStorage.setItem(CONSENT_STORAGE_KEY, JSON.stringify(prefs));
+    sessionChoiceMade = true;
+    try {
+      localStorage.setItem(CONSENT_STORAGE_KEY, JSON.stringify(prefs));
+    } catch {
+      // stockage indisponible — choix non persisté, valable pour la session
+    }
     window.dispatchEvent(new CustomEvent(CONSENT_EVENT, { detail: prefs }));
-    setVisible(false);
   };
 
   if (!visible) return null;

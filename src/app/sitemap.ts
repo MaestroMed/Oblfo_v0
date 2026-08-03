@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getProducts } from "@/data/catalog";
-import { getGuides, GUIDE_LOCALES, type GuideLocale } from "@/data/guides";
+import { getGuides, guideLocales } from "@/data/guides";
 import { getPathname } from "@/i18n/navigation";
 import { routing, type Locale } from "@/i18n/routing";
 import { SITE_URL } from "@/lib/site";
@@ -42,17 +42,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ),
   );
 
-  // Guides fr/en uniquement pour l'instant — pas d'entrées de/es.
-  const guideUrl = (locale: GuideLocale, slug: string) =>
+  // Entrées guides limitées aux locales où chaque guide existe réellement.
+  const guideUrl = (locale: Locale, slug: string) =>
     url(locale, { pathname: "/guides/[slug]", params: { slug } });
   const guideEntries: MetadataRoute.Sitemap = getGuides(
     routing.defaultLocale,
   ).flatMap((guide) => {
+    const locales = guideLocales(guide.id);
     const languages = Object.fromEntries([
-      ...GUIDE_LOCALES.map((l) => [l, guideUrl(l, guide.slugs[l])]),
+      ...locales.map((l) => [l, guideUrl(l, guide.slugs[l])]),
       ["x-default", guideUrl("fr", guide.slugs.fr)],
     ]);
-    return GUIDE_LOCALES.map((locale) => ({
+    return locales.map((locale) => ({
       url: guideUrl(locale, guide.slugs[locale]),
       priority: 0.7,
       changeFrequency: "monthly" as const,
@@ -60,18 +61,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }));
   });
 
-  const guidesIndexLanguages = Object.fromEntries([
-    ...GUIDE_LOCALES.map((l) => [l, url(l, "/guides")]),
-    ["x-default", url("fr", "/guides")],
-  ]);
-  const guidesIndexEntries: MetadataRoute.Sitemap = GUIDE_LOCALES.map(
-    (locale) => ({
-      url: url(locale, "/guides"),
-      priority: 0.7,
-      changeFrequency: "weekly" as const,
-      alternates: { languages: guidesIndexLanguages },
-    }),
-  );
+  const guidesIndexEntries = entries(() => "/guides", 0.7, "weekly");
 
   return [
     ...entries(() => "/", 1, "weekly"),

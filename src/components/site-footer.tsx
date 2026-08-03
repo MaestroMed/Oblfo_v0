@@ -1,7 +1,6 @@
 import { useLocale, useTranslations } from "next-intl";
 import { NewsletterForm } from "@/components/newsletter-form";
 import { getProducts } from "@/data/catalog";
-import { isGuideLocale } from "@/data/guides";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 
@@ -81,11 +80,9 @@ export function SiteFooter() {
             </div>
             <div className="flex min-w-[150px] flex-col gap-3">
               <FooterHeading>{t("help")}</FooterHeading>
-              {isGuideLocale(locale) ? (
-                <Link href="/guides" className={footerLinkClass}>
-                  {t("guides")}
-                </Link>
-              ) : null}
+              <Link href="/guides" className={footerLinkClass}>
+                {t("guides")}
+              </Link>
               <a href={`/${locale}#faq`} className={footerLinkClass}>
                 {t("faq")}
               </a>

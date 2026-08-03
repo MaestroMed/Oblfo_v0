@@ -2,38 +2,41 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { formatPrice, getProductById, getSellableById } from "@/data/catalog";
-import {
-  getGuideBySlug,
-  getGuides,
-  GUIDE_LOCALES,
-  isGuideLocale,
-  type GuideLocale,
-} from "@/data/guides";
+import { getGuideBySlug, getGuides, guideLocales } from "@/data/guides";
 import { getPathname, Link } from "@/i18n/navigation";
-import { isLocale, type Locale } from "@/i18n/routing";
+import {
+  intlLocale,
+  isLocale,
+  ogLocale,
+  routing,
+  type Locale,
+} from "@/i18n/routing";
 import { SITE_URL } from "@/lib/site";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
 export function generateStaticParams() {
-  return GUIDE_LOCALES.flatMap((locale) =>
+  return routing.locales.flatMap((locale) =>
     getGuides(locale).map((guide) => ({ locale, slug: guide.slug })),
   );
 }
 
+/** hreflang limité aux locales où le guide existe réellement. */
 function guideAlternates(
   locale: Locale,
-  slugs: Record<GuideLocale, string>,
+  id: string,
+  slugs: Record<Locale, string>,
 ) {
-  const path = (l: GuideLocale) =>
+  const path = (l: Locale) =>
     getPathname({
       locale: l,
       href: { pathname: "/guides/[slug]", params: { slug: slugs[l] } },
     });
-  return {
-    canonical: isGuideLocale(locale) ? path(locale) : path("en"),
-    languages: { fr: path("fr"), en: path("en"), "x-default": path("fr") },
-  };
+  const locales = guideLocales(id);
+  const languages: Record<string, string> = {};
+  for (const l of locales) languages[l] = path(l);
+  languages["x-default"] = path("fr");
+  return { canonical: path(locale), languages };
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -45,7 +48,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: guide.title,
     description: guide.metaDescription,
-    alternates: guideAlternates(locale, guide.slugs),
+    alternates: guideAlternates(locale, guide.id, guide.slugs),
     openGraph: {
       title: guide.title,
       description: guide.metaDescription,
@@ -54,7 +57,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         href: { pathname: "/guides/[slug]", params: { slug: guide.slug } },
       }),
       siteName: "OBFLO",
-      locale: locale === "fr" ? "fr_FR" : "en_US",
+      locale: ogLocale(locale),
       type: "article",
     },
   };
@@ -90,10 +93,11 @@ export default async function GuidePage({ params }: Props) {
     publisher: { "@type": "Organization", name: "OBFLO", url: SITE_URL },
   };
 
-  const dateLabel = new Intl.DateTimeFormat(
-    locale === "fr" ? "fr-FR" : "en-GB",
-    { day: "numeric", month: "long", year: "numeric" },
-  ).format(new Date(`${guide.datePublished}T00:00:00Z`));
+  const dateLabel = new Intl.DateTimeFormat(intlLocale(locale), {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).format(new Date(`${guide.datePublished}T00:00:00Z`));
 
   return (
     <main className="bg-night py-[70px]">

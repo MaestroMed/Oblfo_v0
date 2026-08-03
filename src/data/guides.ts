@@ -1,27 +1,37 @@
 // Guides d'achat SEO — contenu éditorial bilingue, maillé vers le catalogue.
 // Dates figées à la publication (pas de Date.now : contenu stable en SSG).
 
-import type { Locale } from "@/i18n/routing";
+import { guidesDe } from "./guides-de";
+import { guidesEs } from "./guides-es";
+import { GUIDE_SLUGS, guideIdFromSlug } from "./guides-slugs";
+import { routing, type Locale } from "@/i18n/routing";
 
-/** Les guides existent pour l'instant en fr/en uniquement (de/es : masqués). */
-export type GuideLocale = "fr" | "en";
-export const GUIDE_LOCALES: GuideLocale[] = ["fr", "en"];
-
-export function isGuideLocale(locale: Locale): locale is GuideLocale {
-  return (GUIDE_LOCALES as readonly string[]).includes(locale);
-}
-
-type LText = Record<GuideLocale, string>;
+/** Locale de rédaction native des sources ci-dessous. */
+type SourceLocale = "fr" | "en";
+type LText = Record<SourceLocale, string>;
 
 export type GuideSection = {
   title: string;
   paragraphs: string[];
 };
 
+/** Contenu localisé d'un guide pour une locale overlay (de/es). */
+export type GuideL10n = {
+  title: string;
+  metaDescription: string;
+  intro: string;
+  sections: GuideSection[];
+};
+
+const overlays: Partial<Record<Locale, Record<string, GuideL10n>>> = {
+  de: guidesDe,
+  es: guidesEs,
+};
+
 export type Guide = {
   id: string;
   slug: string;
-  slugs: Record<GuideLocale, string>;
+  slugs: Record<Locale, string>;
   title: string;
   metaDescription: string;
   intro: string;
@@ -33,6 +43,7 @@ export type Guide = {
 
 type GuideSource = {
   id: string;
+  /** Slugs fr/en historiques — l'autorité est GUIDE_SLUGS (guides-slugs.ts). */
   slug: LText;
   datePublished: string;
   readMinutes: number;
@@ -40,7 +51,7 @@ type GuideSource = {
   title: LText;
   metaDescription: LText;
   intro: LText;
-  sections: Record<GuideLocale, GuideSection[]>;
+  sections: Record<SourceLocale, GuideSection[]>;
 };
 
 const guideSources: GuideSource[] = [
@@ -531,41 +542,54 @@ guideSources.push(
   },
 );
 
-function localizeGuide(source: GuideSource, locale: GuideLocale): Guide {
-  return {
+function localizeGuide(source: GuideSource, locale: Locale): Guide | undefined {
+  const slugs = GUIDE_SLUGS[source.id];
+  if (!slugs) return undefined;
+
+  const base = {
     id: source.id,
-    slug: source.slug[locale],
-    slugs: source.slug,
-    title: source.title[locale],
-    metaDescription: source.metaDescription[locale],
-    intro: source.intro[locale],
+    slug: slugs[locale],
+    slugs,
     datePublished: source.datePublished,
     readMinutes: source.readMinutes,
-    sections: source.sections[locale],
     relatedProductIds: source.relatedProductIds,
   };
+
+  if (locale === "fr" || locale === "en") {
+    return {
+      ...base,
+      title: source.title[locale],
+      metaDescription: source.metaDescription[locale],
+      intro: source.intro[locale],
+      sections: source.sections[locale],
+    };
+  }
+
+  const l10n = overlays[locale]?.[source.id];
+  if (!l10n) return undefined;
+  return { ...base, ...l10n };
 }
 
 export function getGuides(locale: Locale): Guide[] {
-  if (!isGuideLocale(locale)) return [];
-  return guideSources.map((g) => localizeGuide(g, locale));
+  return guideSources
+    .map((g) => localizeGuide(g, locale))
+    .filter((g): g is Guide => Boolean(g));
 }
 
 export function getGuideBySlug(
   locale: Locale,
   slug: string,
 ): Guide | undefined {
-  if (!isGuideLocale(locale)) return undefined;
-  const source = guideSources.find((g) => g.slug[locale] === slug);
+  const id = guideIdFromSlug(locale, slug);
+  if (!id) return undefined;
+  const source = guideSources.find((g) => g.id === id);
   return source ? localizeGuide(source, locale) : undefined;
 }
 
-export function translateGuideSlug(
-  slug: string,
-  from: Locale,
-  to: Locale,
-): string | undefined {
-  if (!isGuideLocale(from) || !isGuideLocale(to)) return undefined;
-  const source = guideSources.find((g) => g.slug[from] === slug);
-  return source?.slug[to];
+/** Locales dans lesquelles un guide donné est réellement disponible. */
+export function guideLocales(id: string): Locale[] {
+  return routing.locales.filter((locale) => {
+    if (locale === "fr" || locale === "en") return true;
+    return Boolean(overlays[locale]?.[id]);
+  });
 }

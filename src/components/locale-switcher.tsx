@@ -3,7 +3,7 @@
 import { useLocale } from "next-intl";
 import { usePathname as useRawPathname } from "next/navigation";
 import { translateProductSlug } from "@/data/catalog";
-import { translateGuideSlug } from "@/data/guides";
+import { translateGuideSlug } from "@/data/guides-slugs";
 import { routing, type Locale } from "@/i18n/routing";
 
 type PathnameValue = string | Record<Locale, string>;

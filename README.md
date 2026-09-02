@@ -67,7 +67,7 @@ Thème sombre « chaleur dans la nuit » : fond `#0A0C10`, accent orange `#FF6A2
 
 ## Avant mise en ligne
 
-- Entité : Opcodia LLC (Nouveau-Mexique, USA) — renseignée dans mentions légales et CGV. Restent `[À COMPLÉTER]` : e-mails (contact, SAV, RGPD), TVA/IOSS, médiateur de la consommation.
+- Entité : Opcodia LLC, n° 0008117830, Secretary of State du Nouveau-Mexique, effective le 20 juillet 2026 — renseignée dans mentions légales et CGV. Société hors UE non immatriculée à la TVA intracommunautaire (énoncé tel quel dans les mentions ; IOSS = jalon ultérieur, via intermédiaire UE). E-mails publiés : contact@ / sav@ / rgpd@obflo.com — **boîtes à créer** (DNS chez Hostinger, aucun MX à ce jour). Reste `[À COMPLÉTER]` : médiateur de la consommation (contrat annuel à souscrire).
 - Renseigner `STRIPE_SECRET_KEY` + `STRIPE_WEBHOOK_SECRET` sur Vercel, et activer les reçus e-mail dans le dashboard Stripe (Settings → Customer emails).
 - `NEWSLETTER_WEBHOOK_URL` pour activer l'inscription newsletter (sinon le formulaire affiche « ouverture bientôt »).
 - `ORDERS_WEBHOOK_URL` pour transmettre les commandes payées à l'app de pilotage / l'automatisation CJ (sinon : trace logs uniquement — à configurer avant tout volume réel).

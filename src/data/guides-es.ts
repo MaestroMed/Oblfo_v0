@@ -90,35 +90,35 @@ export const guidesEs: Record<string, GuideL10n> = {
     metaDescription:
       "¿Cuánto consume una manta eléctrica? ¿Es segura para quedarse dormido? ¿Se puede lavar? La guía honesta antes de comprar una manta calefactable.",
     intro:
-      "La manta eléctrica de sofá es el objeto más rentable del invierno: calienta a la persona, no la habitación. Pero entre los modelos que no se pueden lavar, los que nunca se apagan y las potencias de fantasía, hay mucho que filtrar. Esto es lo que de verdad importa.",
+      "La manta eléctrica de sofá es el objeto más rentable del invierno: calienta a la persona, no la habitación. Pero entre los modelos que no se pueden lavar, las alimentaciones mal explicadas y las potencias de fantasía, hay mucho que filtrar. Esto es lo que de verdad importa.",
     sections: [
       {
         title: "El consumo: unos céntimos por tarde",
         paragraphs: [
-          "Una manta eléctrica consume típicamente en torno a 100 W — es decir, a 0,25 €/kWh, unos 0,025 € por hora y 8 céntimos por una tarde de 3 horas. Un mes de uso diario cuesta menos de 2,50 €. Es entre 10 y 15 veces menos que un calefactor, porque el calor va directamente sobre ti en lugar de calentar el aire.",
+          "Una manta eléctrica conectada a la red consume típicamente en torno a 100 W — a 0,25 €/kWh, unos 0,025 € por hora, 8 céntimos por una tarde de 3 horas y menos de 2,50 € por un mes de uso diario. Una manta USB de 5 V consume todavía menos: su potencia la limita la batería externa o el cargador que la alimenta. En ambos casos es mucho más barata que un calefactor (entre 10 y 15 veces para un modelo de red), porque el calor va directamente sobre ti en lugar de calentar el aire.",
           "El cálculo que se deriva es sencillo: bajar el termostato del salón 2 grados e instalarte bajo una manta eléctrica es uno de los mejores intercambios confort/factura del invierno.",
         ],
       },
       {
-        title: "Seguridad: las dos funciones innegociables",
+        title: "Seguridad: las protecciones que hay que exigir",
         paragraphs: [
-          "Primero, el apagado automático: una buena manta se apaga sola pasado un tiempo (típicamente 3 horas). Es lo que permite quedarse dormido debajo sin darle vueltas. Un modelo sin apagado automático no tiene sitio en un sofá.",
-          "Después, la protección contra el sobrecalentamiento: el elemento calefactor debe cortarse si un punto de la manta se calienta de forma anormal (una manta doblada, por ejemplo). En los productos serios, de eso se encarga un sensor doble (PTC + NTC).",
-          "Y por último, lo básico: enchufe europeo de 220–240 V y marcado CE con un certificado real detrás — para una manta eléctrica, la norma aplicable es la EN 60335-2-17. Un logo CE impreso sin certificado no protege a nadie.",
+          "Primero, la protección contra el sobrecalentamiento: el elemento calefactor debe cortarse si un punto de la manta se calienta de forma anormal (una manta doblada, por ejemplo), idealmente con protección contra cortocircuitos. Los productos serios las detallan en la ficha técnica.",
+          "Un apagado automático temporizado es una ventaja real para quedarse dormido debajo, pero no todas las mantas lo tienen. Si falta, la baja tensión (USB 5 V) y la protección contra el sobrecalentamiento hacen lo esencial; queda el buen hábito: apagarla o desenchufarla antes de dormir.",
+          "Y por último, lo básico. A la red: enchufe europeo de 220–240 V y marcado CE con un certificado real detrás — la norma aplicable es la EN 60335-2-17. Con USB de 5 V: una batería externa o un cargador de calidad con salidas adecuadas. Un logo CE impreso sin certificado no protege a nadie.",
         ],
       },
       {
-        title: "Lavable a máquina: el criterio que lo decide todo",
+        title: "Mantenimiento: qué comprobar antes de comprar",
         paragraphs: [
           "Una manta de sofá vive en el sofá: acabará llevándose café, migas y pelos de gato. Si no puede ir a la lavadora, termina hecha una bola en un armario antes de febrero.",
-          "El mecanismo que hay que comprobar: un controlador desmontable. Se desconecta el mando y el textil va a la lavadora a 30 °C, centrifugado suave, sin secadora. Si la ficha de producto no menciona claramente el controlador desmontable, da la manta por no lavable.",
+          "El punto que hay que comprobar: una alimentación que se pueda desconectar (cable USB o controlador desmontable). El lavado a máquina no siempre está confirmado: si la ficha no lo dice claramente, da la manta por no lavable a máquina, límpiala con cuidado en superficie con la alimentación desconectada y evita la secadora.",
         ],
       },
       {
         title: "Tamaño y tejido: lo que cambia el confort",
         paragraphs: [
-          "El formato de 130 × 180 cm es el buen estándar de sofá: lo bastante grande para cubrirte de los pies a los hombros, lo bastante compacto para seguir siendo una manta de sofá y no una de cama. Por debajo de 120 cm de ancho, te pasas la tarde recolocándotela sobre las piernas.",
-          "En cuanto al tejido, la franela de doble cara (o franela + sherpa) conserva el calor claramente mejor entre dos ciclos de calentamiento que un polar fino — la manta sigue caliente incluso apagada, lo que permite calentar de forma intermitente y consumir todavía menos.",
+          "El formato depende del uso. Un formato grande de sofá (en torno a 130 × 180 cm) te cubre de los pies a los hombros, pero en general necesita más potencia. Un formato manta-chal (150 × 85 cm) es más ligero y se coloca sobre los hombros o las rodillas, lo que encaja bien con una alimentación USB de 5 V. En cualquier caso, evita un tamaño demasiado pequeño para tu uso: te pasarás la tarde recolocándote la manta sobre las piernas.",
+          "En cuanto al tejido, el polar coral es suave y ligero y resulta agradable en cuanto empieza a calentar; la franela gruesa o el sherpa conservan el calor más tiempo una vez apagados. Más importante que el tejido es cómo se reparte el calor — varias zonas (por ejemplo 8 zonas de fibra de carbono) y varios niveles (por ejemplo de 40 a 60 °C) permiten ajustarlo y calentar de forma intermitente para consumir todavía menos.",
         ],
       },
     ],
@@ -172,8 +172,8 @@ export const guidesEs: Record<string, GuideL10n> = {
       {
         title: "Fuera y en movimiento: las plantillas calefactables",
         paragraphs: [
-          "En cuanto llevas zapatos — caminar, obra, estadio, caza, esquí — la única opción que funciona es la plantilla calefactable con batería integrada. Los modelos recientes alojan la batería en la propia plantilla: sin caja en el tobillo, sin cable, y con un mando a distancia para cambiar de nivel sin descalzarte.",
-          "La autonomía honesta: de 3 a 7 horas según el nivel. Las «9 horas» de los anuncios corresponden al nivel mínimo. Y una advertencia de fábrica que hay que tomarse en serio: la plantilla se recorta a tu talla únicamente por las líneas marcadas — nunca en la zona del elemento calefactor.",
+          "En cuanto llevas zapatos — caminar, obra, estadio, caza, esquí — la plantilla calefactable es la respuesta adecuada. Existen dos diseños. Batería integrada: sin cable, a veces con mando a distancia, pero un producto más complejo. USB con batería externa: más sencilla y asequible; la batería externa cabe en un bolsillo, la autonomía se elige eligiendo la batería, y solo hay que pasar el cable por la pierna. Ambas se defienden; depende de tu uso. Es el principio de nuestro modelo: USB con batería externa (no incluida), calor en todo el pie, una temperatura fija, en EU 35–40 o 41–46.",
+          "La autonomía honesta: con batería integrada, de 3 a 7 horas según el nivel (las «9 horas» de los anuncios corresponden al nivel mínimo); con USB depende directamente de la capacidad de la batería externa, así que dimensiónala en consecuencia. Y una advertencia de fábrica que hay que tomarse en serio: si la plantilla se recorta a tu talla, hazlo únicamente por las líneas marcadas — nunca en la zona del elemento calefactor.",
         ],
       },
       {

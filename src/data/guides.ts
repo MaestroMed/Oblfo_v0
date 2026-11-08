@@ -252,38 +252,38 @@ guideSources.push(
       en: "How much does a heated blanket cost to run? Is it safe to fall asleep under? Washable or not? The honest guide before you buy.",
     },
     intro: {
-      fr: "Le plaid chauffant est l'objet le plus rentable de l'hiver : il chauffe la personne, pas la pièce. Mais entre les modèles qui ne se lavent pas, ceux qui ne s'éteignent jamais et les puissances fantaisistes, il y a de quoi trier. Voici ce qui compte vraiment.",
-      en: "A heated throw is winter's most cost-effective object: it heats the person, not the room. But between models you can't wash, models that never switch off and fantasy wattage claims, there's sorting to do. Here's what actually matters.",
+      fr: "Le plaid chauffant est l'objet le plus rentable de l'hiver : il chauffe la personne, pas la pièce. Mais entre les modèles qui ne se lavent pas, les alimentations mal expliquées et les puissances fantaisistes, il y a de quoi trier. Voici ce qui compte vraiment.",
+      en: "A heated throw is winter's most cost-effective object: it heats the person, not the room. But between models you can't wash, poorly explained power supplies and fantasy wattage claims, there's sorting to do. Here's what actually matters.",
     },
     sections: {
       fr: [
         {
           title: "La consommation : quelques centimes par soirée",
           paragraphs: [
-            "Un plaid chauffant consomme typiquement autour de 100 W — soit, à 0,25 €/kWh, environ 0,025 € par heure et 8 centimes pour une soirée de 3 heures. Un mois d'utilisation quotidienne coûte moins de 2,50 €. C'est 10 à 15 fois moins qu'un chauffage d'appoint, parce que la chaleur va directement sur vous au lieu de chauffer l'air.",
+            "Un plaid chauffant branché sur secteur consomme typiquement autour de 100 W — soit, à 0,25 €/kWh, environ 0,025 € par heure, 8 centimes pour une soirée de 3 heures et moins de 2,50 € pour un mois d'utilisation quotidienne. Un plaid USB 5 V consomme encore moins : sa puissance est plafonnée par la powerbank ou le chargeur qui l'alimente. Dans les deux cas, c'est bien moins qu'un chauffage d'appoint (10 à 15 fois pour un modèle secteur), parce que la chaleur va directement sur vous au lieu de chauffer l'air.",
             "Le calcul qui en découle est simple : baisser le thermostat du salon de 2 degrés et s'installer sous un plaid chauffant est l'un des meilleurs arbitrages confort/facture de l'hiver.",
           ],
         },
         {
-          title: "Sécurité : les deux fonctions non négociables",
+          title: "Sécurité : les protections à exiger",
           paragraphs: [
-            "L'arrêt automatique d'abord : un bon plaid s'éteint seul après un délai (typiquement 3 heures). C'est ce qui permet de s'endormir dessous sans y penser. Un modèle sans arrêt auto n'a pas sa place sur un canapé.",
-            "La protection anti-surchauffe ensuite : l'élément chauffant doit couper si un point de la couverture monte anormalement (couverture pliée, par exemple). Sur les produits sérieux, c'est un capteur double (PTC + NTC) qui s'en charge.",
-            "Enfin, la base : prise européenne 220–240 V et marquage CE avec un vrai certificat derrière — pour une couverture chauffante, la norme applicable est EN 60335-2-17. Un logo CE imprimé sans certificat ne protège personne.",
+            "La protection anti-surchauffe d'abord : l'élément chauffant doit couper si un point de la couverture monte anormalement (couverture pliée, par exemple), avec en complément une protection contre les courts-circuits. Sur les produits sérieux, ces protections sont citées noir sur blanc dans la fiche.",
+            "L'arrêt automatique minuté est un vrai plus pour s'endormir dessous sans y penser, mais tous les plaids n'en ont pas. S'il est absent, l'alimentation en basse tension (USB 5 V) et la protection anti-surchauffe font l'essentiel du travail ; reste le bon réflexe : on l'éteint ou on débranche avant de dormir.",
+            "Enfin, la base. En secteur : prise européenne 220–240 V et marquage CE avec un vrai certificat derrière — la norme applicable est EN 60335-2-17. En USB 5 V : une powerbank ou un chargeur de qualité, aux sorties adaptées. Un logo CE imprimé sans certificat ne protège personne.",
           ],
         },
         {
-          title: "Lavable en machine : le critère qui départage tout",
+          title: "Entretien : ce qu'il faut vérifier avant d'acheter",
           paragraphs: [
             "Un plaid vit sur un canapé : il prendra du café, des miettes et des poils de chat. S'il ne passe pas en machine, il finit roulé en boule dans un placard avant février.",
-            "Le mécanisme à vérifier : un contrôleur détachable. On débranche le boîtier de commande, et le textile part en machine à 30 °C, essorage doux, sans sèche-linge. Si la fiche produit ne mentionne pas clairement le contrôleur détachable, considérez le plaid comme non lavable.",
+            "Le point à vérifier : une alimentation qui se débranche (câble USB ou contrôleur détachable). Le lavage en machine n'est pas toujours confirmé : si la fiche produit ne le dit pas clairement, considérez le plaid comme non lavable, nettoyez-le délicatement en surface, alimentation débranchée, et évitez le sèche-linge.",
           ],
         },
         {
           title: "Taille et matière : ce qui change le confort",
           paragraphs: [
-            "Le format 130 × 180 cm est le bon standard canapé : assez grand pour se couvrir des pieds aux épaules, assez compact pour rester un plaid et pas une couverture de lit. En dessous de 120 cm de large, on passe la soirée à se rebattre les jambes.",
-            "Côté matière, la flanelle double face (ou flanelle + sherpa) garde nettement mieux la chaleur entre deux cycles de chauffe qu'un polaire fin — le plaid reste chaud même éteint, ce qui permet d'utiliser la chauffe par intermittence et de consommer encore moins.",
+            "Le format dépend de l'usage. Un grand format de canapé (autour de 130 × 180 cm) couvre des pieds aux épaules mais demande généralement plus de puissance. Un format plaid-châle (150 × 85 cm) est plus léger et se drape sur les épaules ou les genoux, ce qui convient bien à une alimentation USB 5 V. Dans tous les cas, évitez un format trop petit pour l'usage visé : on passe la soirée à se rebattre les jambes.",
+            "Côté matière, le polaire corail est doux, léger et agréable dès la mise en route ; la flanelle épaisse ou le sherpa gardent plus longtemps la chaleur une fois éteints. Plus important que la matière : la répartition de la chauffe — plusieurs zones (par exemple 8 zones en fibre de carbone) et plusieurs niveaux (par exemple 40 à 60 °C) permettent d'ajuster, et de chauffer par intermittence pour consommer encore moins.",
           ],
         },
       ],
@@ -291,30 +291,30 @@ guideSources.push(
         {
           title: "Running costs: pennies per evening",
           paragraphs: [
-            "A heated throw typically draws around 100 W — at €0.25/kWh, that's about €0.025 per hour, or 8 cents for a 3-hour evening. A month of daily use costs under €2.50. That's 10 to 15 times less than a space heater, because the heat goes straight onto you instead of warming the air.",
+            "A mains-powered heated throw typically draws around 100 W — at €0.25/kWh, that's about €0.025 per hour, 8 cents for a 3-hour evening and under €2.50 for a month of daily use. A USB 5 V throw draws even less: its power is capped by the power bank or charger feeding it. Either way it's far cheaper than a space heater (10 to 15 times less for a mains model), because the heat goes straight onto you instead of warming the air.",
             "The obvious trade that follows: turn the living-room thermostat down 2 degrees and settle under a heated throw — one of winter's best comfort-per-euro moves.",
           ],
         },
         {
-          title: "Safety: the two non-negotiable features",
+          title: "Safety: the protections to insist on",
           paragraphs: [
-            "Auto shut-off first: a good throw switches itself off after a set time (typically 3 hours). That's what makes dozing off under it a non-event. A model without auto shut-off doesn't belong on a sofa.",
-            "Overheat protection second: the heating element must cut out if any spot runs abnormally hot (a folded blanket, for instance). Serious products use a dual sensor (PTC + NTC) for this.",
-            "And the basics: a 220–240 V EU plug and a CE marking backed by a real certificate — for heated blankets the applicable standard is EN 60335-2-17. A printed CE logo with no certificate behind it protects nobody.",
+            "Overheat protection first: the heating element must cut out if any spot runs abnormally hot (a folded blanket, for instance), ideally with short-circuit protection as well. Serious products spell these protections out on the product sheet.",
+            "A timed auto shut-off is a real plus for dozing off under it, but not every throw has one. Without it, low-voltage power (USB 5 V) and overheat protection do most of the work; the rest is a good habit: switch it off or unplug it before sleeping.",
+            "And the basics. Mains-powered: a 220–240 V EU plug and a CE marking backed by a real certificate — the applicable standard is EN 60335-2-17. USB 5 V: a quality power bank or charger with suitable outputs. A printed CE logo with no certificate behind it protects nobody.",
           ],
         },
         {
-          title: "Machine washable: the criterion that settles everything",
+          title: "Care: what to check before you buy",
           paragraphs: [
             "A throw lives on a sofa: it will collect coffee, crumbs and cat hair. If it can't go in the machine, it ends up balled in a cupboard before February.",
-            "The mechanism to check: a detachable controller. Unplug the control unit and the fabric goes into a 30 °C wash, gentle spin, no dryer. If the product page doesn't clearly mention a detachable controller, treat the blanket as not washable.",
+            "The point to check: a power supply that disconnects (USB cable or detachable controller). Machine washing isn't always confirmed: if the product page doesn't say so clearly, treat the throw as not machine washable, clean the surface gently with the power disconnected, and keep it out of the dryer.",
           ],
         },
         {
           title: "Size and fabric: what changes the comfort",
           paragraphs: [
-            "130 × 180 cm is the right sofa standard: big enough to cover you from feet to shoulders, compact enough to stay a throw rather than a bed blanket. Below 120 cm wide, you spend the evening re-tucking your legs.",
-            "On fabric: double-sided flannel (or flannel + sherpa) holds heat far better between heating cycles than thin fleece — the throw stays warm even switched off, which lets you heat intermittently and spend even less.",
+            "The right size depends on use. A full sofa size (around 130 × 180 cm) covers you from feet to shoulders but generally needs more power. A throw-shawl format (150 × 85 cm) is lighter and drapes over shoulders or knees, which suits USB 5 V power well. Either way, avoid a size too small for your use: you'll spend the evening re-tucking your legs.",
+            "On fabric, coral fleece is soft and light and feels good as soon as it warms up; thick flannel or sherpa keep heat longer once switched off. More important than the fabric is how the heat is spread — several zones (for example 8 carbon-fibre zones) and several levels (for example 40 to 60 °C) let you fine-tune it, and heat intermittently to spend even less.",
           ],
         },
       ],
@@ -424,8 +424,8 @@ guideSources.push(
         {
           title: "Dehors et en mouvement : les semelles chauffantes",
           paragraphs: [
-            "Dès que vous êtes en chaussures — marche, chantier, stade, chasse, ski — la seule option qui fonctionne est la semelle chauffante à batterie intégrée. Les modèles récents logent la batterie dans la semelle elle-même : pas de boîtier à la cheville, pas de câble, et une télécommande pour changer de niveau sans se déchausser.",
-            "L'autonomie honnête : 3 à 7 heures selon le niveau. Les « 9 heures » des annonces correspondent au niveau minimum. Et un avertissement d'usine à prendre au sérieux : on découpe la semelle à sa pointure uniquement le long des lignes marquées — jamais dans la zone de l'élément chauffant.",
+            "Dès que vous êtes en chaussures — marche, chantier, stade, chasse, ski — la semelle chauffante est la bonne réponse. Deux conceptions existent. Batterie intégrée : pas de câble, parfois une télécommande, mais un produit plus technique. USB sur batterie externe : plus simple et plus abordable, la powerbank se glisse dans une poche, l'autonomie se choisit en choisissant la powerbank, et il suffit de faire passer le câble le long de la jambe. Les deux se défendent ; tout dépend de votre usage. C'est le principe de notre modèle : USB sur batterie externe (non incluse), chauffe sur tout le pied, une température fixe, en EU 35–40 ou 41–46.",
+            "L'autonomie honnête : sur batterie intégrée, 3 à 7 heures selon le niveau (les « 9 heures » des annonces correspondent au niveau minimum) ; en USB, elle dépend directement de la capacité de la powerbank, dimensionnez-la en conséquence. Et un avertissement d'usine à prendre au sérieux : si votre semelle se découpe à la pointure, uniquement le long des lignes marquées — jamais dans la zone de l'élément chauffant.",
           ],
         },
         {
@@ -448,8 +448,8 @@ guideSources.push(
         {
           title: "Outdoors and on the move: heated insoles",
           paragraphs: [
-            "As soon as you're in shoes — walking, worksite, stadium, hunting, skiing — the only option that works is a heated insole with a built-in battery. Recent models fit the battery inside the sole itself: no ankle pack, no cable, and a wireless remote to change levels without taking your shoes off.",
-            "Honest battery life: 3 to 7 hours depending on the level. The advertised '9 hours' is the minimum setting. And a factory warning worth taking seriously: trim to size only along the marked lines — never into the heating-element area.",
+            "As soon as you're in shoes — walking, worksite, stadium, hunting, skiing — a heated insole is the right answer. Two designs exist. Built-in battery: no cable, sometimes a remote, but a more complex product. USB on a power bank: simpler and more affordable; the power bank slips into a pocket, you pick the runtime by picking the power bank, and the cable just has to run up the leg. Both are defensible; it depends on your use. That's the principle of our model: USB on a power bank (not included), heating the whole foot, one fixed temperature, in EU 35–40 or 41–46.",
+            "Honest battery life: with a built-in battery, 3 to 7 hours depending on the level (the advertised '9 hours' is the minimum setting); on USB it depends directly on the power bank's capacity, so size it accordingly. And a factory warning worth taking seriously: if your insole is trimmed to size, cut only along the marked lines — never into the heating-element area.",
           ],
         },
         {

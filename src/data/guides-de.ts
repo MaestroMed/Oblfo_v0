@@ -90,35 +90,35 @@ export const guidesDe: Record<string, GuideL10n> = {
     metaDescription:
       "Wie viel Strom verbraucht eine Heizdecke? Ist Einschlafen darunter sicher? Waschbar oder nicht? Der ehrliche Ratgeber vor dem Kauf.",
     intro:
-      "Die Heizdecke ist das rentabelste Objekt des Winters: Sie wärmt den Menschen, nicht den Raum. Doch zwischen Modellen, die sich nicht waschen lassen, Modellen ohne Abschaltautomatik und Fantasie-Wattzahlen gibt es einiges auszusortieren. Das zählt wirklich.",
+      "Die Heizdecke ist das rentabelste Objekt des Winters: Sie wärmt den Menschen, nicht den Raum. Doch zwischen Modellen, die sich nicht waschen lassen, unklarer Stromversorgung und Fantasie-Wattzahlen gibt es einiges auszusortieren. Das zählt wirklich.",
     sections: [
       {
         title: "Der Verbrauch: ein paar Cent pro Abend",
         paragraphs: [
-          "Eine Heizdecke zieht typischerweise rund 100 W — bei 0,25 €/kWh sind das etwa 0,025 € pro Stunde, also 8 Cent für einen Abend von 3 Stunden. Ein Monat täglicher Nutzung kostet weniger als 2,50 €. Das ist 10- bis 15-mal weniger als eine Zusatzheizung, weil die Wärme direkt zu Ihnen geht, statt die Luft zu erwärmen.",
+          "Eine Heizdecke am Stromnetz zieht typischerweise rund 100 W — bei 0,25 €/kWh sind das etwa 0,025 € pro Stunde, also 8 Cent für einen Abend von 3 Stunden und weniger als 2,50 € für einen Monat täglicher Nutzung. Eine USB-5-V-Decke braucht noch weniger: Ihre Leistung wird durch die Powerbank oder das Netzteil begrenzt, das sie speist. In beiden Fällen ist sie weit günstiger als eine Zusatzheizung (bei einem Netzmodell 10- bis 15-mal), weil die Wärme direkt zu Ihnen geht, statt die Luft zu erwärmen.",
           "Die Rechnung, die daraus folgt, ist einfach: das Wohnzimmer-Thermostat um 2 Grad herunterdrehen und es sich unter der Heizdecke bequem machen — einer der besten Komfort-pro-Euro-Deals des Winters.",
         ],
       },
       {
-        title: "Sicherheit: die zwei unverzichtbaren Funktionen",
+        title: "Sicherheit: die Schutzfunktionen, auf die Sie bestehen sollten",
         paragraphs: [
-          "Zuerst die Abschaltautomatik: Eine gute Heizdecke schaltet sich nach einer festgelegten Zeit von selbst ab (typischerweise 3 Stunden). Genau das macht das Einschlafen darunter völlig unproblematisch. Ein Modell ohne Abschaltautomatik hat auf einem Sofa nichts verloren.",
-          "Dann der Überhitzungsschutz: Das Heizelement muss abschalten, wenn eine Stelle der Decke ungewöhnlich heiß wird (zum Beispiel bei gefalteter Decke). Bei seriösen Produkten übernimmt das ein Doppelsensor (PTC + NTC).",
-          "Und die Grundlagen: ein europäischer Stecker für 220–240 V und eine CE-Kennzeichnung mit einem echten Zertifikat dahinter — für Heizdecken gilt die Norm EN 60335-2-17. Ein aufgedrucktes CE-Logo ohne Zertifikat schützt niemanden.",
+          "Zuerst der Überhitzungsschutz: Das Heizelement muss abschalten, wenn eine Stelle der Decke ungewöhnlich heiß wird (zum Beispiel bei gefalteter Decke), idealerweise ergänzt durch einen Kurzschlussschutz. Seriöse Produkte nennen diese Schutzfunktionen schwarz auf weiß im Datenblatt.",
+          "Eine zeitgesteuerte Abschaltautomatik ist ein echtes Plus, um darunter einzuschlafen, aber nicht jede Decke hat eine. Fehlt sie, leisten die Niederspannung (USB 5 V) und der Überhitzungsschutz die Hauptarbeit; dazu gehört die richtige Gewohnheit: vor dem Schlafen ausschalten oder abstecken.",
+          "Und die Grundlagen. Am Netz: ein europäischer Stecker für 220–240 V und eine CE-Kennzeichnung mit einem echten Zertifikat dahinter — es gilt die Norm EN 60335-2-17. Mit USB 5 V: eine hochwertige Powerbank oder ein gutes Netzteil mit passenden Ausgängen. Ein aufgedrucktes CE-Logo ohne Zertifikat schützt niemanden.",
         ],
       },
       {
-        title: "Maschinenwaschbar: das Kriterium, das alles entscheidet",
+        title: "Pflege: was Sie vor dem Kauf prüfen sollten",
         paragraphs: [
           "Eine Heizdecke lebt auf dem Sofa: Sie wird Kaffee, Krümel und Katzenhaare abbekommen. Lässt sie sich nicht in der Maschine waschen, landet sie noch vor Februar zusammengeknüllt im Schrank.",
-          "Der Mechanismus, den Sie prüfen sollten: ein abnehmbarer Controller. Bedienteil abziehen — und das Textil darf bei 30 °C in die Maschine, Schonschleudern, kein Trockner. Erwähnt die Produktseite den abnehmbaren Controller nicht ausdrücklich, betrachten Sie die Decke als nicht waschbar.",
+          "Der Punkt, den Sie prüfen sollten: eine Stromversorgung, die sich abtrennen lässt (USB-Kabel oder abnehmbarer Controller). Maschinenwäsche ist nicht immer bestätigt: Sagt die Produktseite dazu nichts Eindeutiges, betrachten Sie die Decke als nicht maschinenwaschbar, reinigen Sie die Oberfläche vorsichtig bei abgetrennter Stromversorgung und verzichten Sie auf den Trockner.",
         ],
       },
       {
         title: "Größe und Material: was den Komfort verändert",
         paragraphs: [
-          "Das Format 130 × 180 cm ist der richtige Sofa-Standard: groß genug, um Sie von den Füßen bis zu den Schultern zu bedecken, kompakt genug, um ein Plaid zu bleiben und keine Bettdecke zu werden. Unter 120 cm Breite verbringen Sie den Abend damit, Ihre Beine immer wieder neu einzupacken.",
-          "Beim Material hält doppelseitiger Flanell (oder Flanell + Sherpa) die Wärme zwischen zwei Heizzyklen deutlich besser als dünnes Fleece — die Decke bleibt auch ausgeschaltet warm. So können Sie nur zeitweise heizen und verbrauchen noch weniger.",
+          "Das passende Format hängt vom Einsatz ab. Ein großes Sofaformat (rund 130 × 180 cm) bedeckt Sie von den Füßen bis zu den Schultern, braucht aber in der Regel mehr Leistung. Ein Plaid-Schal-Format (150 × 85 cm) ist leichter und lässt sich über Schultern oder Knie legen, was gut zu einer USB-5-V-Versorgung passt. In jedem Fall gilt: Wählen Sie keine zu kleine Größe für Ihren Zweck — sonst packen Sie den Abend lang Ihre Beine neu ein.",
+          "Beim Material ist Korallenfleece weich und leicht und fühlt sich schon beim Aufheizen angenehm an; dicker Flanell oder Sherpa halten die Wärme ausgeschaltet länger. Wichtiger als das Material ist die Verteilung der Wärme — mehrere Zonen (zum Beispiel 8 Carbonfaser-Zonen) und mehrere Stufen (zum Beispiel 40 bis 60 °C) erlauben es, fein einzustellen und nur zeitweise zu heizen, um noch weniger zu verbrauchen.",
         ],
       },
     ],
@@ -172,8 +172,8 @@ export const guidesDe: Record<string, GuideL10n> = {
       {
         title: "Draußen und in Bewegung: beheizbare Einlegesohlen",
         paragraphs: [
-          "Sobald Sie in Schuhen stecken — beim Gehen, auf der Baustelle, im Stadion, auf der Jagd, beim Skifahren — ist die einzige Option, die funktioniert, die beheizbare Einlegesohle mit integriertem Akku. Aktuelle Modelle bauen den Akku direkt in die Sohle ein: kein Gehäuse am Knöchel, kein Kabel, dafür eine Fernbedienung, um die Stufe zu wechseln, ohne die Schuhe auszuziehen.",
-          "Die ehrliche Laufzeit: 3 bis 7 Stunden je nach Stufe. Die „9 Stunden“ aus den Anzeigen entsprechen der niedrigsten Stufe. Und eine Hersteller-Warnung, die Sie ernst nehmen sollten: Die Sohle wird ausschließlich entlang der markierten Linien auf Ihre Schuhgröße zugeschnitten — niemals im Bereich des Heizelements.",
+          "Sobald Sie in Schuhen stecken — beim Gehen, auf der Baustelle, im Stadion, auf der Jagd, beim Skifahren — ist die beheizbare Einlegesohle die richtige Antwort. Es gibt zwei Bauweisen. Integrierter Akku: kein Kabel, manchmal eine Fernbedienung, dafür ein technisch aufwendigeres Produkt. USB an einer Powerbank: einfacher und günstiger; die Powerbank passt in eine Tasche, die Laufzeit wählen Sie über die Powerbank, und das Kabel muss nur am Bein entlang geführt werden. Beides ist vertretbar; es hängt von Ihrem Einsatz ab. Das ist das Prinzip unseres Modells: USB an einer Powerbank (nicht im Lieferumfang), Heizung für den ganzen Fuß, eine feste Temperatur, in EU 35–40 oder 41–46.",
+          "Die ehrliche Laufzeit: mit integriertem Akku 3 bis 7 Stunden je nach Stufe (die „9 Stunden“ aus den Anzeigen entsprechen der niedrigsten Stufe); per USB hängt sie direkt von der Kapazität der Powerbank ab, planen Sie sie entsprechend. Und eine Hersteller-Warnung, die Sie ernst nehmen sollten: Wird die Sohle auf Ihre Schuhgröße zugeschnitten, dann ausschließlich entlang der markierten Linien — niemals im Bereich des Heizelements.",
         ],
       },
       {

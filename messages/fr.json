@@ -4,7 +4,7 @@
     "description": "Gants chauffants, chaussons chauffants, chauffe-tasse et chauffage d'appoint USB. Une chaleur ciblée en quelques secondes, là où l'hiver s'installe. Livraison offerte dès 60 €, retours 30 jours."
   },
   "Announcement": {
-    "text": "NOUVEAUTÉS 2026 : chauffe intelligente nouvelle génération — Livraison suivie 8 à 20 jours"
+    "text": "BLACK FRIDAY · jusqu'à 22 € économisés avec les packs · Livraison offerte dès 60 €"
   },
   "HomeV2": {
     "heroBadge": "NOUVELLE GÉNÉRATION 2026",
@@ -428,5 +428,40 @@
     "privacyLink": "En savoir plus",
     "accept": "ACCEPTER",
     "refuse": "REFUSER"
+  },
+  "Ux": {
+    "fact1": "Livraison suivie 8 à 20 jours",
+    "fact2": "Offerte dès 60 €",
+    "fact3": "Retours 30 jours",
+    "fact4": "Paiement sécurisé Stripe",
+    "fact5": "Chauffe USB sur powerbank",
+    "fact6": "Packs moins chers qu'à l'unité",
+    "heatKicker": "PREUVES DE CHALEUR",
+    "heatTitle": "Des chiffres, pas des promesses.",
+    "heatNote": "Valeurs annoncées par le fabricant, reprises de nos fiches produit.",
+    "heatTemp": "°C au niveau max · {product}",
+    "heatSeconds": "secondes pour sentir la chaleur · {product}",
+    "heatLevels": "niveaux de chauffe · {product}",
+    "unitTemp": "°C",
+    "unitSeconds": "s",
+    "unitLevels": "niv.",
+    "addWithPrice": "Ajouter au panier · {price}",
+    "buyNow": "Acheter maintenant",
+    "buyNowPrice": "Acheter · {price}",
+    "accHeat": "Chauffe",
+    "accCare": "Entretien",
+    "accShipping": "Livraison",
+    "careFallback": "Suivez la notice fournie avec le produit. Débranchez toujours le câble USB avant de le nettoyer.",
+    "shippingText": "Préparation et expédition sous 1 à 3 jours ouvrés, puis livraison suivie : comptez 8 à 20 jours entre la commande et la réception. Offerte dès 60 €, sinon 4,90 €. Retours sous 30 jours.",
+    "reassureShip": "Livraison suivie 8 à 20 jours",
+    "reassureReturn": "Retours sous 30 jours",
+    "reassurePay": "Paiement sécurisé par Stripe",
+    "reassureContact": "Une question ? Réponse par e-mail",
+    "freeShipLeft": "Plus que {amount} pour la livraison offerte",
+    "freeShipDone": "Livraison offerte débloquée",
+    "packSuggest": "Moins cher en pack",
+    "packSuggestText": "{name} · {save} économisés",
+    "packSuggestCta": "Ajouter le pack",
+    "toastAction": "Voir le panier"
   }
 }

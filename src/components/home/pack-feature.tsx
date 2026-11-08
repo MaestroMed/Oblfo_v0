@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { BorderBeam } from "@/components/ui/border-beam";
 import { AddToCartButton } from "@/components/add-to-cart-button";
 import { formatPrice, getPacks } from "@/data/catalog";
 import type { Locale } from "@/i18n/routing";
@@ -20,6 +21,7 @@ export function PackFeature({ locale }: { locale: Locale }) {
     <section id="pack" className="scroll-mt-24 bg-cream pb-20">
       <div className="mx-auto max-w-[1280px] px-8">
         <div className="relative flex flex-wrap items-stretch overflow-hidden rounded-[24px] bg-espresso-2 shadow-[0_40px_90px_-40px_rgba(22,17,12,0.8)]">
+          <BorderBeam />
           <div className="relative min-h-[300px] flex-[1_1_380px]">
             <Image
               src="/images/home/pack.jpg"

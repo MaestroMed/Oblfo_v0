@@ -4,7 +4,7 @@
     "description": "Guantes calefactables, zapatillas calefactables, calientatazas y calefactor cerámico. Calor dirigido en segundos, justo donde muerde el invierno. Envío gratis desde 60 €, devoluciones de 30 días."
   },
   "Announcement": {
-    "text": "NOVEDADES 2026: calefacción inteligente de nueva generación — Entrega con seguimiento en 8 a 20 días"
+    "text": "BLACK FRIDAY · ahorra hasta 22 € con los packs · Envío gratis desde 60 €"
   },
   "HomeV2": {
     "heroBadge": "NUEVA GENERACIÓN 2026",
@@ -351,5 +351,40 @@
     "privacyLink": "Saber más",
     "accept": "ACEPTAR",
     "refuse": "RECHAZAR"
+  },
+  "Ux": {
+    "fact1": "Entrega con seguimiento en 8 a 20 días",
+    "fact2": "Gratis desde 60 €",
+    "fact3": "Devoluciones 30 días",
+    "fact4": "Pago seguro con Stripe",
+    "fact5": "Calor USB con cualquier powerbank",
+    "fact6": "Packs más baratos que por unidad",
+    "heatKicker": "EL CALOR, EN CIFRAS",
+    "heatTitle": "Cifras, no promesas.",
+    "heatNote": "Valores del fabricante, tomados de nuestras fichas de producto.",
+    "heatTemp": "°C en el nivel máximo · {product}",
+    "heatSeconds": "segundos para notar el calor · {product}",
+    "heatLevels": "niveles de calor · {product}",
+    "unitTemp": "°C",
+    "unitSeconds": "s",
+    "unitLevels": "niv.",
+    "addWithPrice": "Añadir al carrito · {price}",
+    "buyNow": "Comprar ahora",
+    "buyNowPrice": "Comprar · {price}",
+    "accHeat": "Calor",
+    "accCare": "Cuidado",
+    "accShipping": "Entrega",
+    "careFallback": "Sigue las instrucciones incluidas con el producto. Desconecta siempre el cable USB antes de limpiarlo.",
+    "shippingText": "Preparación y envío en 1 a 3 días laborables, luego entrega con seguimiento: cuenta 8 a 20 días entre el pedido y la recepción. Gratis desde 60 €, si no 4,90 €. Devoluciones en 30 días.",
+    "reassureShip": "Entrega con seguimiento en 8 a 20 días",
+    "reassureReturn": "Devoluciones en 30 días",
+    "reassurePay": "Pago seguro con Stripe",
+    "reassureContact": "¿Una pregunta? Respondemos por e-mail",
+    "freeShipLeft": "Te faltan {amount} para el envío gratis",
+    "freeShipDone": "Envío gratis desbloqueado",
+    "packSuggest": "Más barato en pack",
+    "packSuggestText": "{name} · ahorras {save}",
+    "packSuggestCta": "Añadir el pack",
+    "toastAction": "Ver el carrito"
   }
 }

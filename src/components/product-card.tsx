@@ -52,7 +52,7 @@ export function ProductCard({
   const tCart = useTranslations("Cart");
 
   return (
-    <div className="group flex flex-col overflow-hidden rounded-2xl border border-black/[0.06] bg-white shadow-[0_18px_50px_-30px_rgba(36,28,20,0.35)] transition-[transform,box-shadow] duration-[250ms] hover:-translate-y-1 hover:shadow-[0_30px_70px_-30px_rgba(36,28,20,0.45)]">
+    <div className="group flex flex-col overflow-hidden rounded-2xl border border-black/[0.06] bg-white shadow-[0_18px_50px_-30px_rgba(36,28,20,0.35)] card-glow">
       <Link
         href={{ pathname: "/produits/[slug]", params: { slug: product.slug } }}
         className="relative block aspect-square overflow-hidden bg-[#F7F3EC]"

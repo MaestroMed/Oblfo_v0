@@ -4,7 +4,7 @@
     "description": "Heated gloves, heated slippers, mug warmer and portable space heater. Targeted warmth in seconds, right where winter bites. Free shipping over €60, 30-day returns."
   },
   "Announcement": {
-    "text": "NEW FOR 2026: next-generation smart heating — Tracked delivery in 8 to 20 days"
+    "text": "BLACK FRIDAY · save up to €22 with our bundles · Free delivery from €60"
   },
   "HomeV2": {
     "heroBadge": "NEW GENERATION 2026",
@@ -428,5 +428,40 @@
     "privacyLink": "Learn more",
     "accept": "ACCEPT",
     "refuse": "DECLINE"
+  },
+  "Ux": {
+    "fact1": "Tracked delivery in 8 to 20 days",
+    "fact2": "Free from €60",
+    "fact3": "30-day returns",
+    "fact4": "Secure Stripe payment",
+    "fact5": "USB heat on any power bank",
+    "fact6": "Bundles cost less than single items",
+    "heatKicker": "HEAT, MEASURED",
+    "heatTitle": "Numbers, not promises.",
+    "heatNote": "Manufacturer figures, taken from our product pages.",
+    "heatTemp": "°C at max level · {product}",
+    "heatSeconds": "seconds to feel the heat · {product}",
+    "heatLevels": "heat levels · {product}",
+    "unitTemp": "°C",
+    "unitSeconds": "s",
+    "unitLevels": "lvl",
+    "addWithPrice": "Add to cart · {price}",
+    "buyNow": "Buy now",
+    "buyNowPrice": "Buy · {price}",
+    "accHeat": "Heat",
+    "accCare": "Care",
+    "accShipping": "Delivery",
+    "careFallback": "Follow the instructions supplied with the product. Always unplug the USB cable before cleaning.",
+    "shippingText": "Prepared and shipped within 1 to 3 business days, then tracked delivery: allow 8 to 20 days between order and arrival. Free from €60, otherwise €4.90. 30-day returns.",
+    "reassureShip": "Tracked delivery in 8 to 20 days",
+    "reassureReturn": "30-day returns",
+    "reassurePay": "Secure payment by Stripe",
+    "reassureContact": "A question? We answer by email",
+    "freeShipLeft": "{amount} away from free delivery",
+    "freeShipDone": "Free delivery unlocked",
+    "packSuggest": "Cheaper as a bundle",
+    "packSuggestText": "{name} · save {save}",
+    "packSuggestCta": "Add the bundle",
+    "toastAction": "View cart"
   }
 }

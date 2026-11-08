@@ -4,7 +4,7 @@
     "description": "Beheizbare Handschuhe, Hausschuhe, Tassenwärmer und Heizlüfter. Gezielte Wärme in Sekunden, genau dort, wo der Winter zubeißt. Kostenloser Versand ab 60 €, 30 Tage Rückgaberecht."
   },
   "Announcement": {
-    "text": "NEU 2026: smarte Heiztechnik der nächsten Generation — Lieferung mit Sendungsverfolgung in 8 bis 20 Tagen"
+    "text": "BLACK FRIDAY · bis zu 22 € sparen mit unseren Sets · Versandkostenfrei ab 60 €"
   },
   "HomeV2": {
     "heroBadge": "NEUE GENERATION 2026",
@@ -351,5 +351,40 @@
     "privacyLink": "Mehr erfahren",
     "accept": "AKZEPTIEREN",
     "refuse": "ABLEHNEN"
+  },
+  "Ux": {
+    "fact1": "Lieferung mit Tracking in 8 bis 20 Tagen",
+    "fact2": "Versandkostenfrei ab 60 €",
+    "fact3": "30 Tage Rückgabe",
+    "fact4": "Sichere Zahlung mit Stripe",
+    "fact5": "USB-Wärme an jeder Powerbank",
+    "fact6": "Sets günstiger als einzeln",
+    "heatKicker": "WÄRME IN ZAHLEN",
+    "heatTitle": "Zahlen statt Versprechen.",
+    "heatNote": "Herstellerangaben, übernommen aus unseren Produktseiten.",
+    "heatTemp": "°C auf höchster Stufe · {product}",
+    "heatSeconds": "Sekunden bis zur Wärme · {product}",
+    "heatLevels": "Heizstufen · {product}",
+    "unitTemp": "°C",
+    "unitSeconds": "s",
+    "unitLevels": "Stufen",
+    "addWithPrice": "In den Warenkorb · {price}",
+    "buyNow": "Jetzt kaufen",
+    "buyNowPrice": "Kaufen · {price}",
+    "accHeat": "Wärme",
+    "accCare": "Pflege",
+    "accShipping": "Lieferung",
+    "careFallback": "Beachten Sie die beiliegende Anleitung. Vor dem Reinigen immer das USB-Kabel trennen.",
+    "shippingText": "Vorbereitung und Versand innerhalb von 1 bis 3 Werktagen, dann Lieferung mit Tracking: Zwischen Bestellung und Erhalt liegen 8 bis 20 Tage. Versandkostenfrei ab 60 €, sonst 4,90 €. 30 Tage Rückgabe.",
+    "reassureShip": "Lieferung mit Tracking in 8 bis 20 Tagen",
+    "reassureReturn": "30 Tage Rückgabe",
+    "reassurePay": "Sichere Zahlung über Stripe",
+    "reassureContact": "Eine Frage? Antwort per E-Mail",
+    "freeShipLeft": "Noch {amount} bis zum kostenlosen Versand",
+    "freeShipDone": "Kostenloser Versand freigeschaltet",
+    "packSuggest": "Günstiger im Set",
+    "packSuggestText": "{name} · {save} gespart",
+    "packSuggestCta": "Set hinzufügen",
+    "toastAction": "Zum Warenkorb"
   }
 }

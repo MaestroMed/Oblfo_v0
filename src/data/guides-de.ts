@@ -179,7 +179,7 @@ export const guidesDe: Record<string, GuideL10n> = {
       {
         title: "Zu Hause: beheizte Hausschuhe",
         paragraphs: [
-          "Drinnen ist der beheizte Hausschuh einfacher und bequemer: Wärme am Vorfuß, ein weiches Innenfutter, das die Temperatur hält, und USB-Versorgung ohne Akku, um den Sie sich kümmern müssten. Das ist die Lösung fürs Homeoffice, den Abend vor dem Fernseher und kalte Erdgeschosse.",
+          "Drinnen ist der beheizte Hausschuh einfacher und bequemer: Wärme am Vorfuß, ein weiches Innenfutter, das die Temperatur hält, und USB-Versorgung ohne Akku, um den Sie sich kümmern müssten. Das ist die Lösung fürs Homeoffice, den Abend vor dem Fernseher und kalte Erdgeschosse. Hinweis: Das Obflo-Modell ist ein Plüsch-Fußwärmer für unter den Schreibtisch oder ans Sofa, in den man die Füße steckt; es ist kein Hausschuh zum Laufen.",
           "Seine Grenze ist zugleich seine Stärke: Angeschlossen kommt er nicht weit. Wer sich in der Wohnung bewegen möchte, wählt ein Modell mit abnehmbarem Kabel, das die gespeicherte Wärme einige Dutzend Minuten hält.",
         ],
       },
@@ -258,7 +258,7 @@ export const guidesDe: Record<string, GuideL10n> = {
       {
         title: "Für wen sich der Kauf lohnt",
         paragraphs: [
-          "Der beheizte Hausschuh ist die Lösung für den festen Platz: Homeoffice, Lesen, Sofaabend, kaltes Erdgeschoss. Wer sich in der Wohnung bewegt, fährt am besten mit dem Duo aus Hausschuh mit abnehmbarem Kabel und kurzen Wärme-Nachladephasen. Und liegt Ihr Problem draußen — Stiefel, Baustelle, Stadion — brauchen Sie beheizbare Einlegesohlen, keine Hausschuhe.",
+          "Der beheizte Hausschuh ist die Lösung für den festen Platz: Homeoffice, Lesen, Sofaabend, kaltes Erdgeschoss. Wer sich in der Wohnung bewegt, fährt am besten mit dem Duo aus Hausschuh mit abnehmbarem Kabel und kurzen Wärme-Nachladephasen. Und liegt Ihr Problem draußen — Stiefel, Baustelle, Stadion — brauchen Sie beheizbare Einlegesohlen, keine Hausschuhe. Hinweis: Das Obflo-Modell ist ein Plüsch-Fußwärmer für unter den Schreibtisch oder ans Sofa, in den man die Füße steckt; es ist kein Hausschuh zum Laufen.",
         ],
       },
     ],

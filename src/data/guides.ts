@@ -431,7 +431,7 @@ guideSources.push(
         {
           title: "À la maison : les chaussons chauffants",
           paragraphs: [
-            "À l'intérieur, le chausson chauffant est plus simple et plus confortable : chaleur sur l'avant-pied, intérieur doux qui garde la température, et alimentation USB sans batterie à gérer. C'est la solution du télétravail, du soir devant la télé et des rez-de-chaussée froids.",
+            "À l'intérieur, le chausson chauffant est plus simple et plus confortable : chaleur sur l'avant-pied, intérieur doux qui garde la température, et alimentation USB sans batterie à gérer. C'est la solution du télétravail, du soir devant la télé et des rez-de-chaussée froids. Précision : le modèle Obflo est un chauffe-pieds en peluche à poser sous le bureau ou devant le canapé, dans lequel on glisse les pieds ; ce n'est pas un chausson pour marcher.",
             "Sa limite est sa force : branché, il ne bouge pas loin. Pour circuler dans la maison, on privilégie un modèle à câble détachable qui garde la chaleur accumulée quelques dizaines de minutes.",
           ],
         },
@@ -455,7 +455,7 @@ guideSources.push(
         {
           title: "At home: heated slippers",
           paragraphs: [
-            "Indoors, heated slippers are simpler and more comfortable: forefoot warmth, a soft lining that holds temperature, and USB power with no battery to manage. That's the answer for home-office days, evenings on the sofa and cold ground floors.",
+            "Indoors, heated slippers are simpler and more comfortable: forefoot warmth, a soft lining that holds temperature, and USB power with no battery to manage. That's the answer for home-office days, evenings on the sofa and cold ground floors. Note: the Obflo model is a plush foot warmer to set under the desk or by the sofa and slide your feet into; it is not a slipper for walking.",
             "Their limit is their strength: plugged in, they don't roam far. To move around the house, pick a model with a detachable cable that holds accumulated heat for a few dozen minutes.",
           ],
         },
@@ -592,7 +592,7 @@ guideSources.push(
         {
           title: "Pour qui c'est le bon achat",
           paragraphs: [
-            "Le chausson chauffant est la solution du poste fixe : télétravail, lecture, soirée canapé, rez-de-chaussée froid. Pour circuler dans la maison, le duo gagnant est chausson à câble détachable + petites sessions de recharge de chaleur. Et si votre problème est dehors — bottes, chantier, stade — ce sont des semelles chauffantes qu'il vous faut, pas des chaussons.",
+            "Le chausson chauffant est la solution du poste fixe : télétravail, lecture, soirée canapé, rez-de-chaussée froid. Pour circuler dans la maison, le duo gagnant est chausson à câble détachable + petites sessions de recharge de chaleur. Et si votre problème est dehors — bottes, chantier, stade — ce sont des semelles chauffantes qu'il vous faut, pas des chaussons. Précision : le modèle Obflo est un chauffe-pieds en peluche à poser sous le bureau ou devant le canapé, dans lequel on glisse les pieds ; ce n'est pas un chausson pour marcher.",
           ],
         },
       ],
@@ -623,7 +623,7 @@ guideSources.push(
         {
           title: "Who it's the right buy for",
           paragraphs: [
-            "Heated slippers are the fixed-station answer: home office, reading, sofa evenings, cold ground floors. To move around the house, the winning combo is a detachable-cable slipper plus short heat top-up sessions. And if your problem is outdoors — boots, worksites, stadiums — you need heated insoles, not slippers.",
+            "Heated slippers are the fixed-station answer: home office, reading, sofa evenings, cold ground floors. To move around the house, the winning combo is a detachable-cable slipper plus short heat top-up sessions. And if your problem is outdoors — boots, worksites, stadiums — you need heated insoles, not slippers. Note: the Obflo model is a plush foot warmer to set under the desk or by the sofa and slide your feet into; it is not a slipper for walking.",
           ],
         },
       ],

@@ -179,7 +179,7 @@ export const guidesEs: Record<string, GuideL10n> = {
       {
         title: "En casa: las zapatillas calefactables",
         paragraphs: [
-          "En interior, la zapatilla calefactable es más sencilla y más cómoda: calor en la parte delantera del pie, interior suave que conserva la temperatura y alimentación USB sin batería que gestionar. Es la solución del teletrabajo, de la noche frente a la tele y de las plantas bajas frías.",
+          "En interior, la zapatilla calefactable es más sencilla y más cómoda: calor en la parte delantera del pie, interior suave que conserva la temperatura y alimentación USB sin batería que gestionar. Es la solución del teletrabajo, de la noche frente a la tele y de las plantas bajas frías. Aviso: el modelo Obflo es un calientapiés de peluche para dejar bajo el escritorio o junto al sofá y meter los pies; no es una zapatilla para caminar.",
           "Su límite es su fuerza: enchufada, no llega muy lejos. Para moverte por casa, elige un modelo con cable desmontable que conserve el calor acumulado durante unas decenas de minutos.",
         ],
       },
@@ -258,7 +258,7 @@ export const guidesEs: Record<string, GuideL10n> = {
       {
         title: "Para quién es la compra acertada",
         paragraphs: [
-          "La zapatilla calefactable es la solución del puesto fijo: teletrabajo, lectura, tarde de sofá, planta baja fría. Para moverte por la casa, el dúo ganador es zapatilla con cable desmontable + pequeñas sesiones de recarga de calor. Y si tu problema está fuera — botas, obra, estadio — lo que necesitas son plantillas calefactables, no zapatillas.",
+          "La zapatilla calefactable es la solución del puesto fijo: teletrabajo, lectura, tarde de sofá, planta baja fría. Para moverte por la casa, el dúo ganador es zapatilla con cable desmontable + pequeñas sesiones de recarga de calor. Y si tu problema está fuera — botas, obra, estadio — lo que necesitas son plantillas calefactables, no zapatillas. Aviso: el modelo Obflo es un calientapiés de peluche para dejar bajo el escritorio o junto al sofá y meter los pies; no es una zapatilla para caminar.",
         ],
       },
     ],

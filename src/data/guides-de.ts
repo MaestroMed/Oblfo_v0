@@ -318,8 +318,8 @@ export const guidesDe: Record<string, GuideL10n> = {
       {
         title: "Die beheizbare Schreibtischunterlage: die Kontaktlösung",
         paragraphs: [
-          "Eine großformatige beheizbare Schreibtischunterlage (80 × 33 cm) deckt die Zone von Tastatur und Maus ab: Handgelenke und Handflächen ruhen dauerhaft auf einer angenehm warmen Fläche, die Finger bleiben geschmeidig. Die Wärme kommt in wenigen Sekunden — das ist der Unterschied zum Heizkörper, der eine Stunde braucht, um Ihren Komfort zu verändern.",
-          "Die zwei Sicherheitskriterien: eine automatische Abschaltung nach ~3 Stunden (das abendliche Vergessen ist die Regel, nicht die Ausnahme) und eine auf rund 45–50 °C begrenzte Oberflächentemperatur. Oberhalb von 43 °C bei längerem Dauerkontakt macht die Haut nicht mit — regelbare Stufen gibt es genau dafür: um den angenehm warmen Punkt zu finden, nicht um zu garen.",
+          "Eine beheizbare Schreibtischunterlage von etwa 60 × 36 cm deckt die Zone von Tastatur und Maus ab: Handgelenke und Handflächen ruhen dauerhaft auf einer angenehm warmen Fläche, die Finger bleiben geschmeidig. Die Wärme kommt in wenigen Sekunden — das ist der Unterschied zum Heizkörper, der eine Stunde braucht, um Ihren Komfort zu verändern.",
+          "Die zwei Sicherheitsreflexe: ein Schalter in Reichweite, um sie beim Gehen auszuschalten (das abendliche Vergessen ist die Regel, nicht die Ausnahme — eine Abschaltautomatik ist ein Plus, wenn vorhanden) und eine moderate Oberflächentemperatur. Oberhalb von 43 °C bei längerem Dauerkontakt macht die Haut nicht mit — eine Unterlage soll warm sein, nicht heiß.",
         ],
       },
       {

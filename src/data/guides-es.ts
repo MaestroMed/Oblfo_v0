@@ -318,8 +318,8 @@ export const guidesEs: Record<string, GuideL10n> = {
       {
         title: "La alfombrilla de escritorio térmica: la solución de contacto",
         paragraphs: [
-          "Una alfombrilla de escritorio térmica de gran formato (80 × 33 cm) cubre la zona de teclado + ratón: las muñecas y las palmas descansan de forma permanente sobre una superficie templada, y los dedos se mantienen ágiles. El calor llega en unos segundos — esa es la diferencia con un radiador, que tarda una hora en cambiar tu confort.",
-          "Los dos criterios de seguridad: un apagado automático tras ~3 horas (el olvido al final del día es la regla, no la excepción) y una temperatura de superficie limitada en torno a 45–50 °C. Por encima de 43 °C en contacto permanente prolongado, la piel no lo lleva bien — los niveles regulables existen precisamente para encontrar el punto templado cómodo, no para asarte.",
+          "Una alfombrilla de escritorio térmica de unos 60 × 36 cm cubre la zona de teclado + ratón: las muñecas y las palmas descansan de forma permanente sobre una superficie templada, y los dedos se mantienen ágiles. El calor llega en unos segundos — esa es la diferencia con un radiador, que tarda una hora en cambiar tu confort.",
+          "Los dos reflejos de seguridad: un interruptor a mano para apagarla al irte (el olvido al final del día es la regla, no la excepción — un apagado automático es un plus cuando existe) y una temperatura de superficie moderada. Por encima de 43 °C en contacto permanente prolongado, la piel no lo lleva bien — una alfombrilla debe estar templada, no quemar.",
         ],
       },
       {

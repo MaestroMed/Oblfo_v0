@@ -744,8 +744,8 @@ guideSources.push(
         {
           title: "Le sous-main chauffant : la solution de contact",
           paragraphs: [
-            "Un sous-main chauffant grand format (80 × 33 cm) couvre la zone clavier + souris : les poignets et les paumes reposent en permanence sur une surface tiède, et les doigts restent souples. La chauffe arrive en quelques secondes — c'est la différence avec un radiateur, qui met une heure à changer votre confort.",
-            "Les deux critères de sécurité : un arrêt automatique après ~3 heures (l'oubli du soir est la règle, pas l'exception) et une température de surface plafonnée autour de 45–50 °C. Au-delà de 43 °C en contact permanent prolongé, la peau n'aime pas — les niveaux réglables existent précisément pour trouver le point tiède confortable, pas pour cuire.",
+            "Un sous-main chauffant d'environ 60 × 36 cm couvre la zone clavier + souris : les poignets et les paumes reposent en permanence sur une surface tiède, et les doigts restent souples. La chauffe arrive en quelques secondes — c'est la différence avec un radiateur, qui met une heure à changer votre confort.",
+            "Les deux réflexes de sécurité : un interrupteur à portée de main pour l'éteindre en partant (l'oubli du soir est la règle, pas l'exception — un arrêt automatique est un plus quand il existe) et une température de surface modérée. Au-delà de 43 °C en contact permanent prolongé, la peau n'aime pas — un sous-main doit rester tiède, pas brûlant.",
           ],
         },
         {
@@ -767,8 +767,8 @@ guideSources.push(
         {
           title: "The heated desk mat: the contact solution",
           paragraphs: [
-            "A full-size heated desk mat (80 × 33 cm) covers the keyboard + mouse zone: wrists and palms rest permanently on a warm surface, and fingers stay supple. The heat arrives within seconds — that's the difference from a radiator, which takes an hour to change your comfort.",
-            "The two safety criteria: an automatic shut-off after ~3 hours (forgetting it at night is the rule, not the exception) and a surface temperature capped around 45–50 °C. Beyond 43 °C in prolonged permanent contact, skin doesn't like it — adjustable levels exist precisely to find the comfortable warm point, not to cook.",
+            "A heated desk mat of about 60 × 36 cm covers the keyboard + mouse zone: wrists and palms rest permanently on a warm surface, and fingers stay supple. The heat arrives within seconds — that's the difference from a radiator, which takes an hour to change your comfort.",
+            "The two safety habits: a switch within reach to turn it off when you leave (forgetting it at night is the rule, not the exception — an automatic shut-off is a plus when there is one) and a moderate surface temperature. Beyond 43 °C in prolonged permanent contact, skin doesn't like it — a desk mat should stay warm, not hot.",
           ],
         },
         {

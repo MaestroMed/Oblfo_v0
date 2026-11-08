@@ -5,6 +5,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { AddToCartButton } from "@/components/add-to-cart-button";
 import { BuyBox } from "@/components/product/buy-box";
 import { ImageSlot } from "@/components/image-slot";
+import { PhotoGallery } from "@/components/product/photo-gallery";
 import { RecentlyViewed, TrackProductView } from "@/components/recently-viewed";
 import { VariantPicker } from "@/components/variant-picker";
 import {
@@ -196,6 +197,10 @@ export default async function ProductPage({ params }: Props) {
           <div className="grid items-start gap-10 lg:grid-cols-[1.08fr_1fr] lg:gap-16">
             {/* Galerie collante */}
             <div className="flex flex-col gap-3 lg:sticky lg:top-24">
+              {product.photos?.length ? (
+                <PhotoGallery photos={product.photos} alt={product.name} />
+              ) : (
+              <>
               <div className="relative aspect-square overflow-hidden rounded-[22px] bg-espresso shadow-[0_40px_90px_-50px_rgba(22,17,12,0.7)]">
                 {product.image ? (
                   <Image
@@ -218,6 +223,8 @@ export default async function ProductPage({ params }: Props) {
                   </div>
                 ))}
               </div>
+              </>
+              )}
             </div>
 
             {/* Infos + achat */}

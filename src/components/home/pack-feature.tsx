@@ -24,7 +24,7 @@ export function PackFeature({ locale }: { locale: Locale }) {
           <BorderBeam />
           <div className="relative min-h-[300px] flex-[1_1_380px]">
             <Image
-              src="/images/home/pack.jpg"
+              src="/images/home/v2/pack.jpg"
               alt={pack.name}
               fill
               sizes="(min-width: 1024px) 45vw, 100vw"

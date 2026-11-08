@@ -3,17 +3,17 @@ import { useTranslations } from "next-intl";
 
 const lifestyle = [
   {
-    image: "/images/home/life-bureau.jpg",
+    image: "/images/products/chaussons-chauffants/03-usage-teletravail.jpg",
     kickerKey: "lifeDeskKicker",
     titleKey: "lifeDeskTitle",
   },
   {
-    image: "/images/home/life-maison.jpg",
+    image: "/images/products/plaid-chauffant/01-hero.jpg",
     kickerKey: "lifeHomeKicker",
     titleKey: "lifeHomeTitle",
   },
   {
-    image: "/images/home/life-exterieur.jpg",
+    image: "/images/products/gilet-chauffant/01-hero.jpg",
     kickerKey: "lifeOutKicker",
     titleKey: "lifeOutTitle",
   },

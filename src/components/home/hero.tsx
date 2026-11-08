@@ -14,7 +14,7 @@ export function Hero() {
     <section className="relative overflow-hidden bg-espresso">
       <div className="absolute inset-0">
         <Image
-          src="/images/home/hero.jpg"
+          src="/images/home/v2/home-hero.jpg"
           alt=""
           fill
           priority

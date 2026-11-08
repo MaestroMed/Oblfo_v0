@@ -32,8 +32,8 @@ export const packSources: PackSource[] = [
     contents: {
       fr: "Chaussons Chauffants + Chauffage d'Appoint",
       en: "Heated Slippers + Portable Space Heater",
-      de: "Beheizbare Hausschuhe + Keramik-Heizlüfter",
-      es: "Zapatillas Calefactables + Calefactor Cerámico",
+      de: "Beheizbare Hausschuhe + Mini-Heizlüfter",
+      es: "Zapatillas Calefactables + Mini Calefactor",
     },
     items: ["chaussons-chauffants", "chauffage-appoint"],
     price: 89,
@@ -158,10 +158,10 @@ export const faqSources: FaqSource[] = [
       es: "¿El calefactor consume mucho?",
     },
     answer: {
-      fr: "Non. Il est conçu pour chauffer un espace réduit — un bureau, une chambre — pas toute la maison. C'est justement ce qui le rend économe.",
-      en: "No. It's designed to heat a small space — a desk area, a bedroom — not the whole house. That's exactly what makes it economical.",
-      de: "Nein. Er ist für kleine Räume gedacht — Schreibtisch oder Schlafzimmer —, nicht für das ganze Haus. Genau das macht ihn sparsam.",
-      es: "No. Está diseñado para calentar un espacio reducido — un escritorio, un dormitorio —, no toda la casa. Precisamente eso lo hace económico.",
+      fr: "Non : 250 W, soit environ 6 centimes de l'heure à 0,25 €/kWh. Il chauffe la personne assise devant, pas toute la pièce — c'est justement ce qui le rend économe.",
+      en: "No: 250 W, about 6 cents an hour at €0.25/kWh. It warms the person sitting in front of it, not the whole room — that's exactly what makes it economical.",
+      de: "Nein: 250 W, also etwa 6 Cent pro Stunde bei 0,25 €/kWh. Er wärmt die Person davor, nicht den ganzen Raum — genau das macht ihn sparsam.",
+      es: "No: 250 W, unos 6 céntimos por hora a 0,25 €/kWh. Calienta a la persona que tiene delante, no toda la habitación — precisamente eso lo hace económico.",
     },
   },
   {

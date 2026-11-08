@@ -10,6 +10,7 @@ import {
 import { useLocale, useTranslations } from "next-intl";
 import { toast } from "sonner";
 import { getSellableById } from "@/data/catalog";
+import { trackEvent } from "@/components/ga4";
 import type { Locale } from "@/i18n/routing";
 import { MAX_QTY } from "@/lib/cart";
 
@@ -164,6 +165,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         return [...prev, { ...item, qty: 1 }];
       });
       if (!opts?.silent) showToast(item.variant ? `${item.name} · ${item.variant}` : item.name);
+      trackEvent("add_to_cart", { currency: "EUR", value: item.price, item_id: item.id });
     },
     [showToast],
   );

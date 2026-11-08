@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Stripe from "stripe";
 import { ClearCartOnMount } from "@/components/clear-cart-on-mount";
+import { PurchaseEvent } from "@/components/purchase-event";
 import { Link } from "@/i18n/navigation";
 import { isLocale } from "@/i18n/routing";
 
@@ -27,14 +28,20 @@ export async function generateMetadata({
  * Confirme la page uniquement pour une vraie session payée quand Stripe est
  * configuré. Sans clé (dev), on affiche la page si un session_id est présent.
  */
-async function isPaidSession(sessionId: string | undefined): Promise<boolean> {
+type Paid = { value: number; currency: string } | null;
+
+async function paidSession(sessionId: string | undefined): Promise<Paid | false> {
   if (!sessionId) return false;
   const secretKey = process.env.STRIPE_SECRET_KEY;
-  if (!secretKey) return true;
+  if (!secretKey) return null;
   try {
     const stripe = new Stripe(secretKey);
     const session = await stripe.checkout.sessions.retrieve(sessionId);
-    return session.payment_status === "paid";
+    if (session.payment_status !== "paid") return false;
+    return {
+      value: (session.amount_total ?? 0) / 100,
+      currency: (session.currency ?? "eur").toUpperCase(),
+    };
   } catch {
     return false;
   }
@@ -48,14 +55,17 @@ export default async function MerciPage({ params, searchParams }: Props) {
   if (!isLocale(locale)) notFound();
   setRequestLocale(locale);
 
-  const paid = await isPaidSession(sessionId);
-  if (!paid) notFound();
+  const paid = await paidSession(sessionId);
+  if (paid === false) notFound();
 
   const t = await getTranslations("Merci");
 
   return (
     <main className="flex min-h-[60vh] flex-col items-center justify-center gap-6 bg-night px-8 text-center">
       <ClearCartOnMount />
+      {paid && sessionId && (
+        <PurchaseEvent id={sessionId} value={paid.value} currency={paid.currency} />
+      )}
       <div className="flex items-center gap-3 font-mono text-[11px] tracking-[0.24em] text-[#8FA1B3]">
         <span className="h-2 w-2 rotate-45 bg-accent shadow-[0_0_14px_rgba(255,106,43,0.9)]" />
         {t("kicker")}

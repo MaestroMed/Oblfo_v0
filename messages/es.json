@@ -340,14 +340,14 @@
     "s4Title": "Tus derechos",
     "s4P1": "Acceso, rectificación, supresión, portabilidad, oposición: escribe a rgpd@obflo.com. Respuesta en 30 días. También puedes dirigirte a la autoridad de control competente.",
     "s5Title": "Cookies",
-    "s5P1": "Las cookies de analítica solo se instalan con tu consentimiento previo a través del banner. Sin consentimiento, el sitio funciona sin seguimiento."
+    "s5P1": "Las cookies de analítica y de medición publicitaria (Google Analytics, Google Ads) solo se instalan con tu consentimiento previo a través del banner. Sin consentimiento, el sitio funciona sin seguimiento."
   },
   "ToComplete": {
     "prefix": "[POR COMPLETAR — "
   },
   "CookieBanner": {
     "ariaLabel": "Consentimiento de cookies",
-    "message": "Nos gustaría medir la audiencia del sitio para entender qué te interesa. Eso requiere cookies, y solo si estás de acuerdo.",
+    "message": "Nos gustaría medir la audiencia del sitio y la eficacia de nuestros anuncios de Google. Eso requiere cookies, y solo si estás de acuerdo.",
     "privacyLink": "Saber más",
     "accept": "ACEPTAR",
     "refuse": "RECHAZAR"

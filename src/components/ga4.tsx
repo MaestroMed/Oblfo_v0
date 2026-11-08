@@ -16,6 +16,8 @@ import {
  * les sites, ce qui les rend comparables sans retraitement).
  *
  * Aucun script Google n'est injecté tant que `analytics` n'est pas accepté.
+ * Consent Mode v2 « basique » : le script n'existe qu'après accord, donc les
+ * signaux pub (ad_*) sont accordés en même temps — le bandeau le dit.
  */
 const GA_ID = process.env.NEXT_PUBLIC_GA4_ID;
 
@@ -61,6 +63,12 @@ export function Ga4() {
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
+          gtag('consent', 'default', {
+            analytics_storage: 'granted',
+            ad_storage: 'granted',
+            ad_user_data: 'granted',
+            ad_personalization: 'granted'
+          });
           gtag('js', new Date());
           gtag('config', '${GA_ID}');
         `}

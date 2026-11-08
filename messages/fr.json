@@ -417,14 +417,14 @@
     "s4Title": "Tes droits",
     "s4P1": "Accès, rectification, suppression, portabilité, opposition : écris-nous à rgpd@obflo.com. Réponse sous 30 jours. Tu peux aussi saisir la CNIL (cnil.fr).",
     "s5Title": "Cookies",
-    "s5P1": "Le site dépose des cookies de mesure d'audience (Google Analytics) uniquement si vous les acceptez via le bandeau de consentement. Refuser n'enlève rien au fonctionnement du site. Vous pouvez revenir sur votre choix en vidant les données du site dans votre navigateur."
+    "s5P1": "Le site dépose des cookies de mesure d'audience et de mesure publicitaire (Google Analytics, Google Ads) uniquement si vous les acceptez via le bandeau de consentement. Refuser n'enlève rien au fonctionnement du site. Vous pouvez revenir sur votre choix en vidant les données du site dans votre navigateur."
   },
   "ToComplete": {
     "prefix": "[À COMPLÉTER — "
   },
   "CookieBanner": {
     "ariaLabel": "Consentement aux cookies",
-    "message": "On aimerait mesurer l'audience du site pour comprendre ce qui vous intéresse. Ça passe par des cookies, et seulement si vous êtes d'accord.",
+    "message": "On aimerait mesurer l'audience du site et l'efficacité de nos publicités Google. Ça passe par des cookies, et seulement si vous êtes d'accord.",
     "privacyLink": "En savoir plus",
     "accept": "ACCEPTER",
     "refuse": "REFUSER"

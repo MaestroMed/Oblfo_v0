@@ -340,14 +340,14 @@
     "s4Title": "Ihre Rechte",
     "s4P1": "Auskunft, Berichtigung, Löschung, Übertragbarkeit, Widerspruch: Schreiben Sie an rgpd@obflo.com. Antwort innerhalb von 30 Tagen. Sie können sich außerdem an die zuständige Aufsichtsbehörde wenden.",
     "s5Title": "Cookies",
-    "s5P1": "Analyse-Cookies werden nur mit Ihrer vorherigen Einwilligung über das Cookie-Banner gesetzt. Ohne Einwilligung bleibt die Website ohne Tracking nutzbar."
+    "s5P1": "Analyse- und Werbemessungs-Cookies (Google Analytics, Google Ads) werden nur mit Ihrer vorherigen Einwilligung über das Cookie-Banner gesetzt. Ohne Einwilligung bleibt die Website ohne Tracking nutzbar."
   },
   "ToComplete": {
     "prefix": "[ZU ERGÄNZEN — "
   },
   "CookieBanner": {
     "ariaLabel": "Cookie-Einwilligung",
-    "message": "Wir würden gern die Nutzung der Website messen, um zu verstehen, was Sie interessiert. Dafür brauchen wir Cookies — und nur mit Ihrem Einverständnis.",
+    "message": "Wir würden gern die Nutzung der Website und die Wirkung unserer Google-Anzeigen messen. Dafür brauchen wir Cookies — und nur mit Ihrem Einverständnis.",
     "privacyLink": "Mehr erfahren",
     "accept": "AKZEPTIEREN",
     "refuse": "ABLEHNEN"

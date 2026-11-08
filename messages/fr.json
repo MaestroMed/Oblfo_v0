@@ -4,7 +4,7 @@
     "description": "Gants chauffants, chaussons chauffants, chauffe-tasse et chauffage d'appoint USB. Une chaleur ciblée en quelques secondes, là où l'hiver s'installe. Livraison offerte dès 60 €, retours 30 jours."
   },
   "Announcement": {
-    "text": "NOUVEAUTÉS 2026 : chauffe intelligente nouvelle génération — Livraison 3–5 jours ouvrés"
+    "text": "NOUVEAUTÉS 2026 : chauffe intelligente nouvelle génération — Livraison suivie 8 à 20 jours"
   },
   "HomeV2": {
     "heroBadge": "NOUVELLE GÉNÉRATION 2026",
@@ -37,7 +37,7 @@
     "packFeat3Title": "Garantie 2 ans",
     "packFeat3Text": "Garantie légale de conformité",
     "packFeat4Title": "Livraison",
-    "packFeat4Text": "3–5 jours ouvrés",
+    "packFeat4Text": "8 à 20 jours, suivi inclus",
     "packSave": "Vous économisez {amount}",
     "packCta": "Ajouter le pack au panier",
     "reassur1Title": "Chauffe rapide",
@@ -48,7 +48,7 @@
     "reassur3Text": "Matières douces et agréables",
     "reassur4Title": "Sécurité avancée",
     "reassur4Text": "Protection contre la surchauffe",
-    "reassur5Title": "Livraison 3–5 jours",
+    "reassur5Title": "Livraison 8 à 20 jours",
     "reassur5Text": "Suivie & emballée avec soin",
     "reassur6Title": "Retours 30 jours",
     "reassur6Text": "Simples et rapides",
@@ -71,7 +71,7 @@
   },
   "Collection": {
     "metaTitle": "La collection — tous nos objets chauffants",
-    "metaDescription": "Toute la collection OBFLO : mains, pieds, bureau, maison. Objets chauffants intelligents, garantie 2 ans, livraison 3–5 jours.",
+    "metaDescription": "Toute la collection OBFLO : mains, pieds, bureau, maison. Objets chauffants intelligents, garantie 2 ans, livraison suivie 8 à 20 jours.",
     "title": "Toute la collection.",
     "intro": "Chaque produit répond à un moment froid précis. Rayon par rayon, voici tout ce qu'OBFLO sait réchauffer."
   },
@@ -265,7 +265,7 @@
     "breadcrumbLabel": "Fil d'Ariane",
     "kicker": "OBFLO — CHALEUR PORTABLE",
     "addToCart": "Ajouter au panier",
-    "reassurance": "LIVRAISON 3–5 J  ·  RETOURS 30 J  ·  OFFERTE DÈS 60 €",
+    "reassurance": "LIVRAISON 8–20 J  ·  RETOURS 30 J  ·  OFFERTE DÈS 60 €",
     "specsKicker": "SPECS",
     "specsLabel": "CARACTÉRISTIQUES",
     "packsKicker": "PACKS",
@@ -301,7 +301,7 @@
     "badge2Title": "Service client en français",
     "badge2Text": "Réponse sous 1–2 jours ouvrés",
     "badge3Title": "Livraison suivie",
-    "badge3Text": "3–5 jours ouvrés",
+    "badge3Text": "8 à 20 jours, suivi inclus",
     "badge4Title": "Retours 30 jours",
     "badge4Text": "Simples et rapides"
   },
@@ -317,7 +317,7 @@
     "kicker": "COMMANDE CONFIRMÉE",
     "titleLine1": "C'est parti.",
     "titleLine2": "La chaleur arrive.",
-    "text": "Ta commande est confirmée. Tu reçois un e-mail de confirmation tout de suite, puis un numéro de suivi dès l'expédition (sous 24–48 h ouvrées).",
+    "text": "Ta commande est confirmée. Tu reçois un e-mail de confirmation tout de suite, puis un numéro de suivi dès l'expédition (sous 1 à 3 jours ouvrés).",
     "cta": "Retour à la boutique"
   },
   "ShippingPage": {
@@ -330,7 +330,7 @@
       {
         "title": "Délais de livraison",
         "paragraphs": [
-          "Les commandes sont expédiées sous 24 à 48 h ouvrées. La livraison en France métropolitaine prend ensuite 3 à 5 jours ouvrés. Un numéro de suivi t'est envoyé par e-mail dès l'expédition."
+          "Les commandes sont préparées puis expédiées sous 1 à 3 jours ouvrés. Comptez 8 à 20 jours entre la commande et la livraison en France métropolitaine. Un numéro de suivi t'est envoyé par e-mail dès l'expédition."
         ]
       },
       {
@@ -392,7 +392,7 @@
     "s3Title": "3. Commande et paiement",
     "s3P1": "La commande est ferme dès validation du paiement. Moyens de paiement acceptés : carte bancaire (et selon l'appareil Apple Pay / Google Pay). Le paiement est sécurisé par Stripe ; aucune donnée bancaire ne transite par nos serveurs.",
     "s4Title": "4. Livraison",
-    "s4P1": "Expédition sous 24 à 48 h ouvrées, livraison en 3 à 5 jours ouvrés en France métropolitaine avec numéro de suivi. En cas de retard supérieur à 7 jours ouvrés, le client peut annuler la commande et être intégralement remboursé.",
+    "s4P1": "Expédition sous 1 à 3 jours ouvrés, livraison en 8 à 20 jours après la commande en France métropolitaine, avec numéro de suivi. En cas de retard supérieur à 7 jours ouvrés, le client peut annuler la commande et être intégralement remboursé.",
     "s5Title": "5. Droit de rétractation et retours",
     "s5P1": "Conformément au Code de la consommation, le client dispose de 14 jours pour se rétracter. OBFLO étend ce délai à 30 jours après réception, sans justification. Les frais de renvoi sont à la charge du client, sauf produit défectueux ou erreur de notre part. Le remboursement intégral intervient dès réception du produit retourné complet et en bon état.",
     "s6Title": "6. Garanties",

@@ -4,7 +4,7 @@
     "description": "Guantes calefactables, zapatillas calefactables, calientatazas y calefactor cerámico. Calor dirigido en segundos, justo donde muerde el invierno. Envío gratis desde 60 €, devoluciones de 30 días."
   },
   "Announcement": {
-    "text": "NOVEDADES 2026: calefacción inteligente de nueva generación — Envío en 3–5 días laborables"
+    "text": "NOVEDADES 2026: calefacción inteligente de nueva generación — Entrega con seguimiento en 8 a 20 días"
   },
   "HomeV2": {
     "heroBadge": "NUEVA GENERACIÓN 2026",
@@ -37,7 +37,7 @@
     "packFeat3Title": "Garantía 2 años",
     "packFeat3Text": "Garantía legal de conformidad",
     "packFeat4Title": "Envío",
-    "packFeat4Text": "3–5 días laborables",
+    "packFeat4Text": "8 a 20 días, con seguimiento",
     "packSave": "Ahorras {amount}",
     "packCta": "Añadir el pack al carrito",
     "reassur1Title": "Calentamiento rápido",
@@ -48,7 +48,7 @@
     "reassur3Text": "Materiales suaves y agradables",
     "reassur4Title": "Seguridad avanzada",
     "reassur4Text": "Protección contra sobrecalentamiento",
-    "reassur5Title": "Envío en 3–5 días",
+    "reassur5Title": "Entrega en 8 a 20 días",
     "reassur5Text": "Con seguimiento y bien embalado",
     "reassur6Title": "Devoluciones 30 días",
     "reassur6Text": "Simples y rápidas",
@@ -71,7 +71,7 @@
   },
   "Collection": {
     "metaTitle": "La colección — todos nuestros esenciales del calor",
-    "metaDescription": "La colección OBFLO completa: manos, pies, escritorio, casa. Productos calefactables inteligentes, garantía de 2 años, envío en 3–5 días.",
+    "metaDescription": "La colección OBFLO completa: manos, pies, escritorio, casa. Productos calefactables inteligentes, garantía de 2 años, entrega con seguimiento en 8 a 20 días.",
     "title": "Toda la colección.",
     "intro": "Cada producto responde a un momento de frío concreto. Sección a sección, todo lo que OBFLO sabe calentar."
   },
@@ -188,7 +188,7 @@
     "breadcrumbLabel": "Ruta de navegación",
     "kicker": "OBFLO — CALOR PORTÁTIL",
     "addToCart": "Añadir al carrito",
-    "reassurance": "ENVÍO 3–5 DÍAS  ·  DEVOLUCIONES 30 DÍAS  ·  GRATIS DESDE 60 €",
+    "reassurance": "ENTREGA 8–20 DÍAS  ·  DEVOLUCIONES 30 DÍAS  ·  GRATIS DESDE 60 €",
     "specsKicker": "SPECS",
     "specsLabel": "CARACTERÍSTICAS",
     "packsKicker": "PACKS",
@@ -224,7 +224,7 @@
     "badge2Title": "Soporte que responde",
     "badge2Text": "Respuesta en 1–2 días laborables",
     "badge3Title": "Envío con seguimiento",
-    "badge3Text": "3–5 días laborables",
+    "badge3Text": "8 a 20 días, con seguimiento",
     "badge4Title": "Devoluciones 30 días",
     "badge4Text": "Simples y rápidas"
   },
@@ -240,7 +240,7 @@
     "kicker": "PEDIDO CONFIRMADO",
     "titleLine1": "Hecho.",
     "titleLine2": "El calor está en camino.",
-    "text": "Tu pedido está confirmado. Te llega ahora un email de confirmación y, en cuanto salga el paquete (en 24–48 h laborables), el número de seguimiento.",
+    "text": "Tu pedido está confirmado. Te llega ahora un email de confirmación y, en cuanto salga el paquete (en 1 a 3 días laborables), el número de seguimiento.",
     "cta": "Volver a la tienda"
   },
   "ShippingPage": {
@@ -253,7 +253,7 @@
       {
         "title": "Plazos de envío",
         "paragraphs": [
-          "Los pedidos salen en 24 a 48 horas laborables. La entrega tarda después 3 a 5 días laborables. Recibirás un número de seguimiento por email en cuanto salga tu pedido."
+          "Los pedidos se preparan y salen en 1 a 3 días laborables. Cuenta 8 a 20 días entre el pedido y la entrega. Recibirás un número de seguimiento por email en cuanto salga tu pedido."
         ]
       },
       {
@@ -315,7 +315,7 @@
     "s3Title": "3. Pedido y pago",
     "s3P1": "El pedido es firme desde la confirmación del pago. Medios de pago aceptados: tarjeta (y según el dispositivo, Apple Pay / Google Pay). El pago está protegido por Stripe; ningún dato bancario pasa por nuestros servidores.",
     "s4Title": "4. Entrega",
-    "s4P1": "Expedición en 24 a 48 horas laborables, entrega en 3 a 5 días laborables con seguimiento. Si el retraso supera los 7 días laborables, el cliente puede anular el pedido y recibir el reembolso íntegro.",
+    "s4P1": "Expedición en 1 a 3 días laborables, entrega 8 a 20 días después del pedido, con seguimiento. Si el retraso supera los 7 días laborables, el cliente puede anular el pedido y recibir el reembolso íntegro.",
     "s5Title": "5. Desistimiento y devoluciones",
     "s5P1": "El cliente dispone del derecho legal de desistimiento de 14 días. OBFLO lo amplía a 30 días tras la recepción, sin justificación. Los gastos de devolución corren a cargo del cliente, salvo producto defectuoso o error nuestro. El reembolso íntegro se efectúa al recibir el producto completo y en buen estado.",
     "s6Title": "6. Garantías",

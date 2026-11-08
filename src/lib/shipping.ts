@@ -13,7 +13,7 @@ export function shippingCostFor(subtotal: number): number {
 // retour dans la SERP — deux arguments que la fiche produit met pourtant en avant.
 //
 // Les valeurs viennent des constantes ci-dessus et de ce qui est affiché sur le
-// site (retours 30 jours, livraison 3–5 jours ouvrés) : rien n'est inventé.
+// site (retours 30 jours, livraison 8 à 20 jours, délai fournisseur CJ) : rien n'est inventé.
 
 export const MERCHANT_RETURN_POLICY = {
   "@type": "MerchantReturnPolicy",
@@ -28,8 +28,8 @@ export const MERCHANT_RETURN_POLICY = {
 
 const DELIVERY_TIME = {
   "@type": "ShippingDeliveryTime",
-  handlingTime: { "@type": "QuantitativeValue", minValue: 0, maxValue: 1, unitCode: "d" },
-  transitTime: { "@type": "QuantitativeValue", minValue: 3, maxValue: 5, unitCode: "d" },
+  handlingTime: { "@type": "QuantitativeValue", minValue: 1, maxValue: 3, unitCode: "d" },
+  transitTime: { "@type": "QuantitativeValue", minValue: 7, maxValue: 17, unitCode: "d" },
 } as const;
 
 const SHIPPING_DESTINATION = {

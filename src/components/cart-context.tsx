@@ -5,10 +5,10 @@ import {
   useCallback,
   useContext,
   useEffect,
-  useRef,
   useState,
 } from "react";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { toast } from "sonner";
 import { getSellableById } from "@/data/catalog";
 import type { Locale } from "@/i18n/routing";
 import { MAX_QTY } from "@/lib/cart";
@@ -34,14 +34,12 @@ type CartContextValue = {
   total: number;
   hydrated: boolean;
   drawerOpen: boolean;
-  toastLabel: string;
-  toastVisible: boolean;
   addItem: (item: {
     id: string;
     name: string;
     price: number;
     variant?: string;
-  }) => void;
+  }, opts?: { silent?: boolean }) => void;
   removeItem: (key: string) => void;
   setQty: (key: string, qty: number) => void;
   clearCart: () => void;
@@ -104,9 +102,8 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
   const [hydrated, setHydrated] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [toastLabel, setToastLabel] = useState("");
-  const [toastVisible, setToastVisible] = useState(false);
-  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const t = useTranslations("Cart");
+  const tUx = useTranslations("Ux");
 
   // Hydratation du panier après montage : le setState synchrone est voulu —
   // une seule cascade au premier rendu client, et le state reste ensuite
@@ -141,15 +138,21 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     return () => window.removeEventListener("storage", onStorage);
   }, [locale]);
 
-  const showToast = useCallback((label: string) => {
-    if (timer.current) clearTimeout(timer.current);
-    setToastLabel(label.toUpperCase());
-    setToastVisible(true);
-    timer.current = setTimeout(() => setToastVisible(false), 2400);
-  }, []);
+  const showToast = useCallback(
+    (label: string) => {
+      toast(t("toastAdded", { name: label }), {
+        id: "cart-added",
+        action: { label: tUx("toastAction"), onClick: () => setDrawerOpen(true) },
+      });
+    },
+    [t, tUx],
+  );
 
   const addItem = useCallback(
-    (item: { id: string; name: string; price: number; variant?: string }) => {
+    (
+      item: { id: string; name: string; price: number; variant?: string },
+      opts?: { silent?: boolean },
+    ) => {
       const key = lineKey(item);
       setItems((prev) => {
         const existing = prev.find((i) => lineKey(i) === key);
@@ -160,7 +163,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         }
         return [...prev, { ...item, qty: 1 }];
       });
-      showToast(item.variant ? `${item.name} · ${item.variant}` : item.name);
+      if (!opts?.silent) showToast(item.variant ? `${item.name} · ${item.variant}` : item.name);
     },
     [showToast],
   );
@@ -198,8 +201,6 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         total,
         hydrated,
         drawerOpen,
-        toastLabel,
-        toastVisible,
         addItem,
         removeItem,
         setQty,

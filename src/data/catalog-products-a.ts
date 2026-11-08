@@ -10,7 +10,7 @@ export const productsA: ProductSource[] = [
       de: "beheizbare-handschuhe",
       es: "guantes-calefactables",
     },
-    price: 59,
+    price: 49,
     category: "mains",
     glow: "warm",
     badge: "new",

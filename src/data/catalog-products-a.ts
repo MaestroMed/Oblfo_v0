@@ -398,7 +398,14 @@ export const productsA: ProductSource[] = [
     price: 39,
     category: "bureau",
     glow: "cold",
-    image: "/images/products/tasse.jpg",
+    image: "/images/products/mini-chauffe-tasse/02-packshot.jpg",
+    photos: [
+      "/images/products/mini-chauffe-tasse/01-hero.jpg",
+      "/images/products/mini-chauffe-tasse/02-packshot.jpg",
+      "/images/products/mini-chauffe-tasse/03-usage-cafe.jpg",
+      "/images/products/mini-chauffe-tasse/04-usage-soir.jpg",
+      "/images/products/mini-chauffe-tasse/05-detail.jpg",
+    ],
     name: {
       fr: "Mini Chauffe-Tasse USB",
       en: "USB Mini Cup Warmer",

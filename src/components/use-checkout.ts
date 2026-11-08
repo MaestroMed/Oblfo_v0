@@ -1,28 +1,43 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useCart } from "@/components/cart-context";
 import type { Locale } from "@/i18n/routing";
 
-export type CheckoutState = "idle" | "loading" | "unavailable" | "error";
+/**
+ * idle → loading → (redirecting | unavailable | error) ; unavailable/error → loading au clic suivant.
+ * `redirecting` reste affiché jusqu'au départ vers Stripe (le bouton reste bloqué).
+ * Exposé tel quel en `data-state` sur les boutons de paiement (tests, agents).
+ */
+export type CheckoutState = "idle" | "loading" | "redirecting" | "unavailable" | "error";
 
 /** Démarre une session Stripe Checkout depuis le panier courant. */
 export function useCheckout(locale: Locale) {
   const { items } = useCart();
   const [state, setState] = useState<CheckoutState>("idle");
+  // Verrou synchrone : deux clics avant le re-rendu ne créent pas deux sessions Stripe.
+  const busy = useRef(false);
 
   // Retour depuis Stripe via le bouton Précédent : le bfcache restaure l'état
-  // React tel quel — sans ce reset, le bouton resterait bloqué en "loading".
+  // React tel quel — sans ce reset, le bouton resterait bloqué.
   useEffect(() => {
     const onPageShow = (e: PageTransitionEvent) => {
-      if (e.persisted) setState("idle");
+      if (!e.persisted) return;
+      busy.current = false;
+      setState("idle");
     };
     window.addEventListener("pageshow", onPageShow);
     return () => window.removeEventListener("pageshow", onPageShow);
   }, []);
 
   const startCheckout = async () => {
+    if (busy.current || items.length === 0) return;
+    busy.current = true;
     setState("loading");
+    const fail = (next: "unavailable" | "error") => {
+      busy.current = false;
+      setState(next);
+    };
     try {
       const res = await fetch("/api/checkout", {
         method: "POST",
@@ -32,20 +47,17 @@ export function useCheckout(locale: Locale) {
           items: items.map(({ id, qty, variant }) => ({ id, qty, variant })),
         }),
       });
-      if (res.status === 503) {
-        setState("unavailable");
-        return;
-      }
-      if (!res.ok) {
-        setState("error");
-        return;
-      }
-      const { url } = (await res.json()) as { url: string };
+      if (res.status === 503) return fail("unavailable");
+      if (!res.ok) return fail("error");
+      const { url } = (await res.json()) as { url?: string | null };
+      // Stripe peut renvoyer url: null — sans ce garde-fou, assign(null) mène à /null.
+      if (!url) return fail("error");
+      setState("redirecting");
       window.location.assign(url);
     } catch {
-      setState("error");
+      fail("error");
     }
   };
 
-  return { state, startCheckout };
+  return { state, busy: state === "loading" || state === "redirecting", startCheckout };
 }

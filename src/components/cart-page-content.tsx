@@ -15,7 +15,7 @@ export function CartPageContent({ locale }: { locale: Locale }) {
   const t = useTranslations("CartPage");
   const tCart = useTranslations("Cart");
   const { items, total, removeItem, setQty } = useCart();
-  const { state: checkoutState, startCheckout } = useCheckout(locale);
+  const { state: checkoutState, busy: checkoutBusy, startCheckout } = useCheckout(locale);
   const [termsAccepted, setTermsAccepted] = useState(false);
 
   const shipping = shippingCostFor(total);
@@ -164,18 +164,20 @@ export function CartPageContent({ locale }: { locale: Locale }) {
               <button
                 type="button"
                 onClick={startCheckout}
-                disabled={checkoutState === "loading" || !termsAccepted}
+                disabled={checkoutBusy || !termsAccepted}
+                data-state={checkoutState}
+                aria-busy={checkoutBusy}
                 className="w-full cursor-pointer rounded-xl bg-accent px-6 py-[15px] text-[15px] font-semibold text-[#14100C] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_40px_-12px_rgba(255,106,43,0.6)] disabled:cursor-not-allowed disabled:opacity-50"
               >
                 {t("checkout")}
               </button>
               {checkoutState === "unavailable" ? (
-                <p className="text-center font-mono text-[11px] tracking-[0.08em] text-accent">
+                <p role="alert" className="text-center font-mono text-[11px] tracking-[0.08em] text-accent">
                   {tCart("checkoutSoon")}
                 </p>
               ) : null}
               {checkoutState === "error" ? (
-                <p className="text-center font-mono text-[11px] tracking-[0.08em] text-accent">
+                <p role="alert" className="text-center font-mono text-[11px] tracking-[0.08em] text-accent">
                   {tCart("checkoutError")}
                 </p>
               ) : null}

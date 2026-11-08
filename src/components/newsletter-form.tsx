@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 
+/** idle → loading → (subscribed | soon | error) ; soon/error → loading au nouvel envoi. */
 type FormState = "idle" | "loading" | "subscribed" | "soon" | "error";
 
 export function NewsletterForm() {
@@ -10,10 +11,13 @@ export function NewsletterForm() {
   const locale = useLocale();
   const [state, setState] = useState<FormState>("idle");
   const inputRef = useRef<HTMLInputElement>(null);
+  // Verrou synchrone : Entrée + clic avant re-rendu ne doublent pas l'inscription.
+  const busy = useRef(false);
 
   const subscribe = async () => {
     const email = inputRef.current?.value.trim() ?? "";
-    if (!email || state === "loading") return;
+    if (!email || busy.current) return;
+    busy.current = true;
     setState("loading");
     try {
       const res = await fetch("/api/newsletter", {
@@ -26,19 +30,21 @@ export function NewsletterForm() {
       else setState("error");
     } catch {
       setState("error");
+    } finally {
+      busy.current = false;
     }
   };
 
   if (state === "subscribed") {
     return (
-      <div className="rounded-[10px] border border-accent/40 px-3.5 py-3 font-mono text-xs tracking-[0.08em] text-accent">
+      <div data-state={state} role="status" className="rounded-[10px] border border-accent/40 px-3.5 py-3 font-mono text-xs tracking-[0.08em] text-accent">
         {t("subscribed")}
       </div>
     );
   }
 
   return (
-    <div className="flex flex-col gap-2">
+    <div data-state={state} className="flex flex-col gap-2">
       <div className="flex gap-2.5">
         <input
           ref={inputRef}
@@ -59,12 +65,12 @@ export function NewsletterForm() {
         </button>
       </div>
       {state === "soon" ? (
-        <p className="font-mono text-[10px] tracking-[0.12em] text-accent">
+        <p role="alert" className="font-mono text-[10px] tracking-[0.12em] text-accent">
           {t("newsletterSoon")}
         </p>
       ) : null}
       {state === "error" ? (
-        <p className="font-mono text-[10px] tracking-[0.12em] text-accent">
+        <p role="alert" className="font-mono text-[10px] tracking-[0.12em] text-accent">
           {t("newsletterError")}
         </p>
       ) : null}

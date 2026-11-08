@@ -28,7 +28,7 @@ export function CartDrawer() {
   const tUx = useTranslations("Ux");
   const locale = useLocale() as Locale;
   const { items, total, drawerOpen, closeDrawer, removeItem, setQty, addItem } = useCart();
-  const { state: checkoutState, startCheckout } = useCheckout(locale);
+  const { state: checkoutState, busy: checkoutBusy, startCheckout } = useCheckout(locale);
   const [termsAccepted, setTermsAccepted] = useState(false);
 
   useEffect(() => {
@@ -185,16 +185,18 @@ export function CartDrawer() {
                   <button
                     type="button"
                     onClick={startCheckout}
-                    disabled={checkoutState === "loading" || !termsAccepted}
+                    disabled={checkoutBusy || !termsAccepted}
+                    data-state={checkoutState}
+                    aria-busy={checkoutBusy}
                     className="w-full cursor-pointer rounded-xl bg-accent px-6 py-[15px] text-[15px] font-semibold text-espresso transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_40px_-12px_rgba(240,123,46,0.6)] disabled:cursor-not-allowed disabled:opacity-50"
                   >
                     {t("checkout")} · {formatPrice(total, locale)}
                   </button>
                   {checkoutState === "unavailable" ? (
-                    <p className="mt-3 text-center font-mono text-[11px] tracking-[0.08em] text-ember">{t("checkoutSoon")}</p>
+                    <p role="alert" className="mt-3 text-center font-mono text-[11px] tracking-[0.08em] text-ember">{t("checkoutSoon")}</p>
                   ) : null}
                   {checkoutState === "error" ? (
-                    <p className="mt-3 text-center font-mono text-[11px] tracking-[0.08em] text-ember">{t("checkoutError")}</p>
+                    <p role="alert" className="mt-3 text-center font-mono text-[11px] tracking-[0.08em] text-ember">{t("checkoutError")}</p>
                   ) : null}
                   <Link
                     href="/panier"

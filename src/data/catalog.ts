@@ -4,6 +4,7 @@
 
 import { productsA } from "./catalog-products-a";
 import { productsB } from "./catalog-products-b";
+import { productsC } from "./catalog-products-c";
 import { faqSources, packSources } from "./catalog-packs";
 import type {
   Category,
@@ -29,7 +30,7 @@ export const CATEGORY_ORDER: Category[] = [
   "piece",
 ];
 
-const productSources: ProductSource[] = [...productsA, ...productsB];
+const productSources: ProductSource[] = [...productsA, ...productsB, ...productsC];
 
 export type Product = {
   id: string;

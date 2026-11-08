@@ -53,6 +53,8 @@ export type ProductSource = {
   imageLabel: string;
   /** Photo produit (packshot studio) — chemin public/. Fallback : ImageSlot. */
   image?: string;
+  /** Galerie de la fiche, photo principale en premier — public/. Sinon : image puis ImageSlot. */
+  photos?: string[];
   variant?: ProductVariant;
   description: LTextList;
   highlights: LTextList;

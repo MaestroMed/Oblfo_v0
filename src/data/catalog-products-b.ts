@@ -14,7 +14,14 @@ export const productsB: ProductSource[] = [
     category: "corps",
     glow: "warm",
     badge: "new",
-    image: "/images/products/gilet.jpg",
+    image: "/images/products/gilet-chauffant/02-packshot.jpg",
+    photos: [
+      "/images/products/gilet-chauffant/01-hero.jpg",
+      "/images/products/gilet-chauffant/02-packshot.jpg",
+      "/images/products/gilet-chauffant/03-usage-trajet.jpg",
+      "/images/products/gilet-chauffant/04-usage-stade.jpg",
+      "/images/products/gilet-chauffant/05-detail-bouton.jpg",
+    ],
     variant: {
       name: { fr: "Taille", en: "Size", de: "Größe", es: "Talla" },
       options: ["S", "M", "L", "XL", "2XL", "3XL"],
@@ -170,7 +177,14 @@ export const productsB: ProductSource[] = [
     category: "maison",
     glow: "warm",
     badge: "new",
-    image: "/images/products/plaid.jpg",
+    image: "/images/products/plaid-chauffant/02-packshot.jpg",
+    photos: [
+      "/images/products/plaid-chauffant/01-hero.jpg",
+      "/images/products/plaid-chauffant/02-packshot.jpg",
+      "/images/products/plaid-chauffant/03-usage-teletravail.jpg",
+      "/images/products/plaid-chauffant/04-usage-bouton.jpg",
+      "/images/products/plaid-chauffant/05-usage-terrasse.jpg",
+    ],
     name: {
       fr: "Plaid Chauffant Cocon",
       en: "Cocoon Heated Throw",
@@ -533,7 +547,14 @@ export const productsB: ProductSource[] = [
     category: "pieds",
     glow: "cold",
     badge: "new",
-    image: "/images/products/semelles.jpg",
+    image: "/images/products/semelles-chauffantes/02-packshot.jpg",
+    photos: [
+      "/images/products/semelles-chauffantes/01-hero.jpg",
+      "/images/products/semelles-chauffantes/02-packshot.jpg",
+      "/images/products/semelles-chauffantes/03-usage-botte.jpg",
+      "/images/products/semelles-chauffantes/04-usage-bureau.jpg",
+      "/images/products/semelles-chauffantes/05-detail.jpg",
+    ],
     variant: {
       name: { fr: "Pointure", en: "Shoe size", de: "Schuhgröße", es: "Talla" },
       options: ["EU 35–40", "EU 41–46"],
@@ -650,7 +671,13 @@ export const productsB: ProductSource[] = [
     category: "bureau",
     glow: "warm",
     badge: "new",
-    image: "/images/products/tapis-bureau.jpg",
+    image: "/images/products/sous-main-chauffant/02-packshot.jpg",
+    photos: [
+      "/images/products/sous-main-chauffant/01-hero.jpg",
+      "/images/products/sous-main-chauffant/02-packshot.jpg",
+      "/images/products/sous-main-chauffant/03-usage-mains.jpg",
+      "/images/products/sous-main-chauffant/04-usage-boitier.jpg",
+    ],
     name: {
       fr: "Sous-Main Chauffant",
       en: "Heated Desk Mat",

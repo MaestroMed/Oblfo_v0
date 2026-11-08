@@ -47,6 +47,7 @@ export type Product = {
   tags: string[];
   imageLabel: string;
   image?: string;
+  photos?: string[];
   /** Déclinaison obligatoire (taille, pointure) — libellé localisé + options. */
   variant?: { label: string; options: string[] };
   description: string[];
@@ -104,6 +105,7 @@ function localizeProduct(source: ProductSource, locale: Locale): Product {
     glow: source.glow,
     badge: source.badge,
     image: source.image,
+    photos: source.photos,
     name: pickL(source.name, locale),
     tagline: pickL(source.tagline, locale),
     tags: pickL(source.tags, locale),

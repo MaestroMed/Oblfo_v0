@@ -13,25 +13,25 @@ const cards: {
 }[] = [
   {
     category: "mains",
-    image: "/images/home/cat-mains.jpg",
+    image: "/images/products/gants-chauffants/03-usage-tribune.jpg",
     kickerKey: "catHands",
     labelKey: "catHandsLabel",
   },
   {
     category: "pieds",
-    image: "/images/home/cat-pieds.jpg",
+    image: "/images/products/chaussons-chauffants/01-hero.jpg",
     kickerKey: "catFeet",
     labelKey: "catFeetLabel",
   },
   {
     category: "bureau",
-    image: "/images/home/cat-bureau.jpg",
+    image: "/images/products/sous-main-chauffant/01-hero.jpg",
     kickerKey: "catDesk",
     labelKey: "catDeskLabel",
   },
   {
     category: "piece",
-    image: "/images/home/cat-piece.jpg",
+    image: "/images/products/chauffage-appoint/03-usage-pieds.jpg",
     kickerKey: "catRoom",
     labelKey: "catRoomLabel",
   },

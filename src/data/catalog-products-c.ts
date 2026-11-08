@@ -146,6 +146,14 @@ export const productsC: ProductSource[] = [
     category: "corps",
     glow: "warm",
     badge: "new",
+    image: "/images/products/ceinture-lombaire-chauffante/02-packshot.jpg",
+    photos: [
+      "/images/products/ceinture-lombaire-chauffante/01-hero.jpg",
+      "/images/products/ceinture-lombaire-chauffante/02-packshot.jpg",
+      "/images/products/ceinture-lombaire-chauffante/03-usage-bureau.jpg",
+      "/images/products/ceinture-lombaire-chauffante/04-usage-lit.jpg",
+      "/images/products/ceinture-lombaire-chauffante/05-detail.jpg",
+    ],
     name: {
       fr: "Ceinture Chauffante Rechargeable",
       en: "Rechargeable Heated Belt",
@@ -524,6 +532,12 @@ export const productsC: ProductSource[] = [
     category: "pieds",
     glow: "cold",
     badge: "new",
+    image: "/images/products/chaussettes-chauffantes/02-packshot.jpg",
+    photos: [
+      "/images/products/chaussettes-chauffantes/01-hero.jpg",
+      "/images/products/chaussettes-chauffantes/02-packshot.jpg",
+      "/images/products/chaussettes-chauffantes/03-usage-canape.jpg",
+    ],
     name: {
       fr: "Chaussettes Chauffantes USB",
       en: "USB Heated Socks",

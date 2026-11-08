@@ -52,10 +52,10 @@ const content: Record<Category, CategoryContent> = {
       es: "Pies calientes — zapatillas y plantillas calefactables",
     },
     metaDescription: {
-      fr: "Chaussons chauffants pour la maison, semelles chauffantes télécommandées pour l'extérieur : les pieds gèlent en premier, on les équipe en premier.",
-      en: "Heated slippers for home, remote-control heated insoles for outdoors: feet freeze first, so we equip them first.",
-      de: "Beheizbare Hausschuhe für zuhause, ferngesteuerte Einlegesohlen für draußen: Füße frieren zuerst — also rüsten wir sie zuerst aus.",
-      es: "Zapatillas calefactables para casa y plantillas con mando para el exterior: los pies se congelan primero, así que los equipamos primero.",
+      fr: "Chaussons chauffants pour la maison, semelles chauffantes USB pour l'extérieur : les pieds gèlent en premier, on les équipe en premier.",
+      en: "Heated slippers for home, USB heated insoles for outdoors: feet freeze first, so we equip them first.",
+      de: "Beheizbare Hausschuhe für zuhause, USB-Heizsohlen für draußen: Füße frieren zuerst — also rüsten wir sie zuerst aus.",
+      es: "Zapatillas calefactables para casa y plantillas USB para el exterior: los pies se congelan primero, así que los equipamos primero.",
     },
     title: {
       fr: "Pieds.",
@@ -106,10 +106,10 @@ const content: Record<Category, CategoryContent> = {
       es: "Casa caliente — mantas eléctricas y almohadillas térmicas",
     },
     metaDescription: {
-      fr: "Plaid chauffant lavable et coussin nuque-épaules : le confort du soir pour quelques centimes d'électricité. Arrêt automatique de série.",
-      en: "Washable heated throw and neck-shoulder pad: evening comfort for pennies of electricity. Auto shut-off as standard.",
-      de: "Waschbare Heizdecke und Nacken-Schulter-Kissen: Abendkomfort für ein paar Cent Strom. Abschaltautomatik serienmäßig.",
-      es: "Manta eléctrica lavable y almohadilla cervical: el confort de la tarde por céntimos de electricidad. Apagado automático de serie.",
+      fr: "Plaid chauffant USB en polaire corail et coussin nuque-épaules : le confort du soir pour quelques centimes d'électricité.",
+      en: "USB heated coral-fleece throw and neck-shoulder pad: evening comfort for pennies of electricity.",
+      de: "USB-Heizdecke aus Korallenfleece und Nacken-Schulter-Kissen: Abendkomfort für ein paar Cent Strom.",
+      es: "Manta eléctrica USB de forro coral y almohadilla cervical: el confort de la tarde por céntimos de electricidad.",
     },
     title: {
       fr: "Maison.",

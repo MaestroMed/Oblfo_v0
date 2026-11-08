@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { useCart } from "@/components/cart-context";
 import { LocaleSwitcher } from "@/components/locale-switcher";
@@ -17,6 +17,15 @@ export function SiteHeader() {
   const [heated, setHeated] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const closeMenu = () => setMenuOpen(false);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [menuOpen]);
 
   const linkClass =
     "text-[13px] font-medium tracking-[0.04em] text-[#C9BEB0] uppercase no-underline transition-colors hover:text-white";
@@ -116,7 +125,11 @@ export function SiteHeader() {
           </div>
           <button
             type="button"
-            onClick={openDrawer}
+            onClick={() => {
+              // Menu et tiroir ne sont jamais ouverts ensemble.
+              closeMenu();
+              openDrawer();
+            }}
             aria-label={t("cart")}
             className="flex min-h-11 cursor-pointer items-center gap-2.5 rounded-full border border-white/14 bg-white/[0.05] px-3 py-[9px] sm:min-h-0 sm:px-4 font-mono text-[11.5px] tracking-[0.12em] text-[#F5EFE6] transition-colors hover:border-accent/70"
           >
@@ -143,6 +156,7 @@ export function SiteHeader() {
             onClick={() => setMenuOpen((o) => !o)}
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
+            data-state={menuOpen ? "open" : "closed"}
             aria-label={menuOpen ? t("closeMenu") : t("menu")}
             className="flex h-11 w-11 cursor-pointer items-center justify-center text-[#F5EFE6] lg:hidden"
           >

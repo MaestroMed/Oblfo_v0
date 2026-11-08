@@ -28,7 +28,14 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "invalid_signature" }, { status: 400 });
   }
 
-  if (event.type === "checkout.session.completed") {
+  // Un paiement différé (virement, prélèvement SEPA…) termine la session en
+  // payment_status "unpaid" : la commande ne part qu'à async_payment_succeeded.
+  // Sinon on transmettrait « order.paid » pour de l'argent pas encore encaissé.
+  if (
+    (event.type === "checkout.session.completed" ||
+      event.type === "checkout.session.async_payment_succeeded") &&
+    event.data.object.payment_status !== "unpaid"
+  ) {
     const session = event.data.object;
 
     // obflo_items est écrit par /api/checkout (source de vérité serveur) ;
@@ -101,6 +108,10 @@ export async function POST(request: Request) {
         return NextResponse.json({ error: "forward_failed" }, { status: 500 });
       }
     }
+  }
+
+  if (event.type === "checkout.session.completed" && event.data.object.payment_status === "unpaid") {
+    console.log(`[obflo:order-pending] ${event.data.object.id}`);
   }
 
   return NextResponse.json({ received: true });

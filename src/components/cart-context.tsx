@@ -123,7 +123,13 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (!hydrated) return;
     try {
-      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+      // Seuls id/qty/variant sont persistés : nom et prix viennent du catalogue à la lecture.
+      // Stocker le nom localisé ferait boucler deux onglets ouverts dans deux langues
+      // (chacun réécrit sa traduction, l'autre reçoit un événement storage, etc.).
+      window.localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(items.map(({ id, qty, variant }) => ({ id, qty, variant }))),
+      );
     } catch {
       // stockage indisponible (navigation privée) — panier non persisté
     }

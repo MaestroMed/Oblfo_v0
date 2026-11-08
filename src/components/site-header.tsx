@@ -15,23 +15,52 @@ export function SiteHeader() {
   const t = useTranslations("Nav");
   const locale = useLocale() as Locale;
   const [heated, setHeated] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const closeMenu = () => setMenuOpen(false);
 
-  const categoryLink = (category: Category, label: string) => (
+  const linkClass =
+    "text-[13px] font-medium tracking-[0.04em] text-[#C9BEB0] uppercase no-underline transition-colors hover:text-white";
+  // Panneau mobile : cibles de 48 px de haut.
+  const mobileClass =
+    "block border-b border-white/[0.06] py-3.5 text-[15px] font-medium tracking-[0.04em] text-[#F5EFE6] uppercase no-underline";
+
+  const navLinks = (cls: string) => (
+    <>
+      <Link href="/collection" className={cls} onClick={closeMenu}>
+        {t("news")}
+      </Link>
+      {categoryLink("mains", t("hands"), cls)}
+      {categoryLink("pieds", t("feet"), cls)}
+      {categoryLink("bureau", t("desk"), cls)}
+      {categoryLink("piece", t("room"), cls)}
+      <a href={`/${locale}#pack`} className={cls} onClick={closeMenu}>
+        {t("packs")}
+      </a>
+      <Link href="/guides" className={cls} onClick={closeMenu}>
+        {t("guides")}
+      </Link>
+    </>
+  );
+
+  function categoryLink(category: Category, label: string, cls: string) {
+    return (
     <Link
       key={category}
+      onClick={closeMenu}
       href={{
         pathname: "/collection/[category]",
         params: { category: CATEGORY_SLUGS[category][locale] },
       }}
-      className="text-[13px] font-medium tracking-[0.04em] text-[#C9BEB0] uppercase no-underline transition-colors hover:text-white"
+      className={cls}
     >
       {label}
     </Link>
-  );
+    );
+  }
 
   return (
     <header className="sticky top-0 z-[60] border-b border-white/[0.06] bg-[rgba(18,13,9,0.9)] backdrop-blur-[14px]">
-      <div className="mx-auto flex h-[68px] max-w-[1280px] items-center justify-between gap-6 px-8">
+      <div className="mx-auto flex h-[68px] max-w-[1280px] items-center justify-between gap-3 px-4 sm:gap-6 sm:px-8">
         <span
           className="logo-power flex items-baseline font-serif text-[26px] leading-none font-semibold tracking-[0.05em] text-[#F5EFE6]"
           data-on={heated}
@@ -60,35 +89,14 @@ export function SiteHeader() {
           </button>
         </span>
         <nav className="hidden items-center gap-6 lg:flex">
-          <Link
-            href="/collection"
-            className="text-[13px] font-medium tracking-[0.04em] text-[#C9BEB0] uppercase no-underline transition-colors hover:text-white"
-          >
-            {t("news")}
-          </Link>
-          {categoryLink("mains", t("hands"))}
-          {categoryLink("pieds", t("feet"))}
-          {categoryLink("bureau", t("desk"))}
-          {categoryLink("piece", t("room"))}
-          <a
-            href={`/${locale}#pack`}
-            className="text-[13px] font-medium tracking-[0.04em] text-[#C9BEB0] uppercase no-underline transition-colors hover:text-white"
-          >
-            {t("packs")}
-          </a>
-          <Link
-            href="/guides"
-            className="text-[13px] font-medium tracking-[0.04em] text-[#C9BEB0] uppercase no-underline transition-colors hover:text-white"
-          >
-            {t("guides")}
-          </Link>
+          {navLinks(linkClass)}
         </nav>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-1 sm:gap-4">
           <Link
             href="/recherche"
             aria-label={t("search")}
             title={t("search")}
-            className="flex h-8 w-8 items-center justify-center rounded-full text-[#C9BEB0] no-underline transition-colors hover:text-white"
+            className="flex h-11 w-11 items-center justify-center rounded-full text-[#C9BEB0] sm:h-8 sm:w-8 no-underline transition-colors hover:text-white"
           >
             <svg
               viewBox="0 0 24 24"
@@ -103,19 +111,70 @@ export function SiteHeader() {
               <line x1="15.4" y1="15.4" x2="21" y2="21" />
             </svg>
           </Link>
-          <LocaleSwitcher />
+          <div className="hidden lg:block">
+            <LocaleSwitcher />
+          </div>
           <button
             type="button"
             onClick={openDrawer}
-            className="flex cursor-pointer items-center gap-2.5 rounded-full border border-white/14 bg-white/[0.05] px-4 py-[9px] font-mono text-[11.5px] tracking-[0.12em] text-[#F5EFE6] transition-colors hover:border-accent/70"
+            aria-label={t("cart")}
+            className="flex min-h-11 cursor-pointer items-center gap-2.5 rounded-full border border-white/14 bg-white/[0.05] px-3 py-[9px] sm:min-h-0 sm:px-4 font-mono text-[11.5px] tracking-[0.12em] text-[#F5EFE6] transition-colors hover:border-accent/70"
           >
-            {t("cart")}
+            <span className="hidden sm:inline">{t("cart")}</span>
+            <svg
+              viewBox="0 0 24 24"
+              className="h-[17px] w-[17px] sm:hidden"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M6 7h12l-1 13H7L6 7Z" />
+              <path d="M9 7a3 3 0 0 1 6 0" />
+            </svg>
             <span className="inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-accent px-[5px] font-medium text-[#14100C]">
               {count}
             </span>
           </button>
+          <button
+            type="button"
+            onClick={() => setMenuOpen((o) => !o)}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
+            aria-label={menuOpen ? t("closeMenu") : t("menu")}
+            className="flex h-11 w-11 cursor-pointer items-center justify-center text-[#F5EFE6] lg:hidden"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              className="h-[22px] w-[22px]"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              aria-hidden="true"
+            >
+              {menuOpen ? (
+                <path d="M6 6l12 12M18 6L6 18" />
+              ) : (
+                <path d="M4 7h16M4 12h16M4 17h16" />
+              )}
+            </svg>
+          </button>
         </div>
       </div>
+      {menuOpen ? (
+        <nav
+          id="mobile-menu"
+          className="max-h-[calc(100dvh-68px)] overflow-y-auto border-t border-white/[0.06] px-5 pb-6 lg:hidden"
+        >
+          {navLinks(mobileClass)}
+          <div className="pt-5 text-[13px] [&_a]:inline-block [&_a]:px-2 [&_a]:py-2.5">
+            <LocaleSwitcher />
+          </div>
+        </nav>
+      ) : null}
     </header>
   );
 }

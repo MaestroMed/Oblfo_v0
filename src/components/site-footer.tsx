@@ -31,7 +31,7 @@ export function SiteFooter() {
     <footer className="mt-auto bg-[#100C08]">
       <div className="h-px bg-[linear-gradient(90deg,transparent,#F07B2E,transparent)]" />
       <div className="border-b border-white/[0.05]">
-        <div className="mx-auto grid max-w-[1240px] grid-cols-2 gap-6 px-8 py-8 lg:grid-cols-4">
+        <div className="mx-auto grid max-w-[1240px] grid-cols-2 gap-6 px-5 sm:px-8 py-8 lg:grid-cols-4">
           {badges.map(([titleKey, textKey]) => (
             <div key={titleKey} className="flex flex-col gap-1">
               <span className="flex items-center gap-2 text-[13px] font-semibold text-[#EDE4D7]">
@@ -45,7 +45,7 @@ export function SiteFooter() {
           ))}
         </div>
       </div>
-      <div className="mx-auto max-w-[1240px] px-8 pt-[60px] pb-9">
+      <div className="mx-auto max-w-[1240px] px-5 sm:px-8 pt-[60px] pb-9">
         <div className="flex flex-wrap justify-between gap-14">
           <div className="flex max-w-[360px] flex-col gap-[18px]">
             <div className="text-2xl font-bold tracking-[0.05em] text-ink">

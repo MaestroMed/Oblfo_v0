@@ -14,7 +14,7 @@ export function Reassurance() {
 
   return (
     <section className="border-y border-black/[0.06] bg-cream-2 py-10">
-      <div className="mx-auto grid max-w-[1280px] grid-cols-2 gap-x-6 gap-y-7 px-8 sm:grid-cols-3 lg:grid-cols-6">
+      <div className="mx-auto grid max-w-[1280px] grid-cols-2 gap-x-6 gap-y-7 px-5 sm:px-8 sm:grid-cols-3 lg:grid-cols-6">
         {items.map(([titleKey, textKey]) => (
           <div key={titleKey} className="flex flex-col gap-1.5">
             <span className="flex items-center gap-2 text-[13.5px] font-semibold text-ink-warm">

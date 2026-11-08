@@ -10,7 +10,7 @@ export function Essentials({ locale }: { locale: Locale }) {
 
   return (
     <section id="essentiels" className="scroll-mt-24 bg-cream py-20">
-      <div className="mx-auto max-w-[1280px] px-8">
+      <div className="mx-auto max-w-[1280px] px-5 sm:px-8">
         <div className="mb-10 flex flex-wrap items-baseline justify-between gap-4">
           <h2 className="font-serif text-[clamp(28px,3vw,38px)] font-medium tracking-[-0.01em] text-ink-warm">
             {t("essentialsTitle")}
@@ -22,7 +22,7 @@ export function Essentials({ locale }: { locale: Locale }) {
             {t("essentialsSeeAll")} →
           </Link>
         </div>
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-[repeat(auto-fit,minmax(250px,1fr))] sm:gap-6">
           {products.slice(0, 4).map((product) => (
             <ProductCard key={product.id} product={product} locale={locale} />
           ))}

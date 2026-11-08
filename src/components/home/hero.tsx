@@ -26,7 +26,7 @@ export function Hero() {
         <div aria-hidden className="grain absolute inset-0" />
         <div className="absolute inset-x-0 bottom-0 h-32 bg-[linear-gradient(180deg,rgba(22,17,12,0)_0%,#16110C_100%)]" />
       </div>
-      <div className="relative mx-auto max-w-[1280px] px-8 pt-16 pb-[150px] md:pt-20">
+      <div className="relative mx-auto max-w-[1280px] px-5 sm:px-8 pt-16 pb-[150px] md:pt-20">
         <div className="flex max-w-[620px] flex-col items-start gap-7">
           {/* Marque animée — décorative, le vrai H1 est en dessous */}
           <div

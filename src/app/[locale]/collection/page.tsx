@@ -80,7 +80,7 @@ export default async function CollectionPage({ params }: Props) {
                   →
                 </Link>
               </div>
-              <div className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-6">
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-[repeat(auto-fill,minmax(250px,1fr))] sm:gap-6">
                 {section.items.map((product) => (
                   <ProductCard
                     key={product.id}

@@ -33,7 +33,7 @@ export async function HeatProofs({ locale }: { locale: Locale }) {
   return (
     <section className="relative overflow-hidden bg-espresso py-20 text-[#F5EFE6]">
       <div aria-hidden className="absolute inset-0 bg-[radial-gradient(60%_80%_at_15%_100%,rgba(232,69,31,0.22),transparent_70%)]" />
-      <div className="relative mx-auto max-w-[1280px] px-8">
+      <div className="relative mx-auto max-w-[1280px] px-5 sm:px-8">
         <Reveal className="mb-12 flex flex-col gap-3">
           <span className="font-mono text-[11px] tracking-[0.22em] text-copper">◈ {t("heatKicker")}</span>
           <h2 className="font-serif text-[clamp(28px,3.2vw,42px)] font-medium tracking-[-0.01em]">{t("heatTitle")}</h2>

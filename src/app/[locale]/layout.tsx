@@ -10,7 +10,8 @@ import "../globals.css";
 import { AnnouncementBar } from "@/components/announcement-bar";
 import { CartDrawer } from "@/components/cart-drawer";
 import { CartProvider } from "@/components/cart-context";
-import { CartToast } from "@/components/cart-toast";
+import { Toaster } from "sonner";
+import { MotionProvider } from "@/components/ui/motion-provider";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { isLocale, ogLocale, routing } from "@/i18n/routing";
@@ -81,14 +82,16 @@ export default async function LocaleLayout({ children, params }: Props) {
     >
       <body className="min-h-full flex flex-col">
         <NextIntlClientProvider>
+          <MotionProvider>
           <CartProvider>
             <AnnouncementBar />
             <SiteHeader />
             {children}
             <SiteFooter />
             <CartDrawer />
-            <CartToast />
+            <Toaster position="bottom-center" offset={88} mobileOffset={88} toastOptions={{ className: "obflo-toast" }} />
           </CartProvider>
+          </MotionProvider>
           {/* Dans le provider : le bandeau lit ses libellés via useTranslations. */}
           <CookieBanner />
         </NextIntlClientProvider>

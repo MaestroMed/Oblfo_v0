@@ -3,7 +3,7 @@
 import { useSyncExternalStore } from "react";
 import { useTranslations } from "next-intl";
 
-const DISMISS_KEY = "obflo-annonce-2026";
+const DISMISS_KEY = "obflo-annonce-bf-2026";
 const DISMISS_EVENT = "obflo:annonce-dismiss";
 
 // Repli mémoire : en navigation privée la fermeture n'est pas persistée,

@@ -4,7 +4,7 @@
     "description": "Beheizbare Handschuhe, Hausschuhe, Tassenwärmer und Heizlüfter. Gezielte Wärme in Sekunden, genau dort, wo der Winter zubeißt. Kostenloser Versand ab 60 €, 30 Tage Rückgaberecht."
   },
   "Announcement": {
-    "text": "NEU 2026: smarte Heiztechnik der nächsten Generation — Versand in 3–5 Werktagen"
+    "text": "BLACK FRIDAY · bis zu 22 € sparen mit unseren Sets · Versandkostenfrei ab 60 €"
   },
   "HomeV2": {
     "heroBadge": "NEUE GENERATION 2026",
@@ -37,7 +37,7 @@
     "packFeat3Title": "2 Jahre Gewährleistung",
     "packFeat3Text": "Gesetzliche Gewährleistung",
     "packFeat4Title": "Versand",
-    "packFeat4Text": "3–5 Werktage",
+    "packFeat4Text": "8 bis 20 Tage, mit Tracking",
     "packSave": "Sie sparen {amount}",
     "packCta": "Set in den Warenkorb",
     "reassur1Title": "Schnelles Aufheizen",
@@ -48,7 +48,7 @@
     "reassur3Text": "Weiche, angenehme Materialien",
     "reassur4Title": "Erweiterte Sicherheit",
     "reassur4Text": "Überhitzungsschutz",
-    "reassur5Title": "Versand in 3–5 Tagen",
+    "reassur5Title": "Lieferung in 8–20 Tagen",
     "reassur5Text": "Mit Sendungsverfolgung, sorgfältig verpackt",
     "reassur6Title": "30 Tage Rückgabe",
     "reassur6Text": "Einfach und schnell",
@@ -71,7 +71,7 @@
   },
   "Collection": {
     "metaTitle": "Die Kollektion — alle unsere Wärme-Essentials",
-    "metaDescription": "Die komplette OBFLO-Kollektion: Hände, Füße, Schreibtisch, Zuhause. Smarte Heizprodukte, 2 Jahre Gewährleistung, Versand in 3–5 Tagen.",
+    "metaDescription": "Die komplette OBFLO-Kollektion: Hände, Füße, Schreibtisch, Zuhause. Smarte Heizprodukte, 2 Jahre Gewährleistung, Lieferung in 8 bis 20 Tagen.",
     "title": "Die ganze Kollektion.",
     "intro": "Jedes Produkt beantwortet einen ganz bestimmten kalten Moment. Abteilung für Abteilung: alles, was OBFLO wärmen kann."
   },
@@ -188,7 +188,7 @@
     "breadcrumbLabel": "Brotkrumen-Navigation",
     "kicker": "OBFLO — TRAGBARE WÄRME",
     "addToCart": "In den Warenkorb",
-    "reassurance": "VERSAND 3–5 TAGE  ·  30 TAGE RÜCKGABE  ·  GRATIS AB 60 €",
+    "reassurance": "LIEFERUNG 8–20 TAGE  ·  30 TAGE RÜCKGABE  ·  GRATIS AB 60 €",
     "specsKicker": "SPECS",
     "specsLabel": "TECHNISCHE DATEN",
     "packsKicker": "SETS",
@@ -224,7 +224,7 @@
     "badge2Title": "Erreichbarer Support",
     "badge2Text": "Antwort innerhalb von 1–2 Werktagen",
     "badge3Title": "Versand mit Tracking",
-    "badge3Text": "3–5 Werktage",
+    "badge3Text": "8 bis 20 Tage, mit Tracking",
     "badge4Title": "30 Tage Rückgabe",
     "badge4Text": "Einfach und schnell"
   },
@@ -240,7 +240,7 @@
     "kicker": "BESTELLUNG BESTÄTIGT",
     "titleLine1": "Geschafft.",
     "titleLine2": "Die Wärme ist unterwegs.",
-    "text": "Ihre Bestellung ist bestätigt. Eine Bestätigungs-E-Mail ist unterwegs, gefolgt von einer Sendungsnummer, sobald das Paket verschickt wird (innerhalb von 24–48 Werktagsstunden).",
+    "text": "Ihre Bestellung ist bestätigt. Eine Bestätigungs-E-Mail ist unterwegs, gefolgt von einer Sendungsnummer, sobald das Paket verschickt wird (innerhalb von 1 bis 3 Werktagen).",
     "cta": "Zurück zum Shop"
   },
   "ShippingPage": {
@@ -253,7 +253,7 @@
       {
         "title": "Versandzeiten",
         "paragraphs": [
-          "Bestellungen werden innerhalb von 24 bis 48 Werktagsstunden verschickt. Die Lieferung dauert anschließend 3 bis 5 Werktage. Eine Sendungsnummer erhalten Sie per E-Mail, sobald Ihre Bestellung das Lager verlässt."
+          "Bestellungen werden innerhalb von 1 bis 3 Werktagen vorbereitet und verschickt. Zwischen Bestellung und Lieferung liegen 8 bis 20 Tage. Eine Sendungsnummer erhalten Sie per E-Mail, sobald Ihre Bestellung das Lager verlässt."
         ]
       },
       {
@@ -315,7 +315,7 @@
     "s3Title": "3. Bestellung und Zahlung",
     "s3P1": "Die Bestellung ist mit Bestätigung der Zahlung verbindlich. Akzeptierte Zahlungsarten: Kreditkarte (sowie je nach Gerät Apple Pay / Google Pay). Die Zahlung wird über Stripe abgesichert; Kartendaten erreichen unsere Server zu keinem Zeitpunkt.",
     "s4Title": "4. Lieferung",
-    "s4P1": "Versand innerhalb von 24 bis 48 Werktagsstunden, Lieferung in 3 bis 5 Werktagen mit Sendungsverfolgung. Bei einer Verzögerung von mehr als 7 Werktagen kann der Kunde die Bestellung stornieren und erhält den vollen Betrag zurück.",
+    "s4P1": "Versand innerhalb von 1 bis 3 Werktagen, Lieferung 8 bis 20 Tage nach der Bestellung, mit Sendungsverfolgung. Bei einer Verzögerung von mehr als 7 Werktagen kann der Kunde die Bestellung stornieren und erhält den vollen Betrag zurück.",
     "s5Title": "5. Widerruf und Rückgabe",
     "s5P1": "Verbrauchern steht das gesetzliche 14-tägige Widerrufsrecht zu. OBFLO verlängert dieses auf 30 Tage nach Erhalt, ohne Angabe von Gründen. Die Rücksendekosten trägt der Kunde, außer bei defekten Produkten oder unserem Fehler. Die volle Rückerstattung erfolgt, sobald das vollständige, unbeschädigte Produkt bei uns eintrifft.",
     "s6Title": "6. Gewährleistung",
@@ -351,5 +351,40 @@
     "privacyLink": "Mehr erfahren",
     "accept": "AKZEPTIEREN",
     "refuse": "ABLEHNEN"
+  },
+  "Ux": {
+    "fact1": "Lieferung mit Tracking in 8 bis 20 Tagen",
+    "fact2": "Versandkostenfrei ab 60 €",
+    "fact3": "30 Tage Rückgabe",
+    "fact4": "Sichere Zahlung mit Stripe",
+    "fact5": "USB-Wärme an jeder Powerbank",
+    "fact6": "Sets günstiger als einzeln",
+    "heatKicker": "WÄRME IN ZAHLEN",
+    "heatTitle": "Zahlen statt Versprechen.",
+    "heatNote": "Herstellerangaben, übernommen aus unseren Produktseiten.",
+    "heatTemp": "°C auf höchster Stufe · {product}",
+    "heatSeconds": "Sekunden bis zur Wärme · {product}",
+    "heatLevels": "Heizstufen · {product}",
+    "unitTemp": "°C",
+    "unitSeconds": "s",
+    "unitLevels": "Stufen",
+    "addWithPrice": "In den Warenkorb · {price}",
+    "buyNow": "Jetzt kaufen",
+    "buyNowPrice": "Kaufen · {price}",
+    "accHeat": "Wärme",
+    "accCare": "Pflege",
+    "accShipping": "Lieferung",
+    "careFallback": "Beachten Sie die beiliegende Anleitung. Vor dem Reinigen immer das USB-Kabel trennen.",
+    "shippingText": "Vorbereitung und Versand innerhalb von 1 bis 3 Werktagen, dann Lieferung mit Tracking: Zwischen Bestellung und Erhalt liegen 8 bis 20 Tage. Versandkostenfrei ab 60 €, sonst 4,90 €. 30 Tage Rückgabe.",
+    "reassureShip": "Lieferung mit Tracking in 8 bis 20 Tagen",
+    "reassureReturn": "30 Tage Rückgabe",
+    "reassurePay": "Sichere Zahlung über Stripe",
+    "reassureContact": "Eine Frage? Antwort per E-Mail",
+    "freeShipLeft": "Noch {amount} bis zum kostenlosen Versand",
+    "freeShipDone": "Kostenloser Versand freigeschaltet",
+    "packSuggest": "Günstiger im Set",
+    "packSuggestText": "{name} · {save} gespart",
+    "packSuggestCta": "Set hinzufügen",
+    "toastAction": "Zum Warenkorb"
   }
 }

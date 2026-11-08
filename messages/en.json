@@ -4,7 +4,7 @@
     "description": "Heated gloves, heated slippers, mug warmer and portable space heater. Targeted warmth in seconds, right where winter bites. Free shipping over €60, 30-day returns."
   },
   "Announcement": {
-    "text": "NEW FOR 2026: next-generation smart heating — Ships in 3–5 business days"
+    "text": "BLACK FRIDAY · save up to €22 with our bundles · Free delivery from €60"
   },
   "HomeV2": {
     "heroBadge": "NEW GENERATION 2026",
@@ -37,7 +37,7 @@
     "packFeat3Title": "2-year warranty",
     "packFeat3Text": "Legal conformity warranty",
     "packFeat4Title": "Shipping",
-    "packFeat4Text": "3–5 business days",
+    "packFeat4Text": "8 to 20 days, tracked",
     "packSave": "You save {amount}",
     "packCta": "Add the bundle to cart",
     "reassur1Title": "Fast heat-up",
@@ -48,7 +48,7 @@
     "reassur3Text": "Soft, pleasant materials",
     "reassur4Title": "Advanced safety",
     "reassur4Text": "Overheat protection",
-    "reassur5Title": "3–5 day shipping",
+    "reassur5Title": "8 to 20 day delivery",
     "reassur5Text": "Tracked & carefully packed",
     "reassur6Title": "30-day returns",
     "reassur6Text": "Simple and fast",
@@ -71,7 +71,7 @@
   },
   "Collection": {
     "metaTitle": "The collection — all our heated essentials",
-    "metaDescription": "The full OBFLO collection: hands, feet, desk, home. Smart heated products, 2-year warranty, 3–5 day shipping.",
+    "metaDescription": "The full OBFLO collection: hands, feet, desk, home. Smart heated products, 2-year warranty, tracked delivery in 8 to 20 days.",
     "title": "The whole collection.",
     "intro": "Every product answers one precise cold moment. Aisle by aisle, here is everything OBFLO knows how to warm."
   },
@@ -265,7 +265,7 @@
     "breadcrumbLabel": "Breadcrumb",
     "kicker": "OBFLO — PORTABLE WARMTH",
     "addToCart": "Add to cart",
-    "reassurance": "SHIPS IN 3–5 DAYS  ·  30-DAY RETURNS  ·  FREE OVER €60",
+    "reassurance": "DELIVERY 8–20 DAYS  ·  30-DAY RETURNS  ·  FREE OVER €60",
     "specsKicker": "SPECS",
     "specsLabel": "SPECIFICATIONS",
     "packsKicker": "BUNDLES",
@@ -301,7 +301,7 @@
     "badge2Title": "Responsive support",
     "badge2Text": "Replies within 1–2 business days",
     "badge3Title": "Tracked shipping",
-    "badge3Text": "3–5 business days",
+    "badge3Text": "8 to 20 days, tracked",
     "badge4Title": "30-day returns",
     "badge4Text": "Simple and fast"
   },
@@ -317,7 +317,7 @@
     "kicker": "ORDER CONFIRMED",
     "titleLine1": "Done.",
     "titleLine2": "Warmth is on its way.",
-    "text": "Your order is confirmed. A confirmation email is on its way, followed by a tracking number as soon as it ships (within 24–48 business hours).",
+    "text": "Your order is confirmed. A confirmation email is on its way, followed by a tracking number as soon as it ships (within 1 to 3 business days).",
     "cta": "Back to the shop"
   },
   "ShippingPage": {
@@ -330,7 +330,7 @@
       {
         "title": "Shipping times",
         "paragraphs": [
-          "Orders ship within 24 to 48 business hours. Delivery then takes 3 to 5 business days in metropolitan France. A tracking number is emailed to you as soon as your order ships."
+          "Orders are prepared and shipped within 1 to 3 business days. Allow 8 to 20 days between order and delivery in metropolitan France. A tracking number is emailed to you as soon as your order ships."
         ]
       },
       {
@@ -392,7 +392,7 @@
     "s3Title": "3. Orders and payment",
     "s3P1": "Orders are final once payment is confirmed. Accepted payment methods: bank card (plus Apple Pay / Google Pay depending on device). Payments are secured by Stripe; no card data ever touches our servers.",
     "s4Title": "4. Delivery",
-    "s4P1": "Orders ship within 24 to 48 business hours, with delivery in 3 to 5 business days in metropolitan France, tracked. If delivery is delayed by more than 7 business days, the customer may cancel the order for a full refund.",
+    "s4P1": "Orders ship within 1 to 3 business days, with tracked delivery 8 to 20 days after the order in metropolitan France. If delivery is delayed by more than 7 business days, the customer may cancel the order for a full refund.",
     "s5Title": "5. Withdrawal and returns",
     "s5P1": "Under the French Consumer Code, customers have 14 days to withdraw. OBFLO extends this to 30 days after delivery, no questions asked. Return shipping costs are borne by the customer, except for defective products or our error. The full refund is issued once the returned product arrives complete and in good condition.",
     "s6Title": "6. Warranties",
@@ -428,5 +428,40 @@
     "privacyLink": "Learn more",
     "accept": "ACCEPT",
     "refuse": "DECLINE"
+  },
+  "Ux": {
+    "fact1": "Tracked delivery in 8 to 20 days",
+    "fact2": "Free from €60",
+    "fact3": "30-day returns",
+    "fact4": "Secure Stripe payment",
+    "fact5": "USB heat on any power bank",
+    "fact6": "Bundles cost less than single items",
+    "heatKicker": "HEAT, MEASURED",
+    "heatTitle": "Numbers, not promises.",
+    "heatNote": "Manufacturer figures, taken from our product pages.",
+    "heatTemp": "°C at max level · {product}",
+    "heatSeconds": "seconds to feel the heat · {product}",
+    "heatLevels": "heat levels · {product}",
+    "unitTemp": "°C",
+    "unitSeconds": "s",
+    "unitLevels": "lvl",
+    "addWithPrice": "Add to cart · {price}",
+    "buyNow": "Buy now",
+    "buyNowPrice": "Buy · {price}",
+    "accHeat": "Heat",
+    "accCare": "Care",
+    "accShipping": "Delivery",
+    "careFallback": "Follow the instructions supplied with the product. Always unplug the USB cable before cleaning.",
+    "shippingText": "Prepared and shipped within 1 to 3 business days, then tracked delivery: allow 8 to 20 days between order and arrival. Free from €60, otherwise €4.90. 30-day returns.",
+    "reassureShip": "Tracked delivery in 8 to 20 days",
+    "reassureReturn": "30-day returns",
+    "reassurePay": "Secure payment by Stripe",
+    "reassureContact": "A question? We answer by email",
+    "freeShipLeft": "{amount} away from free delivery",
+    "freeShipDone": "Free delivery unlocked",
+    "packSuggest": "Cheaper as a bundle",
+    "packSuggestText": "{name} · save {save}",
+    "packSuggestCta": "Add the bundle",
+    "toastAction": "View cart"
   }
 }

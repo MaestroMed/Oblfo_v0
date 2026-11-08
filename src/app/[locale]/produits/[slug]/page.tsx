@@ -3,6 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { AddToCartButton } from "@/components/add-to-cart-button";
+import { BuyBox } from "@/components/product/buy-box";
 import { ImageSlot } from "@/components/image-slot";
 import { RecentlyViewed, TrackProductView } from "@/components/recently-viewed";
 import { VariantPicker } from "@/components/variant-picker";
@@ -25,6 +26,7 @@ import {
   MERCHANT_RETURN_POLICY,
   OFFER_SHIPPING_DETAILS,
 } from "@/lib/shipping";
+import { heatProofs } from "@/lib/heat";
 import { SITE_URL } from "@/lib/site";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
@@ -86,7 +88,7 @@ export default async function ProductPage({ params }: Props) {
   if (!product) notFound();
 
   const t = await getTranslations("ProductPage");
-  const tCart = await getTranslations("Cart");
+  const tUx = await getTranslations("Ux");
   const packsWithProduct = getPacksForProduct(locale, product.id);
   // Même rayon d'abord (le plus complémentaire), complété avec le reste — 4 max.
   const siblings = getProducts(locale).filter((p) => p.id !== product.id);
@@ -141,174 +143,169 @@ export default async function ProductPage({ params }: Props) {
     ],
   };
 
+  const proofs = heatProofs(product.specs, product.highlights);
+  const careSpec = product.specs.find((s) => /entretien|care|pflege|cuidado/i.test(s.label));
+  const heatSpecs = product.specs.filter((s) =>
+    /chauff|heat|heiz|wärm|calor|calent|temp|niveau|level|stufe|nivel|autonom|batter|akku|usb/i.test(s.label),
+  );
+  const unit = { temp: tUx("unitTemp"), seconds: tUx("unitSeconds"), levels: tUx("unitLevels") };
+  const accordion = [
+    {
+      title: tUx("accHeat"),
+      body: heatSpecs.length ? (
+        <dl className="grid gap-2">
+          {heatSpecs.map((s) => (
+            <div key={s.label} className="flex justify-between gap-4 border-b border-black/[0.06] pb-2 last:border-0">
+              <dt className="text-muted-warm">{s.label}</dt>
+              <dd className="text-right font-medium">{s.value}</dd>
+            </div>
+          ))}
+        </dl>
+      ) : (
+        <ul className="grid gap-1.5">
+          {product.highlights.map((h) => (
+            <li key={h}>{h}</li>
+          ))}
+        </ul>
+      ),
+    },
+    { title: tUx("accCare"), body: <p>{careSpec?.value ?? tUx("careFallback")}</p> },
+    { title: tUx("accShipping"), body: <p>{tUx("shippingText")}</p> },
+  ];
+
   return (
-    <main>
+    <main className="bg-cream text-ink-warm">
       {/* ── Fiche produit ── */}
-      <section className="relative overflow-hidden bg-[linear-gradient(180deg,#0B1119_0%,#0A0C10_70%)]">
-        <div
-          className={`${product.glow === "warm" ? "glow-warm" : "glow-cold"} pointer-events-none absolute -top-[120px] -right-[220px] h-[700px] w-[900px]`}
-        />
-        <div className="relative mx-auto max-w-[1240px] px-8 pt-8 pb-[90px]">
+      <section className="relative">
+        <div className="relative mx-auto max-w-[1240px] px-4 pt-6 pb-16 sm:px-8 sm:pt-8 sm:pb-[90px]">
           <nav
             aria-label={t("breadcrumbLabel")}
-            className="mb-9 flex items-center gap-2.5 font-mono text-[10.5px] tracking-[0.16em] text-[#6D8093]"
+            className="mb-7 flex flex-wrap items-center gap-2.5 font-mono text-[10.5px] tracking-[0.16em] text-muted-warm"
           >
-            <Link
-              href="/"
-              className="text-[#8FA1B3] no-underline transition-colors hover:text-accent"
-            >
+            <Link href="/" className="text-muted-warm no-underline transition-colors hover:text-ember">
               {t("breadcrumbHome")}
             </Link>
             <span>/</span>
-            <Link
-              href="/collection"
-              className="text-[#8FA1B3] no-underline transition-colors hover:text-accent"
-            >
+            <Link href="/collection" className="text-muted-warm no-underline transition-colors hover:text-ember">
               {t("breadcrumbRange")}
             </Link>
             <span>/</span>
-            <span className="text-accent">{product.name.toUpperCase()}</span>
+            <span className="text-ember">{product.name.toUpperCase()}</span>
           </nav>
 
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(420px,1fr))] items-start gap-16">
-            {/* Galerie */}
-            <div className="flex flex-col gap-3">
-              <div className="relative aspect-square overflow-hidden rounded-[22px] border border-white/9 bg-media">
+          <div className="grid items-start gap-10 lg:grid-cols-[1.08fr_1fr] lg:gap-16">
+            {/* Galerie collante */}
+            <div className="flex flex-col gap-3 lg:sticky lg:top-24">
+              <div className="relative aspect-square overflow-hidden rounded-[22px] bg-espresso shadow-[0_40px_90px_-50px_rgba(22,17,12,0.7)]">
                 {product.image ? (
                   <Image
                     src={product.image}
                     alt={product.name}
                     fill
                     priority
-                    sizes="(min-width: 1024px) 45vw, 100vw"
+                    sizes="(min-width: 1024px) 50vw, 100vw"
                     className="object-cover"
                   />
                 ) : (
                   <ImageSlot label={product.gallery[0]} />
                 )}
-                <div className="pointer-events-none absolute top-2.5 right-2.5 h-3.5 w-3.5 border-t-2 border-r-2 border-accent/80" />
-                <div className="pointer-events-none absolute bottom-2.5 left-2.5 h-3.5 w-3.5 border-b-2 border-l-2 border-accent/80" />
+                <div aria-hidden className="grain pointer-events-none absolute inset-0" />
               </div>
               <div className="grid grid-cols-3 gap-3">
                 {product.gallery.slice(1).map((label) => (
-                  <div
-                    key={label}
-                    className="relative aspect-square overflow-hidden rounded-[14px] border border-white/7 bg-media"
-                  >
+                  <div key={label} className="relative aspect-square overflow-hidden rounded-[14px] bg-espresso-2">
                     <ImageSlot label={label} />
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Infos */}
+            {/* Infos + achat */}
             <div className="flex flex-col gap-6">
-              <div className="flex items-center gap-3 font-mono text-[11px] tracking-[0.24em] text-[#8FA1B3]">
-                <span className="h-2 w-2 rotate-45 bg-accent shadow-[0_0_14px_rgba(255,106,43,0.9)]" />
+              <div className="flex items-center gap-3 font-mono text-[11px] tracking-[0.24em] text-copper">
+                <span className="h-2 w-2 rotate-45 bg-ember" />
                 {t("kicker")}
               </div>
-              <h1 className="text-[clamp(38px,4.4vw,60px)] font-bold leading-[1.02] tracking-[-0.025em] text-ink">
+              <h1 className="font-serif text-[clamp(36px,4.4vw,58px)] font-medium leading-[1.02] tracking-[-0.02em]">
                 {product.name}
               </h1>
-              <div className="flex gap-2">
+              <div className="flex flex-wrap gap-2">
                 {product.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-md border border-cold/25 px-2 py-1 font-mono text-[10px] tracking-[0.14em] text-[#9FB3C4]"
+                    className="rounded-md border border-black/12 bg-white/60 px-2 py-1 font-mono text-[10px] tracking-[0.14em] text-muted-warm"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
+
+              {proofs.length ? (
+                <div className="flex flex-wrap gap-x-8 gap-y-3 border-y border-black/[0.08] py-4">
+                  {proofs.map((p) => (
+                    <div key={p.kind} className="flex items-baseline gap-1.5">
+                      <span className="bg-[linear-gradient(135deg,#c98a4b,#f07b2e,#e8451f)] bg-clip-text font-serif text-[40px] font-medium leading-none text-transparent">
+                        {p.value}
+                      </span>
+                      <span className="font-mono text-xs tracking-[0.1em] text-muted-warm">{unit[p.kind]}</span>
+                    </div>
+                  ))}
+                </div>
+              ) : null}
+
+              <BuyBox
+                id={product.id}
+                name={product.name}
+                price={product.price}
+                variant={product.variant}
+                available={product.available}
+              />
+
+              <div className="flex flex-col">
+                {accordion.map((item, i) => (
+                  <details key={item.title} open={i === 0} className="group border-b border-black/[0.08] first:border-t">
+                    <summary className="flex cursor-pointer list-none items-center justify-between py-4 text-[15px] font-semibold [&::-webkit-details-marker]:hidden">
+                      {item.title}
+                      <span aria-hidden className="font-mono text-lg text-copper transition-transform group-open:rotate-45">
+                        +
+                      </span>
+                    </summary>
+                    <div className="pb-5 text-[14.5px] leading-relaxed text-ink-warm/85">{item.body}</div>
+                  </details>
+                ))}
+              </div>
+
               {product.description.map((paragraph) => (
-                <p
-                  key={paragraph.slice(0, 32)}
-                  className="max-w-[520px] text-base leading-relaxed text-[#9AA9B8] text-pretty"
-                >
+                <p key={paragraph.slice(0, 32)} className="max-w-[560px] text-base leading-relaxed text-muted-warm text-pretty">
                   {paragraph}
                 </p>
               ))}
               <ul className="flex flex-col gap-2.5">
                 {product.highlights.map((highlight) => (
-                  <li
-                    key={highlight}
-                    className="flex items-center gap-3 text-[15px] font-medium text-[#DCE4EC]"
-                  >
-                    <span className="h-1.5 w-1.5 flex-none rotate-45 bg-accent shadow-[0_0_10px_rgba(255,106,43,0.8)]" />
+                  <li key={highlight} className="flex items-center gap-3 text-[15px] font-medium">
+                    <span className="h-1.5 w-1.5 flex-none rotate-45 bg-ember" />
                     {highlight}
                   </li>
                 ))}
               </ul>
-              {product.available ? (
-                product.variant ? (
-                  <div className="mt-2 flex flex-col gap-4">
-                    <div className="text-[38px] font-bold text-ink">
-                      {formatPrice(product.price, locale)}
-                    </div>
-                    <VariantPicker
-                      id={product.id}
-                      name={product.name}
-                      price={product.price}
-                      label={product.variant.label}
-                      options={product.variant.options}
-                      layout="pills"
-                      buttonLabel={t("addToCart")}
-                      buttonClassName="cursor-pointer rounded-xl bg-accent px-[26px] py-[15px] text-[15px] font-semibold text-[#14100C] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_40px_-12px_rgba(255,106,43,0.6)]"
-                    />
-                  </div>
-                ) : (
-                  <div className="mt-2 flex flex-wrap items-center gap-5">
-                    <div className="text-[38px] font-bold text-ink">
-                      {formatPrice(product.price, locale)}
-                    </div>
-                    <AddToCartButton
-                      id={product.id}
-                      name={product.name}
-                      price={product.price}
-                      className="cursor-pointer rounded-xl bg-accent px-[26px] py-[15px] text-[15px] font-semibold text-[#14100C] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_40px_-12px_rgba(255,106,43,0.6)]"
-                    >
-                      {t("addToCart")}
-                    </AddToCartButton>
-                  </div>
-                )
-              ) : (
-                <div className="mt-2 flex flex-wrap items-center gap-5">
-                  <div className="text-[38px] font-bold text-ink">
-                    {formatPrice(product.price, locale)}
-                  </div>
-                  <span className="rounded-xl border border-white/12 px-[26px] py-[15px] text-[15px] font-semibold text-[#6D8093]">
-                    {tCart("unavailable")}
-                  </span>
-                </div>
-              )}
-              <div className="font-mono text-[11px] tracking-[0.16em] text-[#6D8093]">
-                {t("reassurance")}
-              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* ── Caractéristiques ── */}
-      <section className="border-y border-white/5 bg-night-2 py-[90px]">
-        <div className="mx-auto max-w-[1240px] px-8">
+      <section className="border-y border-black/[0.06] bg-cream-2 py-16 sm:py-[90px]">
+        <div className="mx-auto max-w-[1240px] px-4 sm:px-8">
           <div className="mb-10 flex items-center gap-3 font-mono text-[11px] tracking-[0.22em]">
-            <span className="text-[#6D8093]">{t("specsKicker")}</span>
-            <span className="h-px w-7 bg-accent/50" />
-            <span className="text-accent">{t("specsLabel")}</span>
+            <span className="text-muted-warm">{t("specsKicker")}</span>
+            <span className="h-px w-7 bg-copper/60" />
+            <span className="text-ember">{t("specsLabel")}</span>
           </div>
-          <dl className="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-4">
+          <dl className="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-4">
             {product.specs.map((spec) => (
-              <div
-                key={spec.label}
-                className="flex flex-col gap-2 rounded-[14px] border border-white/8 bg-white/[0.02] px-5 py-4"
-              >
-                <dt className="font-mono text-[10.5px] tracking-[0.18em] text-[#6D8093] uppercase">
-                  {spec.label}
-                </dt>
-                <dd className="text-[15px] font-medium text-[#DCE4EC]">
-                  {spec.value}
-                </dd>
+              <div key={spec.label} className="flex flex-col gap-2 rounded-[14px] border border-black/[0.06] bg-white px-5 py-4">
+                <dt className="font-mono text-[10.5px] tracking-[0.18em] text-muted-warm uppercase">{spec.label}</dt>
+                <dd className="text-[15px] font-medium">{spec.value}</dd>
               </div>
             ))}
           </dl>
@@ -317,7 +314,7 @@ export default async function ProductPage({ params }: Props) {
 
       {/* ── Moins cher en pack ── */}
       {packsWithProduct.length > 0 ? (
-        <section className="bg-night py-[90px]">
+        <section className="bg-espresso py-16 text-[#F5EFE6] sm:py-[90px]">
           <div className="mx-auto max-w-[1240px] px-8">
             <div className="mb-10 flex items-center gap-3 font-mono text-[11px] tracking-[0.22em]">
               <span className="text-[#6D8093]">{t("packsKicker")}</span>
@@ -384,7 +381,7 @@ export default async function ProductPage({ params }: Props) {
       ) : null}
 
       {/* ── Compléter la panoplie ── */}
-      <section className="border-t border-white/5 bg-night-2 py-[90px]">
+      <section className="bg-cream py-16 sm:py-[90px]">
         <div className="mx-auto max-w-[1240px] px-8">
           <div className="mb-10 flex items-center gap-3 font-mono text-[11px] tracking-[0.22em]">
             <span className="text-[#6D8093]">{t("rangeKicker")}</span>
@@ -399,9 +396,9 @@ export default async function ProductPage({ params }: Props) {
                   pathname: "/produits/[slug]",
                   params: { slug: other.slug },
                 }}
-                className="flex flex-col overflow-hidden rounded-[18px] border border-white/7 bg-card no-underline transition-[border-color,box-shadow,transform] duration-[250ms] hover:-translate-y-[3px] hover:border-accent/55 hover:shadow-[0_24px_70px_-30px_rgba(255,106,43,0.45)]"
+                className="card-glow flex flex-col overflow-hidden rounded-[18px] border border-black/[0.06] bg-white no-underline"
               >
-                <div className="relative aspect-[4/3] bg-media">
+                <div className="relative aspect-[4/3] bg-espresso-2">
                   {other.image ? (
                     <Image
                       src={other.image}
@@ -415,7 +412,7 @@ export default async function ProductPage({ params }: Props) {
                   )}
                 </div>
                 <div className="flex items-center justify-between gap-3 px-5 py-4">
-                  <span className="text-base font-semibold text-ink">
+                  <span className="text-base font-semibold text-ink-warm">
                     {other.name}
                   </span>
                   <span className="text-[17px] font-bold text-accent">

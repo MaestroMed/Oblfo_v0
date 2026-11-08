@@ -1,6 +1,10 @@
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { Faq } from "@/components/faq";
+import { FactsMarquee } from "@/components/home/facts-marquee";
+import { HeatProofs } from "@/components/home/heat-proofs";
+import { SmoothScroll } from "@/components/smooth-scroll";
+import { Reveal } from "@/components/ui/reveal";
 import { About } from "@/components/home/about";
 import { Categories } from "@/components/home/categories";
 import { Essentials } from "@/components/home/essentials";
@@ -119,16 +123,22 @@ export default async function HomePage({ params }: Props) {
 
   return (
     <>
-      <main>
-        <Hero />
-        <Categories />
-        <Essentials locale={locale} />
-        <PackFeature locale={locale} />
-        <Reassurance />
-        <About />
-        <Faq locale={locale} />
-        <NewsletterBand />
-      </main>
+      <SmoothScroll>
+        <main>
+          <Hero />
+          <Reveal><Categories /></Reveal>
+          <FactsMarquee locale={locale} />
+          <Reveal><Essentials locale={locale} /></Reveal>
+          <HeatProofs locale={locale} />
+          <div className="bg-cream pt-20">
+            <Reveal><PackFeature locale={locale} /></Reveal>
+          </div>
+          <Reassurance />
+          <Reveal><About /></Reveal>
+          <Faq locale={locale} />
+          <NewsletterBand />
+        </main>
+      </SmoothScroll>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

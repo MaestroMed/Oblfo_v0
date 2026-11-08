@@ -14,6 +14,14 @@ export const productsC: ProductSource[] = [
     category: "corps",
     glow: "warm",
     badge: "new",
+    image: "/images/products/echarpe-chauffante/02-packshot.jpg",
+    photos: [
+      "/images/products/echarpe-chauffante/01-hero.jpg",
+      "/images/products/echarpe-chauffante/02-packshot.jpg",
+      "/images/products/echarpe-chauffante/03-usage-quai.jpg",
+      "/images/products/echarpe-chauffante/04-usage-interieur.jpg",
+      "/images/products/echarpe-chauffante/05-detail.jpg",
+    ],
     name: {
       fr: "Écharpe Chauffante USB",
       en: "USB Heated Scarf",

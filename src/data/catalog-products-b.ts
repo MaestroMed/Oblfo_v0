@@ -297,7 +297,14 @@ export const productsB: ProductSource[] = [
     category: "maison",
     glow: "cold",
     badge: "new",
-    image: "/images/products/coussin.jpg",
+    image: "/images/products/coussin-chauffant/02-packshot.jpg",
+    photos: [
+      "/images/products/coussin-chauffant/01-hero.jpg",
+      "/images/products/coussin-chauffant/02-packshot.jpg",
+      "/images/products/coussin-chauffant/03-usage-voiture.jpg",
+      "/images/products/coussin-chauffant/04-usage-canape.jpg",
+      "/images/products/coussin-chauffant/05-detail.jpg",
+    ],
     name: {
       fr: "Coussin Chauffant USB 10 W",
       en: "USB Heated Cushion 10 W",
@@ -422,7 +429,14 @@ export const productsB: ProductSource[] = [
     category: "mains",
     glow: "warm",
     badge: "new",
-    image: "/images/products/chauffe-mains.jpg",
+    image: "/images/products/chauffe-mains/02-packshot.jpg",
+    photos: [
+      "/images/products/chauffe-mains/01-hero.jpg",
+      "/images/products/chauffe-mains/02-packshot.jpg",
+      "/images/products/chauffe-mains/03-usage-poche.jpg",
+      "/images/products/chauffe-mains/04-usage-bureau.jpg",
+      "/images/products/chauffe-mains/05-detail.jpg",
+    ],
     name: {
       fr: "Chauffe-Mains Rechargeable USB",
       en: "Rechargeable USB Hand Warmer",

@@ -126,8 +126,8 @@ export default async function HomePage({ params }: Props) {
       <SmoothScroll>
         <main>
           <Hero />
-          <FactsMarquee locale={locale} />
           <Reveal><Categories /></Reveal>
+          <FactsMarquee locale={locale} />
           <Reveal><Essentials locale={locale} /></Reveal>
           <HeatProofs locale={locale} />
           <div className="bg-cream pt-20">

@@ -263,6 +263,8 @@ export const productsC: ProductSource[] = [
       es: "manta-calefactable-mascotas",
     },
     price: 39,
+    // CJ ne montre que des prises AU : en vente seulement quand une variante EU est confirmée.
+    available: false,
     category: "maison",
     glow: "warm",
     badge: "new",

@@ -80,7 +80,7 @@ export function ProductGrid({
           {t("count", { count: visible.length })}
         </span>
       </div>
-      <div className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-6">
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-[repeat(auto-fill,minmax(250px,1fr))] sm:gap-6">
         {visible.map((product) => (
           <ProductCard key={product.id} product={product} locale={locale} />
         ))}

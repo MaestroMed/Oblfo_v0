@@ -43,8 +43,8 @@ export function Categories() {
 
   return (
     <section className="bg-cream">
-      <div className="mx-auto -mt-[110px] max-w-[1280px] px-8">
-        <div className="relative grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-5">
+      <div className="mx-auto -mt-[110px] max-w-[1280px] px-5 sm:px-8">
+        <div className="relative grid grid-cols-2 gap-3 sm:grid-cols-[repeat(auto-fit,minmax(220px,1fr))] sm:gap-5">
           {cards.map((card) => {
             return (
               <Link
@@ -63,12 +63,12 @@ export function Categories() {
                   className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(16,12,8,0)_35%,rgba(16,12,8,0.92)_100%)]" />
-                <div className="absolute right-4 bottom-4 left-4 flex items-end justify-between gap-2">
+                <div className="absolute right-3 bottom-3 left-3 flex items-end sm:right-4 sm:bottom-4 sm:left-4 justify-between gap-2">
                   <div className="flex flex-col gap-1">
                     <span className="font-mono text-[10px] tracking-[0.2em] text-copper">
                       {t(card.kickerKey)}
                     </span>
-                    <span className="text-[15px] font-semibold text-[#F5EFE6]">
+                    <span className="text-[14px] leading-tight font-semibold text-[#F5EFE6] sm:text-[15px]">
                       {t(card.labelKey)}
                     </span>
                   </div>

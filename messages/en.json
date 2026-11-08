@@ -96,6 +96,8 @@
     "packs": "Bundles",
     "faq": "FAQ",
     "guides": "Guides",
+    "menu": "Menu",
+    "closeMenu": "Close menu",
     "search": "Search",
     "cart": "CART"
   },

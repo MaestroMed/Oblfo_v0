@@ -78,13 +78,13 @@ export function ProductCard({
           <ImageSlot label={product.imageLabel} />
         )}
       </Link>
-      <div className="flex flex-1 flex-col gap-1.5 px-5 pt-4 pb-5">
+      <div className="flex flex-1 flex-col gap-1.5 px-3.5 pt-3.5 pb-4 sm:px-5 sm:pt-4 sm:pb-5">
         <Link
           href={{
             pathname: "/produits/[slug]",
             params: { slug: product.slug },
           }}
-          className="text-[15.5px] font-semibold text-ink-warm no-underline transition-colors hover:text-accent"
+          className="text-[14px] leading-snug font-semibold text-ink-warm sm:text-[15.5px] no-underline transition-colors hover:text-accent"
         >
           {product.name}
         </Link>
@@ -92,7 +92,7 @@ export function ProductCard({
           {product.tagline}
         </p>
         <div className="mt-auto flex items-center justify-between pt-3">
-          <span className="text-[19px] font-bold text-ink-warm">
+          <span className="text-[17px] font-bold sm:text-[19px] text-ink-warm">
             {formatPrice(product.price, locale)}
           </span>
           {product.available ? (
@@ -103,7 +103,7 @@ export function ProductCard({
                   params: { slug: product.slug },
                 }}
                 aria-label={`${tCart("chooseOnProduct")} — ${product.variant.label}`}
-                className="flex h-9 items-center justify-center rounded-lg bg-accent px-3 text-[12px] font-semibold text-white no-underline transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_24px_-10px_rgba(240,123,46,0.8)]"
+                className="flex h-11 items-center justify-center rounded-lg bg-accent px-3 text-[12px] font-semibold text-white no-underline transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_24px_-10px_rgba(240,123,46,0.8)]"
               >
                 {tCart("chooseOnProduct")}
               </Link>
@@ -112,7 +112,7 @@ export function ProductCard({
                 id={product.id}
                 name={product.name}
                 price={product.price}
-                className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-lg bg-accent text-lg leading-none font-semibold text-white transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_24px_-10px_rgba(240,123,46,0.8)]"
+                className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-lg bg-accent text-lg leading-none font-semibold text-white transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_24px_-10px_rgba(240,123,46,0.8)]"
               >
                 +
               </AddToCartButton>

@@ -30,7 +30,7 @@ export function About() {
 
   return (
     <section id="apropos" className="scroll-mt-24 bg-cream py-20">
-      <div className="mx-auto flex max-w-[1280px] flex-wrap items-start gap-12 px-8">
+      <div className="mx-auto flex max-w-[1280px] flex-wrap items-start gap-12 px-5 sm:px-8">
         <div className="flex min-w-[300px] flex-[1_1_340px] flex-col gap-6">
           <h2 className="font-serif text-[clamp(28px,3vw,40px)] leading-[1.12] font-medium tracking-[-0.01em] text-ink-warm text-pretty">
             {t("aboutTitle")}

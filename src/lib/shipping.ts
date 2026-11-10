@@ -21,9 +21,9 @@ export const MERCHANT_RETURN_POLICY = {
   returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
   merchantReturnDays: 30,
   returnMethod: "https://schema.org/ReturnByMail",
-  // `returnFees` volontairement absent : qui paie le retour n'est précisé nulle
-  // part sur le site. Mieux vaut l'omettre que de déclarer une valeur fausse,
-  // qui engagerait commercialement.
+  // Même règle que la page Livraison & retours, les CGV et Merchant Center :
+  // frais de renvoi à la charge du client.
+  returnFees: "https://schema.org/ReturnFeesCustomerResponsibility",
 } as const;
 
 const DELIVERY_TIME = {
@@ -68,3 +68,12 @@ export const OFFER_SHIPPING_DETAILS = [
     deliveryTime: DELIVERY_TIME,
   },
 ] as const;
+
+/**
+ * Le tarif réel pour l'achat de cet article seul — un seul par offre, comme
+ * dans le flux : Merchant Center refuse deux services sans nom sur un même
+ * produit (« Services [shipping] ambigus »).
+ */
+export function shippingDetailsIndexFor(price: number): 0 | 1 {
+  return price >= FREE_SHIPPING_THRESHOLD ? 1 : 0;
+}

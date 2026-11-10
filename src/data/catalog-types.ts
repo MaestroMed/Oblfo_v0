@@ -56,6 +56,8 @@ export type ProductSource = {
   /** Galerie de la fiche, photo principale en premier — public/. Sinon : image puis ImageSlot. */
   photos?: string[];
   variant?: ProductVariant;
+  /** Vêtements : Google exige color/gender/age_group dans le flux. */
+  color?: LText;
   description: LTextList;
   highlights: LTextList;
   specs: LSpecs;

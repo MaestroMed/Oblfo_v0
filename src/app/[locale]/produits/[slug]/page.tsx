@@ -26,6 +26,7 @@ import {
 import {
   MERCHANT_RETURN_POLICY,
   OFFER_SHIPPING_DETAILS,
+  shippingDetailsIndexFor,
 } from "@/lib/shipping";
 import { heatProofs } from "@/lib/heat";
 import { SITE_URL } from "@/lib/site";
@@ -112,6 +113,8 @@ export default async function ProductPage({ params }: Props) {
     "@graph": [
       {
         "@type": "Product",
+        // Même valeur que g:id du flux, identique dans les 4 langues.
+        sku: product.id,
         name: product.name,
         description: product.tagline,
         url: productUrl,
@@ -126,7 +129,7 @@ export default async function ProductPage({ params }: Props) {
             : "https://schema.org/OutOfStock",
           url: productUrl,
           hasMerchantReturnPolicy: MERCHANT_RETURN_POLICY,
-          shippingDetails: OFFER_SHIPPING_DETAILS,
+          shippingDetails: OFFER_SHIPPING_DETAILS[shippingDetailsIndexFor(product.price)],
         },
       },
       {

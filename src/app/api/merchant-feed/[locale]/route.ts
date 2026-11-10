@@ -65,6 +65,9 @@ function itemXml(
     `<g:identifier_exists>no</g:identifier_exists>`,
     `<g:shipping><g:country>FR</g:country><g:service>Standard</g:service><g:price>${money(shipping)}</g:price></g:shipping>`,
   ];
+  if (product.color) {
+    lines.push(`<g:color>${esc(product.color)}</g:color>`, `<g:gender>unisex</g:gender>`, `<g:age_group>adult</g:age_group>`);
+  }
   if (variantOption) {
     lines.push(
       `<g:item_group_id>${esc(product.id)}</g:item_group_id>`,

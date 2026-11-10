@@ -60,6 +60,7 @@ export function PhotoGallery({
                 alt={i === 0 ? alt : `${alt} (${i + 1}/${slides.length})`}
                 fill
                 priority={i === 0}
+                fetchPriority={i === 0 ? "high" : undefined}
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 className={src === cutout ? "cutout p-[10%]" : "object-cover"}
               />

@@ -100,6 +100,7 @@ export function PageBanner({
               alt=""
               fill
               priority
+              fetchPriority="high"
               sizes="(min-width: 768px) 420px, 90vw"
               className="object-cover"
             />

@@ -20,6 +20,7 @@ export function ProductGrid({
   locale: Locale;
 }) {
   const t = useTranslations("Plp");
+  const tSearch = useTranslations("SearchPage");
   const [sort, setSort] = useState<SortKey>("featured");
   const [inStockOnly, setInStockOnly] = useState(false);
 
@@ -49,6 +50,8 @@ export function ProductGrid({
 
   return (
     <div className="flex flex-col gap-5">
+      {/* Les cartes sont des h3 : il leur faut un h2 au-dessus (ordre des titres). */}
+      <h2 className="sr-only">{tSearch("groupProducts")}</h2>
       <div className="flex flex-wrap items-center justify-between gap-x-5 border-b-2 border-choco/15 pb-2 font-display text-[16px] font-semibold">
         <span aria-live="polite">{t("count", { count: visible.length })}</span>
         {/* Trier un seul produit n'a pas de sens ; filtrer le stock non plus si tout est en stock. */}

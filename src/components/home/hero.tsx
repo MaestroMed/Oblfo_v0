@@ -29,6 +29,7 @@ export function Hero({ locale }: { locale: Locale }) {
             alt={t("heroImageAlt")}
             fill
             priority
+            fetchPriority="high"
             sizes="(min-width: 1024px) 620px, 100vw"
             className="object-cover"
           />

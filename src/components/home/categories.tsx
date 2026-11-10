@@ -1,85 +1,57 @@
 import Image from "next/image";
-import { useLocale, useTranslations } from "next-intl";
-import type { Category } from "@/data/catalog-types";
+import { useTranslations } from "next-intl";
+import { HeatWaves } from "@/components/ui/heat-waves";
+import { CATEGORY_ORDER, getProducts } from "@/data/catalog";
 import { CATEGORY_SLUGS } from "@/data/category-slugs";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
+import { CATEGORY_HERO, TILE_CLASS, categoryTile } from "@/lib/tile";
 
-const cards: {
-  category: Category;
-  image: string;
-  kickerKey: "catHands" | "catFeet" | "catDesk" | "catRoom";
-  labelKey: "catHandsLabel" | "catFeetLabel" | "catDeskLabel" | "catRoomLabel";
-}[] = [
-  {
-    category: "mains",
-    image: "/images/products/gants-chauffants/03-usage-tribune.jpg",
-    kickerKey: "catHands",
-    labelKey: "catHandsLabel",
-  },
-  {
-    category: "pieds",
-    image: "/images/products/chaussons-chauffants/01-hero.jpg",
-    kickerKey: "catFeet",
-    labelKey: "catFeetLabel",
-  },
-  {
-    category: "bureau",
-    image: "/images/products/sous-main-chauffant/01-hero.jpg",
-    kickerKey: "catDesk",
-    labelKey: "catDeskLabel",
-  },
-  {
-    category: "piece",
-    image: "/images/products/chauffage-appoint/03-usage-pieds.jpg",
-    kickerKey: "catRoom",
-    labelKey: "catRoomLabel",
-  },
-];
-
-export function Categories() {
+// Une tuile par famille : sa couleur et son produit viennent de `src/lib/tile.ts`.
+export function Categories({ locale }: { locale: Locale }) {
   const t = useTranslations("HomeV2");
-  const locale = useLocale() as Locale;
+  const tCat = useTranslations("Categories");
+  const products = getProducts(locale);
+  const categories = CATEGORY_ORDER.filter((c) => products.some((p) => p.category === c));
 
   return (
-    <section className="bg-cream">
-      <div className="mx-auto -mt-[110px] max-w-[1280px] px-5 sm:px-8">
-        <div className="relative grid grid-cols-2 gap-3 sm:grid-cols-[repeat(auto-fit,minmax(220px,1fr))] sm:gap-5">
-          {cards.map((card) => {
+    <section className="py-14 sm:py-24">
+      <div className="mx-auto max-w-[1240px] px-4 sm:px-8">
+        <h2 className="mb-8 text-[clamp(30px,6vw,52px)] sm:mb-12">{t("categoriesTitle")}</h2>
+        <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-6">
+          {categories.map((category) => {
+            const cutout = products.find((p) => p.id === CATEGORY_HERO[category])?.cutout;
             return (
-              <Link
-                key={card.category}
-                href={{
-                  pathname: "/collection/[category]",
-                  params: { category: CATEGORY_SLUGS[card.category][locale] },
-                }}
-                className="group relative aspect-[4/3.4] overflow-hidden rounded-2xl border border-black/40 bg-espresso-2 no-underline shadow-[0_24px_60px_-28px_rgba(22,17,12,0.7)] transition-transform duration-[250ms] hover:-translate-y-1"
-              >
-                <Image
-                  src={card.image}
-                  alt={t(card.labelKey)}
-                  fill
-                  sizes="(min-width: 1024px) 25vw, 50vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(16,12,8,0)_35%,rgba(16,12,8,0.92)_100%)]" />
-                <div className="absolute right-3 bottom-3 left-3 flex items-end sm:right-4 sm:bottom-4 sm:left-4 justify-between gap-2">
-                  <div className="flex flex-col gap-1">
-                    <span className="font-mono text-[10px] tracking-[0.2em] text-copper">
-                      {t(card.kickerKey)}
-                    </span>
-                    <span className="text-[14px] leading-tight font-semibold text-[#F5EFE6] sm:text-[15px]">
-                      {t(card.labelKey)}
-                    </span>
-                  </div>
-                  <span className="text-lg text-accent transition-transform duration-200 group-hover:translate-x-1">
-                    →
+              <li key={category}>
+                <Link
+                  href={{
+                    pathname: "/collection/[category]",
+                    params: { category: CATEGORY_SLUGS[category][locale] },
+                  }}
+                  className={`tile group flex h-full flex-col no-underline ${TILE_CLASS[categoryTile(category)]}`}
+                >
+                  <span className="relative block aspect-[4/3]">
+                    {cutout ? (
+                      <Image
+                        src={cutout}
+                        alt=""
+                        fill
+                        sizes="(min-width: 1024px) 190px, (min-width: 640px) 33vw, 50vw"
+                        className="cutout p-3 transition-transform duration-300 group-hover:scale-105 sm:p-4"
+                      />
+                    ) : null}
+                    {category === "piece" ? (
+                      <HeatWaves className="absolute top-2 right-2 h-8 w-8" />
+                    ) : null}
                   </span>
-                </div>
-              </Link>
+                  <span className="px-3 pt-1 pb-3 font-display text-[20px] leading-[1.05] font-bold [overflow-wrap:anywhere] hyphens-auto sm:px-4 sm:pb-4 sm:text-[24px]">
+                    {tCat(category)}
+                  </span>
+                </Link>
+              </li>
             );
           })}
-        </div>
+        </ul>
       </div>
     </section>
   );

@@ -11,6 +11,10 @@ type CategoryContent = {
   metaTitle: L4;
   metaDescription: L4;
   title: L4;
+  /** H1 de la page famille : le mot-clé que les gens tapent. */
+  h1: L4;
+  /** Accroche de deux lignes sous le H1 ; le texte long (intro) passe sous la grille. */
+  lead: L4;
   intro: L4;
   /** Ids de guides pertinents pour ce rayon (masqués si indisponibles). */
   guideIds: string[];
@@ -35,6 +39,18 @@ const content: Record<Category, CategoryContent> = {
       en: "Hands.",
       de: "Hände.",
       es: "Manos.",
+    },
+    h1: {
+      fr: "Gants chauffants et chauffe-mains",
+      en: "Heated gloves and hand warmers",
+      de: "Beheizbare Handschuhe und Handwärmer",
+      es: "Guantes calefactables y calientamanos",
+    },
+    lead: {
+      fr: "Des gants branchés en USB pour dehors, un chauffe-mains rechargeable pour la poche. De la chaleur là où le froid arrive en premier.",
+      en: "USB-powered gloves for outdoors, a rechargeable hand warmer for your pocket. Warmth where the cold bites first.",
+      de: "USB-Handschuhe für draußen, ein wiederaufladbarer Handwärmer für die Tasche. Wärme dort, wo die Kälte zuerst ankommt.",
+      es: "Guantes con USB para la calle y un calientamanos recargable para el bolsillo. Calor donde el frío llega primero.",
     },
     intro: {
       fr: "Les mains sont la première alarme du froid : la circulation y ralentit dès que la température chute, bien avant le reste du corps. Notre rayon mains attaque le problème des deux côtés — des gants chauffants pour la chaleur continue en extérieur, un chauffe-mains rechargeable pour les pauses, les poches et les bureaux glacials.",
@@ -63,6 +79,18 @@ const content: Record<Category, CategoryContent> = {
       de: "Füße.",
       es: "Pies.",
     },
+    h1: {
+      fr: "Chaussons, semelles et chaussettes chauffantes",
+      en: "Heated slippers, insoles and socks",
+      de: "Beheizbare Hausschuhe, Sohlen und Socken",
+      es: "Zapatillas, plantillas y calcetines calefactables",
+    },
+    lead: {
+      fr: "Un chauffe-pieds en peluche pour la maison, des semelles et des chaussettes chauffantes pour dehors. Les pieds se refroidissent en premier : commencez par eux.",
+      en: "A plush foot warmer for home, heated insoles and socks for outdoors. Feet get cold first, so start there.",
+      de: "Ein Plüsch-Fußwärmer für zuhause, Heizsohlen und Heizsocken für draußen. Füße werden zuerst kalt: Fangen Sie dort an.",
+      es: "Un calientapiés de peluche para casa, plantillas y calcetines calefactables para la calle. Los pies se enfrían primero: empieza por ahí.",
+    },
     intro: {
       fr: "Les pieds gèlent en premier et se réchauffent en dernier — c'est mécanique, le corps sacrifie ses extrémités pour protéger le tronc. Deux réponses selon le moment : le chauffe-pieds en peluche pour couper le froid en rentrant, les semelles chauffantes à batterie intégrée pour rester dehors sans compter les minutes.",
       en: "Feet freeze first and warm up last — it's mechanical: the body sacrifices its extremities to protect the core. Two answers depending on the moment: the plush foot warmer to cut the cold when you come home, built-in-battery heated insoles to stay outside without counting the minutes.",
@@ -89,6 +117,18 @@ const content: Record<Category, CategoryContent> = {
       en: "Body.",
       de: "Körper.",
       es: "Cuerpo.",
+    },
+    h1: {
+      fr: "Gilets, écharpes et ceintures chauffantes",
+      en: "Heated vests, scarves and belts",
+      de: "Beheizbare Westen, Schals und Gürtel",
+      es: "Chalecos, bufandas y fajas calefactables",
+    },
+    lead: {
+      fr: "Gilet, écharpe, bonnet, ceinture lombaire : une couche chauffante pour garder le buste, la nuque et le dos au chaud, dehors comme à la maison.",
+      en: "Vest, scarf, beanie, lumbar belt: a heated layer that keeps your core, neck and back warm, outdoors or at home.",
+      de: "Weste, Schal, Mütze, Rückengurt: eine beheizte Schicht, die Oberkörper, Nacken und Rücken warm hält, draußen wie zuhause.",
+      es: "Chaleco, bufanda, gorro, faja lumbar: una capa calefactable para mantener el torso, la nuca y la espalda en calor, en la calle o en casa.",
     },
     intro: {
       fr: "Le tronc commande la sensation de chaleur de tout le corps : quand il est au chaud, le cerveau relâche la circulation vers les extrémités. C'est pour ça qu'un gilet chauffant change plus que n'importe quelle autre pièce — il se porte sous n'importe quelle veste et transforme un manteau moyen en équipement grand froid.",
@@ -117,6 +157,18 @@ const content: Record<Category, CategoryContent> = {
       de: "Zuhause.",
       es: "Casa.",
     },
+    h1: {
+      fr: "Plaids et coussins chauffants",
+      en: "Heated throws and cushions",
+      de: "Heizdecken und Heizkissen",
+      es: "Mantas y cojines calefactables",
+    },
+    lead: {
+      fr: "Un plaid et un coussin chauffants pour le canapé : la chaleur sur vous, sans monter le chauffage de toute la pièce.",
+      en: "A heated throw and cushion for the sofa: warmth on you, without turning up the heating for the whole room.",
+      de: "Heizdecke und Heizkissen fürs Sofa: Wärme direkt bei Ihnen, ohne die Heizung im ganzen Raum aufzudrehen.",
+      es: "Una manta y un cojín calefactables para el sofá: calor sobre ti, sin subir la calefacción de toda la habitación.",
+    },
     intro: {
       fr: "Chauffer la personne plutôt que la pièce : c'est l'arbitrage le plus rentable de l'hiver, et c'est exactement ce que fait ce rayon. Un plaid chauffant consomme autour de 100 W — le centième d'un chauffage central — et le coussin chauffant USB réchauffe la chaise ou le canapé.",
       en: "Heat the person, not the room: it's winter's most cost-effective trade, and exactly what this range does. A heated throw draws around 100 W — a hundredth of central heating — and the USB heated cushion warms your chair or sofa.",
@@ -143,6 +195,18 @@ const content: Record<Category, CategoryContent> = {
       en: "Desk.",
       de: "Schreibtisch.",
       es: "Escritorio.",
+    },
+    h1: {
+      fr: "Sous-main chauffant et chauffe-tasse",
+      en: "Heated desk pad and mug warmer",
+      de: "Beheizbare Schreibtischunterlage und Tassenwärmer",
+      es: "Alfombrilla calefactable y calientatazas",
+    },
+    lead: {
+      fr: "Un sous-main qui chauffe les poignets, un chauffe-tasse qui garde le café chaud : le duo des journées de télétravail.",
+      en: "A desk pad that warms your wrists, a mug warmer that keeps coffee hot: the pair for work-from-home days.",
+      de: "Eine Unterlage, die die Handgelenke wärmt, ein Tassenwärmer, der den Kaffee heiß hält: das Duo fürs Homeoffice.",
+      es: "Una alfombrilla que calienta las muñecas y un calientatazas que mantiene el café caliente: el dúo del teletrabajo.",
     },
     intro: {
       fr: "Une pièce à 17 degrés ne pardonne rien aux journées d'écran : café froid à moitié bu, doigts raides sur le clavier, concentration qui s'effrite. Le rayon bureau règle les deux points de friction — un chauffe-tasse qui maintient la température de dégustation, un sous-main 60 × 36 cm qui garde mains et poignets à température de travail.",
@@ -171,10 +235,22 @@ const content: Record<Category, CategoryContent> = {
       de: "Kleiner Raum.",
       es: "Habitación pequeña.",
     },
+    h1: {
+      fr: "Mini chauffage d'appoint",
+      en: "Mini space heater",
+      de: "Mini-Heizlüfter",
+      es: "Mini calefactor",
+    },
+    lead: {
+      fr: "250 W d'air chaud dirigé vers vous, sur le bureau ou à vos pieds. On chauffe la personne, pas toute la pièce.",
+      en: "250 W of warm air aimed at you, on the desk or at your feet. Heat the person, not the whole room.",
+      de: "250 W warme Luft, direkt auf Sie gerichtet, auf dem Schreibtisch oder an den Füßen. Die Person heizen, nicht den ganzen Raum.",
+      es: "250 W de aire caliente dirigido hacia ti, en el escritorio o a tus pies. Calentar a la persona, no toda la habitación.",
+    },
     intro: {
-      fr: "Chauffer toute la maison pour un bureau occupé trois heures, c'est la facture qui s'envole. Un mini chauffage d'appoint fait l'inverse : 250 W d'air chaud dirigé vers toi, à tes pieds ou sur le bureau, avec une coupure automatique en cas de surchauffe. On chauffe la personne, pas la pièce.",
+      fr: "Chauffer toute la maison pour un bureau occupé trois heures, c'est la facture qui s'envole. Un mini chauffage d'appoint fait l'inverse : 250 W d'air chaud dirigé vers vous, à vos pieds ou sur le bureau, avec une coupure automatique en cas de surchauffe. On chauffe la personne, pas la pièce.",
       en: "Heating the whole house for an office used three hours a day is how bills take off. A mini space heater does the opposite: 250 W of warm air aimed at you, at your feet or on the desk, with automatic overheat cut-off. Heat the person, not the room.",
-      de: "Das ganze Haus für ein drei Stunden genutztes Büro zu heizen — so explodieren Rechnungen. Ein Mini-Heizlüfter macht das Gegenteil: 250 W warme Luft direkt auf dich gerichtet, zu deinen Füßen oder auf dem Schreibtisch, mit automatischer Abschaltung bei Überhitzung. Die Person heizen, nicht den Raum.",
+      de: "Das ganze Haus für ein drei Stunden genutztes Büro zu heizen — so explodieren Rechnungen. Ein Mini-Heizlüfter macht das Gegenteil: 250 W warme Luft direkt auf Sie gerichtet, zu Ihren Füßen oder auf dem Schreibtisch, mit automatischer Abschaltung bei Überhitzung. Die Person heizen, nicht den Raum.",
       es: "Calentar toda la casa por un despacho ocupado tres horas es la manera de disparar la factura. Un mini calefactor hace lo contrario: 250 W de aire caliente dirigido hacia ti, a tus pies o sobre el escritorio, con corte automático por sobrecalentamiento. Calentar a la persona, no la habitación.",
     },
     guideIds: ["chauffage-appoint-economique"],
@@ -188,6 +264,8 @@ export type LocalizedCategoryContent = {
   metaTitle: string;
   metaDescription: string;
   title: string;
+  h1: string;
+  lead: string;
   intro: string;
   guideIds: string[];
 };
@@ -204,6 +282,8 @@ export function getCategoryContent(
     metaTitle: c.metaTitle[locale],
     metaDescription: c.metaDescription[locale],
     title: c.title[locale],
+    h1: c.h1[locale],
+    lead: c.lead[locale],
     intro: c.intro[locale],
     guideIds: c.guideIds,
   };

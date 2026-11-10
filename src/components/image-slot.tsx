@@ -1,14 +1,11 @@
-// Emplacement photo en attente des assets définitifs.
-// À remplacer par next/image quand les visuels produits seront générés.
-export function ImageSlot({ label }: { label: string }) {
+import { HeatWaves } from "@/components/ui/heat-waves";
+
+// Repli quand un produit n'a pas encore de photo : l'aplat de la tuile et les ondes de chaleur,
+// dans la couleur de texte de l'aplat (jamais le libellé interne de l'emplacement).
+export function ImageSlot() {
   return (
-    <div
-      aria-hidden
-      className="slot-hatch absolute inset-0 flex items-center justify-center bg-media"
-    >
-      <span className="max-w-[80%] text-center font-mono text-[10px] uppercase leading-relaxed tracking-[0.18em] text-[#3E4C5C]">
-        {label}
-      </span>
-    </div>
+    <span aria-hidden className="absolute inset-0 flex items-center justify-center">
+      <HeatWaves className="h-2/5 w-2/5 text-current!" />
+    </span>
   );
 }

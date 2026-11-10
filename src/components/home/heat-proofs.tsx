@@ -1,6 +1,4 @@
 import { getTranslations } from "next-intl/server";
-import { NumberTicker } from "@/components/ui/number-ticker";
-import { Reveal } from "@/components/ui/reveal";
 import { getProducts } from "@/data/catalog";
 import type { Locale } from "@/i18n/routing";
 import { heatProofs, type HeatProof } from "@/lib/heat";
@@ -31,29 +29,23 @@ export async function HeatProofs({ locale }: { locale: Locale }) {
   if (!rows.length) return null;
 
   return (
-    <section className="relative overflow-hidden bg-espresso py-20 text-[#F5EFE6]">
-      <div aria-hidden className="absolute inset-0 bg-[radial-gradient(60%_80%_at_15%_100%,rgba(232,69,31,0.22),transparent_70%)]" />
-      <div className="relative mx-auto max-w-[1280px] px-5 sm:px-8">
-        <Reveal className="mb-12 flex flex-col gap-3">
-          <span className="font-mono text-[11px] tracking-[0.22em] text-copper">◈ {t("heatKicker")}</span>
-          <h2 className="font-serif text-[clamp(28px,3.2vw,42px)] font-medium tracking-[-0.01em]">{t("heatTitle")}</h2>
-        </Reveal>
-        <dl className="grid gap-10 sm:grid-cols-3">
-          {rows.map((row, i) => (
-            <Reveal key={row.unit} delay={i * 0.08} className="flex flex-col gap-3 border-t border-white/10 pt-6">
-              <dt className="sr-only">{row.caption}</dt>
-              <dd className="flex items-baseline gap-2 font-serif leading-none">
-                <NumberTicker
-                  value={row.value}
-                  className="bg-[linear-gradient(180deg,#ffb36b_0%,#f07b2e_45%,#e8451f_100%)] bg-clip-text text-[clamp(72px,9vw,124px)] font-medium text-transparent"
-                />
-                <span className="text-[clamp(22px,2.4vw,32px)] text-copper">{row.unit}</span>
-              </dd>
-              <p aria-hidden className="text-[13.5px] leading-snug text-[#B7AA99]">{row.caption}</p>
-            </Reveal>
-          ))}
-        </dl>
-        <p className="mt-10 font-mono text-[10.5px] tracking-[0.12em] text-[#8F8171]">{t("heatNote")}</p>
+    <section className="pb-14 sm:pb-24">
+      <div className="mx-auto max-w-[1240px] px-4 sm:px-8">
+        <div className="tile on-moutarde px-5 py-8 sm:px-10 sm:py-12">
+          <h2 className="mb-8 text-[clamp(30px,6vw,52px)] sm:mb-10">{t("heatTitle")}</h2>
+          <dl className={`grid gap-8 sm:gap-6 ${rows.length === 2 ? "sm:grid-cols-2" : "sm:grid-cols-3"}`}>
+            {rows.map((row) => (
+              <div key={row.unit} className="flex flex-col-reverse justify-end gap-2">
+                <dt className="max-w-[30ch] text-[16px] leading-snug">{row.caption}</dt>
+                <dd className="flex flex-wrap items-baseline gap-x-2 font-display leading-none font-bold">
+                  <span className="text-[clamp(64px,9vw,112px)] tabular-nums">{row.value}</span>
+                  <span className="text-[clamp(24px,3vw,36px)]">{row.unit}</span>
+                </dd>
+              </div>
+            ))}
+          </dl>
+          <p className="mt-8 text-[14px] leading-snug sm:mt-10">{t("heatNote")}</p>
+        </div>
       </div>
     </section>
   );

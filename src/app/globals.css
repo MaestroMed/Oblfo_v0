@@ -1,31 +1,22 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-sans: var(--font-grotesk), sans-serif;
-  --font-serif: var(--font-fraunces), serif;
-  --font-mono: var(--font-plex-mono), monospace;
+  --font-display: var(--font-fredoka), ui-rounded, system-ui, sans-serif;
+  --font-sans: var(--font-figtree), system-ui, sans-serif;
 }
 
 @theme {
-  /* DA OBFLO v2 — concept homepage 07/2026 : héro sombre chaud + corps crème */
-  --color-accent: #f07b2e;
-  --color-ember: #e8451f;
-  --color-copper: #c98a4b;
-  --color-cream: #f4efe7;
-  --color-cream-2: #ece5d8;
-  --color-espresso: #16110c;
-  --color-espresso-2: #201812;
-  --color-ink-warm: #241c14;
-  --color-muted-warm: #6f6252;
-  /* Palette héritée (pages intérieures, drawer, OG) */
-  --color-cold: #8fc1e3;
-  --color-night: #0a0c10;
-  --color-night-2: #0b0f16;
-  --color-night-3: #07090c;
-  --color-card: #0f141b;
-  --color-media: #0c1017;
-  --color-pack: #0d1016;
-  --color-ink: #f2f5f8;
+  /* DA OBFLO v3 « color-blocking chaud » (11/2026) : page crème, grands aplats saturés, zéro dégradé. */
+  --color-cream: #fcf1da;
+  --color-cream-2: #f6e3bf;
+  --color-paper: #fffaf0;
+  --color-choco: #3b160d;
+  --color-choco-2: #57200f;
+  --color-braise: #eb3a0c;
+  --color-tomate: #d4281a;
+  --color-moutarde: #f5b82e;
+  --color-brique: #8c3a1c;
+  --color-muted: #7a5546;
 }
 
 html {
@@ -33,180 +24,224 @@ html {
 }
 
 body {
-  background: var(--color-night);
-  color: #edf1f5;
+  background: var(--color-cream);
+  color: var(--color-choco);
   font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
 }
 
-::selection {
-  background: rgba(255, 106, 43, 0.35);
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.02;
+  text-wrap: balance;
 }
 
-input::placeholder {
-  color: #5e6b7a;
+/* L'espace de Fredoka est étroite : en grandes capitales les mots se collent (« ONVOUS »). */
+:is(h1, h2, .display).uppercase {
+  word-spacing: 0.16em;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* Césure automatique réservée à l'allemand (mots composés très longs). Ailleurs le navigateur
+   coupe « consomma-tion » sans nécessité : le mot passe simplement à la ligne. */
+:root:not(:lang(de)) .hyphens-auto {
+  -webkit-hyphens: manual;
+  hyphens: manual;
+}
+
+::selection {
+  background: var(--color-moutarde);
+  color: var(--color-choco);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-choco);
+  outline-offset: 3px;
+}
+.on-choco :focus-visible,
+.on-braise :focus-visible,
+.on-tomate :focus-visible,
+.on-brique :focus-visible {
+  outline-color: var(--color-moutarde);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-muted);
+  opacity: 0.8;
 }
 
 details > summary {
   list-style: none;
 }
-
 details > summary::-webkit-details-marker {
   display: none;
 }
 
-/* Halos lumineux — chaud (accent) et froid (bleu nuit) */
-.glow-warm {
-  background: radial-gradient(
-    closest-side,
-    rgba(255, 106, 43, 0.16),
-    transparent 70%
-  );
-}
+/* ── Kit de la DA : à utiliser partout plutôt que de recomposer à la main ── */
+@layer components {
+  /* Aplats : fond + couleur de texte assortie. Texte crème sur braise = titres et gros gras seulement. */
+  .on-cream { background: var(--color-cream); color: var(--color-choco); }
+  .on-cream-2 { background: var(--color-cream-2); color: var(--color-choco); }
+  .on-paper { background: var(--color-paper); color: var(--color-choco); }
+  .on-moutarde { background: var(--color-moutarde); color: var(--color-choco); }
+  .on-braise { background: var(--color-braise); color: var(--color-cream); }
+  .on-tomate { background: var(--color-tomate); color: var(--color-cream); }
+  .on-brique { background: var(--color-brique); color: var(--color-cream); }
+  .on-choco { background: var(--color-choco); color: var(--color-cream); }
 
-.glow-warm-strong {
-  background: radial-gradient(
-    closest-side,
-    rgba(255, 106, 43, 0.24),
-    transparent 70%
-  );
-}
-
-.glow-cold {
-  background: radial-gradient(
-    closest-side,
-    rgba(52, 104, 158, 0.18),
-    transparent 70%
-  );
-}
-
-/* ── Séquence héro « OBFLO s'allume » ─────────────────────────────
-   1. les lettres apparaissent une à une (--stagger)
-   2. le O final (bouton power) s'allume
-   3. le mot entier passe de froid à chauffant
-   4. le contenu (titre, CTA) apparaît
-   prefers-reduced-motion : tout est visible immédiatement. */
-
-@keyframes letter-in {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
-    filter: blur(6px);
+  .display {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 0.98;
+    text-wrap: balance;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
+
+  /* Bloc arrondi : tuile, carte, encart. */
+  .tile {
+    position: relative;
+    overflow: hidden;
+    border-radius: 22px;
   }
-}
-
-@keyframes brand-ignite {
-  from {
-    color: #d8d2c6;
-    text-shadow: none;
+  @media (min-width: 640px) {
+    .tile { border-radius: 28px; }
   }
-  to {
-    color: #f07b2e;
-    text-shadow:
-      0 0 24px rgba(240, 123, 46, 0.55),
-      0 0 80px rgba(240, 123, 46, 0.3);
+
+  /* Bouton pilule. Par défaut chocolat ; variantes pour poser sur un aplat sombre. */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 48px;
+    padding: 0 26px;
+    border-radius: 999px;
+    background: var(--color-choco);
+    color: var(--color-cream);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 1.1;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 150ms ease-out, transform 150ms ease-out;
   }
-}
-
-@keyframes content-in {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
+  .btn:active { transform: scale(0.97); }
+  .btn:disabled,
+  .btn[aria-disabled="true"] { opacity: 0.5; cursor: not-allowed; }
+  .btn-cream { background: var(--color-cream); color: var(--color-choco); }
+  .btn-moutarde { background: var(--color-moutarde); color: var(--color-choco); }
+  .btn-outline {
+    background: transparent;
+    color: inherit;
+    box-shadow: inset 0 0 0 2px currentColor;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  .btn-sm { min-height: 44px; padding: 0 20px; font-size: 16px; }
+  .btn-lg { min-height: 56px; padding: 0 32px; font-size: 19px; }
+  .btn-block { width: 100%; }
+  @media (hover: hover) {
+    .btn:hover:not(:disabled) { background: var(--color-choco-2); }
+    .btn-cream:hover:not(:disabled) { background: var(--color-paper); }
+    .btn-moutarde:hover:not(:disabled) { background: #ffc94a; }
+    .btn-outline:hover:not(:disabled) { background: rgb(59 22 13 / 0.08); }
   }
-}
 
-@keyframes power-ignite {
-  from {
-    stroke: #d8d2c6;
-    filter: none;
+  /* Prix en pastille. */
+  .price {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 4px 14px;
+    background: var(--color-braise);
+    color: var(--color-cream);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.2;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
   }
-  to {
-    stroke: #f07b2e;
-    filter: drop-shadow(0 0 14px rgba(240, 123, 46, 0.9));
+  .price-moutarde { background: var(--color-moutarde); color: var(--color-choco); }
+  .price-choco { background: var(--color-choco); color: var(--color-cream); }
+  .price-lg { font-size: 30px; padding: 6px 20px; }
+  .price-sm { font-size: 16px; padding: 3px 11px; }
+
+  /* Prix « achetés séparément » barré : réservé aux packs. */
+  .strike {
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    opacity: 0.75;
   }
-}
 
-.hero-letter {
-  display: inline-block;
-  opacity: 0;
-  animation: letter-in 0.5s cubic-bezier(0.2, 0.7, 0.3, 1) forwards;
-  animation-delay: calc(0.15s + var(--stagger) * 0.22s);
-}
-
-.hero-brand {
-  color: #d8d2c6;
-  animation: brand-ignite 0.9s ease forwards;
-  animation-delay: 1.75s;
-}
-
-.hero-power {
-  stroke: #d8d2c6;
-  animation: power-ignite 0.5s ease forwards;
-  animation-delay: 1.45s;
-}
-
-.hero-content {
-  opacity: 0;
-  animation: content-in 0.7s ease forwards;
-  animation-delay: 2.1s;
-}
-
-/* Logo header — O final = bouton power, à froid par défaut */
-.logo-power {
-  transition:
-    color 0.6s ease,
-    text-shadow 0.6s ease;
-}
-
-.logo-power svg {
-  transition: filter 0.6s ease;
-}
-
-.logo-power[data-on="true"] {
-  color: #f07b2e;
-  text-shadow: 0 0 18px rgba(240, 123, 46, 0.5);
-}
-
-.logo-power[data-on="true"] svg {
-  filter: drop-shadow(0 0 10px rgba(240, 123, 46, 0.8));
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-letter,
-  .hero-content {
-    opacity: 1;
-    animation: none;
+  /* Étiquette pilule (nouveau, meilleure offre, en stock…). */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border-radius: 999px;
+    padding: 4px 12px;
+    background: var(--color-choco);
+    color: var(--color-cream);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.2;
+    white-space: nowrap;
   }
-  .hero-brand {
-    color: #f07b2e;
-    animation: none;
-    text-shadow: 0 0 24px rgba(240, 123, 46, 0.4);
-  }
-  .hero-power {
-    stroke: #f07b2e;
-    animation: none;
-  }
-}
+  .chip-moutarde { background: var(--color-moutarde); color: var(--color-choco); }
+  .chip-cream { background: var(--color-cream); color: var(--color-choco); }
 
-/* Emplacement photo en attente d'assets */
-.slot-hatch {
-  background-image: repeating-linear-gradient(
-    45deg,
-    rgba(255, 255, 255, 0.02) 0 10px,
-    transparent 10px 20px
-  );
-}
+  /* Champ de formulaire. */
+  .field {
+    width: 100%;
+    min-height: 48px;
+    border-radius: 16px;
+    border: 2px solid rgb(59 22 13 / 0.22);
+    background: var(--color-paper);
+    color: var(--color-choco);
+    padding: 10px 16px;
+    font-size: 16px;
+    transition: border-color 150ms ease-out;
+  }
+  .field:focus { border-color: var(--color-choco); outline: none; }
 
-/* ── Refonte UX 11/2026 ──────────────────────────────────────────────────── */
+  /* Produit détouré posé sur un aplat. */
+  .cutout {
+    object-fit: contain;
+    filter: drop-shadow(0 16px 14px rgb(59 22 13 / 0.3));
+  }
+
+  /* Lien de texte courant. */
+  .link {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+  }
+  @media (hover: hover) {
+    .link:hover { text-decoration-color: var(--color-braise); }
+  }
+
+  /* Texte long (pages légales, guides). */
+  .prose-obflo { font-size: 17px; line-height: 1.7; max-width: 68ch; }
+  .prose-obflo h2 { font-size: 28px; margin: 2em 0 0.5em; }
+  .prose-obflo h3 { font-size: 21px; margin: 1.6em 0 0.4em; }
+  .prose-obflo p,
+  .prose-obflo ul,
+  .prose-obflo ol { margin: 0 0 1em; }
+  .prose-obflo ul { list-style: disc; padding-left: 1.2em; }
+  .prose-obflo ol { list-style: decimal; padding-left: 1.2em; }
+  .prose-obflo a { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+}
 
 /* Lenis (accueil + guides) : le scroll natif « smooth » se bat avec lui. */
 html.lenis,
@@ -229,98 +264,62 @@ html.lenis body {
 .marquee-track {
   animation: marquee 38s linear infinite;
 }
-.marquee:hover .marquee-track {
-  animation-play-state: paused;
-}
-
-/* Border beam : conic-gradient qui tourne, masqué pour ne garder que le bord. */
-@property --beam-angle {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
-}
-@keyframes beam-spin {
-  to {
-    --beam-angle: 360deg;
+@media (hover: hover) {
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
   }
 }
-.border-beam {
-  padding: 1.5px;
-  background: conic-gradient(
-    from var(--beam-angle),
-    transparent 0 70%,
-    var(--color-copper) 80%,
-    var(--color-accent) 88%,
-    var(--color-ember) 92%,
-    transparent 100%
-  );
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  animation: beam-spin 6s linear infinite;
-}
 
-/* Héro : braise cuivre qui respire + grain SVG (effet unique de la page, CSS pur). */
-@keyframes ember-drift {
-  0%,
-  100% {
-    transform: translate3d(-4%, 2%, 0) scale(1);
-    opacity: 0.85;
-  }
-  50% {
-    transform: translate3d(4%, -3%, 0) scale(1.08);
-    opacity: 1;
-  }
+/* Ondes de chaleur (composant HeatWaves) : léger flottement, coupé si l'OS le demande. */
+@keyframes wave-rise {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
-.hero-ember {
-  background:
-    radial-gradient(60% 55% at 22% 78%, rgba(232, 69, 31, 0.42), transparent 70%),
-    radial-gradient(45% 45% at 78% 30%, rgba(201, 138, 75, 0.3), transparent 70%),
-    radial-gradient(35% 30% at 55% 95%, rgba(240, 123, 46, 0.35), transparent 70%);
-  animation: ember-drift 14s ease-in-out infinite;
-  will-change: transform;
+.heat-waves path {
+  animation: wave-rise 2.4s ease-in-out infinite;
 }
-.grain {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 .9  0 0 0 0 .8  0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-  opacity: 0.14;
-  mix-blend-mode: overlay;
-}
-
-/* Survol des cartes produit : levée + halo braise. */
-.card-glow {
-  transition:
-    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.35s ease;
-}
-.card-glow:hover {
-  transform: translateY(-6px);
-  box-shadow:
-    0 18px 40px -18px rgba(232, 69, 31, 0.45),
-    0 0 0 1px rgba(240, 123, 46, 0.35);
-}
+.heat-waves path:nth-child(2) { animation-delay: 0.3s; }
+.heat-waves path:nth-child(3) { animation-delay: 0.6s; }
 
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
   .marquee-track,
-  .border-beam,
-  .hero-ember {
-    animation: none;
-  }
-  .card-glow:hover {
-    transform: none;
-  }
+  .heat-waves path { animation: none; }
+  .btn { transition: none; }
 }
 
-/* Toast sonner aux couleurs OBFLO */
 [data-sonner-toaster] .obflo-toast {
-  background: var(--color-espresso);
-  color: #f5efe6;
-  border: 1px solid rgba(201, 138, 75, 0.35);
-  font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.06em;
+  background: var(--color-choco);
+  color: var(--color-cream);
+  border: 0;
+  border-radius: 18px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
 }
 [data-sonner-toaster] .obflo-toast [data-button] {
-  background: var(--color-accent);
-  color: var(--color-espresso);
+  background: var(--color-moutarde);
+  color: var(--color-choco);
   font-weight: 600;
+  border-radius: 999px;
+}
+
+/* Bandeau d'annonce : en mobile les trois messages se relaient au même endroit. */
+@keyframes announce {
+  0% { opacity: 0; }
+  4%, 30% { opacity: 1; }
+  34%, 100% { opacity: 0; }
+}
+@media (max-width: 639px) {
+  .announce-item {
+    grid-area: 1 / 1;
+    opacity: 0;
+    animation: announce 9s linear infinite;
+    /* -0.36 s : le premier message est déjà visible à la première image. */
+    animation-delay: calc(var(--i) * 3s - 0.36s);
+  }
+}
+@media (max-width: 639px) and (prefers-reduced-motion: reduce) {
+  .announce-item { animation: none; }
+  .announce-item:first-child { opacity: 1; }
 }

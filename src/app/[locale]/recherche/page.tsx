@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { InfoPage } from "@/components/info-page";
-import { SearchContent, type SearchEntry } from "@/components/search-content";
-import {
-  CATEGORY_ORDER,
-  formatPrice,
-  getProducts,
-} from "@/data/catalog";
+import { guideTone } from "@/components/guide-card";
+import { toCardProduct } from "@/components/product-card";
+import { SearchContent } from "@/components/search-content";
+import { CATEGORY_ORDER, getProducts } from "@/data/catalog";
 import { getCategoryContent } from "@/data/categories";
 import { getGuides } from "@/data/guides";
 import { getPathname } from "@/i18n/navigation";
@@ -31,54 +28,27 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-/** Index léger construit côté serveur : produits, catégories, guides. */
-function buildEntries(locale: Locale): SearchEntry[] {
-  const products: SearchEntry[] = getProducts(locale).map((p) => ({
-    kind: "product",
-    title: p.name,
-    subtitle: p.tagline,
-    price: formatPrice(p.price, locale),
-    url: getPathname({
-      locale,
-      href: { pathname: "/produits/[slug]", params: { slug: p.slug } },
-    }),
-  }));
-  const categories: SearchEntry[] = CATEGORY_ORDER.map((c) => {
-    const content = getCategoryContent(c, locale);
-    return {
-      kind: "category" as const,
-      title: content.title,
-      subtitle: content.metaDescription,
-      url: getPathname({
-        locale,
-        href: {
-          pathname: "/collection/[category]",
-          params: { category: content.slug },
-        },
-      }),
-    };
-  });
-  const guides: SearchEntry[] = getGuides(locale).map((g) => ({
-    kind: "guide",
-    title: g.title,
-    subtitle: g.metaDescription,
-    url: getPathname({
-      locale,
-      href: { pathname: "/guides/[slug]", params: { slug: g.slug } },
-    }),
-  }));
-  return [...products, ...categories, ...guides];
-}
-
 export default async function SearchPage({ params }: Props) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   setRequestLocale(locale);
-  const t = await getTranslations("SearchPage");
+  const tCat = await getTranslations("Categories");
 
+  // Index léger construit côté serveur : produits, familles, guides.
   return (
-    <InfoPage kicker={t("kicker")} title={t("title")} intro={t("intro")}>
-      <SearchContent entries={buildEntries(locale)} />
-    </InfoPage>
+    <SearchContent
+      products={getProducts(locale).map(toCardProduct)}
+      families={CATEGORY_ORDER.map((category) => {
+        const c = getCategoryContent(category, locale);
+        return { category, text: `${tCat(category)} ${c.title} ${c.metaDescription}` };
+      })}
+      guides={getGuides(locale).map((g, i) => ({
+        slug: g.slug,
+        title: g.title,
+        metaDescription: g.metaDescription,
+        readMinutes: g.readMinutes,
+        tone: guideTone(i),
+      }))}
+    />
   );
 }

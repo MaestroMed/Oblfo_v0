@@ -43,17 +43,33 @@ export function AnnouncementBar() {
   };
 
   return (
-    <div className="relative border-b border-black/30 bg-[#100C08] px-10 py-[9px] text-center">
-      <span className="font-mono text-[10.5px] tracking-[0.14em] text-accent">
-        🔥 {t("text")}
-      </span>
+    <div className="on-choco relative bg-choco-2 px-11 py-2 text-center font-display text-[14px] font-semibold leading-tight sm:text-[15px]">
+      {/* Mobile : un message à la fois, en fondu. Grand écran : les trois en ligne. */}
+      <div className="grid items-center sm:flex sm:flex-wrap sm:justify-center sm:gap-x-3">
+        {(["msg1", "msg2", "msg3"] as const).map((key, i) => (
+          <span
+            key={key}
+            className="announce-item"
+            style={{ "--i": i } as React.CSSProperties}
+          >
+            {i > 0 ? (
+              <span aria-hidden className="mr-3 hidden text-moutarde sm:inline">
+                ·
+              </span>
+            ) : null}
+            {t(key)}
+          </span>
+        ))}
+      </div>
       <button
         type="button"
         onClick={dismiss}
-        aria-label="×"
-        className="absolute top-1/2 right-4 -translate-y-1/2 cursor-pointer font-mono text-base leading-none text-[#8a7c6c] transition-colors hover:text-white"
+        aria-label={t("close")}
+        className="absolute inset-y-0 right-0 flex w-11 cursor-pointer items-center justify-center"
       >
-        ×
+        <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" />
+        </svg>
       </button>
     </div>
   );

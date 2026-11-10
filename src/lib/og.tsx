@@ -1,35 +1,126 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
+import type { Tile } from "@/lib/tile";
 
-// Socle commun des images Open Graph — DA OBFLO (nuit + halo orange/bleu).
+// Socle commun des images Open Graph : aplats de la charte, sans dégradé.
+// Satori ne lit ni les classes ni les variables CSS : couleurs en hex, `display: flex` partout.
 
 export const ogSize = { width: 1200, height: 630 };
 export const ogContentType = "image/png";
 
+const CREAM = "#fcf1da";
+const CHOCO = "#3b160d";
+const BRAISE = "#eb3a0c";
+const MOUTARDE = "#f5b82e";
+const TILE_HEX: Record<Tile, string> = {
+  moutarde: MOUTARDE,
+  braise: BRAISE,
+  tomate: "#d4281a",
+  brique: "#8c3a1c",
+  choco: CHOCO,
+};
+
+/** Couleurs d'un aplat : fond, texte, et la pastille qui tranche dessus (prix, disque). */
+export function ogTone(tone: Tile) {
+  const light = tone === "moutarde";
+  return {
+    bg: TILE_HEX[tone],
+    fg: light ? CHOCO : CREAM,
+    pop: light ? BRAISE : MOUTARDE,
+    onPop: light ? CREAM : CHOCO,
+  };
+}
+
+// Fredoka n'existe pas en TTF dans le dépôt : Space Grotesk, lu sur disque (aucun téléchargement).
 export async function loadOgFonts() {
   const dir = join(process.cwd(), "src", "assets", "fonts");
-  const [groteskBold, groteskMedium, plexMono] = await Promise.all([
+  const [bold, medium] = await Promise.all([
     readFile(join(dir, "SpaceGrotesk-Bold.ttf")),
     readFile(join(dir, "SpaceGrotesk-Medium.ttf")),
-    readFile(join(dir, "IBMPlexMono-Medium.ttf")),
   ]);
-
   return [
-    { name: "Space Grotesk", data: groteskBold, weight: 700 as const },
-    { name: "Space Grotesk", data: groteskMedium, weight: 500 as const },
-    { name: "IBM Plex Mono", data: plexMono, weight: 500 as const },
+    { name: "Space Grotesk", data: bold, weight: 700 as const },
+    { name: "Space Grotesk", data: medium, weight: 500 as const },
   ];
 }
 
+/** Mot-symbole OBFLO, même tracé que `ObfloLogo` (rapport 469 × 106). */
+export function OgLogo({ width, color }: { width: number; color: string }) {
+  return (
+    <svg
+      width={width}
+      height={Math.round((width * 106) / 469)}
+      viewBox="-3 -3 469 106"
+      fill="none"
+      stroke={color}
+      strokeWidth="22"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <circle cx="50" cy="50" r="42" />
+      <path d="M126 8H154A19 19 0 0 1 154 46H126M154 46H160A23 23 0 0 1 160 92H126V8" />
+      <path d="M219 92V8H267M219 50H257" />
+      <path d="M297 8V92H343" />
+      <circle cx="413" cy="50" r="42" />
+    </svg>
+  );
+}
+
+const SIDE = 360;
+
+/** Colonne de droite par défaut : disque d'aplat et ondes de chaleur (même tracé que `HeatWaves`). */
+function OgWaves({ tone }: { tone: Tile }) {
+  const c = ogTone(tone);
+  return (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: SIDE,
+        height: SIDE,
+        borderRadius: SIDE,
+        backgroundColor: c.pop,
+      }}
+    >
+      <svg
+        width="180"
+        height="192"
+        viewBox="0 0 60 64"
+        fill="none"
+        stroke={c.onPop}
+        strokeWidth="6"
+        strokeLinecap="round"
+      >
+        <path d="M10 60c-8-10 8-18 0-28s8-18 0-28" />
+        <path d="M30 60c-8-10 8-18 0-28s8-18 0-28" />
+        <path d="M50 60c-8-10 8-18 0-28s8-18 0-28" />
+      </svg>
+    </div>
+  );
+}
+
+/**
+ * Cadre commun : aplat plein, texte à gauche, visuel à droite, bande de pied.
+ * `image` : photo carrée en data URI ; sans elle, le disque aux ondes.
+ */
 export function OgFrame({
-  kicker,
-  footerLeft,
+  tone,
+  footer,
+  image,
+  logo = true,
   children,
 }: {
-  kicker: string;
-  footerLeft: string;
+  tone: Tile;
+  footer: string;
+  image?: string | null;
+  /** Faux quand le mot-symbole est déjà le sujet de l'image. */
+  logo?: boolean;
   children: React.ReactNode;
 }) {
+  const c = ogTone(tone);
+  // Bande de pied chocolat, sauf sur l'aplat chocolat où elle passe en moutarde.
+  const band = tone === "choco" ? { bg: MOUTARDE, fg: CHOCO } : { bg: CHOCO, fg: CREAM };
   return (
     <div
       style={{
@@ -37,103 +128,49 @@ export function OgFrame({
         height: "100%",
         display: "flex",
         flexDirection: "column",
-        backgroundColor: "#0A0C10",
-        backgroundImage:
-          "radial-gradient(circle at 88% 10%, rgba(255,106,43,0.24), transparent 52%), radial-gradient(circle at 6% 95%, rgba(52,104,158,0.28), transparent 52%)",
-        padding: "56px 72px",
+        backgroundColor: c.bg,
+        color: c.fg,
         fontFamily: "Space Grotesk",
-        position: "relative",
       }}
     >
-      {/* Coins techniques */}
-      <div
-        style={{
-          position: "absolute",
-          top: 28,
-          right: 28,
-          width: 26,
-          height: 26,
-          borderTop: "3px solid rgba(255,106,43,0.8)",
-          borderRight: "3px solid rgba(255,106,43,0.8)",
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          bottom: 28,
-          left: 28,
-          width: 26,
-          height: 26,
-          borderBottom: "3px solid rgba(255,106,43,0.8)",
-          borderLeft: "3px solid rgba(255,106,43,0.8)",
-        }}
-      />
-
-      {/* Kicker */}
-      <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-        <div
-          style={{
-            width: 14,
-            height: 14,
-            backgroundColor: "#FF6A2B",
-            transform: "rotate(45deg)",
-            boxShadow: "0 0 24px rgba(255,106,43,0.9)",
-          }}
-        />
-        <div
-          style={{
-            fontFamily: "IBM Plex Mono",
-            fontSize: 22,
-            letterSpacing: "0.24em",
-            color: "#8FA1B3",
-          }}
-        >
-          {kicker}
-        </div>
-      </div>
-
-      {/* Contenu */}
       <div
         style={{
           display: "flex",
-          flexDirection: "column",
           flexGrow: 1,
-          justifyContent: "center",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: "0 72px",
         }}
       >
-        {children}
+        <div style={{ display: "flex", flexDirection: "column", width: 640 }}>{children}</div>
+        {image ? (
+          // eslint-disable-next-line @next/next/no-img-element -- rendu satori, pas le DOM
+          <img
+            src={image}
+            alt=""
+            width={SIDE}
+            height={SIDE}
+            style={{ borderRadius: 48, objectFit: "cover" }}
+          />
+        ) : (
+          <OgWaves tone={tone} />
+        )}
       </div>
-
-      {/* Pied */}
       <div
         style={{
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
+          height: 92,
+          padding: "0 72px",
+          backgroundColor: band.bg,
+          color: band.fg,
+          fontSize: 28,
+          fontWeight: 500,
         }}
       >
-        <div
-          style={{
-            fontFamily: "IBM Plex Mono",
-            fontSize: 20,
-            letterSpacing: "0.16em",
-            color: "#6D8093",
-          }}
-        >
-          {footerLeft}
-        </div>
-        <div
-          style={{
-            display: "flex",
-            fontSize: 40,
-            fontWeight: 700,
-            letterSpacing: "0.05em",
-            color: "#F2F5F8",
-          }}
-        >
-          OBFLO
-          <span style={{ color: "#FF6A2B" }}>°</span>
-        </div>
+        <div style={{ display: "flex" }}>{footer}</div>
+        {logo ? <OgLogo width={160} color={band.fg} /> : null}
       </div>
     </div>
   );

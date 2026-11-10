@@ -5,6 +5,7 @@ import { guidesDe } from "./guides-de";
 import { guidesEs } from "./guides-es";
 import { GUIDE_SLUGS, guideIdFromSlug } from "./guides-slugs";
 import { routing, type Locale } from "@/i18n/routing";
+import { frTypoDeep } from "@/lib/typo";
 
 /** Locale de rédaction native des sources ci-dessous. */
 type SourceLocale = "fr" | "en";
@@ -73,7 +74,7 @@ const guideSources: GuideSource[] = [
       en: "What a space heater really costs per hour: simple math, sizing the wattage to your room, safety checks and the mistakes that waste money.",
     },
     intro: {
-      fr: "Chauffer toute la maison pour une seule pièce occupée, c'est la façon la plus chère de ne pas avoir froid. Un chauffage d'appoint bien choisi fait l'inverse : il chauffe l'endroit où tu es, au moment où tu y es. Voici comment calculer ce qu'il coûte vraiment, choisir la bonne puissance et éviter les pièges.",
+      fr: "Chauffer toute la maison pour une seule pièce occupée, c'est la façon la plus chère de ne pas avoir froid. Un chauffage d'appoint bien choisi fait l'inverse : il chauffe l'endroit où vous êtes, au moment où vous y êtes. Voici comment calculer ce qu'il coûte vraiment, choisir la bonne puissance et éviter les pièges.",
       en: "Heating the whole house for the one room you actually occupy is the most expensive way to stay warm. A well-chosen space heater does the opposite: it heats the spot you're in, while you're in it. Here's how to work out the real cost, pick the right wattage and avoid the classic mistakes.",
     },
     sections: {
@@ -81,9 +82,9 @@ const guideSources: GuideSource[] = [
         {
           title: "Le vrai coût par heure : un calcul en 10 secondes",
           paragraphs: [
-            "La formule tient sur une ligne : puissance (en kW) × heures d'utilisation × prix du kWh. Un chauffage de 1 200 W utilisé 3 heures par soir, avec un kWh autour de 0,25 €, coûte 1,2 × 3 × 0,25 = 0,90 € par soirée. Environ 27 € par mois — pour une pièce vraiment chaude, aux heures où tu y es.",
+            "La formule tient sur une ligne : puissance (en kW) × heures d'utilisation × prix du kWh. Un chauffage de 1 200 W utilisé 3 heures par soir, avec un kWh autour de 0,25 €, coûte 1,2 × 3 × 0,25 = 0,90 € par soirée. Environ 27 € par mois — pour une pièce vraiment chaude, aux heures où vous y êtes.",
             "Le comparatif qui compte : monter le chauffage central de 2 degrés pour toute la maison coûte typiquement 3 à 5 fois plus cher que chauffer ponctuellement la pièce occupée. Le chauffage d'appoint n'est pas économique « en soi » — il l'est parce qu'il chauffe petit et court.",
-            "La règle d'or qui en découle : un chauffage d'appoint sert en complément, pièce par pièce, session par session. Si tu le laisses tourner 24 h/24 dans un grand salon mal isolé, le calcul se retourne contre toi.",
+            "La règle d'or qui en découle : un chauffage d'appoint sert en complément, pièce par pièce, session par session. Si vous le laissez tourner 24 h/24 dans un grand salon mal isolé, le calcul se retourne contre vous.",
           ],
         },
         {
@@ -105,8 +106,8 @@ const guideSources: GuideSource[] = [
           title: "Les erreurs qui coûtent cher",
           paragraphs: [
             "Chauffer une pièce aux fenêtres ouvertes ou très mal isolée : l'appareil tourne à plein régime en continu et le coût s'envole. Cinq minutes d'aération fenêtres grandes ouvertes puis fenêtres fermées battent une fenêtre entrouverte en permanence.",
-            "Prendre un appareil sous-dimensionné « pour économiser » : un 500 W dans 20 m² tourne sans jamais atteindre la consigne — tu consommes sans confort. Mieux vaut la bonne puissance utilisée moins longtemps.",
-            "Négliger le positionnement : au sol ou sur un bureau, flux d'air orienté vers toi, pas vers la porte. La chaleur d'un soufflant est directionnelle — c'est sa force pour un poste de travail, à condition de l'orienter.",
+            "Prendre un appareil sous-dimensionné « pour économiser » : un 500 W dans 20 m² tourne sans jamais atteindre la consigne — vous consommez sans confort. Mieux vaut la bonne puissance utilisée moins longtemps.",
+            "Négliger le positionnement : au sol ou sur un bureau, flux d'air orienté vers vous, pas vers la porte. La chaleur d'un soufflant est directionnelle — c'est sa force pour un poste de travail, à condition de l'orienter.",
           ],
         },
       ],
@@ -188,7 +189,7 @@ const guideSources: GuideSource[] = [
           paragraphs: [
             "Les zones de chauffe : paume + dessus des doigts est la configuration efficace — c'est le dos de la main et les doigts qui souffrent en premier. Certains modèles d'entrée de gamme ne chauffent que le dos de la main : chaleur réelle très limitée.",
             "Index tactile pour garder le téléphone utilisable, textile déperlant pour la bruine (déperlant ≠ étanche : aucun gant chauffant grand public ne se plonge dans l'eau), et lavage à la main une fois le câble ou la batterie débranché.",
-            "Niveaux de chauffe : trois niveaux suffisent. Au-delà, c'est du marketing ; en dessous, tu n'as pas de position « économie d'autonomie ».",
+            "Niveaux de chauffe : trois niveaux suffisent. Au-delà, c'est du marketing ; en dessous, vous n'avez pas de position « économie d'autonomie ».",
           ],
         },
         {
@@ -797,13 +798,13 @@ function localizeGuide(source: GuideSource, locale: Locale): Guide | undefined {
   };
 
   if (locale === "fr" || locale === "en") {
-    return {
-      ...base,
+    const text = {
       title: source.title[locale],
       metaDescription: source.metaDescription[locale],
       intro: source.intro[locale],
       sections: source.sections[locale],
     };
+    return { ...base, ...(locale === "fr" ? frTypoDeep(text) : text) };
   }
 
   const l10n = overlays[locale]?.[source.id];

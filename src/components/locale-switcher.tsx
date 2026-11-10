@@ -51,27 +51,32 @@ function alternateHref(rawPathname: string, from: Locale, to: Locale): string {
   return `/${to}`;
 }
 
-export function LocaleSwitcher() {
+export function LocaleSwitcher({ label }: { label?: string }) {
   const locale = useLocale() as Locale;
   const rawPathname = useRawPathname();
 
   return (
-    <div className="flex items-center gap-1 font-mono text-[10.5px] tracking-[0.14em]">
-      {routing.locales.map((l, i) => (
-        <span key={l} className="flex items-center gap-1">
-          {i > 0 ? <span className="text-[#3A4655]">/</span> : null}
-          {l === locale ? (
-            <span className="text-accent">{l.toUpperCase()}</span>
-          ) : (
-            <a
-              href={alternateHref(rawPathname, locale, l)}
-              className="text-[#6D8093] no-underline transition-colors hover:text-white"
-            >
-              {l.toUpperCase()}
-            </a>
-          )}
-        </span>
-      ))}
-    </div>
+    <nav aria-label={label} className="flex items-center gap-1 font-display text-[16px] font-semibold">
+      {routing.locales.map((l) =>
+        l === locale ? (
+          <span
+            key={l}
+            aria-current="true"
+            className="flex h-11 min-w-11 items-center justify-center rounded-full bg-moutarde px-3 text-choco"
+          >
+            {l.toUpperCase()}
+          </span>
+        ) : (
+          <a
+            key={l}
+            href={alternateHref(rawPathname, locale, l)}
+            hrefLang={l}
+            className="flex h-11 min-w-11 items-center justify-center rounded-full px-3 no-underline hover:underline hover:decoration-2 hover:underline-offset-4"
+          >
+            {l.toUpperCase()}
+          </a>
+        ),
+      )}
+    </nav>
   );
 }

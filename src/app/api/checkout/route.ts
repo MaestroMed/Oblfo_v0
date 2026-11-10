@@ -171,8 +171,8 @@ export async function POST(request: Request) {
             type: "fixed_amount",
             fixed_amount: { amount: shippingCents, currency: "eur" },
             delivery_estimate: {
-              minimum: { unit: "business_day", value: 3 },
-              maximum: { unit: "business_day", value: 5 },
+              minimum: { unit: "business_day", value: 8 },
+              maximum: { unit: "business_day", value: 20 },
             },
           },
         },

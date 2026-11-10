@@ -1,100 +1,111 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
+import { FamilyPills } from "@/components/family-pills";
+import { GuideCard, type GuideCardData } from "@/components/guide-card";
+import { PAGE, PageBanner } from "@/components/page-banner";
+import { ProductCard, type CardProduct } from "@/components/product-card";
+import type { Category } from "@/data/catalog-types";
+import { Link } from "@/i18n/navigation";
+import type { Locale } from "@/i18n/routing";
+import type { Tile } from "@/lib/tile";
 
-export type SearchEntry = {
-  kind: "product" | "guide" | "category";
-  title: string;
-  subtitle: string;
-  /** Chemin localisé complet (préfixe de locale inclus), construit côté serveur. */
-  url: string;
-  price?: string;
+export type SearchIndex = {
+  products: CardProduct[];
+  /** `text` : ce sur quoi la famille est trouvée (nom, titre, description). */
+  families: { category: Category; text: string }[];
+  guides: (GuideCardData & { tone: Tile })[];
 };
 
 /** Insensible aux accents ET à la casse (« pièce » trouve « piece »). */
 function normalize(value: string) {
-  // NFD sépare les diacritiques (U+0300–U+036F), qu'on retire ensuite.
+  // NFD sépare les diacritiques (U+0300 à U+036F), qu'on retire ensuite.
   return value
     .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
+    .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase();
 }
 
+const GRID = "grid grid-cols-2 gap-3 sm:grid-cols-[repeat(auto-fill,minmax(250px,1fr))] sm:gap-6";
+
 /**
- * Recherche instantanée côté client — l'index (≈25 entrées) est construit
- * côté serveur et arrive en props. Requête vide = liste complète, rendue en
- * SSR : la page reste indexable avec tout son contenu.
+ * Recherche instantanée côté client : l'index (une trentaine d'entrées) est construit
+ * côté serveur et arrive en props. Requête vide = tout le contenu, rendu en SSR :
+ * la page reste indexable.
  */
-export function SearchContent({ entries }: { entries: SearchEntry[] }) {
+export function SearchContent({ products, families, guides }: SearchIndex) {
   const t = useTranslations("SearchPage");
+  const tPage = useTranslations("CategoryPage");
+  const locale = useLocale() as Locale;
   const [query, setQuery] = useState("");
 
-  const results = useMemo(() => {
-    const q = normalize(query.trim());
-    if (!q) return entries;
-    return entries.filter((e) =>
-      normalize(`${e.title} ${e.subtitle}`).includes(q),
-    );
-  }, [entries, query]);
-
-  const kindLabel = {
-    product: t("kindProduct"),
-    guide: t("kindGuide"),
-    category: t("kindCategory"),
-  } as const;
+  const q = normalize(query.trim());
+  const match = (text: string) => !q || normalize(text).includes(q);
+  const foundProducts = products.filter((p) => match(`${p.name} ${p.tagline}`));
+  const foundFamilies = families.filter((f) => match(f.text)).map((f) => f.category);
+  const foundGuides = guides.filter((g) => match(`${g.title} ${g.metaDescription}`));
+  const count = foundProducts.length + foundFamilies.length + foundGuides.length;
 
   return (
-    <div className="flex flex-col gap-7">
-      <input
-        type="search"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        placeholder={t("placeholder")}
-        aria-label={t("placeholder")}
-        autoFocus
-        className="w-full rounded-xl border border-white/15 bg-white/[0.04] px-5 py-4 text-[16px] text-ink outline-none transition-colors placeholder:text-[#6D8093] focus:border-accent/70"
-      />
+    <main className={`${PAGE} pt-4 pb-14 sm:pt-6 sm:pb-24`}>
+      <PageBanner tone="brique" title={t("title")} lead={t("intro")}>
+        <input
+          type="search"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder={t("placeholder")}
+          aria-label={t("title")}
+          autoFocus
+          className="field mt-6 min-h-14 max-w-[560px] text-[18px]"
+        />
+      </PageBanner>
+
       <p
         aria-live="polite"
-        className="font-mono text-[11px] tracking-[0.16em] text-[#8FA1B3] uppercase"
+        className={`mt-6 font-display sm:mt-10 ${count > 0 ? "text-[18px] font-semibold" : "text-[clamp(26px,5vw,40px)] leading-[1.05] font-bold wrap-anywhere"}`}
       >
-        {t("count", { count: results.length })}
+        {count > 0 ? t("count", { count }) : t("noResultsTitle", { query: query.trim() })}
       </p>
-      {results.length === 0 ? (
-        <p className="text-[15px] leading-relaxed text-[#9AA9B8]">
-          {t("noResults")}
-        </p>
-      ) : (
-        <ul className="flex list-none flex-col gap-3 p-0">
-          {results.map((e) => (
-            <li key={e.url}>
-              <Link
-                href={e.url}
-                className="flex items-baseline justify-between gap-4 rounded-xl border border-white/8 bg-white/[0.03] px-5 py-4 no-underline transition-colors hover:border-accent/50"
-              >
-                <span className="flex min-w-0 flex-col gap-1">
-                  <span className="font-mono text-[9.5px] tracking-[0.18em] text-accent uppercase">
-                    {kindLabel[e.kind]}
-                  </span>
-                  <span className="text-[16px] font-semibold text-ink">
-                    {e.title}
-                  </span>
-                  <span className="truncate text-[13px] text-[#8FA1B3]">
-                    {e.subtitle}
-                  </span>
-                </span>
-                {e.price ? (
-                  <span className="shrink-0 text-[15px] font-bold text-ink">
-                    {e.price}
-                  </span>
-                ) : null}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+
+      {count === 0 ? (
+        <div className="mt-4 flex flex-col items-start gap-4">
+          <p className="text-[17px]">{t("noResults")}</p>
+          <FamilyPills className="self-stretch" />
+          <Link href="/collection" className="btn">
+            {tPage("backToCollection")}
+          </Link>
+        </div>
+      ) : null}
+
+      {foundProducts.length > 0 ? (
+        <section className="mt-8 sm:mt-12">
+          <h2 className="mb-4 text-[28px] sm:mb-6">{t("groupProducts")}</h2>
+          <div className={GRID}>
+            {foundProducts.map((product) => (
+              <ProductCard key={product.id} product={product} locale={locale} />
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {foundFamilies.length > 0 ? (
+        <section className="mt-12 sm:mt-20">
+          <h2 className="mb-2 text-[28px] sm:mb-4">{t("groupCategories")}</h2>
+          <FamilyPills only={foundFamilies} />
+        </section>
+      ) : null}
+
+      {foundGuides.length > 0 ? (
+        <section className="mt-12 sm:mt-20">
+          <h2 className="mb-4 text-[28px] sm:mb-6">{t("groupGuides")}</h2>
+          <div className="grid gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
+            {foundGuides.map((guide) => (
+              <GuideCard key={guide.slug} guide={guide} tone={guide.tone} level={3} />
+            ))}
+          </div>
+        </section>
+      ) : null}
+    </main>
   );
 }

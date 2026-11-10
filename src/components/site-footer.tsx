@@ -1,67 +1,54 @@
 import { useLocale, useTranslations } from "next-intl";
+import { Icon, type IconName } from "@/components/home/icons";
+import { LocaleSwitcher } from "@/components/locale-switcher";
 import { NewsletterForm } from "@/components/newsletter-form";
+import { ObfloLogo } from "@/components/obflo-logo";
 import { getProducts } from "@/data/catalog";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 
 function FooterHeading({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="mb-1 font-mono text-[10.5px] tracking-[0.2em] text-[#6D8093]">
-      {children}
-    </div>
-  );
+  return <h2 className="mb-2 text-[20px] text-moutarde">{children}</h2>;
 }
 
+// Cible de 44 px de haut, même quand le nom passe sur deux lignes.
 const footerLinkClass =
-  "text-[13.5px] text-[#A7B4C2] no-underline transition-colors hover:text-accent";
+  "flex min-h-11 items-center py-1.5 text-[16px] leading-snug no-underline decoration-2 underline-offset-4 hover:underline";
+
+const BADGES: [IconName, "badge1" | "badge2" | "badge3" | "badge4"][] = [
+  ["lock", "badge1"],
+  ["chat", "badge2"],
+  ["truck", "badge3"],
+  ["returns", "badge4"],
+];
 
 export function SiteFooter() {
   const t = useTranslations("Footer");
+  const tNav = useTranslations("Nav");
   const locale = useLocale() as Locale;
-  const products = getProducts(locale);
-
-  const badges = [
-    ["badge1Title", "badge1Text"],
-    ["badge2Title", "badge2Text"],
-    ["badge3Title", "badge3Text"],
-    ["badge4Title", "badge4Text"],
-  ] as const;
+  // Pas de lien vers un produit sans photo ni vers un produit épuisé.
+  const products = getProducts(locale).filter((p) => p.available && p.image);
 
   return (
-    <footer className="mt-auto bg-[#100C08]">
-      <div className="h-px bg-[linear-gradient(90deg,transparent,#F07B2E,transparent)]" />
-      <div className="border-b border-white/[0.05]">
-        <div className="mx-auto grid max-w-[1240px] grid-cols-2 gap-6 px-5 sm:px-8 py-8 lg:grid-cols-4">
-          {badges.map(([titleKey, textKey]) => (
-            <div key={titleKey} className="flex flex-col gap-1">
-              <span className="flex items-center gap-2 text-[13px] font-semibold text-[#EDE4D7]">
-                <span className="h-1.5 w-1.5 rotate-45 bg-accent" />
-                {t(titleKey)}
-              </span>
-              <span className="pl-3.5 text-[11.5px] text-[#8F8171]">
-                {t(textKey)}
-              </span>
+    <footer className="on-choco mt-auto">
+      <div className="mx-auto max-w-[1240px] px-4 py-14 sm:px-8 sm:py-24">
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
+          <div className="flex flex-col gap-6">
+            <a href={`/${locale}`} aria-label="OBFLO" className="flex h-11 items-center self-start">
+              <ObfloLogo className="h-10 w-auto" />
+            </a>
+            <p className="max-w-[420px] text-[17px] leading-relaxed">{t("tagline")}</p>
+            <div className="tile on-moutarde flex flex-col gap-4 p-5 sm:p-7">
+              <h2 className="text-[24px] sm:text-[28px]">{t("newsletterTitle")}</h2>
+              <NewsletterForm />
             </div>
-          ))}
-        </div>
-      </div>
-      <div className="mx-auto max-w-[1240px] px-5 sm:px-8 pt-[60px] pb-9">
-        <div className="flex flex-wrap justify-between gap-14">
-          <div className="flex max-w-[360px] flex-col gap-[18px]">
-            <div className="text-2xl font-bold tracking-[0.05em] text-ink">
-              OBFLO<span className="text-accent">°</span>
-            </div>
-            <p className="text-sm leading-relaxed text-[#8595A5] text-pretty">
-              {t("tagline")}
-            </p>
-            <div className="mt-2.5 text-sm font-medium text-[#C9D4DF]">
-              {t("newsletterTitle")}
-            </div>
-            <NewsletterForm />
           </div>
-          <div className="flex flex-wrap gap-14">
-            <div className="flex min-w-[150px] flex-col gap-3">
+          <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3">
+            <nav aria-label={t("shop")} className="row-span-2 flex flex-col sm:row-span-1">
               <FooterHeading>{t("shop")}</FooterHeading>
+              <Link href="/collection" className={footerLinkClass}>
+                {t("collection")}
+              </Link>
               {products.map((product) => (
                 <Link
                   key={product.id}
@@ -74,11 +61,11 @@ export function SiteFooter() {
                   {product.name}
                 </Link>
               ))}
-              <a href={`/${locale}#packs`} className={footerLinkClass}>
+              <a href={`/${locale}#pack`} className={footerLinkClass}>
                 {t("packs")}
               </a>
-            </div>
-            <div className="flex min-w-[150px] flex-col gap-3">
+            </nav>
+            <nav aria-label={t("help")} className="flex flex-col">
               <FooterHeading>{t("help")}</FooterHeading>
               <Link href="/guides" className={footerLinkClass}>
                 {t("guides")}
@@ -89,11 +76,8 @@ export function SiteFooter() {
               <Link href="/contact" className={footerLinkClass}>
                 {t("contact")}
               </Link>
-              <Link href="/contact" className={footerLinkClass}>
-                {t("orderTracking")}
-              </Link>
-            </div>
-            <div className="flex min-w-[150px] flex-col gap-3">
+            </nav>
+            <nav aria-label={t("infos")} className="flex flex-col">
               <FooterHeading>{t("infos")}</FooterHeading>
               <Link href="/livraison-retours" className={footerLinkClass}>
                 {t("shipping")}
@@ -107,12 +91,25 @@ export function SiteFooter() {
               <Link href="/confidentialite" className={footerLinkClass}>
                 {t("privacy")}
               </Link>
-            </div>
+            </nav>
           </div>
         </div>
-        <div className="mt-14 flex flex-wrap justify-between gap-4 border-t border-white/6 pt-6 font-mono text-[11px] tracking-[0.12em] text-[#708090]">
-          <span>{t("copyright")}</span>
-          <span>{t("region")}</span>
+        <ul className="mt-12 grid grid-cols-1 gap-3 min-[420px]:grid-cols-2 lg:grid-cols-4">
+          {BADGES.map(([icon, key]) => (
+            <li key={key} className="tile flex items-start gap-3 bg-choco-2 p-4">
+              <Icon name={icon} className="h-7 w-7 shrink-0 text-moutarde" />
+              <span className="flex min-w-0 flex-col gap-0.5">
+                <span className="font-display text-[17px] leading-tight font-semibold">
+                  {t(`${key}Title`)}
+                </span>
+                <span className="text-[15px] leading-snug">{t(`${key}Text`)}</span>
+              </span>
+            </li>
+          ))}
+        </ul>
+        <div className="mt-10 flex flex-wrap items-center justify-between gap-x-6 gap-y-2">
+          <span className="text-[15px]">{t("copyright")}</span>
+          <LocaleSwitcher label={tNav("language")} />
         </div>
       </div>
     </footer>

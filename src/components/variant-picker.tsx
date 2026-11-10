@@ -27,6 +27,8 @@ export function VariantPicker({
   layout: "pills" | "select";
   buttonClassName: string;
   buttonLabel: string;
+  /** Sans effet depuis la DA v3 (le composant hérite du bloc) ; gardé pour les appelants. */
+  light?: boolean;
 }) {
   const t = useTranslations("Cart");
   const { addItem } = useCart();
@@ -43,10 +45,9 @@ export function VariantPicker({
 
   return (
     <div className="flex flex-col gap-3">
-      <div className="flex flex-wrap items-center gap-2">
-        <span className="font-mono text-[10.5px] tracking-[0.18em] text-[#8FA1B3] uppercase">
-          {label}
-        </span>
+      {/* Le libellé et l'alerte héritent de la couleur du bloc ; champ et pastilles portent leur propre fond. */}
+      <div className="flex flex-col gap-2">
+        <span className="text-[15px] font-semibold">{label}</span>
         {layout === "pills" ? (
           <div className="flex flex-wrap gap-2" role="group" aria-label={label}>
             {options.map((option) => (
@@ -55,10 +56,10 @@ export function VariantPicker({
                 type="button"
                 onClick={() => setSelected(option)}
                 aria-pressed={selected === option}
-                className={`cursor-pointer rounded-lg border px-3.5 py-2 text-[13.5px] font-semibold transition-colors ${
+                className={`font-display min-h-11 min-w-11 cursor-pointer rounded-full px-4 text-[16px] font-semibold ring-2 ring-inset transition-colors duration-150 ${
                   selected === option
-                    ? "border-accent bg-accent/15 text-accent"
-                    : "border-white/15 text-[#C4D2DE] hover:border-accent/50"
+                    ? "bg-choco text-cream ring-cream"
+                    : "bg-paper text-choco ring-choco/25"
                 }`}
               >
                 {option}
@@ -70,7 +71,7 @@ export function VariantPicker({
             value={selected ?? ""}
             onChange={(e) => setSelected(e.target.value || null)}
             aria-label={label}
-            className="cursor-pointer rounded-lg border border-white/15 bg-transparent px-3 py-2 text-[13.5px] text-[#C4D2DE] outline-none focus:border-accent/70 [&>option]:bg-[#14100C]"
+            className="field cursor-pointer"
           >
             <option value="">{label}…</option>
             {options.map((option) => (
@@ -82,20 +83,17 @@ export function VariantPicker({
         )}
       </div>
       {touched && !selected ? (
-        <p className="font-mono text-[10.5px] tracking-[0.1em] text-accent">
+        <p role="alert" className="text-[15px] font-bold">
           {t("variantRequired", { label })}
         </p>
       ) : null}
-      <div>
-        <button
-          type="button"
-          onClick={add}
-          aria-disabled={!selected}
-          className={`${buttonClassName} ${!selected ? "opacity-60" : ""}`}
-        >
-          {buttonLabel}
-        </button>
-      </div>
+      <button
+        type="button"
+        onClick={add}
+        className={buttonClassName}
+      >
+        {buttonLabel}
+      </button>
     </div>
   );
 }

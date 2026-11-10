@@ -5,7 +5,7 @@ import { CookieBanner } from "@/components/cookie-banner";
 import { Ga4 } from "@/components/ga4";
 import { NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Fraunces, IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
+import { Figtree, Fredoka } from "next/font/google";
 import "../globals.css";
 import { AnnouncementBar } from "@/components/announcement-bar";
 import { CartDrawer } from "@/components/cart-drawer";
@@ -17,23 +17,17 @@ import { SiteHeader } from "@/components/site-header";
 import { isLocale, ogLocale, routing } from "@/i18n/routing";
 import { SITE_URL } from "@/lib/site";
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-grotesk",
+// Deux familles variables seulement : titres ronds et gras, texte courant neutre.
+const fredoka = Fredoka({
+  variable: "--font-fredoka",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
-const plexMono = IBM_Plex_Mono({
-  variable: "--font-plex-mono",
+const figtree = Figtree({
+  variable: "--font-figtree",
   subsets: ["latin"],
-  weight: ["400", "500"],
-});
-
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
-  subsets: ["latin"],
-  style: ["normal", "italic"],
-  weight: ["400", "500", "600"],
+  display: "swap",
 });
 
 type Props = {
@@ -78,7 +72,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html
       lang={locale}
-      className={`${spaceGrotesk.variable} ${plexMono.variable} ${fraunces.variable} h-full antialiased`}
+      className={`${fredoka.variable} ${figtree.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <NextIntlClientProvider>

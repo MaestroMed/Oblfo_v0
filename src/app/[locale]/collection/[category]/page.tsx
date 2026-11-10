@@ -1,16 +1,21 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { FamilyPills } from "@/components/family-pills";
+import { GuideCard, guideTone } from "@/components/guide-card";
+import { PackRail } from "@/components/pack-card";
+import { Crumbs, H2, PAGE, PageBanner } from "@/components/page-banner";
 import { toCardProduct } from "@/components/product-card";
 import { ProductGrid } from "@/components/product-grid";
-import { getProducts } from "@/data/catalog";
+import { getPacks, getProductById, getProducts } from "@/data/catalog";
 import type { Category } from "@/data/catalog-types";
 import { getCategoryContent } from "@/data/categories";
 import { CATEGORY_SLUGS, categoryFromSlug } from "@/data/category-slugs";
 import { getGuides } from "@/data/guides";
-import { getPathname, Link } from "@/i18n/navigation";
+import { getPathname } from "@/i18n/navigation";
 import { isLocale, ogLocale, routing, type Locale } from "@/i18n/routing";
 import { SITE_URL } from "@/lib/site";
+import { CATEGORY_HERO, categoryTile } from "@/lib/tile";
 
 type Props = { params: Promise<{ locale: string; category: string }> };
 
@@ -69,9 +74,16 @@ export default async function CategoryPage({ params }: Props) {
 
   const c = getCategoryContent(category, locale);
   const t = await getTranslations("CategoryPage");
-  const tGuides = await getTranslations("Guides");
+  const tCat = await getTranslations("Categories");
+  const label = tCat(category);
   const products = getProducts(locale).filter((p) => p.category === category);
-  const guides = getGuides(locale).filter((g) => c.guideIds.includes(g.id));
+  const ids = new Set(products.map((p) => p.id));
+  const packs = getPacks(locale).filter(
+    (pack) => pack.available && pack.lines.some((line) => ids.has(line.id)),
+  );
+  const guides = getGuides(locale)
+    .map((guide, i) => ({ guide, tone: guideTone(i) }))
+    .filter(({ guide }) => c.guideIds.includes(guide.id));
 
   const pageUrl = `${SITE_URL}${getPathname({
     locale,
@@ -134,69 +146,65 @@ export default async function CategoryPage({ params }: Props) {
             name: t("backToCollection"),
             item: collectionUrl,
           },
-          { "@type": "ListItem", position: 3, name: c.title },
+          { "@type": "ListItem", position: 3, name: label },
         ],
       },
     ],
   };
 
   return (
-    <main className="bg-cream py-16">
-      <div className="mx-auto max-w-[1280px] px-8">
-        <nav className="mb-8">
-          <Link
-            href="/collection"
-            className="font-mono text-[10.5px] tracking-[0.16em] text-muted-warm no-underline transition-colors hover:text-accent"
-          >
-            ← {t("backToCollection")}
-          </Link>
-        </nav>
-
-        <div className="mb-12 flex max-w-[720px] flex-col gap-4">
-          <h1 className="font-serif text-[clamp(36px,4.2vw,56px)] font-medium tracking-[-0.01em] text-ink-warm">
-            {c.title}
-          </h1>
-          <p className="text-[16px] leading-relaxed text-muted-warm text-pretty">
-            {c.intro}
-          </p>
-        </div>
-
-        <ProductGrid
-          products={products.map(toCardProduct)}
-          locale={locale}
+    <main>
+      <div className={`${PAGE} pt-1 pb-14 sm:pt-3 sm:pb-24`}>
+        <Crumbs
+          items={[
+            { label: t("home"), href: "/" },
+            { label: t("backToCollection"), href: "/collection" },
+            { label },
+          ]}
         />
+        {/* Même couleur et même produit que la tuile de la famille sur l'accueil (src/lib/tile.ts). */}
+        <PageBanner
+          tone={categoryTile(category)}
+          title={c.h1}
+          lead={c.lead}
+          image={getProductById(CATEGORY_HERO[category], locale)?.cutout}
+        />
+        <FamilyPills current={category} className="mt-3 sm:mt-5" />
+        <div className="mt-3 sm:mt-6">
+          <ProductGrid products={products.map(toCardProduct)} locale={locale} />
+        </div>
+      </div>
 
-        {guides.length > 0 ? (
-          <section className="mt-16">
-            <div className="mb-6 flex items-center gap-3">
-              <span className="h-1.5 w-1.5 rotate-45 bg-accent" />
-              <h2 className="font-serif text-[22px] font-medium text-ink-warm">
-                {t("guidesLabel")}
-              </h2>
-              <span className="h-px flex-1 bg-black/8" />
+      {packs.length > 0 ? (
+        <section className="on-cream-2 py-14 sm:py-24">
+          <div className={PAGE}>
+            <h2 className={H2}>{t("packsTitle")}</h2>
+            <p className="mt-3 text-[17px]">{t("packsText")}</p>
+            <div className="mt-6 sm:mt-10">
+              <PackRail packs={packs} locale={locale} cols="md:grid-cols-2 lg:grid-cols-3" />
             </div>
-            <div className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-5">
-              {guides.map((guide) => (
-                <Link
-                  key={guide.id}
-                  href={{
-                    pathname: "/guides/[slug]",
-                    params: { slug: guide.slug },
-                  }}
-                  className="flex flex-col gap-3 rounded-2xl border border-black/[0.06] bg-white p-6 no-underline shadow-[0_18px_50px_-30px_rgba(36,28,20,0.35)] transition-[transform,box-shadow] duration-[250ms] hover:-translate-y-1 hover:shadow-[0_30px_70px_-30px_rgba(36,28,20,0.45)]"
-                >
-                  <span className="font-mono text-[10px] tracking-[0.18em] text-accent">
-                    {tGuides("readTime", { minutes: guide.readMinutes })}
-                  </span>
-                  <span className="text-[17px] leading-snug font-semibold text-ink-warm">
-                    {guide.title}
-                  </span>
-                </Link>
+          </div>
+        </section>
+      ) : null}
+
+      <section
+        className={`${PAGE} grid gap-x-16 gap-y-12 pb-14 sm:pb-24 lg:grid-cols-[minmax(0,1fr)_minmax(0,400px)] ${packs.length > 0 ? "pt-14 sm:pt-24" : ""}`}
+      >
+        <div>
+          <h2 className={H2}>{t("aboutLabel")}</h2>
+          <p className="mt-5 max-w-[68ch] text-[17px] leading-[1.7]">{c.intro}</p>
+        </div>
+        {guides.length > 0 ? (
+          <div>
+            <h2 className="text-[28px]">{t("guidesLabel")}</h2>
+            <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+              {guides.map(({ guide, tone }) => (
+                <GuideCard key={guide.id} guide={guide} tone={tone} level={3} />
               ))}
             </div>
-          </section>
+          </div>
         ) : null}
-      </div>
+      </section>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

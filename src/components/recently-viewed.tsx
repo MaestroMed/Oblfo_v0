@@ -1,11 +1,9 @@
 "use client";
 
 import { useEffect, useMemo, useSyncExternalStore } from "react";
-import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
-import { ImageSlot } from "@/components/image-slot";
-import { formatPrice, getProducts } from "@/data/catalog";
-import { Link } from "@/i18n/navigation";
+import { ProductCard, toCardProduct } from "@/components/product-card";
+import { getProducts } from "@/data/catalog";
 import type { Locale } from "@/i18n/routing";
 
 // Personnalisation minimale et honnête : l'historique vit dans le navigateur
@@ -54,8 +52,15 @@ export function TrackProductView({ id }: { id: string }) {
   return null;
 }
 
-/** Bandeau « récemment consultés » — absent du SSR, apparaît après hydratation. */
-export function RecentlyViewed({ excludeId }: { excludeId?: string }) {
+/** Section « vus récemment » — absente du SSR, apparaît après hydratation. */
+export function RecentlyViewed({
+  exclude,
+  className = "py-14 sm:py-24",
+}: {
+  /** Produits à ne pas répéter (fiche en cours, vente croisée déjà affichée). */
+  exclude?: string[];
+  className?: string;
+}) {
   const t = useTranslations("RecentlyViewed");
   const locale = useLocale() as Locale;
   const raw = useSyncExternalStore(subscribe, getSnapshot, () => "");
@@ -68,54 +73,25 @@ export function RecentlyViewed({ excludeId }: { excludeId?: string }) {
         ids = parsed.filter((x): x is string => typeof x === "string");
       }
     } catch {
-      // historique corrompu — bandeau masqué
+      // historique corrompu — section masquée
     }
     const byId = new Map(getProducts(locale).map((p) => [p.id, p]));
     return ids
-      .filter((id) => id !== excludeId)
+      .filter((id) => !exclude?.includes(id))
       .map((id) => byId.get(id))
       .filter((p): p is NonNullable<typeof p> => Boolean(p))
       .slice(0, SHOWN_MAX);
-  }, [raw, locale, excludeId]);
+  }, [raw, locale, exclude]);
 
   if (items.length === 0) return null;
 
   return (
-    <section className="border-t border-white/5 bg-night py-[70px]">
-      <div className="mx-auto max-w-[1240px] px-8">
-        <div className="mb-8 flex items-center gap-3 font-mono text-[11px] tracking-[0.22em]">
-          <span className="text-accent">{t("title")}</span>
-          <span className="h-px flex-1 bg-white/8" />
-        </div>
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-5">
+    <section className={className}>
+      <div className="mx-auto max-w-[1240px] px-4 sm:px-8">
+        <h2 className="mb-6 text-[clamp(30px,6vw,52px)] sm:mb-10">{t("title")}</h2>
+        <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
           {items.map((p) => (
-            <Link
-              key={p.id}
-              href={{ pathname: "/produits/[slug]", params: { slug: p.slug } }}
-              className="flex flex-col overflow-hidden rounded-[18px] border border-white/7 bg-card no-underline transition-[border-color,box-shadow,transform] duration-[250ms] hover:-translate-y-[3px] hover:border-accent/55 hover:shadow-[0_24px_70px_-30px_rgba(255,106,43,0.45)]"
-            >
-              <div className="relative aspect-[4/3] bg-media">
-                {p.image ? (
-                  <Image
-                    src={p.image}
-                    alt={p.name}
-                    fill
-                    sizes="(min-width: 1024px) 20vw, 45vw"
-                    className="object-cover"
-                  />
-                ) : (
-                  <ImageSlot label={p.imageLabel} />
-                )}
-              </div>
-              <div className="flex items-center justify-between gap-3 px-5 py-4">
-                <span className="text-[15px] font-semibold text-ink">
-                  {p.name}
-                </span>
-                <span className="text-base font-bold text-accent">
-                  {formatPrice(p.price, locale)}
-                </span>
-              </div>
-            </Link>
+            <ProductCard key={p.id} product={toCardProduct(p)} locale={locale} />
           ))}
         </div>
       </div>

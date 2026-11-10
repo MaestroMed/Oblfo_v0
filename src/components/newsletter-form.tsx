@@ -37,41 +37,38 @@ export function NewsletterForm() {
 
   if (state === "subscribed") {
     return (
-      <div data-state={state} role="status" className="rounded-[10px] border border-accent/40 px-3.5 py-3 font-mono text-xs tracking-[0.08em] text-accent">
+      <p data-state={state} role="status" className="font-display text-[18px] leading-snug font-semibold">
         {t("subscribed")}
-      </div>
+      </p>
     );
   }
 
   return (
-    <div data-state={state} className="flex flex-col gap-2">
-      <div className="flex gap-2.5">
+    <div data-state={state} className="flex flex-col gap-3">
+      <div className="flex flex-col gap-3 sm:flex-row">
         <input
           ref={inputRef}
           type="email"
+          autoComplete="email"
+          aria-label={t("newsletterLabel")}
           placeholder={t("newsletterPlaceholder")}
           onKeyDown={(e) => {
             if (e.key === "Enter") subscribe();
           }}
-          className="min-w-0 flex-1 rounded-[10px] border border-white/12 bg-media px-3.5 py-3 font-sans text-sm text-[#EDF1F5] outline-none transition-colors focus:border-accent/70"
+          className="field min-w-0 sm:flex-1"
         />
         <button
           type="button"
           onClick={subscribe}
           disabled={state === "loading"}
-          className="cursor-pointer rounded-[10px] bg-accent px-5 py-3 font-sans text-sm font-semibold text-[#14100C] transition-transform duration-200 hover:-translate-y-0.5 disabled:cursor-wait disabled:opacity-60"
+          className="btn shrink-0"
         >
           {t("subscribe")}
         </button>
       </div>
-      {state === "soon" ? (
-        <p role="alert" className="font-mono text-[10px] tracking-[0.12em] text-accent">
-          {t("newsletterSoon")}
-        </p>
-      ) : null}
-      {state === "error" ? (
-        <p role="alert" className="font-mono text-[10px] tracking-[0.12em] text-accent">
-          {t("newsletterError")}
+      {state === "soon" || state === "error" ? (
+        <p role="alert" className="text-[16px] leading-snug font-semibold">
+          {t(state === "soon" ? "newsletterSoon" : "newsletterError")}
         </p>
       ) : null}
     </div>

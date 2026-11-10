@@ -1,33 +1,35 @@
 import { useTranslations } from "next-intl";
+import { Icon, type IconName } from "@/components/home/icons";
 
 const items = [
-  ["reassur1Title", "reassur1Text"],
-  ["reassur2Title", "reassur2Text"],
-  ["reassur3Title", "reassur3Text"],
-  ["reassur4Title", "reassur4Text"],
-  ["reassur5Title", "reassur5Text"],
-  ["reassur6Title", "reassur6Text"],
-] as const;
+  ["reassur1Title", "reassur1Text", "flame"],
+  ["reassur2Title", "reassur2Text", "levels"],
+  ["reassur3Title", "reassur3Text", "heart"],
+  ["reassur4Title", "reassur4Text", "lock"],
+  ["reassur5Title", "reassur5Text", "truck"],
+  ["reassur6Title", "reassur6Text", "returns"],
+] as const satisfies readonly (readonly [string, string, IconName])[];
 
 export function Reassurance() {
   const t = useTranslations("HomeV2");
 
   return (
-    <section className="border-y border-black/[0.06] bg-cream-2 py-10">
-      <div className="mx-auto grid max-w-[1280px] grid-cols-2 gap-x-6 gap-y-7 px-5 sm:px-8 sm:grid-cols-3 lg:grid-cols-6">
-        {items.map(([titleKey, textKey]) => (
-          <div key={titleKey} className="flex flex-col gap-1.5">
-            <span className="flex items-center gap-2 text-[13.5px] font-semibold text-ink-warm">
-              <span className="flex h-6 w-6 flex-none items-center justify-center rounded-full border border-accent/40 text-accent">
-                <span className="h-1.5 w-1.5 rotate-45 bg-accent" />
+    <section className="on-cream-2 py-14 sm:py-24">
+      <div className="mx-auto max-w-[1240px] px-4 sm:px-8">
+        <h2 className="mb-8 text-[clamp(30px,6vw,52px)] sm:mb-12">{t("reassuranceTitle")}</h2>
+        <ul className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
+          {items.map(([titleKey, textKey, icon]) => (
+            <li key={titleKey} className="tile on-paper flex items-center gap-4 p-4 sm:p-5">
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-moutarde">
+                <Icon name={icon} className="h-6 w-6" />
               </span>
-              {t(titleKey)}
-            </span>
-            <span className="pl-8 text-[12px] leading-snug text-muted-warm">
-              {t(textKey)}
-            </span>
-          </div>
-        ))}
+              <div className="flex min-w-0 flex-col gap-1">
+                <h3 className="text-[20px] leading-tight">{t(titleKey)}</h3>
+                <p className="text-[16px] leading-snug">{t(textKey)}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

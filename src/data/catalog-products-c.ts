@@ -4,6 +4,7 @@ import type { ProductSource } from "./catalog-types";
 export const productsC: ProductSource[] = [
   {
     id: "echarpe-chauffante",
+    color: { fr: "Gris", en: "Grey", de: "Grau", es: "Gris" },
     slug: {
       fr: "echarpe-chauffante",
       en: "heated-scarf",
@@ -522,6 +523,7 @@ export const productsC: ProductSource[] = [
   },
   {
     id: "chaussettes-chauffantes",
+    color: { fr: "Rouge", en: "Red", de: "Rot", es: "Rojo" },
     slug: {
       fr: "chaussettes-chauffantes",
       en: "heated-socks",

@@ -23,6 +23,7 @@ import {
 import {
   MERCHANT_RETURN_POLICY,
   OFFER_SHIPPING_DETAILS,
+  shippingDetailsIndexFor,
 } from "@/lib/shipping";
 import { SITE_URL } from "@/lib/site";
 
@@ -74,6 +75,7 @@ function buildStructuredData(locale: Locale) {
         itemListElement: products.map((product, i) => ({
           "@type": "Product",
           position: i + 1,
+          sku: product.id,
           name: product.name,
           description: product.tagline,
           url: `${SITE_URL}${getPathname({
@@ -100,7 +102,7 @@ function buildStructuredData(locale: Locale) {
               ? "https://schema.org/InStock"
               : "https://schema.org/OutOfStock",
             hasMerchantReturnPolicy: { "@id": returnPolicyId },
-            shippingDetails: shippingIds.map((id) => ({ "@id": id })),
+            shippingDetails: { "@id": shippingIds[shippingDetailsIndexFor(product.price)] },
           },
         })),
       },

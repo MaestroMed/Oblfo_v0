@@ -50,6 +50,7 @@ export type Product = {
   photos?: string[];
   /** Déclinaison obligatoire (taille, pointure) — libellé localisé + options. */
   variant?: { label: string; options: string[] };
+  color?: string;
   description: string[];
   highlights: string[];
   specs: Spec[];
@@ -116,6 +117,7 @@ function localizeProduct(source: ProductSource, locale: Locale): Product {
           options: source.variant.options,
         }
       : undefined,
+    color: source.color && pickL(source.color, locale),
     description: pickL(source.description, locale),
     highlights: pickL(source.highlights, locale),
     specs: pickL(source.specs, locale),

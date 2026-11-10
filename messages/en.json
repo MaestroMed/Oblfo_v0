@@ -185,36 +185,6 @@
       "Indoor & outdoor use"
     ]
   },
-  "Pourquoi": {
-    "label": "WHY OBFLO",
-    "items": [
-      {
-        "title": "Universal USB",
-        "text": "Works with your desk, home, or power bank."
-      },
-      {
-        "title": "Instant warmth",
-        "text": "Built for the moments you're cold right now."
-      },
-      {
-        "title": "Compact & portable",
-        "text": "Easy to move, store, take along."
-      },
-      {
-        "title": "30-day returns",
-        "text": "Try it with zero pressure."
-      },
-      {
-        "title": "Fast shipping",
-        "text": "Essential for winter products."
-      }
-    ]
-  },
-  "Avis": {
-    "label": "CUSTOMER REVIEWS",
-    "title": "They already cut the cold.",
-    "verified": "VERIFIED PURCHASE"
-  },
   "Faq": {
     "label": "FAQ",
     "title": "Frequently asked questions.",

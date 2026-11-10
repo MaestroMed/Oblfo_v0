@@ -185,36 +185,6 @@
       "Usage intérieur & extérieur"
     ]
   },
-  "Pourquoi": {
-    "label": "POURQUOI OBFLO",
-    "items": [
-      {
-        "title": "USB universel",
-        "text": "Compatible bureau, maison, powerbank."
-      },
-      {
-        "title": "Chaleur instantanée",
-        "text": "Pensé pour les moments où tu as froid maintenant."
-      },
-      {
-        "title": "Compact & portable",
-        "text": "Facile à déplacer, ranger, emporter."
-      },
-      {
-        "title": "Retours 30 jours",
-        "text": "Tu testes sans pression."
-      },
-      {
-        "title": "Livraison rapide",
-        "text": "Essentiel pour des produits d'hiver."
-      }
-    ]
-  },
-  "Avis": {
-    "label": "AVIS CLIENTS",
-    "title": "Ils ont déjà coupé le froid.",
-    "verified": "ACHAT VÉRIFIÉ"
-  },
   "Faq": {
     "label": "FAQ",
     "title": "Questions fréquentes.",

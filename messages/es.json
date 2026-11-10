@@ -11,6 +11,7 @@
   },
   "HomeV2": {
     "heroCtaPrimary": "Ver la colección",
+    "heroCtaSecondary": "Ver los packs",
     "essentialsTitle": "Los imprescindibles del invierno",
     "essentialsSeeAll": "Ver toda la colección",
     "badgeNew": "Nuevo",
@@ -41,7 +42,8 @@
     "lifeOutKicker": "Al aire libre",
     "lifeOutTitle": "Planta cara al frío, mantente caliente.",
     "heroHeadline": "Le damos calor.",
-    "heroImageAlt": "Guantes calefactables OBFLO",
+    "heroImageAlt": "Salón acogedor en invierno: manta, taza humeante y luz dorada",
+    "heroLead": "Guantes, mantas, zapatillas, calientatazas: accesorios calefactables, fáciles de usar, para todo el invierno.",
     "categoriesTitle": "¿Dónde tiene frío?",
     "reassuranceTitle": "Por qué OBFLO",
     "cardAdd": "Añadir"

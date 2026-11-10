@@ -21,8 +21,8 @@ export default async function OpengraphImage({
 
   return new ImageResponse(
     (
-      <OgFrame tone="braise" footer={t("footer")} logo={false}>
-        <OgLogo width={560} color={ogTone("braise").fg} />
+      <OgFrame tone="peche" footer={t("footer")} logo={false}>
+        <OgLogo width={560} color={ogTone("peche").pop} />
         <div
           style={{
             display: "flex",

@@ -11,6 +11,7 @@
   },
   "HomeV2": {
     "heroCtaPrimary": "Shop the collection",
+    "heroCtaSecondary": "See the bundles",
     "essentialsTitle": "Winter essentials",
     "essentialsSeeAll": "See the whole collection",
     "badgeNew": "New",
@@ -41,7 +42,8 @@
     "lifeOutKicker": "Outside",
     "lifeOutTitle": "Face the cold, stay warm.",
     "heroHeadline": "We keep you warm.",
-    "heroImageAlt": "OBFLO heated gloves",
+    "heroImageAlt": "Cosy living room in winter: throw, steaming mug and golden light",
+    "heroLead": "Gloves, throws, slippers, mug warmers: heated accessories that are simple to use, all winter long.",
     "categoriesTitle": "Where do you feel the cold?",
     "reassuranceTitle": "Why OBFLO",
     "cardAdd": "Add"

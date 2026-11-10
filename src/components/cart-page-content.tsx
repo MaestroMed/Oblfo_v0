@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import { useCart } from "@/components/cart-context";
 import { CartCheckout, CartEmpty, CartLines, FreeShippingBar, PackSuggestion } from "@/components/cart-parts";
 import { ProductCard, toCardProduct } from "@/components/product-card";
-import { formatPrice, getProducts } from "@/data/catalog";
+import { formatPrice, getListedProducts } from "@/data/catalog";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import { shippingCostFor } from "@/lib/shipping";
@@ -17,19 +17,19 @@ export function CartPageContent({ locale }: { locale: Locale }) {
   const shipping = shippingCostFor(total);
   const grandTotal = total + shipping;
   const inCart = new Set(items.map((i) => i.id));
-  const crossSell = getProducts(locale)
+  const crossSell = getListedProducts(locale)
     .filter((p) => !inCart.has(p.id))
     .slice(0, 4);
 
   return (
     <main className="mx-auto w-full max-w-[1240px] px-4 pt-8 pb-14 sm:px-8 sm:pt-12 sm:pb-24">
-      <h1 className="mb-6 text-[clamp(30px,6vw,52px)] sm:mb-10">{t("title")}</h1>
+      <h1 className="mb-6 text-[clamp(28px,5vw,44px)] sm:mb-10">{t("title")}</h1>
 
       {!hydrated ? (
         // Le panier se lit dans le navigateur : on réserve la place plutôt que d'afficher « vide » une fraction de seconde.
         <div className="min-h-[50vh]" />
       ) : items.length === 0 ? (
-        <div className="tile on-moutarde px-6 py-14 sm:py-20">
+        <div className="tile on-cream-2 px-6 py-14 sm:py-20">
           <CartEmpty />
         </div>
       ) : (
@@ -79,7 +79,7 @@ export function CartPageContent({ locale }: { locale: Locale }) {
 
           {crossSell.length > 0 ? (
             <section className="mt-14 sm:mt-24">
-              <h2 className="mb-6 text-[clamp(30px,6vw,52px)] sm:mb-10">{t("crossSellTitle")}</h2>
+              <h2 className="mb-6 text-[clamp(28px,5vw,44px)] sm:mb-10">{t("crossSellTitle")}</h2>
               <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
                 {crossSell.map((product) => (
                   <ProductCard key={product.id} product={toCardProduct(product)} locale={locale} />

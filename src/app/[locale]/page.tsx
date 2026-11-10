@@ -9,7 +9,7 @@ import { Essentials } from "@/components/home/essentials";
 import { Hero } from "@/components/home/hero";
 import { PackFeature } from "@/components/home/pack-feature";
 import { Reassurance } from "@/components/home/reassurance";
-import { getFaqItems, getProducts } from "@/data/catalog";
+import { getFaqItems, getListedProducts } from "@/data/catalog";
 import { getPathname } from "@/i18n/navigation";
 import {
   hreflangAlternates,
@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: Props) {
 }
 
 function buildStructuredData(locale: Locale) {
-  const products = getProducts(locale);
+  const products = getListedProducts(locale);
   const faqItems = getFaqItems(locale);
 
   // Politique de retour et grilles de port déclarées UNE fois dans le @graph

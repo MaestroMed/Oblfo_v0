@@ -9,7 +9,7 @@ type Href = React.ComponentProps<typeof Link>["href"];
 /** Conteneur des pages intérieures : gouttière 16 px mobile, 32 px bureau, 1240 px au plus. */
 export const PAGE = "mx-auto w-full max-w-[1240px] px-4 sm:px-8";
 /** Titre de section de la charte. */
-export const H2 = "text-[clamp(30px,6vw,52px)]";
+export const H2 = "text-[clamp(28px,5vw,44px)]";
 
 /** Fil d'Ariane en texte normal, sur le crème au-dessus du bandeau. Un élément sans lien est la page courante. */
 export function Crumbs({ items }: { items: { label: string; href?: Href }[] }) {
@@ -45,7 +45,7 @@ export function Crumbs({ items }: { items: { label: string; href?: Href }[] }) {
 
 /**
  * Bandeau d'aplat des pages intérieures : il porte le seul h1 de la page.
- * `image` attend un détouré (fond transparent) ; `compact` sert aux titres longs (articles).
+ * `image` attend une photo plein cadre (`deco()`), posée dans un cadre arrondi ; `compact` sert aux titres longs (articles).
  */
 export function PageBanner({
   tone,
@@ -77,9 +77,7 @@ export function PageBanner({
       >
         <div className="max-w-[780px]">
           {waves ? (
-            <HeatWaves
-              className={`mb-4 h-11 w-11 sm:mb-6 sm:h-16 sm:w-16 ${tone === "moutarde" ? "text-braise!" : ""}`}
-            />
+            <HeatWaves className="mb-4 h-11 w-11 sm:mb-6 sm:h-16 sm:w-16" />
           ) : null}
           {meta}
           {/* Césure : « Geschäftsbedingungen » dépasse 288 px sans elle. */}
@@ -88,23 +86,22 @@ export function PageBanner({
           >
             {title}
           </h1>
-          {/* Crème sur braise ne passe le contraste qu'en gras d'au moins 18 px : l'accroche est grasse partout. */}
           {lead ? (
-            <p className="mt-4 max-w-[600px] text-[19px] leading-[1.4] font-bold sm:mt-5 sm:text-[21px]">
+            <p className="mt-4 max-w-[600px] text-[18px] leading-[1.45] sm:mt-5 sm:text-[20px]">
               {lead}
             </p>
           ) : null}
           {children}
         </div>
         {image ? (
-          <div className="relative h-40 md:h-[300px]">
+          <div className="tile aspect-[3/2] bg-paper/50">
             <Image
               src={image}
               alt=""
               fill
               priority
               sizes="(min-width: 768px) 420px, 90vw"
-              className="cutout"
+              className="object-cover"
             />
           </div>
         ) : null}

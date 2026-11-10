@@ -16,7 +16,7 @@ import {
   type Locale,
 } from "@/i18n/routing";
 import { SITE_URL } from "@/lib/site";
-import { isDarkTile, productTile, TILE_CLASS } from "@/lib/tile";
+import { productTile, TILE_CLASS } from "@/lib/tile";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
@@ -79,7 +79,6 @@ export default async function GuidePage({ params }: Props) {
   const t = await getTranslations("Guides");
   const tPage = await getTranslations("CategoryPage");
   const tone = guideTone(getGuides(locale).findIndex((g) => g.id === guide.id));
-  const chip = `chip ${isDarkTile(tone) ? "chip-cream" : ""}`;
   const related = guide.relatedProductIds.flatMap((id) => {
     const item = getSellableById(id, locale);
     if (!item) return [];
@@ -127,8 +126,8 @@ export default async function GuidePage({ params }: Props) {
           title={guide.title}
           meta={
             <p className="mb-4 flex flex-wrap gap-2">
-              <span className={chip}>{t("readTime", { minutes: guide.readMinutes })}</span>
-              <span className={chip}>{t("published", { date: dateLabel })}</span>
+              <span className="chip">{t("readTime", { minutes: guide.readMinutes })}</span>
+              <span className="chip">{t("published", { date: dateLabel })}</span>
             </p>
           }
         />
@@ -153,7 +152,7 @@ export default async function GuidePage({ params }: Props) {
                 {related.map(({ id, name, price, product }) => (
                   <li key={id} className="flex items-center gap-4 py-4 last:pb-0">
                     <span
-                      className={`relative flex h-[72px] w-[72px] flex-none items-center justify-center overflow-hidden rounded-2xl ${product ? TILE_CLASS[productTile(id)] : "on-choco"}`}
+                      className={`relative flex h-[72px] w-[72px] flex-none items-center justify-center overflow-hidden rounded-2xl ${product ? TILE_CLASS[productTile(id)] : "on-miel"}`}
                     >
                       {product?.cutout ? (
                         <Image src={product.cutout} alt="" fill sizes="72px" className="cutout p-1.5" />
@@ -166,7 +165,9 @@ export default async function GuidePage({ params }: Props) {
                         {name}
                       </span>
                       <div className="flex flex-wrap items-center gap-2">
-                        <span className="price price-sm">{formatPrice(price, locale)}</span>
+                        <span className={product ? "text-[17px] font-bold tabular-nums" : "price price-sm"}>
+                          {formatPrice(price, locale)}
+                        </span>
                         {product ? (
                           <Link
                             href={{ pathname: "/produits/[slug]", params: { slug: product.slug } }}

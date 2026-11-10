@@ -68,11 +68,11 @@ export default async function MerciPage({ params, searchParams }: Props) {
         <PurchaseEvent id={sessionId} value={paid.value} currency={paid.currency} />
       )}
 
-      <section className="on-braise">
+      <section className="on-peche">
         <div className="relative mx-auto max-w-[1240px] px-4 py-14 sm:px-8 sm:py-24">
           <HeatWaves className="absolute top-6 right-4 h-14 w-14 sm:top-12 sm:right-8 sm:h-28 sm:w-28" />
-          <span className="chip chip-moutarde">{t("badge")}</span>
-          <h1 className="mt-5 text-[clamp(44px,12vw,104px)] leading-[0.95] break-words uppercase">
+          <span className="chip">{t("badge")}</span>
+          <h1 className="mt-5 text-[clamp(36px,8vw,72px)] break-words">
             {t("titleLine1")}
             <br />
             {t("titleLine2")}
@@ -84,9 +84,9 @@ export default async function MerciPage({ params, searchParams }: Props) {
       </section>
 
       <section className="mx-auto max-w-[1240px] px-4 py-14 sm:px-8 sm:py-24">
-        <h2 className="text-[clamp(30px,6vw,52px)]">{t("nextTitle")}</h2>
+        <h2 className="text-[clamp(28px,5vw,44px)]">{t("nextTitle")}</h2>
         <ul className="mt-6 grid gap-3 sm:mt-10 sm:gap-5 md:grid-cols-3">
-          <li className="tile on-moutarde p-6 sm:p-8">
+          <li className="tile on-miel p-6 sm:p-8">
             <h3 className="text-[22px]">{t("step1Title")}</h3>
             <p className="mt-2.5">{t("step1Text")}</p>
           </li>
@@ -94,7 +94,7 @@ export default async function MerciPage({ params, searchParams }: Props) {
             <h3 className="text-[22px]">{t("step2Title")}</h3>
             <p className="mt-2.5">{t("step2Text")}</p>
           </li>
-          <li className="tile on-brique p-6 sm:p-8">
+          <li className="tile on-sable p-6 sm:p-8">
             <h3 className="text-[22px]">{t("step3Title")}</h3>
             <p className="mt-2.5">{t("step3Text")}</p>
           </li>

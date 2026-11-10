@@ -32,7 +32,7 @@ export async function HeatProofs({ locale }: { locale: Locale }) {
     <section className="pb-14 sm:pb-24">
       <div className="mx-auto max-w-[1240px] px-4 sm:px-8">
         <div className="tile on-moutarde px-5 py-8 sm:px-10 sm:py-12">
-          <h2 className="mb-8 text-[clamp(30px,6vw,52px)] sm:mb-10">{t("heatTitle")}</h2>
+          <h2 className="mb-8 text-[clamp(28px,5vw,44px)] sm:mb-10">{t("heatTitle")}</h2>
           <dl className={`grid gap-8 sm:gap-6 ${rows.length === 2 ? "sm:grid-cols-2" : "sm:grid-cols-3"}`}>
             {rows.map((row) => (
               <div key={row.unit} className="flex flex-col-reverse justify-end gap-2">

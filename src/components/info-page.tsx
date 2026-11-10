@@ -6,12 +6,12 @@ import type { Tile } from "@/lib/tile";
 export function InfoPage({
   title,
   intro,
-  tone = "choco",
+  tone = "sable",
   children,
 }: {
   title: string;
   intro?: string;
-  /** Chocolat pour le légal, moutarde pour l'aide. */
+  /** Sable pour le légal, miel pour l'aide. */
   tone?: Tile;
   children: React.ReactNode;
 }) {

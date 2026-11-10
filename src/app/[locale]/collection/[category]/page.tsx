@@ -7,7 +7,7 @@ import { PackRail } from "@/components/pack-card";
 import { Crumbs, H2, PAGE, PageBanner } from "@/components/page-banner";
 import { toCardProduct } from "@/components/product-card";
 import { ProductGrid } from "@/components/product-grid";
-import { getPacks, getProductById, getProducts } from "@/data/catalog";
+import { getPacks, getListedProducts } from "@/data/catalog";
 import type { Category } from "@/data/catalog-types";
 import { getCategoryContent } from "@/data/categories";
 import { CATEGORY_SLUGS, categoryFromSlug } from "@/data/category-slugs";
@@ -15,7 +15,7 @@ import { getGuides } from "@/data/guides";
 import { getPathname } from "@/i18n/navigation";
 import { isLocale, ogLocale, routing, type Locale } from "@/i18n/routing";
 import { SITE_URL } from "@/lib/site";
-import { CATEGORY_HERO, categoryTile } from "@/lib/tile";
+import { categoryTile, deco } from "@/lib/tile";
 
 type Props = { params: Promise<{ locale: string; category: string }> };
 
@@ -76,7 +76,7 @@ export default async function CategoryPage({ params }: Props) {
   const t = await getTranslations("CategoryPage");
   const tCat = await getTranslations("Categories");
   const label = tCat(category);
-  const products = getProducts(locale).filter((p) => p.category === category);
+  const products = getListedProducts(locale).filter((p) => p.category === category);
   const ids = new Set(products.map((p) => p.id));
   const packs = getPacks(locale).filter(
     (pack) => pack.available && pack.lines.some((line) => ids.has(line.id)),
@@ -167,7 +167,7 @@ export default async function CategoryPage({ params }: Props) {
           tone={categoryTile(category)}
           title={c.h1}
           lead={c.lead}
-          image={getProductById(CATEGORY_HERO[category], locale)?.cutout}
+          image={deco(category)}
         />
         <FamilyPills current={category} className="mt-3 sm:mt-5" />
         <div className="mt-3 sm:mt-6">

@@ -97,7 +97,7 @@ export function SiteHeader() {
   );
 
   const iconButton =
-    "relative flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center rounded-full transition-colors duration-150 hover:bg-tomate";
+    "relative flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center rounded-full transition-colors duration-150 hover:bg-cream-2";
 
   const logo = (
     <a
@@ -106,17 +106,17 @@ export function SiteHeader() {
       onClick={closeMenu}
       className="flex h-11 shrink-0 items-center"
     >
-      <ObfloLogo className="h-8 w-auto sm:h-9" />
+      <ObfloLogo className="h-8 w-auto text-braise sm:h-9" />
     </a>
   );
 
   return (
-    <header className="on-braise sticky top-0 z-[60]">
+    <header className="on-cream sticky top-0 z-[60] border-b border-choco/10">
       <div className="mx-auto flex h-16 max-w-[1240px] items-center justify-between gap-2 px-4 sm:h-[72px] sm:px-8">
         {logo}
         <nav className="hidden items-center xl:flex">
           {navLinks(
-            "flex min-h-11 items-center px-2.5 font-display text-[18px] font-bold whitespace-nowrap no-underline decoration-[3px] underline-offset-[6px] hover:underline",
+            "flex min-h-11 items-center px-2.5 font-display text-[18px] font-semibold whitespace-nowrap no-underline decoration-[3px] underline-offset-[6px] hover:underline",
           )}
         </nav>
         <div className="flex items-center">
@@ -146,7 +146,7 @@ export function SiteHeader() {
               <path d="M9 8a3 3 0 0 1 6 0" />
             </svg>
             {count > 0 ? (
-              <span className="absolute top-0 right-0 flex h-[22px] min-w-[22px] items-center justify-center rounded-full bg-moutarde px-1 font-display text-[14px] leading-none font-bold text-choco tabular-nums">
+              <span className="absolute top-0 right-0 flex h-[22px] min-w-[22px] items-center justify-center rounded-full bg-braise px-1 font-display text-[14px] leading-none font-bold text-cream tabular-nums">
                 {count}
               </span>
             ) : null}
@@ -174,7 +174,7 @@ export function SiteHeader() {
           aria-modal="true"
           aria-label={t("menu")}
           data-lenis-prevent
-          className="on-braise fixed inset-0 z-[70] flex flex-col overflow-y-auto overscroll-contain xl:hidden"
+          className="on-cream fixed inset-0 z-[70] flex flex-col overflow-y-auto overscroll-contain xl:hidden"
         >
           <div className="flex h-16 shrink-0 items-center justify-between px-4 sm:h-[72px] sm:px-8">
             {logo}
@@ -192,7 +192,7 @@ export function SiteHeader() {
           </div>
           <nav className="flex flex-col px-4 pt-2 pb-6 sm:px-8">
             {navLinks(
-              "flex min-h-[54px] items-center font-display text-[30px] leading-none font-bold no-underline sm:min-h-[64px] sm:text-[40px]",
+              "flex min-h-[54px] items-center font-display text-[30px] leading-none font-semibold no-underline sm:min-h-[64px] sm:text-[40px]",
             )}
           </nav>
           <div className="tile on-choco mx-4 mt-auto mb-4 flex justify-center px-3 py-2 sm:mx-8 sm:mb-8">

@@ -4,7 +4,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { guideTone } from "@/components/guide-card";
 import { toCardProduct } from "@/components/product-card";
 import { SearchContent } from "@/components/search-content";
-import { CATEGORY_ORDER, getProducts } from "@/data/catalog";
+import { CATEGORY_ORDER, getListedProducts } from "@/data/catalog";
 import { getCategoryContent } from "@/data/categories";
 import { getGuides } from "@/data/guides";
 import { getPathname } from "@/i18n/navigation";
@@ -37,7 +37,7 @@ export default async function SearchPage({ params }: Props) {
   // Index léger construit côté serveur : produits, familles, guides.
   return (
     <SearchContent
-      products={getProducts(locale).map(toCardProduct)}
+      products={getListedProducts(locale).map(toCardProduct)}
       families={CATEGORY_ORDER.map((category) => {
         const c = getCategoryContent(category, locale);
         return { category, text: `${tCat(category)} ${c.title} ${c.metaDescription}` };

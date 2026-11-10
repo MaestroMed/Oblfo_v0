@@ -103,7 +103,7 @@ export function BuyBox({
   if (!available) {
     return (
       <div className="flex flex-col items-start gap-5">
-        <span className="price price-lg">{priceLabel}</span>
+        <span className="font-display text-[32px] leading-none font-bold tabular-nums">{priceLabel}</span>
         <button type="button" disabled className="btn btn-lg btn-block">
           {tCart("unavailable")}
         </button>
@@ -114,7 +114,7 @@ export function BuyBox({
   return (
     <div className="flex flex-col gap-6">
       <div>
-        <span className="price price-lg">{priceLabel}</span>
+        <span className="font-display text-[32px] leading-none font-bold tabular-nums">{priceLabel}</span>
       </div>
 
       {variant ? (
@@ -153,7 +153,7 @@ export function BuyBox({
       ) : null}
 
       <div ref={ctaRef} className="flex flex-col gap-3">
-        <button type="button" onClick={() => add(false)} className="btn btn-lg btn-block">
+        <button type="button" onClick={() => add(false)} className="btn btn-braise btn-lg btn-block">
           {tPage("addToCart")}
         </button>
         <button type="button" onClick={() => add(true)} className="btn btn-outline btn-block">
@@ -164,7 +164,7 @@ export function BuyBox({
       <ul className="tile on-cream-2 grid gap-3 p-5 sm:grid-cols-2 sm:gap-x-5 sm:gap-y-4 sm:p-6">
         {REASSURE.map(({ key, icon }) => (
           <li key={key} className="flex items-center gap-3 text-[15px] leading-snug font-medium">
-            <span className="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-moutarde">
+            <span className="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-miel">
               <svg
                 aria-hidden
                 viewBox="0 0 24 24"
@@ -196,7 +196,7 @@ export function BuyBox({
           type="button"
           tabIndex={barVisible ? 0 : -1}
           onClick={() => add(true)}
-          className="btn btn-moutarde btn-sm flex-none px-4"
+          className="btn btn-braise btn-sm flex-none px-4"
         >
           {t("buyNowPrice", { price: priceLabel })}
         </button>

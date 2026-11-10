@@ -7,10 +7,10 @@ export function Faq({ locale }: { locale: Locale }) {
   const faqItems = getFaqItems(locale);
 
   return (
-    <section id="faq" className="on-moutarde scroll-mt-24 py-14 sm:py-24">
+    <section id="faq" className="on-cream-2 scroll-mt-24 py-14 sm:py-24">
       <div className="mx-auto grid max-w-[1240px] gap-8 px-4 sm:px-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:gap-16">
         <div className="flex flex-col gap-3">
-          <h2 className="text-[clamp(30px,6vw,52px)]">{t("title")}</h2>
+          <h2 className="text-[clamp(28px,5vw,44px)]">{t("title")}</h2>
           <p className="max-w-[420px] text-[17px] leading-relaxed">{t("subtitle")}</p>
         </div>
         <div className="flex flex-col gap-3">

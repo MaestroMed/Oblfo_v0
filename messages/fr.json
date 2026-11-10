@@ -11,6 +11,7 @@
   },
   "HomeV2": {
     "heroCtaPrimary": "Voir la collection",
+    "heroCtaSecondary": "Voir les packs",
     "essentialsTitle": "Les indispensables de l'hiver",
     "essentialsSeeAll": "Voir toute la collection",
     "badgeNew": "Nouveau",
@@ -41,7 +42,8 @@
     "lifeOutKicker": "À l'extérieur",
     "lifeOutTitle": "Affrontez le froid, restez au chaud.",
     "heroHeadline": "On vous réchauffe.",
-    "heroImageAlt": "Gants chauffants OBFLO",
+    "heroImageAlt": "Salon chaleureux en hiver : plaid, tasse fumante et lumière dorée",
+    "heroLead": "Gants, plaids, chaussons, chauffe-tasse : des accessoires chauffants, simples à utiliser, pour tout l'hiver.",
     "categoriesTitle": "Où avez-vous froid ?",
     "reassuranceTitle": "Pourquoi OBFLO",
     "cardAdd": "Ajouter"

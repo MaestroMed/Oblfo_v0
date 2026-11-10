@@ -83,7 +83,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             {children}
             <SiteFooter />
             <CartDrawer />
-            <Toaster position="bottom-center" offset={88} mobileOffset={88} toastOptions={{ className: "obflo-toast" }} />
+            <Toaster position="bottom-center" offset={88} mobileOffset={{ bottom: 88 }} toastOptions={{ className: "obflo-toast" }} />
           </CartProvider>
           </MotionProvider>
           {/* Dans le provider : le bandeau lit ses libellés via useTranslations. */}

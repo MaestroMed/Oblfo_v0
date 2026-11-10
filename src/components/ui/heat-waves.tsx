@@ -8,7 +8,7 @@ export function HeatWaves({ className = "" }: { className?: string }) {
       strokeWidth="6"
       strokeLinecap="round"
       aria-hidden="true"
-      className={`heat-waves text-moutarde ${className}`}
+      className={`heat-waves text-braise ${className}`}
     >
       <path d="M10 60c-8-10 8-18 0-28s8-18 0-28" />
       <path d="M30 60c-8-10 8-18 0-28s8-18 0-28" />

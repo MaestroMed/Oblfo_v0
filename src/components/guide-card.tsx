@@ -1,9 +1,8 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { isDarkTile, TILE_CLASS, type Tile } from "@/lib/tile";
+import { TILE_CLASS, type Tile } from "@/lib/tile";
 
-// Pas de braise : le texte courant crème n'y passe pas le contraste.
-const TONES: Tile[] = ["moutarde", "choco", "tomate", "brique"];
+const TONES: Tile[] = ["miel", "sable", "peche", "argile"];
 /** Couleur d'un guide d'après son rang dans `getGuides` : la même sur la liste, l'article, la famille et la recherche. */
 export const guideTone = (index: number): Tile => TONES[Math.max(index, 0) % TONES.length];
 
@@ -31,7 +30,7 @@ export function GuideCard({
       href={{ pathname: "/guides/[slug]", params: { slug: guide.slug } }}
       className={`tile ${TILE_CLASS[tone]} flex h-full flex-col items-start gap-3 p-5 transition-transform duration-200 hover:-translate-y-1 motion-reduce:transform-none sm:p-7`}
     >
-      <span className={`chip ${isDarkTile(tone) ? "chip-cream" : ""}`}>
+      <span className="chip">
         {t("readTime", { minutes: guide.readMinutes })}
       </span>
       <Heading className="text-[22px] leading-[1.1] text-balance hyphens-auto wrap-anywhere sm:text-[24px]">

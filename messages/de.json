@@ -11,6 +11,7 @@
   },
   "HomeV2": {
     "heroCtaPrimary": "Zur Kollektion",
+    "heroCtaSecondary": "Sets ansehen",
     "essentialsTitle": "Das Wichtigste für den Winter",
     "essentialsSeeAll": "Ganze Kollektion ansehen",
     "badgeNew": "Neu",
@@ -41,7 +42,8 @@
     "lifeOutKicker": "Draußen",
     "lifeOutTitle": "Der Kälte trotzen, warm bleiben.",
     "heroHeadline": "Wir wärmen Sie.",
-    "heroImageAlt": "OBFLO beheizbare Handschuhe",
+    "heroImageAlt": "Gemütliches Wohnzimmer im Winter: Decke, dampfende Tasse und goldenes Licht",
+    "heroLead": "Handschuhe, Decken, Hausschuhe, Tassenwärmer: beheizbare Accessoires, einfach zu bedienen, für den ganzen Winter.",
     "categoriesTitle": "Wo frieren Sie?",
     "reassuranceTitle": "Warum OBFLO",
     "cardAdd": "Hinzufügen"

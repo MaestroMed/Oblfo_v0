@@ -16,11 +16,11 @@ export function Reassurance() {
   return (
     <section className="on-cream-2 py-14 sm:py-24">
       <div className="mx-auto max-w-[1240px] px-4 sm:px-8">
-        <h2 className="mb-8 text-[clamp(30px,6vw,52px)] sm:mb-12">{t("reassuranceTitle")}</h2>
+        <h2 className="mb-8 text-[clamp(28px,5vw,44px)] sm:mb-12">{t("reassuranceTitle")}</h2>
         <ul className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
           {items.map(([titleKey, textKey, icon]) => (
             <li key={titleKey} className="tile on-paper flex items-center gap-4 p-4 sm:p-5">
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-moutarde">
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-miel">
                 <Icon name={icon} className="h-6 w-6" />
               </span>
               <div className="flex min-w-0 flex-col gap-1">

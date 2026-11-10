@@ -6,7 +6,7 @@ import { useCart } from "@/components/cart-context";
 // (et revient au chocolat dans une carte claire elle-même posée sur du sombre).
 // Classes écrites en toutes lettres pour que Tailwind les génère.
 const DEFAULT_CLASS =
-  "btn [:is(.on-choco,.on-braise,.on-tomate,.on-brique)_&]:bg-cream [:is(.on-choco,.on-braise,.on-tomate,.on-brique)_&]:text-choco [:is(.on-choco,.on-braise,.on-tomate,.on-brique)_:is(.on-cream,.on-cream-2,.on-paper,.on-moutarde)_&]:bg-choco [:is(.on-choco,.on-braise,.on-tomate,.on-brique)_:is(.on-cream,.on-cream-2,.on-paper,.on-moutarde)_&]:text-cream";
+  "btn [:is(.on-choco,.on-tomate)_&]:bg-cream [:is(.on-choco,.on-tomate)_&]:text-choco [:is(.on-choco,.on-tomate)_:is(.on-cream,.on-cream-2,.on-paper,.on-moutarde,.on-miel,.on-peche,.on-sable,.on-argile)_&]:bg-choco [:is(.on-choco,.on-tomate)_:is(.on-cream,.on-cream-2,.on-paper,.on-moutarde,.on-miel,.on-peche,.on-sable,.on-argile)_&]:text-cream";
 
 export function AddToCartButton({
   id,

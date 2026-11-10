@@ -88,7 +88,7 @@ export function RecentlyViewed({
   return (
     <section className={className}>
       <div className="mx-auto max-w-[1240px] px-4 sm:px-8">
-        <h2 className="mb-6 text-[clamp(30px,6vw,52px)] sm:mb-10">{t("title")}</h2>
+        <h2 className="mb-6 text-[clamp(28px,5vw,44px)] sm:mb-10">{t("title")}</h2>
         <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
           {items.map((p) => (
             <ProductCard key={p.id} product={toCardProduct(p)} locale={locale} />

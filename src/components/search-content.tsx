@@ -49,7 +49,7 @@ export function SearchContent({ products, families, guides }: SearchIndex) {
 
   return (
     <main className={`${PAGE} pt-4 pb-14 sm:pt-6 sm:pb-24`}>
-      <PageBanner tone="brique" title={t("title")} lead={t("intro")}>
+      <PageBanner tone="sable" title={t("title")} lead={t("intro")}>
         <input
           type="search"
           value={query}

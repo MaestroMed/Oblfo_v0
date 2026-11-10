@@ -72,15 +72,15 @@ export function CartDrawer() {
             // Écran très bas (téléphone à l'horizontale) : tout le panneau défile, le pied ne mange plus la liste.
             className="absolute top-0 right-0 flex h-full w-full max-w-[440px] flex-col bg-cream text-choco [@media(max-height:560px)]:overflow-y-auto"
           >
-            <div className="on-braise flex flex-none items-center gap-3 py-2.5 pr-3 pl-4 sm:pl-6">
+            <div className="flex flex-none items-center gap-3 border-b border-choco/10 py-2.5 pr-3 pl-4 sm:pl-6">
               <h2 className="text-[26px]">{t("title")}</h2>
-              {count > 0 ? <span className="chip chip-moutarde tabular-nums">{count}</span> : null}
+              {count > 0 ? <span className="chip tabular-nums">{count}</span> : null}
               <button
                 type="button"
                 ref={closeButton}
                 onClick={closeDrawer}
                 aria-label={t("close")}
-                className="ml-auto flex h-11 w-11 flex-none cursor-pointer items-center justify-center rounded-full bg-cream text-choco transition-colors duration-150 hover:bg-paper"
+                className="ml-auto flex h-11 w-11 flex-none cursor-pointer items-center justify-center rounded-full bg-cream-2 text-choco transition-colors duration-150 hover:bg-miel"
               >
                 <svg
                   viewBox="0 0 24 24"

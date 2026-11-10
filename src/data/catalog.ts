@@ -192,6 +192,11 @@ export function getProducts(locale: Locale): Product[] {
   return productSources.map((p) => localizeProduct(p, locale));
 }
 
+/** Produits montrés dans les rayons : sans photo, un article garde sa fiche mais ne s'affiche pas en liste. */
+export function getListedProducts(locale: Locale): Product[] {
+  return getProducts(locale).filter((p) => p.image);
+}
+
 export function getProductBySlug(
   locale: Locale,
   slug: string,

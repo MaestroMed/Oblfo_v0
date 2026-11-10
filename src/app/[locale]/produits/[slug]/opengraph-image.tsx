@@ -47,8 +47,8 @@ export default async function ProductOpengraphImage({
     // Slug inconnu : le visuel de marque plutôt qu'une erreur.
     return new ImageResponse(
       (
-        <OgFrame tone="braise" footer={t("footer")} logo={false}>
-          <OgLogo width={560} color={ogTone("braise").fg} />
+        <OgFrame tone="peche" footer={t("footer")} logo={false}>
+          <OgLogo width={560} color={ogTone("peche").pop} />
         </OgFrame>
       ),
       { ...size, fonts },

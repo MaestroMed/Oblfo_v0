@@ -10,24 +10,21 @@ export const ogContentType = "image/png";
 
 const CREAM = "#fcf1da";
 const CHOCO = "#3b160d";
-const BRAISE = "#eb3a0c";
-const MOUTARDE = "#f5b82e";
+const BRAISE = "#c93d18";
 const TILE_HEX: Record<Tile, string> = {
-  moutarde: MOUTARDE,
-  braise: BRAISE,
-  tomate: "#d4281a",
-  brique: "#8c3a1c",
-  choco: CHOCO,
+  miel: "#f8e1a8",
+  peche: "#f7d2ba",
+  sable: "#efdcc4",
+  argile: "#e9bda2",
 };
 
 /** Couleurs d'un aplat : fond, texte, et la pastille qui tranche dessus (prix, disque). */
 export function ogTone(tone: Tile) {
-  const light = tone === "moutarde";
   return {
     bg: TILE_HEX[tone],
-    fg: light ? CHOCO : CREAM,
-    pop: light ? BRAISE : MOUTARDE,
-    onPop: light ? CREAM : CHOCO,
+    fg: CHOCO,
+    pop: BRAISE,
+    onPop: CREAM,
   };
 }
 
@@ -119,8 +116,7 @@ export function OgFrame({
   children: React.ReactNode;
 }) {
   const c = ogTone(tone);
-  // Bande de pied chocolat, sauf sur l'aplat chocolat où elle passe en moutarde.
-  const band = tone === "choco" ? { bg: MOUTARDE, fg: CHOCO } : { bg: CHOCO, fg: CREAM };
+  const band = { bg: CHOCO, fg: CREAM };
   return (
     <div
       style={{

@@ -32,7 +32,7 @@ export default async function ContactPage({ params }: Props) {
   const tc = (chunks: React.ReactNode) => <ToComplete>{chunks}</ToComplete>;
 
   return (
-    <InfoPage tone="moutarde" title={t("title")} intro={t("intro")}>
+    <InfoPage tone="miel" title={t("title")} intro={t("intro")}>
       <InfoSection title={t("emailTitle")}>
         <p>{t.rich("emailText", { tc })}</p>
       </InfoSection>

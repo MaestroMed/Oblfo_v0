@@ -19,7 +19,7 @@ import { TILE_CLASS, productTile } from "@/lib/tile";
 // L'ombre de `.cutout` est réglée pour un grand visuel : réduite ici pour une vignette.
 const THUMB_CUTOUT = "cutout [filter:drop-shadow(0_4px_3px_rgb(59_22_13/0.3))]";
 
-/** Vignette d'une ligne : détouré sur l'aplat du produit ; pour un pack, ses deux premiers articles sur moutarde. */
+/** Vignette d'une ligne : détouré sur l'aplat du produit ; pour un pack, ses deux premiers articles sur miel. */
 function Thumb({ id, locale, roomy }: { id: string; locale: Locale; roomy: boolean }) {
   const product = getProductById(id, locale);
   const pack = product ? undefined : getPacks(locale).find((p) => p.id === id);
@@ -29,7 +29,7 @@ function Thumb({ id, locale, roomy }: { id: string; locale: Locale; roomy: boole
     <span
       className={`relative block h-20 w-20 flex-none overflow-hidden rounded-2xl ${
         roomy ? "sm:h-28 sm:w-28 sm:rounded-3xl" : ""
-      } ${product ? TILE_CLASS[productTile(id)] : "on-moutarde"}`}
+      } ${product ? TILE_CLASS[productTile(id)] : "on-miel"}`}
     >
       {product && hasCutout ? (
         <Image src={product.cutout!} alt="" fill sizes="112px" className={`${THUMB_CUTOUT} p-1.5`} />
@@ -53,7 +53,7 @@ function Thumb({ id, locale, roomy }: { id: string; locale: Locale; roomy: boole
 }
 
 const STEP_BUTTON =
-  "flex h-11 w-11 cursor-pointer items-center justify-center rounded-full font-display text-[22px] leading-none font-semibold transition-colors duration-150 hover:bg-moutarde";
+  "flex h-11 w-11 cursor-pointer items-center justify-center rounded-full font-display text-[22px] leading-none font-semibold transition-colors duration-150 hover:bg-miel";
 
 /** Lignes du panier. `roomy` : version aérée de la page panier (vignette et textes plus grands dès 640 px). */
 export function CartLines({ roomy = false }: { roomy?: boolean }) {
@@ -160,7 +160,7 @@ export function PackSuggestion({ className = "" }: { className?: string }) {
   if (!pack) return null;
 
   return (
-    <section aria-label={pack.name} className={`tile on-moutarde p-4 sm:p-5 ${className}`}>
+    <section aria-label={pack.name} className={`tile on-miel p-4 sm:p-5 ${className}`}>
       <div className="flex items-start gap-3">
         <div className="min-w-0 flex-1">
           <h3 className="text-[22px]">{pack.name}</h3>
@@ -200,7 +200,7 @@ export function PackSuggestion({ className = "" }: { className?: string }) {
   );
 }
 
-/** Progression vers la livraison offerte : moutarde sur brique, à poser sur un bloc `.on-choco`. */
+/** Progression vers la livraison offerte : moutarde sur chocolat clair, à poser sur un bloc `.on-choco`. */
 export function FreeShippingBar({ className = "" }: { className?: string }) {
   const t = useTranslations("Ux");
   const locale = useLocale() as Locale;
@@ -213,7 +213,7 @@ export function FreeShippingBar({ className = "" }: { className?: string }) {
       <p aria-live="polite" className={`font-display text-base font-semibold ${left > 0 ? "" : "text-moutarde"}`}>
         {left > 0 ? t("freeShipLeft", { amount: formatPrice(left, locale) }) : t("freeShipDone")}
       </p>
-      <div className="mt-2 h-2.5 overflow-hidden rounded-full bg-brique">
+      <div className="mt-2 h-2.5 overflow-hidden rounded-full bg-choco-2">
         <div
           className="h-full origin-left bg-moutarde transition-transform duration-300 ease-out motion-reduce:transition-none"
           style={{ transform: `scaleX(${progress})` }}
@@ -240,7 +240,7 @@ export function CartCheckout({ amount }: { amount: number }) {
         disabled={busy || !termsAccepted}
         data-state={state}
         aria-busy={busy}
-        className="btn btn-lg btn-block mt-3 tabular-nums"
+        className="btn btn-braise btn-lg btn-block mt-3 tabular-nums"
       >
         {t("checkout")} · {formatPrice(amount, locale)}
       </button>
@@ -264,12 +264,12 @@ export function CartEmpty({ onNavigate }: { onNavigate?: () => void }) {
 
   return (
     <div className="flex flex-col items-center gap-4 text-center">
-      <span className="on-braise flex h-24 w-24 items-center justify-center rounded-full">
+      <span className="on-miel flex h-24 w-24 items-center justify-center rounded-full">
         <HeatWaves className="h-12 w-12" />
       </span>
       <h2 className="text-[28px]">{t("emptyTitle")}</h2>
       <p className="max-w-[28ch]">{t("empty")}</p>
-      <Link href="/collection" onClick={onNavigate} className="btn mt-2">
+      <Link href="/collection" onClick={onNavigate} className="btn btn-braise mt-2">
         {t("emptyCta")}
       </Link>
     </div>

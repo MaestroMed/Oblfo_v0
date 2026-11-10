@@ -28,13 +28,11 @@ export function PhotoGallery({
   const slides = cutout
     ? [cutout, ...photos.filter((src) => !src.endsWith("02-packshot.jpg"))]
     : photos;
-  // Les ondes sont moutarde par défaut : braise sur l'aplat moutarde.
-  const waves = tile === "moutarde" ? "text-braise!" : "";
 
   if (slides.length === 0) {
     return (
       <div className={`tile flex aspect-square items-center justify-center ${TILE_CLASS[tile]}`}>
-        <HeatWaves className={`h-28 w-28 sm:h-40 sm:w-40 ${waves}`} />
+        <HeatWaves className="h-28 w-28 sm:h-40 sm:w-40" />
       </div>
     );
   }
@@ -66,7 +64,7 @@ export function PhotoGallery({
                 className={src === cutout ? "cutout p-[10%]" : "object-cover"}
               />
               {src === cutout ? (
-                <HeatWaves className={`absolute top-5 right-5 h-11 w-11 sm:top-7 sm:right-7 sm:h-16 sm:w-16 ${waves}`} />
+                <HeatWaves className="absolute top-5 right-5 h-11 w-11 sm:top-7 sm:right-7 sm:h-16 sm:w-16" />
               ) : null}
             </div>
           ))}

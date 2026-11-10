@@ -98,7 +98,7 @@ export default async function ProductPage({ params }: Props) {
   };
   const packsWithProduct = getPacksForProduct(locale, product.id);
   // Même rayon d'abord (le plus complémentaire), complété avec le reste — 4 max.
-  const siblings = getProducts(locale).filter((p) => p.id !== product.id);
+  const siblings = getProducts(locale).filter((p) => p.image && p.id !== product.id);
   const otherProducts = [
     ...siblings.filter((p) => p.category === product.category),
     ...siblings.filter((p) => p.category !== product.category),
@@ -167,7 +167,7 @@ export default async function ProductPage({ params }: Props) {
   const careSpec = product.specs.find((s) => /entretien|care|pflege|cuidado/i.test(s.label));
 
   const wrap = "mx-auto max-w-[1240px] px-4 sm:px-8";
-  const sectionTitle = "mb-6 text-[clamp(30px,6vw,52px)] sm:mb-10";
+  const sectionTitle = "mb-6 text-[clamp(28px,5vw,44px)] sm:mb-10";
   const blockTitle = "mb-4 text-[clamp(24px,7.5vw,36px)] break-words hyphens-auto sm:mb-6";
   const crumb = "inline-flex min-h-11 items-center font-medium underline-offset-4 hover:underline";
   const chevron = (
@@ -248,7 +248,7 @@ export default async function ProductPage({ params }: Props) {
 
       {/* ── Le produit en blocs d'aplat ── */}
       <div className={`${wrap} grid gap-4 pb-14 sm:gap-5 sm:pb-24 lg:grid-cols-12`}>
-        <section className="tile on-moutarde p-6 sm:p-10 lg:col-span-5">
+        <section className="tile on-miel p-6 sm:p-10 lg:col-span-5">
           <h2 className={blockTitle}>{t("highlightsLabel")}</h2>
           {proofs.length ? (
             <dl className="mb-6 flex flex-wrap gap-x-8 gap-y-4">
@@ -311,7 +311,7 @@ export default async function ProductPage({ params }: Props) {
         </section>
 
         <div className="flex flex-col gap-4 sm:gap-5 lg:col-span-5">
-          <section className="tile on-brique flex-auto p-6 sm:p-10">
+          <section className="tile on-sable flex-auto p-6 sm:p-10">
             <h2 className={blockTitle}>{tUx("accShipping")}</h2>
             <p className="text-[17px] leading-relaxed">{tUx("shippingText")}</p>
           </section>

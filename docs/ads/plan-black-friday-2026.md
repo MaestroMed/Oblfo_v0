@@ -6,7 +6,7 @@ Rédigé le 08/11/2026. Black Friday 27/11, Cyber Monday 30/11.
 
 | # | Quoi | Qui | Pourquoi |
 |---|------|-----|----------|
-| 1 | ~~`STRIPE_SECRET_KEY` + `STRIPE_WEBHOOK_SECRET` dans Vercel (Production), puis redeploy~~ clés réelles posées le 10/11 | Mehdi | reste la commande réelle de contrôle (ligne 5) |
+| 1 | ~~`STRIPE_SECRET_KEY` + `STRIPE_WEBHOOK_SECRET` dans Vercel (Production), puis redeploy~~ clé secrète restreinte (sans sortie de fonds) + secret du webhook réel posés le 10/11 | Mehdi | reste la commande réelle de contrôle (ligne 5) |
 | 2 | Compte **Merchant Center** au nom d'Opcodia LLC + flux `https://www.obflo.com/api/merchant-feed/fr` | Mehdi | aucun compte n'existe sur le login Google actuel |
 | 3 | Compte **Google Ads** neuf pour Obflo (l'actuel est « Numelite », désactivé, paiement refusé) | Mehdi | ne pas mélanger les entités ni hériter d'un compte suspendu |
 | 4 | Lier GA4 ↔ Google Ads, importer la conversion GA4 `purchase` comme conversion principale | Mehdi (Claude guide) | le site envoie `purchase` + `add_to_cart` depuis le 08/11 |

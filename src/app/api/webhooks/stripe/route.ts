@@ -1,5 +1,9 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
+import { sendCjOrders } from "@/lib/cj";
+
+// CJ impose 1 requête par seconde : authentification + une commande par ligne de transport.
+export const maxDuration = 30;
 
 // Réception des événements Stripe. Sur checkout.session.completed, la
 // commande est normalisée puis transmise à ORDERS_WEBHOOK_URL (app de
@@ -73,6 +77,7 @@ export async function POST(request: Request) {
       amountTotal: session.amount_total,
       locale: session.metadata?.obflo_locale ?? null,
       email: session.customer_details?.email ?? null,
+      phone: session.customer_details?.phone ?? null,
       customerName: session.customer_details?.name ?? null,
       shippingName: shipping?.name ?? null,
       shippingAddress: shipping?.address ?? null,
@@ -82,6 +87,24 @@ export async function POST(request: Request) {
     // Trace structurée systématique : c'est le filet minimal consultable
     // dans les logs Vercel même sans ORDERS_WEBHOOK_URL configurée.
     console.log(`[obflo:order] ${JSON.stringify(order)}`);
+
+    // Pont CJ : la commande fournisseur est créée NON payée, le paiement reste manuel dans CJ.
+    if (process.env.CJ_API_KEY) {
+      const cj = await sendCjOrders(order);
+      if (cj.status === "created") {
+        console.log(`[obflo:cj] ${JSON.stringify(cj.orders)}`);
+      } else if (cj.status === "skipped") {
+        // Réessayer ne changerait rien : on répond 200 et la commande se saisit à la main.
+        console.error(
+          `[obflo:cj] commande non créée (session ${session.id}), saisie manuelle dans CJ : ${cj.reason}`,
+        );
+      } else {
+        console.error(
+          `[obflo:cj] création échouée (session ${session.id}), Stripe va réessayer : ${cj.message}`,
+        );
+        return NextResponse.json({ error: "cj_failed" }, { status: 500 });
+      }
+    }
 
     const forwardUrl = process.env.ORDERS_WEBHOOK_URL;
     if (forwardUrl) {

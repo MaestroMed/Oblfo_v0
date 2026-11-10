@@ -36,7 +36,7 @@ export default async function LivraisonRetoursPage({ params }: Props) {
   }[];
 
   return (
-    <InfoPage kicker={t("kicker")} title={t("title")} intro={t("intro")}>
+    <InfoPage tone="miel" title={t("title")} intro={t("intro")}>
       {sections.map((section) => (
         <InfoSection key={section.title} title={section.title}>
           {section.paragraphs.map((paragraph) => (

@@ -4,6 +4,7 @@ import { AddToCartButton } from "@/components/add-to-cart-button";
 import { ImageSlot } from "@/components/image-slot";
 import { formatPrice, type Product } from "@/data/catalog";
 import { Link } from "@/i18n/navigation";
+import { TILE_CLASS, productTile } from "@/lib/tile";
 import type { Locale } from "@/i18n/routing";
 
 /**
@@ -21,7 +22,7 @@ export type CardProduct = Pick<
   | "name"
   | "tagline"
   | "image"
-  | "imageLabel"
+  | "cutout"
   | "variant"
 >;
 
@@ -35,95 +36,76 @@ export function toCardProduct(p: Product): CardProduct {
     name: p.name,
     tagline: p.tagline,
     image: p.image,
-    imageLabel: p.imageLabel,
+    cutout: p.cutout,
     variant: p.variant,
   };
 }
 
-/** Carte produit fond clair (homepage essentiels + page collection). */
-export function ProductCard({
-  product,
-  locale,
-}: {
-  product: CardProduct;
-  locale: Locale;
-}) {
+const button = "btn btn-outline btn-sm btn-block relative z-[1] mt-1 px-3";
+
+/** Carte produit : la photo détourée sur la teinte du produit (`src/lib/tile.ts`), puis nom, prix et bouton sur la page. */
+export function ProductCard({ product, locale }: { product: CardProduct; locale: Locale }) {
   const t = useTranslations("HomeV2");
   const tCart = useTranslations("Cart");
+  const href = {
+    pathname: "/produits/[slug]" as const,
+    params: { slug: product.slug },
+  };
 
   return (
-    <div className="group flex flex-col overflow-hidden rounded-2xl border border-black/[0.06] bg-white shadow-[0_18px_50px_-30px_rgba(36,28,20,0.35)] card-glow">
-      <Link
-        href={{ pathname: "/produits/[slug]", params: { slug: product.slug } }}
-        className="relative block aspect-square overflow-hidden bg-[#F7F3EC]"
-      >
-        {/* Pastille « nouveau » — texte espresso et non blanc : blanc sur
-            l'orange accent ne donne que 2,77:1, très en dessous des 4,5
-            attendus pour du 9,5 px. L'espresso monte à 6,77:1 sans changer
-            l'allure de la pastille. */}
-        {product.badge === "new" ? (
-          <span className="absolute top-4 left-4 z-[1] rounded-full bg-accent px-3 py-1 font-mono text-[9.5px] font-medium tracking-[0.16em] text-espresso">
-            {t("badgeNew")}
-          </span>
-        ) : null}
-        {product.image ? (
+    <article className="group relative flex h-full flex-col">
+      <span className={`tile relative block aspect-square shrink-0 ${TILE_CLASS[productTile(product.id)]}`}>
+        {product.cutout ? (
           <Image
-            src={product.image}
-            alt={product.name}
+            src={product.cutout}
+            alt=""
             fill
             sizes="(min-width: 1024px) 25vw, 50vw"
-            className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+            className="cutout p-[7%] transition-transform duration-300 group-hover:scale-105"
           />
         ) : (
-          <ImageSlot label={product.imageLabel} />
+          <ImageSlot />
         )}
-      </Link>
-      <div className="flex flex-1 flex-col gap-1.5 px-3.5 pt-3.5 pb-4 sm:px-5 sm:pt-4 sm:pb-5">
-        <Link
-          href={{
-            pathname: "/produits/[slug]",
-            params: { slug: product.slug },
-          }}
-          className="text-[14px] leading-snug font-semibold text-ink-warm sm:text-[15.5px] no-underline transition-colors hover:text-accent"
-        >
-          {product.name}
-        </Link>
-        <p className="text-[13px] leading-snug text-muted-warm">
-          {product.tagline}
-        </p>
-        <div className="mt-auto flex items-center justify-between pt-3">
-          <span className="text-[17px] font-bold sm:text-[19px] text-ink-warm">
-            {formatPrice(product.price, locale)}
-          </span>
-          {product.available ? (
-            product.variant ? (
-              <Link
-                href={{
-                  pathname: "/produits/[slug]",
-                  params: { slug: product.slug },
-                }}
-                aria-label={`${tCart("chooseOnProduct")} — ${product.variant.label}`}
-                className="flex h-11 items-center justify-center rounded-lg bg-accent px-3 text-[12px] font-semibold text-white no-underline transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_24px_-10px_rgba(240,123,46,0.8)]"
-              >
-                {tCart("chooseOnProduct")}
-              </Link>
-            ) : (
-              <AddToCartButton
-                id={product.id}
-                name={product.name}
-                price={product.price}
-                className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-lg bg-accent text-lg leading-none font-semibold text-white transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_24px_-10px_rgba(240,123,46,0.8)]"
-              >
-                +
-              </AddToCartButton>
-            )
+        {product.badge === "new" ? (
+          <span className="chip absolute top-3 left-3">{t("badgeNew")}</span>
+        ) : null}
+      </span>
+      <div className="flex min-w-0 flex-1 flex-col gap-1 pt-3">
+        <h3 className="text-[17px] leading-[1.15] [overflow-wrap:anywhere] hyphens-auto sm:text-[19px]">
+          {/* Le lien du titre couvre toute la carte : l'image reste décorative. */}
+          <Link href={href} className="no-underline after:absolute after:inset-0">
+            {product.name}
+          </Link>
+        </h3>
+        <span className="mb-auto text-[17px] font-bold tabular-nums sm:text-[18px]">
+          {formatPrice(product.price, locale)}
+        </span>
+        {product.available ? (
+          product.variant ? (
+            <Link
+              href={href}
+              aria-label={`${tCart("chooseOnProduct")} — ${product.variant.label} — ${product.name}`}
+              className={`${button} no-underline`}
+            >
+              {tCart("chooseOnProduct")}
+            </Link>
           ) : (
-            <span className="text-[12px] font-semibold text-muted-warm">
-              {tCart("unavailable")}
-            </span>
-          )}
-        </div>
+            <AddToCartButton
+              id={product.id}
+              name={product.name}
+              price={product.price}
+              className={button}
+            >
+              {t("cardAdd")}
+              <span className="sr-only"> {product.name}</span>
+            </AddToCartButton>
+          )
+        ) : (
+          <span aria-disabled="true" className={button}>
+            {tCart("unavailable")}
+          </span>
+        )}
       </div>
-    </div>
+    </article>
   );
 }

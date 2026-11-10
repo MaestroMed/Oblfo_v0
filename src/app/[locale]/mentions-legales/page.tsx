@@ -26,7 +26,7 @@ export default async function MentionsLegalesPage({ params }: Props) {
   const tc = (chunks: React.ReactNode) => <ToComplete>{chunks}</ToComplete>;
 
   return (
-    <InfoPage kicker={t("kicker")} title={t("title")}>
+    <InfoPage title={t("title")}>
       <InfoSection title={t("editorTitle")}>
         <p>{t.rich("editorP1", { tc })}</p>
         <p>{t.rich("editorP2", { tc })}</p>

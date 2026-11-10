@@ -1,18 +1,15 @@
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { Faq } from "@/components/faq";
-import { FactsMarquee } from "@/components/home/facts-marquee";
 import { HeatProofs } from "@/components/home/heat-proofs";
 import { SmoothScroll } from "@/components/smooth-scroll";
-import { Reveal } from "@/components/ui/reveal";
 import { About } from "@/components/home/about";
 import { Categories } from "@/components/home/categories";
 import { Essentials } from "@/components/home/essentials";
 import { Hero } from "@/components/home/hero";
-import { NewsletterBand } from "@/components/home/newsletter-band";
 import { PackFeature } from "@/components/home/pack-feature";
 import { Reassurance } from "@/components/home/reassurance";
-import { getFaqItems, getProducts } from "@/data/catalog";
+import { getFaqItems, getListedProducts } from "@/data/catalog";
 import { getPathname } from "@/i18n/navigation";
 import {
   hreflangAlternates,
@@ -45,7 +42,7 @@ export async function generateMetadata({ params }: Props) {
 }
 
 function buildStructuredData(locale: Locale) {
-  const products = getProducts(locale);
+  const products = getListedProducts(locale);
   const faqItems = getFaqItems(locale);
 
   // Politique de retour et grilles de port déclarées UNE fois dans le @graph
@@ -127,18 +124,14 @@ export default async function HomePage({ params }: Props) {
     <>
       <SmoothScroll>
         <main>
-          <Hero />
-          <Reveal><Categories /></Reveal>
-          <FactsMarquee locale={locale} />
-          <Reveal><Essentials locale={locale} /></Reveal>
+          <Hero locale={locale} />
+          <Categories locale={locale} />
+          <Essentials locale={locale} />
+          <PackFeature locale={locale} />
           <HeatProofs locale={locale} />
-          <div className="bg-cream pt-20">
-            <Reveal><PackFeature locale={locale} /></Reveal>
-          </div>
           <Reassurance />
-          <Reveal><About /></Reveal>
+          <About />
           <Faq locale={locale} />
-          <NewsletterBand />
         </main>
       </SmoothScroll>
       <script

@@ -1,85 +1,48 @@
 import Image from "next/image";
-import { useLocale, useTranslations } from "next-intl";
-import type { Category } from "@/data/catalog-types";
+import { useTranslations } from "next-intl";
+import { CATEGORY_ORDER, getListedProducts } from "@/data/catalog";
 import { CATEGORY_SLUGS } from "@/data/category-slugs";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
+import { deco } from "@/lib/tile";
 
-const cards: {
-  category: Category;
-  image: string;
-  kickerKey: "catHands" | "catFeet" | "catDesk" | "catRoom";
-  labelKey: "catHandsLabel" | "catFeetLabel" | "catDeskLabel" | "catRoomLabel";
-}[] = [
-  {
-    category: "mains",
-    image: "/images/products/gants-chauffants/03-usage-tribune.jpg",
-    kickerKey: "catHands",
-    labelKey: "catHandsLabel",
-  },
-  {
-    category: "pieds",
-    image: "/images/products/chaussons-chauffants/01-hero.jpg",
-    kickerKey: "catFeet",
-    labelKey: "catFeetLabel",
-  },
-  {
-    category: "bureau",
-    image: "/images/products/sous-main-chauffant/01-hero.jpg",
-    kickerKey: "catDesk",
-    labelKey: "catDeskLabel",
-  },
-  {
-    category: "piece",
-    image: "/images/products/chauffage-appoint/03-usage-pieds.jpg",
-    kickerKey: "catRoom",
-    labelKey: "catRoomLabel",
-  },
-];
-
-export function Categories() {
+// Une tuile par famille : sa photo d'ambiance en plein cadre, le libellé dessous.
+export function Categories({ locale }: { locale: Locale }) {
   const t = useTranslations("HomeV2");
-  const locale = useLocale() as Locale;
+  const tCat = useTranslations("Categories");
+  const products = getListedProducts(locale);
+  const categories = CATEGORY_ORDER.filter((c) => products.some((p) => p.category === c));
 
   return (
-    <section className="bg-cream">
-      <div className="mx-auto -mt-[110px] max-w-[1280px] px-5 sm:px-8">
-        <div className="relative grid grid-cols-2 gap-3 sm:grid-cols-[repeat(auto-fit,minmax(220px,1fr))] sm:gap-5">
-          {cards.map((card) => {
-            return (
+    <section className="py-14 sm:py-24">
+      <div className="mx-auto max-w-[1240px] px-4 sm:px-8">
+        <h2 className="mb-6 text-[clamp(28px,5vw,44px)] sm:mb-10">{t("categoriesTitle")}</h2>
+        <ul className="grid grid-cols-3 gap-x-3 gap-y-5 sm:gap-x-4 lg:grid-cols-6">
+          {categories.map((category) => (
+            <li key={category}>
               <Link
-                key={card.category}
                 href={{
                   pathname: "/collection/[category]",
-                  params: { category: CATEGORY_SLUGS[card.category][locale] },
+                  params: { category: CATEGORY_SLUGS[category][locale] },
                 }}
-                className="group relative aspect-[4/3.4] overflow-hidden rounded-2xl border border-black/40 bg-espresso-2 no-underline shadow-[0_24px_60px_-28px_rgba(22,17,12,0.7)] transition-transform duration-[250ms] hover:-translate-y-1"
+                className="group flex flex-col items-center gap-2 no-underline"
               >
-                <Image
-                  src={card.image}
-                  alt={t(card.labelKey)}
-                  fill
-                  sizes="(min-width: 1024px) 25vw, 50vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(16,12,8,0)_35%,rgba(16,12,8,0.92)_100%)]" />
-                <div className="absolute right-3 bottom-3 left-3 flex items-end sm:right-4 sm:bottom-4 sm:left-4 justify-between gap-2">
-                  <div className="flex flex-col gap-1">
-                    <span className="font-mono text-[10px] tracking-[0.2em] text-copper">
-                      {t(card.kickerKey)}
-                    </span>
-                    <span className="text-[14px] leading-tight font-semibold text-[#F5EFE6] sm:text-[15px]">
-                      {t(card.labelKey)}
-                    </span>
-                  </div>
-                  <span className="text-lg text-accent transition-transform duration-200 group-hover:translate-x-1">
-                    →
-                  </span>
-                </div>
+                <span className="tile on-cream-2 block aspect-square w-full">
+                  <Image
+                    src={deco(category)}
+                    alt=""
+                    fill
+                    sizes="(min-width: 1024px) 190px, 33vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                </span>
+                <span className="text-center font-display text-[17px] leading-tight font-semibold [overflow-wrap:anywhere] hyphens-auto sm:text-[20px]">
+                  {tCat(category)}
+                </span>
               </Link>
-            );
-          })}
-        </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

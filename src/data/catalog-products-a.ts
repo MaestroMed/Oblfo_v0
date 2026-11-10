@@ -11,7 +11,7 @@ export const productsA: ProductSource[] = [
       de: "beheizbare-handschuhe",
       es: "guantes-calefactables",
     },
-    price: 44,
+    price: 44.9,
     category: "mains",
     glow: "warm",
     badge: "new",
@@ -143,7 +143,7 @@ export const productsA: ProductSource[] = [
       de: "beheizbare-hausschuhe",
       es: "zapatillas-calefactables",
     },
-    price: 44,
+    price: 44.9,
     category: "pieds",
     glow: "cold",
     image: "/images/products/chaussons-chauffants/02-packshot.jpg",
@@ -274,7 +274,7 @@ export const productsA: ProductSource[] = [
       de: "keramik-heizluefter",
       es: "calefactor-ceramico",
     },
-    price: 49,
+    price: 49.9,
     category: "piece",
     glow: "warm",
     badge: "new",
@@ -294,7 +294,7 @@ export const productsA: ProductSource[] = [
     tagline: {
       fr: "Chauffe la personne, pas la pièce. 250 W.",
       en: "Heats you, not the whole room. 250 W.",
-      de: "Wärmt dich, nicht den ganzen Raum. 250 W.",
+      de: "Wärmt Sie, nicht den ganzen Raum. 250 W.",
       es: "Te calienta a ti, no a toda la habitación. 250 W.",
     },
     tags: {
@@ -306,7 +306,7 @@ export const productsA: ProductSource[] = [
     imageLabel: "PACKSHOT — mini chauffage turquoise",
     description: {
       fr: [
-        "Chauffer toute la maison pour une seule personne assise à son bureau, c'est payer pour des mètres carrés vides. Ce mini chauffage soufflant fait l'inverse : posé à tes pieds ou sur le bureau, il envoie un flux d'air chaud là où tu es.",
+        "Chauffer toute la maison pour une seule personne assise à son bureau, c'est payer pour des mètres carrés vides. Ce mini chauffage soufflant fait l'inverse : posé à vos pieds ou sur le bureau, il envoie un flux d'air chaud là où vous êtes.",
         "250 W seulement, un interrupteur marche/arrêt, une coupure automatique en cas de surchauffe et 720 g sur la balance : il se déplace d'une pièce à l'autre et se range dans un tiroir. Ce n'est pas un radiateur pour chauffer une chambre entière — c'est un chauffage personnel.",
       ],
       en: [
@@ -314,7 +314,7 @@ export const productsA: ProductSource[] = [
         "Only 250 W, an on/off rocker switch, automatic overheat cut-off and 720 g on the scale: it moves from room to room and fits in a drawer. It's not a radiator for a whole bedroom — it's a personal heater.",
       ],
       de: [
-        "Das ganze Haus für eine Person am Schreibtisch zu heizen heißt, für leere Quadratmeter zu zahlen. Dieser Mini-Heizlüfter macht das Gegenteil: zu deinen Füßen oder auf dem Schreibtisch bläst er warme Luft genau dorthin, wo du bist.",
+        "Das ganze Haus für eine Person am Schreibtisch zu heizen heißt, für leere Quadratmeter zu zahlen. Dieser Mini-Heizlüfter macht das Gegenteil: zu Ihren Füßen oder auf dem Schreibtisch bläst er warme Luft genau dorthin, wo Sie sind.",
         "Nur 250 W, ein Ein/Aus-Schalter, automatische Abschaltung bei Überhitzung und 720 g Gewicht: Er wandert von Raum zu Raum und passt in eine Schublade. Kein Heizkörper für ein ganzes Zimmer — ein persönlicher Heizlüfter.",
       ],
       es: [
@@ -324,10 +324,10 @@ export const productsA: ProductSource[] = [
     },
     highlights: {
       fr: [
-        "Air chaud dirigé vers toi",
+        "Air chaud dirigé vers vous",
         "250 W : consommation maîtrisée",
         "Coupure automatique en cas de surchauffe",
-        "720 g, se pose à tes pieds ou sur le bureau",
+        "720 g, se pose à vos pieds ou sur le bureau",
       ],
       en: [
         "Warm air aimed at you",
@@ -336,10 +336,10 @@ export const productsA: ProductSource[] = [
         "720 g, sits at your feet or on the desk",
       ],
       de: [
-        "Warme Luft direkt auf dich gerichtet",
+        "Warme Luft direkt auf Sie gerichtet",
         "250 W: überschaubarer Verbrauch",
         "Automatische Abschaltung bei Überhitzung",
-        "720 g, steht zu deinen Füßen oder auf dem Schreibtisch",
+        "720 g, steht zu Ihren Füßen oder auf dem Schreibtisch",
       ],
       es: [
         "Aire caliente dirigido hacia ti",
@@ -397,7 +397,7 @@ export const productsA: ProductSource[] = [
       de: "tassenwaermer",
       es: "calientatazas",
     },
-    price: 39,
+    price: 39.9,
     category: "bureau",
     glow: "cold",
     image: "/images/products/mini-chauffe-tasse/02-packshot.jpg",

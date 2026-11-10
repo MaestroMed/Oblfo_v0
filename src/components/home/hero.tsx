@@ -1,84 +1,37 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { PowerGlyph } from "@/components/power-glyph";
+import { Link } from "@/i18n/navigation";
+import type { Locale } from "@/i18n/routing";
+import { deco } from "@/lib/tile";
 
-// Séquence signature : O B F L apparaissent, le O-power s'allume,
-// le mot passe de froid à chauffant, puis le contenu se révèle.
-// Timings et fallback reduced-motion : globals.css (.hero-*).
-const letters = ["O", "B", "F", "L"] as const;
-
-export function Hero() {
+// Page crème : un titre, une phrase, deux boutons, et la photo d'ambiance dans un cadre arrondi.
+export function Hero({ locale }: { locale: Locale }) {
   const t = useTranslations("HomeV2");
 
   return (
-    <section className="relative overflow-hidden bg-espresso">
-      <div className="absolute inset-0">
-        <Image
-          src="/images/home/v2/home-hero.jpg"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-[70%_center]"
-        />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(22,17,12,0.94)_0%,rgba(22,17,12,0.72)_38%,rgba(22,17,12,0.25)_70%,rgba(22,17,12,0.45)_100%)] max-md:bg-[linear-gradient(180deg,rgba(22,17,12,0.9)_0%,rgba(22,17,12,0.65)_55%,rgba(22,17,12,0.9)_100%)]" />
-        <div aria-hidden className="hero-ember absolute -inset-[10%] mix-blend-screen" />
-        <div aria-hidden className="grain absolute inset-0" />
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-[linear-gradient(180deg,rgba(22,17,12,0)_0%,#16110C_100%)]" />
-      </div>
-      <div className="relative mx-auto max-w-[1280px] px-5 sm:px-8 pt-16 pb-[150px] md:pt-20">
-        <div className="flex max-w-[620px] flex-col items-start gap-7">
-          {/* Marque animée — décorative, le vrai H1 est en dessous */}
-          <div
-            aria-hidden
-            className="hero-brand flex items-baseline font-serif text-[clamp(64px,10vw,130px)] leading-none font-semibold tracking-[0.04em]"
-          >
-            {letters.map((letter, i) => (
-              <span
-                key={letter + i}
-                className="hero-letter"
-                style={{ "--stagger": i } as React.CSSProperties}
-              >
-                {letter}
-              </span>
-            ))}
-            <span
-              className="hero-letter inline-block"
-              style={{ "--stagger": 4 } as React.CSSProperties}
-            >
-              <PowerGlyph className="hero-power h-[0.72em] w-[0.74em]" />
-            </span>
+    <section className="overflow-hidden">
+      <div className="mx-auto grid max-w-[1240px] items-center gap-7 px-4 pt-8 sm:px-8 sm:pt-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-12 lg:pt-14">
+        <div className="flex flex-col items-start gap-4 sm:gap-6">
+          <h1 className="text-[clamp(40px,10.5vw,76px)] leading-none">{t("heroHeadline")}</h1>
+          <p className="max-w-[44ch] text-[18px] leading-relaxed sm:text-[20px]">{t("heroLead")}</p>
+          <div className="mt-1 flex flex-wrap gap-3">
+            <Link href="/collection" className="btn btn-braise btn-lg no-underline">
+              {t("heroCtaPrimary")}
+            </Link>
+            <a href={`/${locale}#pack`} className="btn btn-outline btn-lg no-underline">
+              {t("heroCtaSecondary")}
+            </a>
           </div>
-
-          <div className="hero-content flex flex-col items-start gap-6">
-            <span className="rounded-full border border-copper/40 bg-copper/10 px-4 py-1.5 font-mono text-[10.5px] tracking-[0.2em] text-copper">
-              ◈ {t("heroBadge")}
-            </span>
-            <h1 className="font-serif text-[clamp(30px,3.4vw,46px)] leading-[1.1] font-medium tracking-[-0.01em] text-[#F5EFE6] text-pretty">
-              {t("heroTitle1")}
-              <span className="text-accent">{t("heroAccent1")}</span>
-              <span className="italic">{t("heroTitle2")}</span>
-              <span className="text-accent">{t("heroAccent2")}</span>
-              {t("heroTitle3")}
-            </h1>
-            <p className="text-[15.5px] leading-relaxed text-[#C8BBAA]">
-              {t("heroSubtitle")}
-            </p>
-            <div className="mt-1 flex flex-wrap gap-3.5">
-              <a
-                href="#essentiels"
-                className="rounded-lg bg-accent px-7 py-[15px] text-[15px] font-semibold text-[#14100C] no-underline transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_40px_-12px_rgba(240,123,46,0.6)]"
-              >
-                {t("heroCtaPrimary")} →
-              </a>
-              <a
-                href="#pack"
-                className="rounded-lg border border-white/25 bg-black/20 px-7 py-[15px] text-[15px] font-medium text-[#EDE4D7] no-underline backdrop-blur-sm transition-colors hover:border-accent/70 hover:text-white"
-              >
-                {t("heroCtaSecondary")}
-              </a>
-            </div>
-          </div>
+        </div>
+        <div className="tile on-cream-2 aspect-[3/2] lg:aspect-[4/3]">
+          <Image
+            src={deco("hero")}
+            alt={t("heroImageAlt")}
+            fill
+            priority
+            sizes="(min-width: 1024px) 620px, 100vw"
+            className="object-cover"
+          />
         </div>
       </div>
     </section>

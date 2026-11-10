@@ -34,7 +34,7 @@ export default async function ConfidentialitePage({ params }: Props) {
   const tc = (chunks: React.ReactNode) => <ToComplete>{chunks}</ToComplete>;
 
   return (
-    <InfoPage kicker={t("kicker")} title={t("title")} intro={t("intro")}>
+    <InfoPage title={t("title")} intro={t("intro")}>
       {SECTIONS.map(([titleKey, textKey]) => (
         <InfoSection key={titleKey} title={t(titleKey)}>
           <p>{t.rich(textKey, { tc })}</p>

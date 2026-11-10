@@ -48,37 +48,42 @@ export function ProductGrid({
   ];
 
   return (
-    <div className="flex flex-col gap-6">
-      <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-        <label className="flex items-center gap-2.5 font-mono text-[10.5px] tracking-[0.14em] text-muted-warm uppercase">
-          {t("sortLabel")}
-          <select
-            value={sort}
-            onChange={(e) => setSort(e.target.value as SortKey)}
-            className="cursor-pointer rounded-lg border border-black/12 bg-white px-3 py-2 font-sans text-[13px] normal-case tracking-normal text-ink-warm outline-none focus:border-accent/70"
-          >
-            {sortOptions.map((o) => (
-              <option key={o.value} value={o.value}>
-                {o.label}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label className="flex cursor-pointer items-center gap-2 font-mono text-[10.5px] tracking-[0.14em] text-muted-warm uppercase">
-          <input
-            type="checkbox"
-            checked={inStockOnly}
-            onChange={(e) => setInStockOnly(e.target.checked)}
-            className="h-4 w-4 cursor-pointer accent-[#F07B2E]"
-          />
-          {t("inStockOnly")}
-        </label>
-        <span
-          aria-live="polite"
-          className="ml-auto font-mono text-[10.5px] tracking-[0.14em] text-muted-warm uppercase"
-        >
-          {t("count", { count: visible.length })}
-        </span>
+    <div className="flex flex-col gap-5">
+      <div className="flex flex-wrap items-center justify-between gap-x-5 border-b-2 border-choco/15 pb-2 font-display text-[16px] font-semibold">
+        <span aria-live="polite">{t("count", { count: visible.length })}</span>
+        {/* Trier un seul produit n'a pas de sens ; filtrer le stock non plus si tout est en stock. */}
+        {products.length > 1 ? (
+          <div className="flex flex-wrap items-center gap-x-5">
+            {products.some((p) => !p.available) ? (
+              <label className="flex min-h-11 cursor-pointer items-center gap-2.5">
+                <input
+                  type="checkbox"
+                  checked={inStockOnly}
+                  onChange={(e) => setInStockOnly(e.target.checked)}
+                  className="h-5 w-5 cursor-pointer accent-choco"
+                />
+                {t("inStockOnly")}
+              </label>
+            ) : null}
+            <label className="flex items-center gap-2.5">
+              <span className="max-sm:sr-only">{t("sortLabel")}</span>
+              <select
+                value={sort}
+                onChange={(e) => setSort(e.target.value as SortKey)}
+                aria-label={t("sortLabel")}
+                className="field min-h-11 w-auto cursor-pointer py-1.5 font-sans font-normal"
+              >
+                {sortOptions.map((o) => (
+                  <option key={o.value} value={o.value}>
+                    {o.label}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
+        ) : (
+          <span className="min-h-11" />
+        )}
       </div>
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-[repeat(auto-fill,minmax(250px,1fr))] sm:gap-6">
         {visible.map((product) => (

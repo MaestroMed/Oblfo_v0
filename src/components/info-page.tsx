@@ -1,33 +1,26 @@
 import { useTranslations } from "next-intl";
-import { SectionKicker } from "@/components/section-heading";
+import { PAGE, PageBanner } from "@/components/page-banner";
+import type { Tile } from "@/lib/tile";
 
-/** Gabarit des pages éditoriales (légal, aide) — typographie prose sur fond nuit. */
+/** Gabarit des pages éditoriales (aide, légal) : bandeau d'aplat, puis texte long sur crème. */
 export function InfoPage({
-  kicker,
   title,
   intro,
+  tone = "sable",
   children,
 }: {
-  kicker: string;
   title: string;
   intro?: string;
+  /** Sable pour le légal, miel pour l'aide. */
+  tone?: Tile;
   children: React.ReactNode;
 }) {
   return (
-    <main className="bg-night py-[90px]">
-      <div className="mx-auto max-w-[820px] px-8">
-        <div className="mb-12 flex flex-col gap-3.5">
-          <SectionKicker index="—" label={kicker} />
-          <h1 className="text-[clamp(34px,4vw,52px)] font-bold leading-[1.04] tracking-[-0.02em] text-ink">
-            {title}
-          </h1>
-          {intro ? (
-            <p className="text-[16.5px] leading-relaxed text-[#93A2B1] text-pretty">
-              {intro}
-            </p>
-          ) : null}
-        </div>
-        <div className="flex flex-col gap-8">{children}</div>
+    <main className={`${PAGE} pt-4 pb-14 sm:pt-6 sm:pb-24`}>
+      <PageBanner tone={tone} title={title} lead={intro} />
+      {/* Marge et non padding : le texte s'aligne sur celui du bandeau sans rogner les 68ch. */}
+      <div className="prose-obflo mt-8 sm:mt-14 sm:ml-10 lg:ml-14 [&>section:first-child>h2]:mt-0">
+        {children}
       </div>
     </main>
   );
@@ -41,13 +34,9 @@ export function InfoSection({
   children: React.ReactNode;
 }) {
   return (
-    <section className="flex flex-col gap-3 border-t border-white/8 pt-8">
-      <h2 className="text-[22px] font-semibold tracking-[-0.01em] text-ink">
-        {title}
-      </h2>
-      <div className="flex flex-col gap-3 text-[15px] leading-relaxed text-[#9AA9B8]">
-        {children}
-      </div>
+    <section>
+      <h2>{title}</h2>
+      {children}
     </section>
   );
 }
@@ -56,9 +45,9 @@ export function InfoSection({
 export function ToComplete({ children }: { children: React.ReactNode }) {
   const t = useTranslations("ToComplete");
   return (
-    <span className="rounded-md border border-accent/40 bg-accent/10 px-2 py-0.5 font-mono text-[12px] tracking-[0.06em] text-accent">
+    <span className="chip chip-moutarde whitespace-normal">
       {t("prefix")}
-      {children}]
+      {children}
     </span>
   );
 }

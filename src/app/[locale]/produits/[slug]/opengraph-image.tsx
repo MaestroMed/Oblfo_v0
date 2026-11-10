@@ -1,12 +1,34 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { ImageResponse } from "next/og";
 import { getTranslations } from "next-intl/server";
 import { formatPrice, getProductBySlug } from "@/data/catalog";
 import { isLocale, routing } from "@/i18n/routing";
-import { loadOgFonts, OgFrame, ogSize } from "@/lib/og";
+import { loadOgFonts, OgFrame, OgLogo, ogSize, ogTone } from "@/lib/og";
+import { productTile } from "@/lib/tile";
 
 export const size = ogSize;
 export const contentType = "image/png";
 export const alt = "OBFLO";
+
+// shortcut: photo lue sur disque, absente si l'hébergeur ne trace pas `public/` dans la fonction ;
+// l'image retombe alors sur le disque aux ondes. Passer par `outputFileTracingIncludes` si ça manque en production.
+async function packshot(image?: string) {
+  if (!image) return null;
+  try {
+    const file = join(process.cwd(), "public", image);
+    return `data:image/${image.endsWith(".png") ? "png" : "jpeg"};base64,${(await readFile(file)).toString("base64")}`;
+  } catch {
+    return null;
+  }
+}
+
+/** Corps du nom selon sa longueur : un mot allemand de 21 lettres doit tenir sur 640 px. */
+function nameSize(name: string) {
+  const longestWord = Math.max(...name.split(/\s+/).map((w) => w.length));
+  if (longestWord >= 17 || name.length > 34) return 52;
+  return name.length > 24 ? 60 : 76;
+}
 
 export default async function ProductOpengraphImage({
   params,
@@ -17,64 +39,36 @@ export default async function ProductOpengraphImage({
   const locale = isLocale(requested) ? requested : routing.defaultLocale;
   const product = getProductBySlug(locale, slug);
   const [t, fonts] = await Promise.all([
-    getTranslations({ locale, namespace: "ProductPage" }),
+    getTranslations({ locale, namespace: "Og" }),
     loadOgFonts(),
   ]);
 
   if (!product) {
-    // Slug inconnu — on sert le visuel générique plutôt qu'une erreur.
+    // Slug inconnu : le visuel de marque plutôt qu'une erreur.
     return new ImageResponse(
       (
-        <OgFrame kicker={t("kicker")} footerLeft={t("reassurance")}>
-          <div
-            style={{
-              display: "flex",
-              fontSize: 116,
-              fontWeight: 700,
-              letterSpacing: "-0.03em",
-              color: "#F2F5F8",
-            }}
-          >
-            OBFLO<span style={{ color: "#FF6A2B" }}>°</span>
-          </div>
+        <OgFrame tone="peche" footer={t("footer")} logo={false}>
+          <OgLogo width={560} color={ogTone("peche").pop} />
         </OgFrame>
       ),
       { ...size, fonts },
     );
   }
 
+  const tone = productTile(product.id);
+  const c = ogTone(tone);
+
   return new ImageResponse(
     (
-      <OgFrame kicker={t("kicker")} footerLeft={t("reassurance")}>
-        <div style={{ display: "flex", gap: 14 }}>
-          {product.tags.map((tag) => (
-            <div
-              key={tag}
-              style={{
-                display: "flex",
-                fontFamily: "IBM Plex Mono",
-                fontSize: 19,
-                letterSpacing: "0.14em",
-                color: "#9FB3C4",
-                border: "2px solid rgba(143,193,227,0.3)",
-                borderRadius: 10,
-                padding: "8px 16px",
-              }}
-            >
-              {tag}
-            </div>
-          ))}
-        </div>
+      <OgFrame tone={tone} footer={t("footer")} image={await packshot(product.image)}>
         <div
           style={{
             display: "flex",
-            marginTop: 30,
-            fontSize: 92,
+            fontSize: nameSize(product.name),
             fontWeight: 700,
-            letterSpacing: "-0.025em",
-            lineHeight: 1.02,
-            color: "#F2F5F8",
-            maxWidth: 980,
+            letterSpacing: "-0.02em",
+            lineHeight: 1.05,
+            wordBreak: "break-word",
           }}
         >
           {product.name}
@@ -82,46 +76,27 @@ export default async function ProductOpengraphImage({
         <div
           style={{
             display: "flex",
-            marginTop: 24,
-            fontSize: 30,
+            marginTop: 18,
+            fontSize: 28,
             fontWeight: 500,
-            color: "#9AA9B8",
-            maxWidth: 860,
+            lineHeight: 1.3,
           }}
         >
           {product.tagline}
         </div>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 24,
-            marginTop: 36,
-          }}
-        >
+        <div style={{ display: "flex", marginTop: 30 }}>
           <div
             style={{
               display: "flex",
-              fontSize: 58,
+              padding: "8px 30px",
+              borderRadius: 999,
+              backgroundColor: c.pop,
+              color: c.onPop,
+              fontSize: 46,
               fontWeight: 700,
-              color: "#FF6A2B",
             }}
           >
             {formatPrice(product.price, locale)}
-          </div>
-          <div
-            style={{
-              display: "flex",
-              fontFamily: "IBM Plex Mono",
-              fontSize: 20,
-              letterSpacing: "0.14em",
-              color: "#C4D2DE",
-              border: "2px solid rgba(255,255,255,0.14)",
-              borderRadius: 999,
-              padding: "10px 20px",
-            }}
-          >
-            {locale === "en" ? "+41.7°C" : "+41,7°C"}
           </div>
         </div>
       </OgFrame>

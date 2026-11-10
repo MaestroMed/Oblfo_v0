@@ -1,82 +1,63 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { Icon, type IconName } from "@/components/home/icons";
+import { deco } from "@/lib/tile";
 
 const lifestyle = [
-  {
-    image: "/images/products/chaussons-chauffants/03-usage-teletravail.jpg",
-    kickerKey: "lifeDeskKicker",
-    titleKey: "lifeDeskTitle",
-  },
-  {
-    image: "/images/products/plaid-chauffant/01-hero.jpg",
-    kickerKey: "lifeHomeKicker",
-    titleKey: "lifeHomeTitle",
-  },
-  {
-    image: "/images/products/gilet-chauffant/01-hero.jpg",
-    kickerKey: "lifeOutKicker",
-    titleKey: "lifeOutTitle",
-  },
+  { id: "bureau", tone: "on-sable", kickerKey: "lifeDeskKicker", titleKey: "lifeDeskTitle" },
+  { id: "maison", tone: "on-miel", kickerKey: "lifeHomeKicker", titleKey: "lifeHomeTitle" },
+  { id: "corps", tone: "on-peche", kickerKey: "lifeOutKicker", titleKey: "lifeOutTitle" },
 ] as const;
 
 const trust = [
-  ["trust1Title", "trust1Text"],
-  ["trust2Title", "trust2Text"],
-  ["trust3Title", "trust3Text"],
-] as const;
+  ["trust1Title", "trust1Text", "shield"],
+  ["trust2Title", "trust2Text", "returns"],
+  ["trust3Title", "trust3Text", "lock"],
+] as const satisfies readonly (readonly [string, string, IconName])[];
 
 export function About() {
   const t = useTranslations("HomeV2");
 
   return (
-    <section id="apropos" className="scroll-mt-24 bg-cream py-20">
-      <div className="mx-auto flex max-w-[1280px] flex-wrap items-start gap-12 px-5 sm:px-8">
-        <div className="flex min-w-[300px] flex-[1_1_340px] flex-col gap-6">
-          <h2 className="font-serif text-[clamp(28px,3vw,40px)] leading-[1.12] font-medium tracking-[-0.01em] text-ink-warm text-pretty">
-            {t("aboutTitle")}
-          </h2>
-          <p className="max-w-[440px] text-[15px] leading-relaxed text-muted-warm text-pretty">
-            {t("aboutText")}
-          </p>
-          <div className="mt-2 flex flex-wrap gap-x-10 gap-y-5">
-            {trust.map(([titleKey, textKey]) => (
-              <div key={titleKey} className="flex flex-col gap-1">
-                <span className="flex items-center gap-2 text-[14.5px] font-bold text-ink-warm">
-                  <span className="h-1.5 w-1.5 rotate-45 bg-accent" />
-                  {t(titleKey)}
+    <section id="apropos" className="scroll-mt-24 py-14 sm:py-24">
+      <div className="mx-auto grid max-w-[1240px] gap-10 px-4 sm:px-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12">
+        <div className="flex flex-col gap-5">
+          <h2 className="text-[clamp(28px,5vw,44px)] text-balance">{t("aboutTitle")}</h2>
+          <p className="max-w-[52ch] text-[17px] leading-relaxed">{t("aboutText")}</p>
+          <ul className="mt-2 flex flex-col gap-4">
+            {trust.map(([titleKey, textKey, icon]) => (
+              <li key={titleKey} className="flex items-center gap-4">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-miel">
+                  <Icon name={icon} className="h-6 w-6" />
                 </span>
-                <span className="text-[12px] text-muted-warm">
-                  {t(textKey)}
+                <span className="flex min-w-0 flex-col">
+                  <span className="font-display text-[19px] leading-tight font-semibold">{t(titleKey)}</span>
+                  <span className="text-[16px] leading-snug">{t(textKey)}</span>
                 </span>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
-        <div className="grid min-w-[300px] flex-[1_1_560px] grid-cols-[repeat(auto-fit,minmax(170px,1fr))] gap-4">
+        {/* La légende dit déjà la scène : les photos restent décoratives. */}
+        <ul className="grid gap-3 sm:grid-cols-3 sm:gap-4">
           {lifestyle.map((card) => (
-            <div
-              key={card.kickerKey}
-              className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-espresso-2"
-            >
-              <Image
-                src={card.image}
-                alt={t(card.titleKey)}
-                fill
-                sizes="(min-width: 1024px) 20vw, 45vw"
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(16,12,8,0)_45%,rgba(16,12,8,0.9)_100%)]" />
-              <div className="absolute right-4 bottom-4 left-4 flex flex-col gap-1">
-                <span className="text-[14px] font-bold text-[#F5EFE6]">
-                  {t(card.kickerKey)}
-                </span>
-                <span className="text-[11.5px] leading-snug text-[#C9BEB0]">
-                  {t(card.titleKey)}
-                </span>
-              </div>
-            </div>
+            <li key={card.id} className={`tile ${card.tone} flex items-center sm:flex-col sm:items-stretch`}>
+              <span className="relative block aspect-square w-2/5 shrink-0 self-stretch bg-paper/50 sm:aspect-[4/5] sm:w-auto">
+                <Image
+                  src={deco(card.id)}
+                  alt=""
+                  fill
+                  sizes="(min-width: 1024px) 220px, (min-width: 640px) 30vw, 40vw"
+                  className="object-cover"
+                />
+              </span>
+              <span className="flex min-w-0 flex-col gap-1.5 p-4 sm:pb-6">
+                <span className="font-display text-[20px] leading-tight font-semibold">{t(card.kickerKey)}</span>
+                <span className="text-[16px] leading-snug">{t(card.titleKey)}</span>
+              </span>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

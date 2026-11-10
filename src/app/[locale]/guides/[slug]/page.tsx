@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { guideTone } from "@/components/guide-card";
+import { Crumbs, PAGE, PageBanner } from "@/components/page-banner";
+import { HeatWaves } from "@/components/ui/heat-waves";
 import { formatPrice, getProductById, getSellableById } from "@/data/catalog";
 import { getGuideBySlug, getGuides, guideLocales } from "@/data/guides";
 import { getPathname, Link } from "@/i18n/navigation";
@@ -12,6 +16,7 @@ import {
   type Locale,
 } from "@/i18n/routing";
 import { SITE_URL } from "@/lib/site";
+import { productTile, TILE_CLASS } from "@/lib/tile";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
@@ -72,9 +77,16 @@ export default async function GuidePage({ params }: Props) {
   if (!guide) notFound();
 
   const t = await getTranslations("Guides");
-  const related = guide.relatedProductIds
-    .map((id) => getSellableById(id, locale))
-    .filter((s): s is NonNullable<typeof s> => Boolean(s));
+  const tPage = await getTranslations("CategoryPage");
+  const tone = guideTone(getGuides(locale).findIndex((g) => g.id === guide.id));
+  const related = guide.relatedProductIds.flatMap((id) => {
+    const item = getSellableById(id, locale);
+    if (!item) return [];
+    const product = getProductById(id, locale);
+    // Un pack n'a pas de page : on renvoie vers le bloc pack de l'accueil, et seulement s'il est en vente.
+    if (!product && !item.available) return [];
+    return [{ ...item, product }];
+  });
 
   const guideUrl = `${SITE_URL}${getPathname({
     locale,
@@ -100,118 +112,88 @@ export default async function GuidePage({ params }: Props) {
   }).format(new Date(`${guide.datePublished}T00:00:00Z`));
 
   return (
-    <main className="bg-night py-[70px]">
-      <article className="mx-auto max-w-[820px] px-8">
-        <nav className="mb-9">
-          <Link
-            href="/guides"
-            className="font-mono text-[10.5px] tracking-[0.16em] text-[#8FA1B3] no-underline transition-colors hover:text-accent"
-          >
-            ← {t("backToGuides")}
-          </Link>
-        </nav>
+    <main>
+      <article className={`${PAGE} pt-1 pb-14 sm:pt-3 sm:pb-24`}>
+        <Crumbs
+          items={[
+            { label: tPage("home"), href: "/" },
+            { label: t("backToGuides"), href: "/guides" },
+          ]}
+        />
+        <PageBanner
+          compact
+          tone={tone}
+          title={guide.title}
+          meta={
+            <p className="mb-4 flex flex-wrap gap-2">
+              <span className="chip">{t("readTime", { minutes: guide.readMinutes })}</span>
+              <span className="chip">{t("published", { date: dateLabel })}</span>
+            </p>
+          }
+        />
 
-        <header className="mb-12 flex flex-col gap-4">
-          <div className="flex flex-wrap items-center gap-4 font-mono text-[10.5px] tracking-[0.18em] text-[#6D8093]">
-            <span className="text-accent">
-              {t("readTime", { minutes: guide.readMinutes })}
-            </span>
-            <span>{t("published", { date: dateLabel })}</span>
+        <div className="mt-8 grid gap-x-16 gap-y-12 sm:mt-14 lg:grid-cols-[minmax(0,68ch)_minmax(0,1fr)]">
+          <div className="prose-obflo">
+            <p className="text-[19px] leading-[1.6] font-medium sm:text-[21px]">{guide.intro}</p>
+            {guide.sections.map((section) => (
+              <section key={section.title}>
+                <h2>{section.title}</h2>
+                {section.paragraphs.map((paragraph) => (
+                  <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+                ))}
+              </section>
+            ))}
           </div>
-          <h1 className="text-[clamp(30px,3.6vw,46px)] font-bold leading-[1.08] tracking-[-0.02em] text-ink text-pretty">
-            {guide.title}
-          </h1>
-          <p className="text-[17px] leading-relaxed text-[#9AA9B8] text-pretty">
-            {guide.intro}
-          </p>
-        </header>
 
-        <div className="flex flex-col gap-10">
-          {guide.sections.map((section) => (
-            <section key={section.title} className="flex flex-col gap-4">
-              <h2 className="border-t border-white/8 pt-8 text-[24px] font-semibold tracking-[-0.01em] text-ink">
-                {section.title}
-              </h2>
-              {section.paragraphs.map((paragraph) => (
-                <p
-                  key={paragraph.slice(0, 40)}
-                  className="text-[15.5px] leading-[1.75] text-[#AEB9C4] text-pretty"
-                >
-                  {paragraph}
-                </p>
-              ))}
-            </section>
-          ))}
-        </div>
-
-        {related.length > 0 ? (
-          <aside className="mt-14 flex flex-col gap-5 rounded-[18px] border border-accent/25 bg-pack p-7">
-            <div className="flex items-center gap-3 font-mono text-[11px] tracking-[0.22em]">
-              <span className="h-2 w-2 rotate-45 bg-accent shadow-[0_0_12px_rgba(255,106,43,0.8)]" />
-              <span className="text-accent">{t("relatedLabel")}</span>
-            </div>
-            <div className="flex flex-col gap-3">
-              {related.map((item) => {
-                const isProduct = !item.id.startsWith("pack-");
-                return (
-                  <div
-                    key={item.id}
-                    className="flex flex-wrap items-center justify-between gap-3 border-t border-white/6 pt-3 first:border-t-0 first:pt-0"
-                  >
-                    <div className="flex items-baseline gap-3">
-                      <span className="text-[16px] font-semibold text-ink">
-                        {item.name}
+          {related.length > 0 ? (
+            <aside className="tile on-cream-2 w-full max-w-[440px] p-5 sm:p-7 lg:sticky lg:top-24 lg:self-start lg:justify-self-end">
+              <h2 className="text-[24px]">{t("relatedLabel")}</h2>
+              <ul className="mt-2 flex flex-col divide-y-2 divide-choco/15">
+                {related.map(({ id, name, price, product }) => (
+                  <li key={id} className="flex items-center gap-4 py-4 last:pb-0">
+                    <span
+                      className={`relative flex h-[72px] w-[72px] flex-none items-center justify-center overflow-hidden rounded-2xl ${product ? TILE_CLASS[productTile(id)] : "on-miel"}`}
+                    >
+                      {product?.cutout ? (
+                        <Image src={product.cutout} alt="" fill sizes="72px" className="cutout p-1.5" />
+                      ) : (
+                        <HeatWaves className="h-9 w-9" />
+                      )}
+                    </span>
+                    <div className="flex min-w-0 flex-col items-start gap-2">
+                      <span className="font-display text-[18px] leading-[1.15] font-semibold">
+                        {name}
                       </span>
-                      <span className="text-[17px] font-bold text-accent">
-                        {formatPrice(item.price, locale)}
-                      </span>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className={product ? "text-[17px] font-bold tabular-nums" : "price price-sm"}>
+                          {formatPrice(price, locale)}
+                        </span>
+                        {product ? (
+                          <Link
+                            href={{ pathname: "/produits/[slug]", params: { slug: product.slug } }}
+                            className="btn btn-sm"
+                          >
+                            {t("seeProduct")}
+                            <span className="sr-only"> {name}</span>
+                          </Link>
+                        ) : (
+                          <Link href={{ pathname: "/", hash: "pack" }} className="btn btn-sm">
+                            {t("seePacks")}
+                          </Link>
+                        )}
+                      </div>
                     </div>
-                    {isProduct ? (
-                      <ProductLink
-                        locale={locale}
-                        id={item.id}
-                        label={t("seeProduct")}
-                      />
-                    ) : (
-                      <a
-                        href={`/${locale}#packs`}
-                        className="rounded-[10px] bg-accent px-4 py-2 text-[13px] font-semibold text-[#14100C] no-underline transition-transform duration-200 hover:-translate-y-0.5"
-                      >
-                        {t("seeProduct")}
-                      </a>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </aside>
-        ) : null}
+                  </li>
+                ))}
+              </ul>
+            </aside>
+          ) : null}
+        </div>
       </article>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
     </main>
-  );
-}
-
-function ProductLink({
-  locale,
-  id,
-  label,
-}: {
-  locale: Locale;
-  id: string;
-  label: string;
-}) {
-  const product = getProductById(id, locale);
-  if (!product) return null;
-  return (
-    <Link
-      href={{ pathname: "/produits/[slug]", params: { slug: product.slug } }}
-      className="rounded-[10px] bg-accent px-4 py-2 text-[13px] font-semibold text-[#14100C] no-underline transition-transform duration-200 hover:-translate-y-0.5"
-    >
-      {label}
-    </Link>
   );
 }

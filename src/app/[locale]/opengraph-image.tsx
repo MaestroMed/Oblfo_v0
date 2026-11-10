@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { getTranslations } from "next-intl/server";
 import { isLocale, routing } from "@/i18n/routing";
-import { loadOgFonts, OgFrame, ogSize } from "@/lib/og";
+import { loadOgFonts, OgFrame, OgLogo, ogSize, ogTone } from "@/lib/og";
 
 export const size = ogSize;
 export const contentType = "image/png";
@@ -14,41 +14,37 @@ export default async function OpengraphImage({
 }) {
   const { locale: requested } = await params;
   const locale = isLocale(requested) ? requested : routing.defaultLocale;
-  const [t, tProduct, fonts] = await Promise.all([
-    getTranslations({ locale, namespace: "HomeV2" }),
-    getTranslations({ locale, namespace: "ProductPage" }),
+  const [t, fonts] = await Promise.all([
+    getTranslations({ locale, namespace: "Og" }),
     loadOgFonts(),
   ]);
 
-  const title = `${t("heroTitle1")}${t("heroAccent1")}${t("heroTitle2")}${t("heroAccent2")}${t("heroTitle3")}`;
-
   return new ImageResponse(
     (
-      <OgFrame kicker={tProduct("kicker")} footerLeft={tProduct("reassurance")}>
+      <OgFrame tone="peche" footer={t("footer")} logo={false}>
+        <OgLogo width={560} color={ogTone("peche").pop} />
         <div
           style={{
             display: "flex",
-            fontSize: 88,
+            marginTop: 44,
+            fontSize: 60,
             fontWeight: 700,
             letterSpacing: "-0.02em",
-            lineHeight: 1.08,
-            color: "#F2F5F8",
-            maxWidth: 1000,
+            lineHeight: 1.05,
           }}
         >
-          {title}
+          {t("title")}
         </div>
         <div
           style={{
             display: "flex",
-            marginTop: 34,
+            marginTop: 18,
             fontSize: 30,
             fontWeight: 500,
-            color: "#9AA9B8",
-            maxWidth: 860,
+            lineHeight: 1.3,
           }}
         >
-          {t("heroSubtitle")}
+          {t("subtitle")}
         </div>
       </OgFrame>
     ),

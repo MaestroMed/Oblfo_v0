@@ -32,7 +32,7 @@ export default async function ContactPage({ params }: Props) {
   const tc = (chunks: React.ReactNode) => <ToComplete>{chunks}</ToComplete>;
 
   return (
-    <InfoPage kicker={t("kicker")} title={t("title")} intro={t("intro")}>
+    <InfoPage tone="miel" title={t("title")} intro={t("intro")}>
       <InfoSection title={t("emailTitle")}>
         <p>{t.rich("emailText", { tc })}</p>
       </InfoSection>
@@ -43,10 +43,7 @@ export default async function ContactPage({ params }: Props) {
         <p>
           {t.rich("faqText", {
             faqLink: (chunks) => (
-              <Link
-                href={{ pathname: "/", hash: "faq" }}
-                className="text-cold hover:text-accent"
-              >
+              <Link href={{ pathname: "/", hash: "faq" }} className="link">
                 {chunks}
               </Link>
             ),

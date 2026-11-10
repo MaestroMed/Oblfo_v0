@@ -67,11 +67,8 @@ export type ProductSource = {
 export type PackSource = {
   id: string;
   name: LText;
-  contents: LText;
   items: string[];
   price: number;
-  compareAt: number;
-  imageLabel: string;
   available?: boolean;
   featured?: boolean;
 };

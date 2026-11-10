@@ -66,27 +66,20 @@ export function CookieBanner() {
     <div
       role="dialog"
       aria-label={t("ariaLabel")}
-      className="fixed inset-x-3 bottom-3 z-[110] mx-auto max-w-2xl rounded-xl border border-accent/40 bg-[#121822] p-5 text-[#EDF1F5] shadow-[0_20px_60px_-20px_rgba(0,0,0,0.8)] sm:inset-x-auto sm:right-5 sm:bottom-5"
+      className="tile on-paper fixed inset-x-3 bottom-3 z-[110] mx-auto max-w-md border-2 border-choco p-4 sm:inset-x-auto sm:right-5 sm:bottom-5 sm:p-5"
     >
-      <p className="text-sm leading-relaxed">
+      <p className="text-[15px] leading-snug sm:text-[16px]">
         {t("message")}{" "}
-        <Link href="/confidentialite" className="underline underline-offset-2">
+        <Link href="/confidentialite" className="link font-semibold">
           {t("privacyLink")}
         </Link>
       </p>
-      <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:justify-end">
-        <button
-          type="button"
-          onClick={() => save(false)}
-          className="rounded-lg border border-white/25 px-4 py-2 font-mono text-xs tracking-[0.1em] transition-colors hover:bg-white/10"
-        >
+      {/* Refuser et accepter : même taille, même poids. */}
+      <div className="mt-3 grid grid-cols-2 gap-2">
+        <button type="button" onClick={() => save(false)} className="btn btn-sm px-2">
           {t("refuse")}
         </button>
-        <button
-          type="button"
-          onClick={() => save(true)}
-          className="rounded-lg bg-accent px-4 py-2 font-mono text-xs tracking-[0.1em] text-[#121822] transition-opacity hover:opacity-90"
-        >
+        <button type="button" onClick={() => save(true)} className="btn btn-sm px-2">
           {t("accept")}
         </button>
       </div>

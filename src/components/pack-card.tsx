@@ -7,7 +7,7 @@ import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import { TILE_CLASS, productTile } from "@/lib/tile";
 
-const button = "btn btn-braise btn-block px-4 py-2";
+const button = "btn btn-braise btn-block px-3 py-2 max-[359px]:text-[15px]";
 
 /** Un pack se lit comme un ticket : ses articles et leur prix, le total à l'unité barré, le prix du pack. */
 export function PackCard({ pack, locale }: { pack: Pack; locale: Locale }) {

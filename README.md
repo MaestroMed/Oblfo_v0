@@ -40,6 +40,7 @@ Préfixe locale systématique + chemins et slugs localisés. `/` négocie et red
 - Livraison : offerte dès 60 €, sinon 4,90 € (3–5 j ouvrés).
 - Sans `STRIPE_SECRET_KEY`, l'API répond 503 et le panier affiche « paiement en cours d'activation ».
 - Webhook `POST /api/webhooks/stripe` (signature vérifiée) : sur `checkout.session.completed`, la commande est normalisée (session, items+variantes, montants, adresse, e-mail) puis POSTée à `ORDERS_WEBHOOK_URL` avec `x-idempotency-key` = id de session ; échec de transmission ⇒ 500 ⇒ Stripe réessaie. Trace `[obflo:order]` systématique dans les logs.
+- Pont CJ (`CJ_API_KEY`, clé créée dans CJ → Authorization → API ; sans elle le pont est éteint) : le même webhook crée la commande chez CJ Dropshipping, NON payée (`payType: 3`), le paiement reste manuel dans CJ. Correspondance article → SKU CJ dans `src/data/cj-map.ts` ; un article absent de la table ou une adresse incomplète ⇒ aucune commande CJ, `[obflo:cj]` en erreur dans les logs, saisie manuelle. Échec réseau/CJ ⇒ 500 ⇒ Stripe réessaie (numéro de commande stable, pas de doublon).
 - Produits à déclinaison (taille, pointure) : la variante est obligatoire au checkout (`400 invalid_variant` sinon) et voyage dans la metadata `obflo_items`.
 - Variables : voir `.env.example`.
 
@@ -71,6 +72,7 @@ Thème sombre « chaleur dans la nuit » : fond `#0A0C10`, accent orange `#FF6A2
 - Renseigner `STRIPE_SECRET_KEY` + `STRIPE_WEBHOOK_SECRET` sur Vercel, et activer les reçus e-mail dans le dashboard Stripe (Settings → Customer emails).
 - `NEWSLETTER_WEBHOOK_URL` pour activer l'inscription newsletter (sinon le formulaire affiche « ouverture bientôt »).
 - `ORDERS_WEBHOOK_URL` pour transmettre les commandes payées à l'app de pilotage / l'automatisation CJ (sinon : trace logs uniquement — à configurer avant tout volume réel).
+- `CJ_API_KEY` pour créer automatiquement chaque commande payée chez CJ, non payée (sinon : saisie manuelle dans CJ).
 - Configurer obflo.fr → 301 obflo.com.
 - Flux Google Merchant Center prêts : `/api/merchant-feed/fr|en|de|es` (RSS g:, une entrée par variante avec `item_group_id`). À déclarer dans Merchant Center une fois le paiement actif.
 - IndexNow (Bing/Copilot) : clé servie à la racine, `POST /api/indexnow` soumet les 124 URLs du sitemap — à appeler après chaque déploiement significatif (`INDEXNOW_SUBMIT_SECRET` optionnel pour verrouiller).

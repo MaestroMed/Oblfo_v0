@@ -7,12 +7,12 @@ Rédigé le 08/11/2026. Black Friday 27/11, Cyber Monday 30/11.
 | # | Quoi | Qui | Pourquoi |
 |---|------|-----|----------|
 | 1 | ~~`STRIPE_SECRET_KEY` + `STRIPE_WEBHOOK_SECRET` dans Vercel (Production), puis redeploy~~ clé secrète restreinte (sans sortie de fonds) + secret du webhook réel posés le 10/11 | Mehdi | reste la commande réelle de contrôle (ligne 5) |
-| 2 | Compte **Merchant Center** au nom d'Opcodia LLC + flux `https://www.obflo.com/api/merchant-feed/fr` | Mehdi | aucun compte n'existe sur le login Google actuel |
+| 2 | ~~Compte **Merchant Center**~~ existe (OBFLO, id 5902907033) : flux FR `https://www.obflo.com/api/merchant-feed/fr` branché, source automatique « Trouvé par Google » coupée le 10/11 (14 refus en/de/es), France seule, 19 produits en cours d'examen | fait | attendre la fin de l'examen ; ne pas cliquer « Ajouter tous les produits trouvés » |
 | 3 | Compte **Google Ads** neuf pour Obflo (l'actuel est « Numelite », désactivé, paiement refusé) | Mehdi | ne pas mélanger les entités ni hériter d'un compte suspendu |
 | 4 | Lier GA4 ↔ Google Ads, importer la conversion GA4 `purchase` comme conversion principale | Mehdi (Claude guide) | le site envoie `purchase` + `add_to_cart` depuis le 08/11 |
 | 5 | Une vraie commande test (petit montant, remboursée) | Mehdi | vérifier /merci + l'événement dans GA4 Temps réel |
 
-Les commandes arrivent seulement dans les logs Vercel (`[obflo:order]`) et dans Stripe : `ORDERS_WEBHOOK_URL` est vide, donc **chaque commande CJ se passe à la main**.
+Les commandes arrivent dans les logs Vercel (`[obflo:order]`) et dans Stripe. Le pont CJ est en place : avec `CJ_API_KEY` dans Vercel, chaque commande payée est **créée chez CJ, non payée**, et **le paiement se fait à la main dans CJ**. Un produit non relié dans `src/data/cj-map.ts` bloque toute la commande (`[obflo:cj]` en erreur dans les logs) : celle-là se saisit à la main.
 
 ## 1. Canaux : la réponse
 

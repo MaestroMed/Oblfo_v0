@@ -6,6 +6,7 @@
   "Announcement": {
     "msg1": "BLACK FRIDAY · SETS BIS ZU −19,70 €",
     "msg2": "VERSANDKOSTENFREI AB 60 €",
+    "msg2Promo": "BLACK FRIDAY: GRATISVERSAND OHNE MINDESTBESTELLWERT BIS 30. NOVEMBER",
     "msg3": "30 TAGE RÜCKGABE",
     "close": "Banner schließen"
   },
@@ -142,6 +143,7 @@
     "checkoutSoon": "Zahlungen werden gerade aktiviert. Bitte versuchen Sie es bald erneut.",
     "checkoutError": "Die Kasse konnte nicht starten. Bitte gleich noch einmal versuchen.",
     "reassurance": "Gratisversand ab 60 €. 30 Tage Rückgabe.",
+    "reassurancePromo": "Gratisversand ohne Mindestbestellwert bis 30. November. 30 Tage Rückgabe.",
     "toastAdded": "Im Warenkorb: {name}",
     "viewCart": "Warenkorb ansehen",
     "subtotal": "Zwischensumme",
@@ -204,6 +206,7 @@
     "copyright": "© 2026 OBFLO",
     "newsletterLabel": "Ihre E-Mail-Adresse",
     "collection": "Ganze Kollektion",
+    "blackFriday": "Black Friday",
     "badge1Title": "Sichere Zahlung",
     "badge1Text": "Stripe · 256-Bit-SSL",
     "badge2Title": "Erreichbarer Support",
@@ -357,12 +360,14 @@
     "accShipping": "Lieferung",
     "careFallback": "Beachten Sie die beiliegende Anleitung. Vor dem Reinigen immer das USB-Kabel trennen.",
     "shippingText": "Vorbereitung und Versand innerhalb von 1 bis 3 Werktagen, dann Lieferung mit Tracking: Zwischen Bestellung und Erhalt liegen 8 bis 20 Tage. Versandkostenfrei ab 60 €, sonst 4,90 €. 30 Tage Rückgabe.",
+    "shippingTextPromo": "Vorbereitung und Versand innerhalb von 1 bis 3 Werktagen, dann Lieferung mit Tracking: Zwischen Bestellung und Erhalt liegen 8 bis 20 Tage. Black Friday: Gratisversand ohne Mindestbestellwert bis 30. November. 30 Tage Rückgabe.",
     "reassureShip": "Lieferung mit Tracking in 8 bis 20 Tagen",
     "reassureReturn": "30 Tage Rückgabe",
     "reassurePay": "Sichere Zahlung über Stripe",
     "reassureContact": "Eine Frage? Antwort per E-Mail",
     "freeShipLeft": "Noch {amount} bis zum kostenlosen Versand",
     "freeShipDone": "Kostenloser Versand freigeschaltet",
+    "freeShipPromo": "Black Friday: Gratisversand ohne Mindestbestellwert",
     "packSuggestCta": "Zum Set wechseln und {save} sparen",
     "toastAction": "Zum Warenkorb"
   },
@@ -374,6 +379,17 @@
     "youSave": "Sie sparen {amount}",
     "add": "Set hinzufügen · {price}",
     "bestDeal": "Bestes Angebot"
+  },
+  "BlackFriday": {
+    "metaTitle": "Black Friday: beheizbare Handschuhe und Wärmezubehör",
+    "metaDescription": "OBFLO Black Friday vom 23. bis 30. November 2026: Gratisversand ohne Mindestbestellwert auf beheizbare Handschuhe, Heizsohlen, Hausschuhe, Decken und Sets. 30 Tage Rückgabe.",
+    "title": "Black Friday: beheizbare Handschuhe und Zubehör",
+    "leadBefore": "Vom 23. bis 30. November ist der Versand kostenlos, ohne Mindestbestellwert.",
+    "leadDuring": "Der Versand ist bis 30. November kostenlos, ohne Mindestbestellwert.",
+    "leadAfter": "Das Black-Friday-Angebot ist beendet. Ab 60 € bleibt der Versand kostenlos.",
+    "delivery": "Die Lieferung erfolgt mit Tracking und dauert 8 bis 20 Tage. Für ein Weihnachtsgeschenk bestellen Sie am besten vor dem 1. Dezember. Ein Ankunftsdatum können wir nicht garantieren.",
+    "deliveryAfter": "Die Lieferung erfolgt mit Tracking und dauert 8 bis 20 Tage. Ein Ankunftsdatum können wir nicht garantieren.",
+    "giftsTitle": "Geschenkideen"
   },
   "Og": {
     "title": "Beheizbares Zubehör",

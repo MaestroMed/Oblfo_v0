@@ -34,6 +34,7 @@ export const routing = defineRouting({
     },
     "/guides": "/guides",
     "/guides/[slug]": "/guides/[slug]",
+    "/black-friday": "/black-friday",
     "/collection": {
       fr: "/collection",
       en: "/collection",

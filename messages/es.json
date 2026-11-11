@@ -6,6 +6,7 @@
   "Announcement": {
     "msg1": "BLACK FRIDAY · PACKS HASTA −19,70 €",
     "msg2": "ENVÍO GRATIS DESDE 60 €",
+    "msg2Promo": "BLACK FRIDAY: ENVÍO GRATIS SIN MÍNIMO HASTA EL 30 DE NOVIEMBRE",
     "msg3": "DEVOLUCIONES EN 30 DÍAS",
     "close": "Cerrar el aviso"
   },
@@ -142,6 +143,7 @@
     "checkoutSoon": "Los pagos se están activando. Inténtalo de nuevo pronto.",
     "checkoutError": "No se pudo iniciar el pago. Inténtalo de nuevo en un momento.",
     "reassurance": "Envío gratis desde 60 €. Devoluciones en 30 días.",
+    "reassurancePromo": "Envío gratis sin mínimo hasta el 30 de noviembre. Devoluciones en 30 días.",
     "toastAdded": "Añadido al carrito: {name}",
     "viewCart": "Ver el carrito",
     "subtotal": "Subtotal",
@@ -204,6 +206,7 @@
     "copyright": "© 2026 OBFLO",
     "newsletterLabel": "Tu correo electrónico",
     "collection": "Toda la colección",
+    "blackFriday": "Black Friday",
     "badge1Title": "Pago seguro",
     "badge1Text": "Stripe · SSL de 256 bits",
     "badge2Title": "Soporte que responde",
@@ -357,12 +360,14 @@
     "accShipping": "Entrega",
     "careFallback": "Sigue las instrucciones incluidas con el producto. Desconecta siempre el cable USB antes de limpiarlo.",
     "shippingText": "Preparación y envío en 1 a 3 días laborables, luego entrega con seguimiento: cuenta 8 a 20 días entre el pedido y la recepción. Gratis desde 60 €, si no 4,90 €. Devoluciones en 30 días.",
+    "shippingTextPromo": "Preparación y envío en 1 a 3 días laborables, luego entrega con seguimiento: cuenta 8 a 20 días entre el pedido y la recepción. Black Friday: envío gratis sin mínimo hasta el 30 de noviembre. Devoluciones en 30 días.",
     "reassureShip": "Entrega con seguimiento en 8 a 20 días",
     "reassureReturn": "Devoluciones en 30 días",
     "reassurePay": "Pago seguro con Stripe",
     "reassureContact": "¿Una pregunta? Respondemos por e-mail",
     "freeShipLeft": "Te faltan {amount} para el envío gratis",
     "freeShipDone": "Envío gratis desbloqueado",
+    "freeShipPromo": "Black Friday: envío gratis sin mínimo",
     "packSuggestCta": "Cambiar al pack y ahorrar {save}",
     "toastAction": "Ver el carrito"
   },
@@ -374,6 +379,17 @@
     "youSave": "Ahorra {amount}",
     "add": "Añadir el pack · {price}",
     "bestDeal": "Mejor oferta"
+  },
+  "BlackFriday": {
+    "metaTitle": "Black Friday: guantes calefactables y accesorios calefactables",
+    "metaDescription": "Black Friday OBFLO del 23 al 30 de noviembre de 2026: envío gratis sin mínimo en guantes calefactables, plantillas, zapatillas, mantas y packs. Devoluciones en 30 días.",
+    "title": "Black Friday: guantes y accesorios calefactables",
+    "leadBefore": "Del 23 al 30 de noviembre, el envío es gratis sin mínimo.",
+    "leadDuring": "El envío es gratis sin mínimo hasta el 30 de noviembre.",
+    "leadAfter": "La oferta de Black Friday ha terminado. El envío sigue siendo gratis desde 60 €.",
+    "delivery": "La entrega tiene seguimiento y tarda de 8 a 20 días. Para un regalo de Navidad, es mejor pedir antes del 1 de diciembre. No podemos garantizar una fecha de llegada.",
+    "deliveryAfter": "La entrega tiene seguimiento y tarda de 8 a 20 días. No podemos garantizar una fecha de llegada.",
+    "giftsTitle": "Ideas para regalar"
   },
   "Og": {
     "title": "Accesorios calefactables",

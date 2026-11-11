@@ -4,12 +4,8 @@ import { getSellableById } from "@/data/catalog";
 import { getPathname } from "@/i18n/navigation";
 import { isLocale, routing } from "@/i18n/routing";
 import { MAX_QTY } from "@/lib/cart";
-import { FREE_SHIPPING_THRESHOLD, STANDARD_SHIPPING } from "@/lib/shipping";
+import { shippingCostFor } from "@/lib/shipping";
 import { SITE_URL } from "@/lib/site";
-
-// Livraison offerte dès 60 € (cf. bandeau + CGV), sinon forfait standard.
-const FREE_SHIPPING_THRESHOLD_CENTS = FREE_SHIPPING_THRESHOLD * 100;
-const STANDARD_SHIPPING_CENTS = Math.round(STANDARD_SHIPPING * 100);
 
 type CheckoutBody = {
   locale?: string;
@@ -134,10 +130,9 @@ export async function POST(request: Request) {
   const origin = trustedOrigin(request);
   const successPath = getPathname({ locale, href: "/merci" });
   const homePath = getPathname({ locale, href: "/" });
-  const shippingCents =
-    subtotalCents >= FREE_SHIPPING_THRESHOLD_CENTS
-      ? 0
-      : STANDARD_SHIPPING_CENTS;
+  // Livraison offerte dès 60 € (cf. bandeau + CGV) ou pendant la promo datée,
+  // sinon forfait standard. L'heure du serveur à cet instant fait foi.
+  const shippingCents = Math.round(shippingCostFor(subtotalCents / 100) * 100);
 
   const stripe = new Stripe(secretKey);
 

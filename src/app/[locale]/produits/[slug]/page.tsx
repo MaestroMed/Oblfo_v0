@@ -25,7 +25,8 @@ import {
 import { heatProofs } from "@/lib/heat";
 import {
   MERCHANT_RETURN_POLICY,
-  OFFER_SHIPPING_DETAILS,
+  isFreeShippingPromo,
+  offerShippingDetails,
   shippingDetailsIndexFor,
 } from "@/lib/shipping";
 import { SITE_URL } from "@/lib/site";
@@ -92,6 +93,7 @@ export default async function ProductPage({ params }: Props) {
   const t = await getTranslations("ProductPage");
   const tUx = await getTranslations("Ux");
   const tCat = await getTranslations("Categories");
+  const now = new Date();
   const categoryHref = {
     pathname: "/collection/[category]" as const,
     params: { category: CATEGORY_SLUGS[product.category][locale] },
@@ -134,7 +136,7 @@ export default async function ProductPage({ params }: Props) {
             : "https://schema.org/OutOfStock",
           url: productUrl,
           hasMerchantReturnPolicy: MERCHANT_RETURN_POLICY,
-          shippingDetails: OFFER_SHIPPING_DETAILS[shippingDetailsIndexFor(product.price)],
+          shippingDetails: offerShippingDetails(now)[shippingDetailsIndexFor(product.price, now)],
         },
       },
       {
@@ -313,7 +315,7 @@ export default async function ProductPage({ params }: Props) {
         <div className="flex flex-col gap-4 sm:gap-5 lg:col-span-5">
           <section className="tile on-sable flex-auto p-6 sm:p-10">
             <h2 className={blockTitle}>{tUx("accShipping")}</h2>
-            <p className="text-[17px] leading-relaxed">{tUx("shippingText")}</p>
+            <p className="text-[17px] leading-relaxed">{tUx(isFreeShippingPromo(now) ? "shippingTextPromo" : "shippingText")}</p>
           </section>
           <section className="tile on-cream-2 flex-auto p-6 sm:p-10">
             <h2 className={blockTitle}>{tUx("accCare")}</h2>

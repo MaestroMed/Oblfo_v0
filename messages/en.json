@@ -6,6 +6,7 @@
   "Announcement": {
     "msg1": "BLACK FRIDAY · BUNDLES UP TO €19.70 OFF",
     "msg2": "FREE DELIVERY FROM €60",
+    "msg2Promo": "BLACK FRIDAY: FREE DELIVERY, NO MINIMUM, UNTIL 30 NOVEMBER",
     "msg3": "30-DAY RETURNS",
     "close": "Close banner"
   },
@@ -151,6 +152,7 @@
     "checkoutSoon": "Payments are being activated. Please try again soon.",
     "checkoutError": "Checkout could not start. Please try again in a moment.",
     "reassurance": "Free delivery from €60. 30-day returns.",
+    "reassurancePromo": "Free delivery with no minimum until 30 November. 30-day returns.",
     "toastAdded": "Added to cart: {name}",
     "viewCart": "View cart",
     "subtotal": "Subtotal",
@@ -213,6 +215,7 @@
     "copyright": "© 2026 OBFLO",
     "newsletterLabel": "Your email address",
     "collection": "Full collection",
+    "blackFriday": "Black Friday",
     "badge1Title": "Secure payment",
     "badge1Text": "Stripe · 256-bit SSL",
     "badge2Title": "Responsive support",
@@ -366,14 +369,27 @@
     "accShipping": "Delivery",
     "careFallback": "Follow the instructions supplied with the product. Always unplug the USB cable before cleaning.",
     "shippingText": "Prepared and shipped within 1 to 3 business days, then tracked delivery: allow 8 to 20 days between order and arrival. Free from €60, otherwise €4.90. 30-day returns.",
+    "shippingTextPromo": "Prepared and shipped within 1 to 3 business days, then tracked delivery: allow 8 to 20 days between order and arrival. Black Friday: free delivery with no minimum until 30 November. 30-day returns.",
     "reassureShip": "Tracked delivery in 8 to 20 days",
     "reassureReturn": "30-day returns",
     "reassurePay": "Secure payment by Stripe",
     "reassureContact": "A question? We answer by email",
     "freeShipLeft": "{amount} away from free delivery",
     "freeShipDone": "Free delivery unlocked",
+    "freeShipPromo": "Black Friday: free delivery, no minimum",
     "packSuggestCta": "Switch to the bundle and save {save}",
     "toastAction": "View cart"
+  },
+  "BlackFriday": {
+    "metaTitle": "Black Friday: heated gloves and heated accessories",
+    "metaDescription": "OBFLO Black Friday, 23 to 30 November 2026: free delivery with no minimum on heated gloves, insoles, slippers, throws and bundles. 30-day returns.",
+    "title": "Black Friday: heated gloves and accessories",
+    "leadBefore": "From 23 to 30 November, delivery is free with no minimum.",
+    "leadDuring": "Delivery is free with no minimum until 30 November.",
+    "leadAfter": "The Black Friday offer has ended. Delivery is still free from €60.",
+    "delivery": "Delivery is tracked and takes 8 to 20 days. For a Christmas gift, it is best to order before 1 December. We cannot guarantee an arrival date.",
+    "deliveryAfter": "Delivery is tracked and takes 8 to 20 days. We cannot guarantee an arrival date.",
+    "giftsTitle": "Gift ideas"
   },
   "Og": {
     "title": "Heated accessories",

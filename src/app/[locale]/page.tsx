@@ -19,7 +19,7 @@ import {
 } from "@/i18n/routing";
 import {
   MERCHANT_RETURN_POLICY,
-  OFFER_SHIPPING_DETAILS,
+  offerShippingDetails,
   shippingDetailsIndexFor,
 } from "@/lib/shipping";
 import { SITE_URL } from "@/lib/site";
@@ -44,6 +44,7 @@ export async function generateMetadata({ params }: Props) {
 function buildStructuredData(locale: Locale) {
   const products = getListedProducts(locale);
   const faqItems = getFaqItems(locale);
+  const now = new Date();
 
   // Politique de retour et grilles de port déclarées UNE fois dans le @graph
   // puis référencées par @id depuis les 10 offres : mêmes données pour Google,
@@ -63,7 +64,7 @@ function buildStructuredData(locale: Locale) {
         url: SITE_URL,
       },
       { ...MERCHANT_RETURN_POLICY, "@id": returnPolicyId },
-      ...OFFER_SHIPPING_DETAILS.map((details, i) => ({
+      ...offerShippingDetails(now).map((details, i) => ({
         ...details,
         "@id": shippingIds[i],
       })),
@@ -99,7 +100,7 @@ function buildStructuredData(locale: Locale) {
               ? "https://schema.org/InStock"
               : "https://schema.org/OutOfStock",
             hasMerchantReturnPolicy: { "@id": returnPolicyId },
-            shippingDetails: { "@id": shippingIds[shippingDetailsIndexFor(product.price)] },
+            shippingDetails: { "@id": shippingIds[shippingDetailsIndexFor(product.price, now)] },
           },
         })),
       },

@@ -2,8 +2,13 @@
 
 import { useSyncExternalStore } from "react";
 import { useTranslations } from "next-intl";
+import { useFreeShippingPromo } from "@/components/use-free-shipping-promo";
+import { Link } from "@/i18n/navigation";
+import { isFreeShippingPromo } from "@/lib/shipping";
 
-const DISMISS_KEY = "obflo-annonce-bf-2026";
+// Clé à part pendant la promo de port : qui a fermé le bandeau avant la voit quand même.
+const dismissKey = () =>
+  isFreeShippingPromo(new Date()) ? "obflo-annonce-bf-2026-port" : "obflo-annonce-bf-2026";
 const DISMISS_EVENT = "obflo:annonce-dismiss";
 
 // Repli mémoire : en navigation privée la fermeture n'est pas persistée,
@@ -18,14 +23,15 @@ function subscribe(onChange: () => void) {
 function getSnapshot() {
   if (sessionDismissed) return true;
   try {
-    return Boolean(window.localStorage.getItem(DISMISS_KEY));
+    return Boolean(window.localStorage.getItem(dismissKey()));
   } catch {
     return false;
   }
 }
 
-export function AnnouncementBar() {
+export function AnnouncementBar({ promo: serverPromo }: { promo: boolean }) {
   const t = useTranslations("Announcement");
+  const promo = useFreeShippingPromo(serverPromo);
   // Rendu serveur : bandeau affiché ; le snapshot client le masque après
   // hydratation si une fermeture est déjà enregistrée.
   const dismissed = useSyncExternalStore(subscribe, getSnapshot, () => false);
@@ -35,32 +41,47 @@ export function AnnouncementBar() {
   const dismiss = () => {
     sessionDismissed = true;
     try {
-      window.localStorage.setItem(DISMISS_KEY, "1");
+      window.localStorage.setItem(dismissKey(), "1");
     } catch {
       // stockage indisponible — fermeture non persistée
     }
     window.dispatchEvent(new Event(DISMISS_EVENT));
   };
 
+  // Mobile : un message à la fois, en fondu. Grand écran : les trois en ligne.
+  const messages = (
+    <div className="grid items-center sm:flex sm:flex-wrap sm:justify-center sm:gap-x-3">
+      {(["msg1", promo ? "msg2Promo" : "msg2", "msg3"] as const).map((key, i) => (
+        <span
+          key={key}
+          className="announce-item"
+          style={{ "--i": i } as React.CSSProperties}
+        >
+          {i > 0 ? (
+            <span aria-hidden className="mr-3 hidden text-moutarde sm:inline">
+              ·
+            </span>
+          ) : null}
+          {key === "msg2Promo" ? (
+            <span className="underline underline-offset-4">{t(key)}</span>
+          ) : (
+            t(key)
+          )}
+        </span>
+      ))}
+    </div>
+  );
+
   return (
     <div className="on-choco relative bg-choco-2 px-11 py-2 text-center font-display text-[14px] font-semibold leading-tight sm:text-[15px]">
-      {/* Mobile : un message à la fois, en fondu. Grand écran : les trois en ligne. */}
-      <div className="grid items-center sm:flex sm:flex-wrap sm:justify-center sm:gap-x-3">
-        {(["msg1", "msg2", "msg3"] as const).map((key, i) => (
-          <span
-            key={key}
-            className="announce-item"
-            style={{ "--i": i } as React.CSSProperties}
-          >
-            {i > 0 ? (
-              <span aria-hidden className="mr-3 hidden text-moutarde sm:inline">
-                ·
-              </span>
-            ) : null}
-            {t(key)}
-          </span>
-        ))}
-      </div>
+      {/* Pendant la promo, tout le bandeau mène à la page Black Friday. */}
+      {promo ? (
+        <Link href="/black-friday" className="block">
+          {messages}
+        </Link>
+      ) : (
+        messages
+      )}
       <button
         type="button"
         onClick={dismiss}

@@ -138,6 +138,7 @@
     "decrease": "Menge von {name} verringern",
     "increase": "Menge von {name} erhöhen",
     "checkout": "Zur Kasse",
+    "paymentMethods": "Akzeptierte Zahlungsarten",
     "checkoutSoon": "Zahlungen werden gerade aktiviert. Bitte versuchen Sie es bald erneut.",
     "checkoutError": "Die Kasse konnte nicht starten. Bitte gleich noch einmal versuchen.",
     "reassurance": "Gratisversand ab 60 €. 30 Tage Rückgabe.",

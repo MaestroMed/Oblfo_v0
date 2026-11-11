@@ -47,6 +47,7 @@ export default async function SearchPage({ params }: Props) {
         title: g.title,
         metaDescription: g.metaDescription,
         readMinutes: g.readMinutes,
+        images: g.images.slice(0, 1),
         tone: guideTone(i),
       }))}
     />

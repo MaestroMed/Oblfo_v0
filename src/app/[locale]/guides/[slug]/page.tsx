@@ -111,6 +111,22 @@ export default async function GuidePage({ params }: Props) {
     year: "numeric",
   }).format(new Date(`${guide.datePublished}T00:00:00Z`));
 
+  const figure = (n: number) => {
+    const photo = guide.images[n];
+    return photo ? (
+      <figure className="tile relative my-8 aspect-[16/10] overflow-hidden">
+        <Image
+          src={photo.src}
+          alt={photo.alt}
+          fill
+          priority={n === 0}
+          sizes="(min-width: 1024px) 720px, 100vw"
+          className="object-cover"
+        />
+      </figure>
+    ) : null;
+  };
+
   return (
     <main>
       <article className={`${PAGE} pt-1 pb-14 sm:pt-3 sm:pb-24`}>
@@ -135,12 +151,15 @@ export default async function GuidePage({ params }: Props) {
         <div className="mt-8 grid gap-x-16 gap-y-12 sm:mt-14 lg:grid-cols-[minmax(0,68ch)_minmax(0,1fr)]">
           <div className="prose-obflo">
             <p className="text-[19px] leading-[1.6] font-medium sm:text-[21px]">{guide.intro}</p>
-            {guide.sections.map((section) => (
+            {figure(0)}
+            {guide.sections.map((section, i) => (
               <section key={section.title}>
                 <h2>{section.title}</h2>
                 {section.paragraphs.map((paragraph) => (
                   <p key={paragraph.slice(0, 40)}>{paragraph}</p>
                 ))}
+                {/* Une photo toutes les deux sections, tant qu'il en reste. */}
+                {i % 2 === 1 ? figure((i + 1) / 2) : null}
               </section>
             ))}
           </div>

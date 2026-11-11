@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { PaymentIcons } from "@/components/payment-icons";
 import { useLocale, useTranslations } from "next-intl";
 import { useCart } from "@/components/cart-context";
 import { formatPrice } from "@/data/catalog";
@@ -160,6 +161,7 @@ export function BuyBox({
           {t("buyNow")}
         </button>
       </div>
+      <PaymentIcons className="justify-center" />
 
       <ul className="tile on-cream-2 grid gap-3 p-5 sm:grid-cols-2 sm:gap-x-5 sm:gap-y-4 sm:p-6">
         {REASSURE.map(({ key, icon }) => (

@@ -147,6 +147,7 @@
     "decrease": "Decrease quantity of {name}",
     "increase": "Increase quantity of {name}",
     "checkout": "Checkout",
+    "paymentMethods": "Accepted payment methods",
     "checkoutSoon": "Payments are being activated. Please try again soon.",
     "checkoutError": "Checkout could not start. Please try again in a moment.",
     "reassurance": "Free delivery from €60. 30-day returns.",

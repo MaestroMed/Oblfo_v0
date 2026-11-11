@@ -138,6 +138,7 @@
     "decrease": "Reducir la cantidad de {name}",
     "increase": "Aumentar la cantidad de {name}",
     "checkout": "Tramitar pedido",
+    "paymentMethods": "Métodos de pago aceptados",
     "checkoutSoon": "Los pagos se están activando. Inténtalo de nuevo pronto.",
     "checkoutError": "No se pudo iniciar el pago. Inténtalo de nuevo en un momento.",
     "reassurance": "Envío gratis desde 60 €. Devoluciones en 30 días.",

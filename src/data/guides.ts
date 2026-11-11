@@ -3,6 +3,7 @@
 
 import { guidesDe } from "./guides-de";
 import { guidesEs } from "./guides-es";
+import { getProductById } from "./catalog";
 import { GUIDE_SLUGS, guideIdFromSlug } from "./guides-slugs";
 import { routing, type Locale } from "@/i18n/routing";
 import { frTypoDeep } from "@/lib/typo";
@@ -40,6 +41,8 @@ export type Guide = {
   readMinutes: number;
   sections: GuideSection[];
   relatedProductIds: string[];
+  /** Photos d'usage des produits liés, la première sert de vignette. */
+  images: { src: string; alt: string }[];
 };
 
 type GuideSource = {
@@ -795,6 +798,13 @@ function localizeGuide(source: GuideSource, locale: Locale): Guide | undefined {
     datePublished: source.datePublished,
     readMinutes: source.readMinutes,
     relatedProductIds: source.relatedProductIds,
+    // Pas de photo propre aux guides : celles des produits dont ils parlent, mises en situation d'abord.
+    images: source.relatedProductIds.flatMap((id) => {
+      const product = getProductById(id, locale);
+      return (product?.photos ?? [])
+        .filter((src) => src.includes("-usage-"))
+        .map((src) => ({ src, alt: product!.name }));
+    }),
   };
 
   if (locale === "fr" || locale === "en") {

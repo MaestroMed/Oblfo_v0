@@ -1,3 +1,4 @@
+import { PaymentIcons } from "@/components/payment-icons";
 import { useLocale, useTranslations } from "next-intl";
 import { Icon, type IconName } from "@/components/home/icons";
 import { LocaleSwitcher } from "@/components/locale-switcher";
@@ -109,6 +110,7 @@ export function SiteFooter() {
         </ul>
         <div className="mt-10 flex flex-wrap items-center justify-between gap-x-6 gap-y-2">
           <span className="text-[15px]">{t("copyright")}</span>
+          <PaymentIcons />
           <LocaleSwitcher label={tNav("language")} />
         </div>
       </div>

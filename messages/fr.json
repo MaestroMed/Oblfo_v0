@@ -147,6 +147,7 @@
     "decrease": "Réduire la quantité de {name}",
     "increase": "Augmenter la quantité de {name}",
     "checkout": "Commander",
+    "paymentMethods": "Moyens de paiement acceptés",
     "checkoutSoon": "Paiement en cours d'activation. Réessayez bientôt.",
     "checkoutError": "Le paiement n'a pas pu démarrer. Réessayez dans un instant.",
     "reassurance": "Livraison offerte dès 60 €. Retours sous 30 jours.",

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { PaymentIcons } from "@/components/payment-icons";
 import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { lineKey, useCart, type CartItem } from "@/components/cart-context";
@@ -244,6 +245,7 @@ export function CartCheckout({ amount }: { amount: number }) {
       >
         {t("checkout")} · {formatPrice(amount, locale)}
       </button>
+      <PaymentIcons className="mt-3 justify-center" />
       {state === "unavailable" ? (
         <p role="alert" className={alert}>
           {t("checkoutSoon")}

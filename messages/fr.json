@@ -6,6 +6,7 @@
   "Announcement": {
     "msg1": "BLACK FRIDAY · PACKS JUSQU'À −19,70 €",
     "msg2": "LIVRAISON OFFERTE DÈS 60 €",
+    "msg2Promo": "BLACK FRIDAY : LIVRAISON OFFERTE SANS MINIMUM JUSQU'AU 30 NOVEMBRE",
     "msg3": "RETOURS SOUS 30 JOURS",
     "close": "Fermer le bandeau"
   },
@@ -151,6 +152,7 @@
     "checkoutSoon": "Paiement en cours d'activation. Réessayez bientôt.",
     "checkoutError": "Le paiement n'a pas pu démarrer. Réessayez dans un instant.",
     "reassurance": "Livraison offerte dès 60 €. Retours sous 30 jours.",
+    "reassurancePromo": "Livraison offerte sans minimum jusqu'au 30 novembre. Retours sous 30 jours.",
     "toastAdded": "Ajouté au panier : {name}",
     "viewCart": "Voir le panier",
     "subtotal": "Sous-total",
@@ -213,6 +215,7 @@
     "copyright": "© 2026 OBFLO",
     "newsletterLabel": "Votre adresse e-mail",
     "collection": "Toute la collection",
+    "blackFriday": "Black Friday",
     "badge1Title": "Paiement sécurisé",
     "badge1Text": "Stripe · SSL 256 bits",
     "badge2Title": "Service client en français",
@@ -366,14 +369,27 @@
     "accShipping": "Livraison",
     "careFallback": "Suivez la notice fournie avec le produit. Débranchez toujours le câble USB avant de le nettoyer.",
     "shippingText": "Préparation et expédition sous 1 à 3 jours ouvrés, puis livraison suivie : comptez 8 à 20 jours entre la commande et la réception. Offerte dès 60 €, sinon 4,90 €. Retours sous 30 jours.",
+    "shippingTextPromo": "Préparation et expédition sous 1 à 3 jours ouvrés, puis livraison suivie : comptez 8 à 20 jours entre la commande et la réception. Black Friday : livraison offerte sans minimum jusqu'au 30 novembre. Retours sous 30 jours.",
     "reassureShip": "Livraison suivie 8 à 20 jours",
     "reassureReturn": "Retours sous 30 jours",
     "reassurePay": "Paiement sécurisé par Stripe",
     "reassureContact": "Une question ? Réponse par e-mail",
     "freeShipLeft": "Plus que {amount} pour la livraison offerte",
     "freeShipDone": "Livraison offerte débloquée",
+    "freeShipPromo": "Black Friday : livraison offerte sans minimum",
     "packSuggestCta": "Passer au pack et économiser {save}",
     "toastAction": "Voir le panier"
+  },
+  "BlackFriday": {
+    "metaTitle": "Black Friday : gants chauffants et accessoires chauffants",
+    "metaDescription": "Black Friday OBFLO du 23 au 30 novembre 2026 : livraison offerte sans minimum sur les gants chauffants, semelles, chaussons, plaids et packs. Retours sous 30 jours.",
+    "title": "Black Friday : gants et accessoires chauffants",
+    "leadBefore": "Du 23 au 30 novembre, la livraison est offerte sans minimum.",
+    "leadDuring": "La livraison est offerte sans minimum jusqu'au 30 novembre.",
+    "leadAfter": "L'offre Black Friday est terminée. La livraison reste offerte dès 60 €.",
+    "delivery": "La livraison est suivie et prend 8 à 20 jours. Pour un cadeau de Noël, mieux vaut commander avant le 1er décembre. On ne peut pas garantir de date d'arrivée.",
+    "deliveryAfter": "La livraison est suivie et prend 8 à 20 jours. On ne peut pas garantir de date d'arrivée.",
+    "giftsTitle": "Idées cadeaux"
   },
   "Og": {
     "title": "Accessoires chauffants",

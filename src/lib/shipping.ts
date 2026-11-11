@@ -2,8 +2,24 @@
 export const FREE_SHIPPING_THRESHOLD = 60;
 export const STANDARD_SHIPPING = 4.9;
 
-export function shippingCostFor(subtotal: number): number {
-  return subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : STANDARD_SHIPPING;
+// Black Friday 2026 : livraison offerte sans minimum du lundi 23/11 00:00 au
+// lundi 30/11 23:59, heure de Paris (UTC+1 en novembre). Début inclus, fin exclue.
+export const FREE_SHIPPING_PROMO = {
+  start: Date.parse("2026-11-22T23:00:00Z"),
+  end: Date.parse("2026-11-30T23:00:00Z"),
+} as const;
+
+export function freeShippingPromoPhase(now: Date): "before" | "during" | "after" {
+  const t = now.getTime();
+  return t < FREE_SHIPPING_PROMO.start ? "before" : t < FREE_SHIPPING_PROMO.end ? "during" : "after";
+}
+
+export function isFreeShippingPromo(now: Date): boolean {
+  return freeShippingPromoPhase(now) === "during";
+}
+
+export function shippingCostFor(subtotal: number, now = new Date()): number {
+  return isFreeShippingPromo(now) || subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : STANDARD_SHIPPING;
 }
 
 // ── Schema.org ───────────────────────────────────────────────────────────────
@@ -41,7 +57,7 @@ const SHIPPING_DESTINATION = {
  * Deux tarifs déclarés, comme sur le site : le tarif standard, et la gratuité
  * au-delà du seuil (exprimée par `eligibleTransactionVolume`).
  */
-export const OFFER_SHIPPING_DETAILS = [
+const OFFER_SHIPPING_DETAILS = [
   {
     "@type": "OfferShippingDetails",
     shippingDestination: SHIPPING_DESTINATION,
@@ -74,6 +90,22 @@ export const OFFER_SHIPPING_DETAILS = [
  * dans le flux : Merchant Center refuse deux services sans nom sur un même
  * produit (« Services [shipping] ambigus »).
  */
-export function shippingDetailsIndexFor(price: number): 0 | 1 {
-  return price >= FREE_SHIPPING_THRESHOLD ? 1 : 0;
+export function shippingDetailsIndexFor(price: number, now = new Date()): 0 | 1 {
+  return !isFreeShippingPromo(now) && price >= FREE_SHIPPING_THRESHOLD ? 1 : 0;
+}
+
+/**
+ * Les tarifs en vigueur à l'instant `now` : pendant la promo, un seul, offert
+ * sans seuil. À lire avec le même `now` que `shippingDetailsIndexFor`.
+ */
+export function offerShippingDetails(now = new Date()): readonly object[] {
+  if (!isFreeShippingPromo(now)) return OFFER_SHIPPING_DETAILS;
+  return [
+    {
+      "@type": "OfferShippingDetails",
+      shippingDestination: SHIPPING_DESTINATION,
+      shippingRate: { "@type": "MonetaryAmount", value: 0, currency: "EUR" },
+      deliveryTime: DELIVERY_TIME,
+    },
+  ];
 }

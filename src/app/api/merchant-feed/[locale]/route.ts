@@ -1,19 +1,17 @@
 import { NextResponse } from "next/server";
 import { getProducts, type Product } from "@/data/catalog";
 import { getPathname } from "@/i18n/navigation";
-import { isLocale, routing, type Locale } from "@/i18n/routing";
-import { FREE_SHIPPING_THRESHOLD, STANDARD_SHIPPING } from "@/lib/shipping";
+import { isLocale, type Locale } from "@/i18n/routing";
+import { shippingCostFor } from "@/lib/shipping";
 import { SITE_URL } from "@/lib/site";
 
 // Flux Google Merchant Center (RSS 2.0, namespace g:) — un flux par locale :
 // /api/merchant-feed/fr … Un produit à déclinaison sort en N items reliés par
 // item_group_id + g:size (exigence Google Shopping). Produits sans photo ou
-// indisponibles exclus. Généré au build, revalidé à chaque déploiement.
-export const dynamic = "force-static";
-
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
+// indisponibles exclus. Calculé à chaque requête : le prix de port suit la
+// promo datée de `shipping.ts` sans redéploiement, et Merchant Center ne lit le
+// flux qu'une fois par jour (une copie en cache aurait un jour de retard).
+export const dynamic = "force-dynamic";
 
 function esc(value: string): string {
   return value
@@ -38,6 +36,7 @@ function slugify(value: string): string {
 function itemXml(
   product: Product,
   locale: Locale,
+  now: Date,
   variantOption?: string,
 ): string {
   const link = `${SITE_URL}${getPathname({
@@ -47,9 +46,8 @@ function itemXml(
   const id = variantOption
     ? `${product.id}-${slugify(variantOption)}`
     : product.id;
-  // Frais réels pour un achat de cet article seul (offert dès 60 €).
-  const shipping =
-    product.price >= FREE_SHIPPING_THRESHOLD ? 0 : STANDARD_SHIPPING;
+  // Frais réels pour un achat de cet article seul (offert dès 60 €, ou promo).
+  const shipping = shippingCostFor(product.price, now);
 
   const lines = [
     `<g:id>${esc(id)}</g:id>`,
@@ -86,12 +84,13 @@ export async function GET(
     return NextResponse.json({ error: "unknown_locale" }, { status: 404 });
   }
 
+  const now = new Date();
   const items = getProducts(locale)
     .filter((p) => p.available && p.image)
     .flatMap((p) =>
       p.variant
-        ? p.variant.options.map((option) => itemXml(p, locale, option))
-        : [itemXml(p, locale)],
+        ? p.variant.options.map((option) => itemXml(p, locale, now, option))
+        : [itemXml(p, locale, now)],
     );
 
   const xml =

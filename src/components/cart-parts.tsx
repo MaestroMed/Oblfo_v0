@@ -9,6 +9,7 @@ import { ImageSlot } from "@/components/image-slot";
 import { TermsConsent } from "@/components/terms-consent";
 import { HeatWaves } from "@/components/ui/heat-waves";
 import { useCheckout } from "@/components/use-checkout";
+import { useFreeShippingPromo } from "@/components/use-free-shipping-promo";
 import { formatPrice, getPacks, getProductById, getSellableById, type Pack } from "@/data/catalog";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
@@ -206,13 +207,14 @@ export function FreeShippingBar({ className = "" }: { className?: string }) {
   const t = useTranslations("Ux");
   const locale = useLocale() as Locale;
   const { total } = useCart();
-  const left = Math.max(0, FREE_SHIPPING_THRESHOLD - total);
-  const progress = Math.min(1, total / FREE_SHIPPING_THRESHOLD);
+  const promo = useFreeShippingPromo();
+  const left = promo ? 0 : Math.max(0, FREE_SHIPPING_THRESHOLD - total);
+  const progress = promo ? 1 : Math.min(1, total / FREE_SHIPPING_THRESHOLD);
 
   return (
     <div className={className}>
       <p aria-live="polite" className={`font-display text-base font-semibold ${left > 0 ? "" : "text-moutarde"}`}>
-        {left > 0 ? t("freeShipLeft", { amount: formatPrice(left, locale) }) : t("freeShipDone")}
+        {left > 0 ? t("freeShipLeft", { amount: formatPrice(left, locale) }) : t(promo ? "freeShipPromo" : "freeShipDone")}
       </p>
       <div className="mt-2 h-2.5 overflow-hidden rounded-full bg-choco-2">
         <div

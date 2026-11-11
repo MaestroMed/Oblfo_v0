@@ -50,6 +50,9 @@ export function SiteFooter() {
               <Link href="/collection" className={footerLinkClass}>
                 {t("collection")}
               </Link>
+              <Link href="/black-friday" className={footerLinkClass}>
+                {t("blackFriday")}
+              </Link>
               {products.map((product) => (
                 <Link
                   key={product.id}

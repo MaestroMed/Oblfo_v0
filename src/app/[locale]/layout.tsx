@@ -15,7 +15,12 @@ import { MotionProvider } from "@/components/ui/motion-provider";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { isLocale, ogLocale, routing } from "@/i18n/routing";
+import { isFreeShippingPromo } from "@/lib/shipping";
 import { SITE_URL } from "@/lib/site";
+
+// Promo de port datée (`shipping.ts`) : chaque page se régénère au plus une
+// fois par heure, donc bandeau, textes et JSON-LD basculent sans redéploiement.
+export const revalidate = 3600;
 
 // Deux familles variables seulement : titres ronds et gras, texte courant neutre.
 const fredoka = Fredoka({
@@ -78,7 +83,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         <NextIntlClientProvider>
           <MotionProvider>
           <CartProvider>
-            <AnnouncementBar />
+            <AnnouncementBar promo={isFreeShippingPromo(new Date())} />
             <SiteHeader />
             {children}
             <SiteFooter />

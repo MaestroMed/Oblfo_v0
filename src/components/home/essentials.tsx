@@ -6,7 +6,9 @@ import type { Locale } from "@/i18n/routing";
 
 export function Essentials({ locale }: { locale: Locale }) {
   const t = useTranslations("HomeV2");
-  const products = getListedProducts(locale);
+  // Les semelles d'abord : c'est la recherche Google où le site ressort le plus (Search Console, 11/2026).
+  const lead = "semelles-chauffantes";
+  const products = getListedProducts(locale).sort((a, b) => Number(b.id === lead) - Number(a.id === lead));
 
   return (
     <section id="essentiels" className="scroll-mt-24 pb-14 sm:pb-24">

@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import { useCart } from "@/components/cart-context";
 import { CartCheckout, CartEmpty, CartLines, FreeShippingBar, PackSuggestion } from "@/components/cart-parts";
 import { ProductCard, toCardProduct } from "@/components/product-card";
+import { useFreeShippingPromo } from "@/components/use-free-shipping-promo";
 import { formatPrice, getListedProducts } from "@/data/catalog";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
@@ -14,7 +15,8 @@ export function CartPageContent({ locale }: { locale: Locale }) {
   const tCart = useTranslations("Cart");
   const { items, total, hydrated } = useCart();
 
-  const shipping = shippingCostFor(total);
+  const promo = useFreeShippingPromo();
+  const shipping = promo ? 0 : shippingCostFor(total);
   const grandTotal = total + shipping;
   const inCart = new Set(items.map((i) => i.id));
   const crossSell = getListedProducts(locale)
@@ -72,7 +74,7 @@ export function CartPageContent({ locale }: { locale: Locale }) {
               </section>
               <div className="on-cream-2 sticky bottom-0 z-10 -mx-4 px-4 pt-3 pb-[max(1rem,env(safe-area-inset-bottom))] sm:-mx-8 sm:px-8 lg:static lg:mx-0 lg:rounded-b-[28px] lg:p-7">
                 <CartCheckout amount={grandTotal} />
-                <p className="mt-4 hidden text-center text-sm text-muted lg:block">{tCart("reassurance")}</p>
+                <p className="mt-4 hidden text-center text-sm text-muted lg:block">{tCart(promo ? "reassurancePromo" : "reassurance")}</p>
               </div>
             </div>
           </div>

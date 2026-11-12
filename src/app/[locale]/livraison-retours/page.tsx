@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { InfoPage, InfoSection } from "@/components/info-page";
 import { getPathname } from "@/i18n/navigation";
-import { hreflangAlternates, isLocale, type Locale } from "@/i18n/routing";
+import { hreflangAlternates, isLocale, type Locale, pageOpenGraph } from "@/i18n/routing";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -21,6 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: t("metaTitle"),
     description: t("metaDescription"),
     alternates: alternates(locale),
+    openGraph: pageOpenGraph(locale, alternates(locale).canonical),
   };
 }
 

@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { InfoPage, InfoSection, ToComplete } from "@/components/info-page";
 import { getPathname, Link } from "@/i18n/navigation";
-import { hreflangAlternates, isLocale, type Locale } from "@/i18n/routing";
+import { hreflangAlternates, isLocale, type Locale, pageOpenGraph } from "@/i18n/routing";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -20,6 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: t("metaTitle"),
     description: t("metaDescription"),
     alternates: alternates(locale),
+    openGraph: pageOpenGraph(locale, alternates(locale).canonical),
   };
 }
 
@@ -34,7 +35,16 @@ export default async function ContactPage({ params }: Props) {
   return (
     <InfoPage tone="miel" title={t("title")} intro={t("intro")}>
       <InfoSection title={t("emailTitle")}>
-        <p>{t.rich("emailText", { tc })}</p>
+        <p>
+          {t.rich("emailText", {
+            tc,
+            mail: (chunks) => (
+              <a href="mailto:contact@obflo.com" className="link">
+                {chunks}
+              </a>
+            ),
+          })}
+        </p>
       </InfoSection>
       <InfoSection title={t("trackingTitle")}>
         <p>{t("trackingText")}</p>

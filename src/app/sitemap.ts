@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getProducts } from "@/data/catalog";
+import { getListedProducts } from "@/data/catalog";
 import type { Category } from "@/data/catalog-types";
 import { CATEGORY_SLUGS } from "@/data/category-slugs";
 import { getGuides, guideLocales } from "@/data/guides";
@@ -33,7 +33,7 @@ function entries(
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const productEntries = getProducts(routing.defaultLocale).flatMap((product) =>
+  const productEntries = getListedProducts(routing.defaultLocale).flatMap((product) =>
     entries(
       (locale) => ({
         pathname: "/produits/[slug]",

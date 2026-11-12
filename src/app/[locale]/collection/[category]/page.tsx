@@ -61,6 +61,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       siteName: "OBFLO",
       locale: ogLocale(locale),
       type: "website",
+      images: [`/${locale}/opengraph-image`],
     },
   };
 }

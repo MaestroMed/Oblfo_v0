@@ -7,7 +7,7 @@ import { ProductCard } from "@/components/product-card";
 import { CATEGORY_ORDER, getListedProducts } from "@/data/catalog";
 import { CATEGORY_SLUGS } from "@/data/category-slugs";
 import { getPathname, Link } from "@/i18n/navigation";
-import { hreflangAlternates, isLocale, type Locale } from "@/i18n/routing";
+import { hreflangAlternates, isLocale, type Locale, pageOpenGraph } from "@/i18n/routing";
 import { categoryTile, TILE_CLASS } from "@/lib/tile";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -25,6 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: t("metaTitle"),
     description: t("metaDescription"),
     alternates: alternates(locale),
+    openGraph: pageOpenGraph(locale, alternates(locale).canonical),
   };
 }
 

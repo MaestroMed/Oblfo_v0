@@ -106,3 +106,17 @@ export function hreflangAlternates(
   languages["x-default"] = path(routing.defaultLocale);
   return { canonical: path(current), languages };
 }
+
+/**
+ * Bloc Open Graph complet d'une page. Une page qui déclare `openGraph` remplace celui du layout,
+ * image de partage comprise : sans ce bloc, pas d'aperçu quand le lien est partagé.
+ */
+export function pageOpenGraph(locale: Locale, url: string) {
+  return {
+    url,
+    siteName: "OBFLO",
+    locale: ogLocale(locale),
+    type: "website" as const,
+    images: [`/${locale}/opengraph-image`],
+  };
+}

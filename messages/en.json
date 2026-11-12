@@ -88,7 +88,7 @@
   },
   "SearchPage": {
     "metaTitle": "Search",
-    "metaDescription": "Search OBFLO heated products, buying guides and product ranges.",
+    "metaDescription": "Search OBFLO heated products, buying guides and product ranges: gloves, insoles, slippers, throws and more.",
     "title": "What are you looking for?",
     "intro": "Products, buying guides and ranges: the whole site in one search.",
     "placeholder": "Gloves, blanket, desk…",
@@ -283,12 +283,12 @@
     ]
   },
   "ContactPage": {
-    "metaTitle": "Contact",
+    "metaTitle": "Contact us",
     "metaDescription": "A question about an OBFLO product or your order? We reply within 1–2 business days.",
     "title": "We reply within 1–2 business days.",
     "intro": "A question about a product, an order, a return? The FAQ covers the most common cases — otherwise write to us directly.",
     "emailTitle": "By email",
-    "emailText": "Write to us at contact@obflo.com, including your order number if your request concerns one. We reply within 1–2 business days, Monday to Friday.",
+    "emailText": "Write to us at <mail>contact@obflo.com</mail>, including your order number if your request concerns one. We reply within 1–2 business days, Monday to Friday.",
     "trackingTitle": "Order tracking",
     "trackingText": "Your tracking number is emailed as soon as your order ships (check your spam folder). The carrier link shows your parcel's position in real time.",
     "faqTitle": "Before writing",
@@ -326,7 +326,7 @@
     "s7Title": "7. Customer service",
     "s7P1": "For any question or claim: sav@obflo.com. Reply within 1–2 business days.",
     "s8Title": "8. Disputes",
-    "s8P1": "These terms are governed by French law. In the event of a dispute, an amicable solution will be sought before any legal action; the customer may use the designated consumer mediator free of charge: <tc>designated mediator</tc>."
+    "s8P1": "These terms are governed by French law. In the event of a dispute, please write to us first at contact@obflo.com: an amicable solution will be sought before any legal action."
   },
   "PrivacyPage": {
     "metaTitle": "Privacy policy",

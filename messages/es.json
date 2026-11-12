@@ -1,7 +1,7 @@
 {
   "Metadata": {
     "title": "OBFLO — Calor portátil: guantes, zapatillas y calefactores",
-    "description": "Guantes calefactables, zapatillas calefactables, calientatazas y mini calefactor. Calor dirigido en segundos, justo donde muerde el invierno. Envío gratis desde 60 €, devoluciones de 30 días."
+    "description": "Guantes y zapatillas calefactables, calientatazas y mini calefactor: calor dirigido en segundos. Envío gratis desde 60 €, devoluciones de 30 días."
   },
   "Announcement": {
     "msg1": "BLACK FRIDAY · PACKS HASTA −19,70 €",
@@ -279,7 +279,7 @@
     "title": "Te respondemos en 1–2 días laborables.",
     "intro": "¿Una pregunta sobre un producto, un pedido, una devolución? La FAQ cubre los casos más comunes — si no, escríbenos directamente.",
     "emailTitle": "Por email",
-    "emailText": "Escríbenos a contact@obflo.com indicando tu número de pedido si tu consulta trata de uno. Respuesta en 1–2 días laborables, de lunes a viernes.",
+    "emailText": "Escríbenos a <mail>contact@obflo.com</mail> indicando tu número de pedido si tu consulta trata de uno. Respuesta en 1–2 días laborables, de lunes a viernes.",
     "trackingTitle": "Seguimiento del pedido",
     "trackingText": "Tu número de seguimiento te llega por email en cuanto sale el pedido (revisa también el spam). El enlace del transportista muestra la posición del paquete en tiempo real.",
     "faqTitle": "Antes de escribir",
@@ -317,7 +317,7 @@
     "s7Title": "7. Atención al cliente",
     "s7P1": "Para cualquier consulta o reclamación: sav@obflo.com. Respuesta en 1–2 días laborables.",
     "s8Title": "8. Litigios",
-    "s8P1": "Se aplica la normativa imperativa de protección de los consumidores. En caso de litigio se buscará una solución amistosa antes de cualquier acción judicial; el cliente puede recurrir gratuitamente al mediador de consumo designado: <tc>mediador designado</tc>."
+    "s8P1": "Se aplica la normativa imperativa de protección de los consumidores. En caso de litigio, escríbenos primero a contact@obflo.com: se buscará una solución amistosa antes de cualquier acción judicial."
   },
   "PrivacyPage": {
     "metaTitle": "Política de privacidad",
@@ -381,8 +381,8 @@
     "bestDeal": "Mejor oferta"
   },
   "BlackFriday": {
-    "metaTitle": "Black Friday: guantes calefactables y accesorios calefactables",
-    "metaDescription": "Black Friday OBFLO del 23 al 30 de noviembre de 2026: envío gratis sin mínimo en guantes calefactables, plantillas, zapatillas, mantas y packs. Devoluciones en 30 días.",
+    "metaTitle": "Black Friday: guantes y accesorios calefactables",
+    "metaDescription": "Black Friday OBFLO del 23 al 30 de noviembre de 2026: envío gratis sin mínimo en guantes calefactables, plantillas, mantas y packs. Devoluciones en 30 días.",
     "title": "Black Friday: guantes y accesorios calefactables",
     "leadBefore": "Del 23 al 30 de noviembre, el envío es gratis sin mínimo.",
     "leadDuring": "El envío es gratis sin mínimo hasta el 30 de noviembre.",

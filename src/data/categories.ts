@@ -181,7 +181,7 @@ const content: Record<Category, CategoryContent> = {
     metaTitle: {
       fr: "Bureau au chaud — chauffe-tasse et sous-main chauffant",
       en: "Warm desk — mug warmer and heated desk mat",
-      de: "Warmer Schreibtisch — Tassenwärmer und beheizbare Unterlage",
+      de: "Warmer Schreibtisch — Tassenwärmer und Heizunterlage",
       es: "Escritorio caliente — calientatazas y alfombrilla térmica",
     },
     metaDescription: {

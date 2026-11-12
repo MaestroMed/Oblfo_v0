@@ -1,7 +1,7 @@
 {
   "Metadata": {
-    "title": "OBFLO — Tragbare Wärme: beheizbare Handschuhe, Hausschuhe, Heizlüfter",
-    "description": "Beheizbare Handschuhe, Hausschuhe, Tassenwärmer und Heizlüfter. Gezielte Wärme in Sekunden, genau dort, wo der Winter zubeißt. Kostenloser Versand ab 60 €, 30 Tage Rückgaberecht."
+    "title": "OBFLO — Tragbare Wärme: beheizbare Handschuhe, Sohlen & mehr",
+    "description": "Beheizbare Handschuhe, Hausschuhe, Tassenwärmer und Heizlüfter: gezielte Wärme in Sekunden. Kostenloser Versand ab 60 €, 30 Tage Rückgaberecht."
   },
   "Announcement": {
     "msg1": "BLACK FRIDAY · SETS BIS ZU −19,70 €",
@@ -279,7 +279,7 @@
     "title": "Antwort innerhalb von 1–2 Werktagen.",
     "intro": "Eine Frage zu einem Produkt, einer Bestellung, einer Rückgabe? Die FAQ deckt die häufigsten Fälle ab — sonst schreiben Sie uns direkt.",
     "emailTitle": "Per E-Mail",
-    "emailText": "Schreiben Sie uns an contact@obflo.com und nennen Sie Ihre Bestellnummer, falls es um eine Bestellung geht. Antwort innerhalb von 1–2 Werktagen, Montag bis Freitag.",
+    "emailText": "Schreiben Sie uns an <mail>contact@obflo.com</mail> und nennen Sie Ihre Bestellnummer, falls es um eine Bestellung geht. Antwort innerhalb von 1–2 Werktagen, Montag bis Freitag.",
     "trackingTitle": "Sendungsverfolgung",
     "trackingText": "Ihre Sendungsnummer erhalten Sie per E-Mail, sobald die Bestellung verschickt wird (auch im Spam-Ordner nachsehen). Der Link des Versanddienstleisters zeigt die Position des Pakets in Echtzeit.",
     "faqTitle": "Bevor Sie schreiben",
@@ -317,7 +317,7 @@
     "s7Title": "7. Kundenservice",
     "s7P1": "Für Fragen oder Reklamationen: sav@obflo.com. Antwort innerhalb von 1–2 Werktagen.",
     "s8Title": "8. Streitigkeiten",
-    "s8P1": "Es gilt das für Verbraucher zwingend anwendbare Recht. Im Streitfall wird vor rechtlichen Schritten eine gütliche Einigung angestrebt; Verbraucher können sich kostenfrei an die benannte Verbraucherschlichtungsstelle wenden: <tc>benannte Schlichtungsstelle</tc>."
+    "s8P1": "Es gilt das für Verbraucher zwingend anwendbare Recht. Im Streitfall schreiben Sie uns bitte zuerst an contact@obflo.com: Vor rechtlichen Schritten wird eine gütliche Einigung angestrebt."
   },
   "PrivacyPage": {
     "metaTitle": "Datenschutzerklärung",
@@ -382,7 +382,7 @@
   },
   "BlackFriday": {
     "metaTitle": "Black Friday: beheizbare Handschuhe und Wärmezubehör",
-    "metaDescription": "OBFLO Black Friday vom 23. bis 30. November 2026: Gratisversand ohne Mindestbestellwert auf beheizbare Handschuhe, Heizsohlen, Hausschuhe, Decken und Sets. 30 Tage Rückgabe.",
+    "metaDescription": "OBFLO Black Friday, 23.–30. November 2026: Gratisversand ohne Mindestbestellwert auf beheizbare Handschuhe, Heizsohlen, Decken und Sets. 30 Tage Rückgabe.",
     "title": "Black Friday: beheizbare Handschuhe und Zubehör",
     "leadBefore": "Vom 23. bis 30. November ist der Versand kostenlos, ohne Mindestbestellwert.",
     "leadDuring": "Der Versand ist bis 30. November kostenlos, ohne Mindestbestellwert.",

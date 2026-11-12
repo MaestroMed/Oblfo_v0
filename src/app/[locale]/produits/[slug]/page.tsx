@@ -71,6 +71,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${product.name} — ${formatPrice(product.price, locale)}`,
     description: truncateAtWord(product.description[0], 158),
     alternates: productAlternates(locale, product.slugs),
+    // Fiche sans photo : gardée pour les liens existants, mais ni listée ni indexée.
+    ...(product.image ? {} : { robots: { index: false } }),
     openGraph: {
       title: `${product.name} | OBFLO`,
       description: product.tagline,

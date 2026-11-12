@@ -6,7 +6,7 @@ import { H2, PAGE, PageBanner } from "@/components/page-banner";
 import { ProductCard } from "@/components/product-card";
 import { getListedProducts } from "@/data/catalog";
 import { getPathname, Link } from "@/i18n/navigation";
-import { hreflangAlternates, isLocale, type Locale } from "@/i18n/routing";
+import { hreflangAlternates, pageOpenGraph, isLocale, type Locale } from "@/i18n/routing";
 import { freeShippingPromoPhase } from "@/lib/shipping";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -32,6 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: t("metaTitle"),
     description: t("metaDescription"),
     alternates: hreflangAlternates(path, locale),
+    openGraph: pageOpenGraph(locale, path(locale)),
   };
 }
 

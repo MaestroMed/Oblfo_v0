@@ -1,7 +1,7 @@
 {
   "Metadata": {
     "title": "OBFLO — Chaleur portable : gants, chaussons, chauffages USB",
-    "description": "Gants chauffants, chaussons chauffants, chauffe-tasse et chauffage d'appoint USB. Une chaleur ciblée en quelques secondes, là où l'hiver s'installe. Livraison offerte dès 60 €, retours 30 jours."
+    "description": "Gants, semelles, chaussons et plaids chauffants USB : une chaleur ciblée en quelques secondes. Livraison offerte dès 60 €, retours 30 jours."
   },
   "Announcement": {
     "msg1": "BLACK FRIDAY · PACKS JUSQU'À −19,70 €",
@@ -288,7 +288,7 @@
     "title": "On vous répond sous 1 à 2 jours ouvrés.",
     "intro": "Une question sur un produit, une commande, un retour ? La FAQ répond aux cas les plus courants, sinon écrivez-nous directement.",
     "emailTitle": "Par e-mail",
-    "emailText": "Écrivez-nous à contact@obflo.com en précisant votre numéro de commande si votre demande en concerne une. Réponse sous 1 à 2 jours ouvrés, du lundi au vendredi.",
+    "emailText": "Écrivez-nous à <mail>contact@obflo.com</mail> en précisant votre numéro de commande si votre demande en concerne une. Réponse sous 1 à 2 jours ouvrés, du lundi au vendredi.",
     "trackingTitle": "Suivi de commande",
     "trackingText": "Votre numéro de suivi vous est envoyé par e-mail dès l'expédition (pensez à vérifier les spams). Le lien du transporteur donne la position du colis en temps réel.",
     "faqTitle": "Avant d'écrire",
@@ -326,7 +326,7 @@
     "s7Title": "7. Service client",
     "s7P1": "Pour toute question ou réclamation : sav@obflo.com. Réponse sous 1 à 2 jours ouvrés.",
     "s8Title": "8. Litiges",
-    "s8P1": "Les présentes conditions sont soumises au droit français. En cas de litige, une solution amiable sera recherchée avant toute action judiciaire ; le client peut recourir gratuitement au médiateur de la consommation <tc>médiateur désigné</tc>."
+    "s8P1": "Les présentes conditions sont soumises au droit français. En cas de litige, écrivez-nous d'abord à contact@obflo.com : une solution amiable sera recherchée avant toute action judiciaire."
   },
   "PrivacyPage": {
     "metaTitle": "Politique de confidentialité",

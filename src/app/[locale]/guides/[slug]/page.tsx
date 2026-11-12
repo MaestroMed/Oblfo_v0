@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!guide) return {};
 
   return {
-    title: guide.title,
+    title: { absolute: guide.title },
     description: guide.metaDescription,
     alternates: guideAlternates(locale, guide.id, guide.slugs),
     openGraph: {
@@ -64,6 +64,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       siteName: "OBFLO",
       locale: ogLocale(locale),
       type: "article",
+      images: [guide.images[0]?.src ?? `/${locale}/opengraph-image`],
     },
   };
 }

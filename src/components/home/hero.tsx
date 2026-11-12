@@ -30,7 +30,7 @@ export function Hero({ locale }: { locale: Locale }) {
             fill
             priority
             fetchPriority="high"
-            sizes="(min-width: 1024px) 620px, 100vw"
+            sizes="(min-width: 1024px) 620px, calc(100vw - 32px)"
             className="object-cover"
           />
         </div>

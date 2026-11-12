@@ -252,14 +252,14 @@
   },
   "ShippingPage": {
     "metaTitle": "Livraison & retours",
-    "metaDescription": "Délais de livraison, frais de port et politique de retours 30 jours OBFLO. Livraison offerte dès 60 € en France métropolitaine.",
+    "metaDescription": "Délais de livraison, frais de port et politique de retours 30 jours OBFLO. Livraison offerte dès 60 € en France, Allemagne, Espagne et Portugal.",
     "title": "Livraison & retours.",
     "intro": "Des délais annoncés sans détour et des retours simples : voici comment ça se passe.",
     "sections": [
       {
         "title": "Délais de livraison",
         "paragraphs": [
-          "Les commandes sont préparées puis expédiées sous 1 à 3 jours ouvrés. Comptez 8 à 20 jours entre la commande et la livraison en France métropolitaine. Un numéro de suivi vous est envoyé par e-mail dès l'expédition."
+          "Les commandes sont préparées puis expédiées sous 1 à 3 jours ouvrés. Comptez 8 à 20 jours entre la commande et la livraison. Nous livrons en France métropolitaine, en Allemagne, en Espagne (péninsule et Baléares) et au Portugal continental. Un numéro de suivi vous est envoyé par e-mail dès l'expédition."
         ]
       },
       {
@@ -314,11 +314,11 @@
     "s1Title": "1. Objet",
     "s1P1": "Les présentes conditions régissent les ventes conclues entre Opcodia LLC (1209 Mountain Road Pl NE, Ste R, Albuquerque, NM 87110, États-Unis) et tout client passant commande sur le site OBFLO.",
     "s2Title": "2. Prix",
-    "s2P1": "Les prix sont indiqués en euros, toutes taxes comprises, hors frais de livraison. Les frais de livraison sont affichés avant validation de la commande. La livraison est offerte dès 60 € d'achat en France métropolitaine.",
+    "s2P1": "Les prix sont indiqués en euros, toutes taxes comprises, hors frais de livraison. Les frais de livraison sont affichés avant validation de la commande. La livraison est offerte dès 60 € d'achat.",
     "s3Title": "3. Commande et paiement",
     "s3P1": "La commande est ferme dès validation du paiement. Moyens de paiement acceptés : carte bancaire (et selon l'appareil Apple Pay / Google Pay). Le paiement est sécurisé par Stripe ; aucune donnée bancaire ne transite par nos serveurs.",
     "s4Title": "4. Livraison",
-    "s4P1": "Expédition sous 1 à 3 jours ouvrés, livraison en 8 à 20 jours après la commande en France métropolitaine, avec numéro de suivi. En cas de retard supérieur à 7 jours ouvrés, le client peut annuler la commande et être intégralement remboursé.",
+    "s4P1": "Expédition sous 1 à 3 jours ouvrés, livraison en 8 à 20 jours après la commande, avec numéro de suivi. Nous livrons en France métropolitaine, en Allemagne, en Espagne (péninsule et Baléares) et au Portugal continental. En cas de retard supérieur à 7 jours ouvrés, le client peut annuler la commande et être intégralement remboursé.",
     "s5Title": "5. Droit de rétractation et retours",
     "s5P1": "Conformément au Code de la consommation, le client dispose de 14 jours pour se rétracter. OBFLO étend ce délai à 30 jours après réception, sans justification. Les frais de renvoi sont à la charge du client, sauf produit défectueux ou erreur de notre part. Le remboursement intégral intervient dès réception du produit retourné complet et en bon état.",
     "s6Title": "6. Garanties",

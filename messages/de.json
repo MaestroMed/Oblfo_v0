@@ -250,7 +250,7 @@
       {
         "title": "Versandzeiten",
         "paragraphs": [
-          "Bestellungen werden innerhalb von 1 bis 3 Werktagen vorbereitet und verschickt. Zwischen Bestellung und Lieferung liegen 8 bis 20 Tage. Eine Sendungsnummer erhalten Sie per E-Mail, sobald Ihre Bestellung das Lager verlässt."
+          "Bestellungen werden innerhalb von 1 bis 3 Werktagen vorbereitet und verschickt. Zwischen Bestellung und Lieferung liegen 8 bis 20 Tage. Wir liefern nach Deutschland, Frankreich (Festland), Spanien (Festland und Balearen) und Portugal (Festland). Eine Sendungsnummer erhalten Sie per E-Mail, sobald Ihre Bestellung das Lager verlässt."
         ]
       },
       {
@@ -309,7 +309,7 @@
     "s3Title": "3. Bestellung und Zahlung",
     "s3P1": "Die Bestellung ist mit Bestätigung der Zahlung verbindlich. Akzeptierte Zahlungsarten: Kreditkarte (sowie je nach Gerät Apple Pay / Google Pay). Die Zahlung wird über Stripe abgesichert; Kartendaten erreichen unsere Server zu keinem Zeitpunkt.",
     "s4Title": "4. Lieferung",
-    "s4P1": "Versand innerhalb von 1 bis 3 Werktagen, Lieferung 8 bis 20 Tage nach der Bestellung, mit Sendungsverfolgung. Bei einer Verzögerung von mehr als 7 Werktagen kann der Kunde die Bestellung stornieren und erhält den vollen Betrag zurück.",
+    "s4P1": "Versand innerhalb von 1 bis 3 Werktagen, Lieferung 8 bis 20 Tage nach der Bestellung, mit Sendungsverfolgung. Wir liefern nach Deutschland, Frankreich (Festland), Spanien (Festland und Balearen) und Portugal (Festland). Bei einer Verzögerung von mehr als 7 Werktagen kann der Kunde die Bestellung stornieren und erhält den vollen Betrag zurück.",
     "s5Title": "5. Widerruf und Rückgabe",
     "s5P1": "Verbrauchern steht das gesetzliche 14-tägige Widerrufsrecht zu. OBFLO verlängert dieses auf 30 Tage nach Erhalt, ohne Angabe von Gründen. Die Rücksendekosten trägt der Kunde, außer bei defekten Produkten oder unserem Fehler. Die volle Rückerstattung erfolgt, sobald das vollständige, unbeschädigte Produkt bei uns eintrifft.",
     "s6Title": "6. Gewährleistung",

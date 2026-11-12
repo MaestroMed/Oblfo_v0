@@ -146,8 +146,8 @@ export const faqSources: FaqSource[] = [
       es: "¿Cuáles son los plazos de entrega?",
     },
     answer: {
-      fr: "8 à 20 jours entre la commande et la livraison en France métropolitaine, avec un numéro de suivi envoyé dès l'expédition.",
-      en: "8 to 20 days from order to delivery in metropolitan France, with a tracking number sent as soon as your order ships.",
+      fr: "8 à 20 jours entre la commande et la livraison, avec un numéro de suivi envoyé dès l'expédition.",
+      en: "8 to 20 days from order to delivery, with a tracking number sent as soon as your order ships.",
       de: "8 bis 20 Tage zwischen Bestellung und Lieferung, mit Sendungsverfolgungsnummer direkt beim Versand.",
       es: "8 a 20 días entre el pedido y la entrega, con número de seguimiento enviado en cuanto sale el pedido.",
     },

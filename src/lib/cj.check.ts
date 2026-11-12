@@ -96,7 +96,16 @@ const exterieur = reason({ items: [{ id: "pack-exterieur", qty: 1, variant: "EU 
 assert.match(exterieur, /semelles-chauffantes\|EU 35–40, chauffe-mains$/);
 assert.doesNotMatch(exterieur, /gants-chauffants/);
 
-// Pays ≠ FR, adresse incomplète, panier vide → refus.
+// Pays livré hors France : code et nom du pays suivent l'adresse.
+const [berlin] = orders({
+  items: [{ id: "gants-chauffants", qty: 1 }],
+  shippingAddress: { ...base.shippingAddress!, city: "Berlin", postal_code: "10115", country: "DE" },
+});
+assert.equal(berlin.shippingCountryCode, "DE");
+assert.equal(berlin.shippingCountry, "Germany");
+assert.equal(berlin.shippingProvince, "Berlin");
+
+// Pays non livré, adresse incomplète, panier vide → refus.
 assert.match(
   reason({
     items: [{ id: "gants-chauffants", qty: 1 }],

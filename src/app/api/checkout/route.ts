@@ -4,7 +4,7 @@ import { getSellableById } from "@/data/catalog";
 import { getPathname } from "@/i18n/navigation";
 import { isLocale, routing } from "@/i18n/routing";
 import { MAX_QTY } from "@/lib/cart";
-import { shippingCostFor } from "@/lib/shipping";
+import { shippingCostFor, SHIPPING_COUNTRY_CODES } from "@/lib/shipping";
 import { SITE_URL } from "@/lib/site";
 
 type CheckoutBody = {
@@ -141,10 +141,9 @@ export async function POST(request: Request) {
       mode: "payment",
       locale,
       line_items: lineItems,
-      // FR uniquement au lancement — étendre en même temps que CGV + grille
-      // de frais de port (l'audit a relevé l'incohérence CGV vs pays permis).
+      // Même liste que le pont CJ, la page Livraison et les CGV (cf. SHIPPING_COUNTRIES).
       shipping_address_collection: {
-        allowed_countries: ["FR"],
+        allowed_countries: SHIPPING_COUNTRY_CODES,
       },
       // Les transporteurs CJ demandent un téléphone pour livrer.
       phone_number_collection: { enabled: true },

@@ -250,7 +250,7 @@
       {
         "title": "Plazos de envío",
         "paragraphs": [
-          "Los pedidos se preparan y salen en 1 a 3 días laborables. Cuenta 8 a 20 días entre el pedido y la entrega. Recibirás un número de seguimiento por email en cuanto salga tu pedido."
+          "Los pedidos se preparan y salen en 1 a 3 días laborables. Cuenta 8 a 20 días entre el pedido y la entrega. Enviamos a España (península y Baleares), Francia metropolitana, Alemania y Portugal continental. Recibirás un número de seguimiento por email en cuanto salga tu pedido."
         ]
       },
       {
@@ -309,7 +309,7 @@
     "s3Title": "3. Pedido y pago",
     "s3P1": "El pedido es firme desde la confirmación del pago. Medios de pago aceptados: tarjeta (y según el dispositivo, Apple Pay / Google Pay). El pago está protegido por Stripe; ningún dato bancario pasa por nuestros servidores.",
     "s4Title": "4. Entrega",
-    "s4P1": "Expedición en 1 a 3 días laborables, entrega 8 a 20 días después del pedido, con seguimiento. Si el retraso supera los 7 días laborables, el cliente puede anular el pedido y recibir el reembolso íntegro.",
+    "s4P1": "Expedición en 1 a 3 días laborables, entrega 8 a 20 días después del pedido, con seguimiento. Enviamos a España (península y Baleares), Francia metropolitana, Alemania y Portugal continental. Si el retraso supera los 7 días laborables, el cliente puede anular el pedido y recibir el reembolso íntegro.",
     "s5Title": "5. Desistimiento y devoluciones",
     "s5P1": "El cliente dispone del derecho legal de desistimiento de 14 días. OBFLO lo amplía a 30 días tras la recepción, sin justificación. Los gastos de devolución corren a cargo del cliente, salvo producto defectuoso o error nuestro. El reembolso íntegro se efectúa al recibir el producto completo y en buen estado.",
     "s6Title": "6. Garantías",

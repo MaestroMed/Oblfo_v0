@@ -35,8 +35,10 @@ export function useCheckout(locale: Locale) {
     if (busy.current || items.length === 0) return;
     busy.current = true;
     setState("loading");
-    // Envoyé dès le clic : lancé juste avant le départ vers Stripe, GA4 n'avait pas le temps de l'émettre.
+    // GA4 garde les événements 5 s avant envoi, et la page part chez Stripe en 1 s : l'événement se perdait
+    // (vérifié en production). Un `pagehide` simulé déclenche l'envoi immédiat de la file GA4.
     trackEvent("begin_checkout", { currency: "EUR", value: items.reduce((sum, i) => sum + i.price * i.qty, 0) });
+    window.dispatchEvent(new Event("pagehide"));
     const fail = (next: "unavailable" | "error") => {
       busy.current = false;
       setState(next);

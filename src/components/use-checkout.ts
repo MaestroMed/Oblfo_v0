@@ -35,6 +35,8 @@ export function useCheckout(locale: Locale) {
     if (busy.current || items.length === 0) return;
     busy.current = true;
     setState("loading");
+    // Envoyé dès le clic : lancé juste avant le départ vers Stripe, GA4 n'avait pas le temps de l'émettre.
+    trackEvent("begin_checkout", { currency: "EUR", value: items.reduce((sum, i) => sum + i.price * i.qty, 0) });
     const fail = (next: "unavailable" | "error") => {
       busy.current = false;
       setState(next);
@@ -54,8 +56,6 @@ export function useCheckout(locale: Locale) {
       // Stripe peut renvoyer url: null — sans ce garde-fou, assign(null) mène à /null.
       if (!url) return fail("error");
       setState("redirecting");
-      // Paiement commencé : sert à lire le tunnel panier → paiement → achat dans GA4.
-      trackEvent("begin_checkout", { currency: "EUR", value: items.reduce((sum, i) => sum + i.price * i.qty, 0) });
       window.location.assign(url);
     } catch {
       fail("error");

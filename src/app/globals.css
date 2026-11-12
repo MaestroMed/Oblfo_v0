@@ -239,17 +239,16 @@ details > summary::-webkit-details-marker {
   .prose-obflo a { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
 }
 
-/* Lenis (accueil + guides) : le scroll natif « smooth » se bat avec lui. */
-html.lenis,
-html.lenis body {
-  height: auto;
-}
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-.lenis.lenis-stopped {
-  overflow: clip;
-}
+/* Tiroir du panier : entrée et sortie en CSS (plus de bibliothèque d'animation à charger). */
+@keyframes drawer-in { from { transform: translateX(100%); } }
+@keyframes drawer-out { to { transform: translateX(100%); } }
+@keyframes veil-in { from { opacity: 0; } }
+@keyframes veil-out { to { opacity: 0; } }
+.cart-drawer-veil { animation: veil-in 0.2s both; }
+.cart-drawer-panel { animation: drawer-in 0.28s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.cart-drawer[data-state="closed"] { pointer-events: none; }
+.cart-drawer[data-state="closed"] .cart-drawer-veil { animation-name: veil-out; }
+.cart-drawer[data-state="closed"] .cart-drawer-panel { animation-name: drawer-out; }
 
 /* Marquee */
 @keyframes marquee {
@@ -281,6 +280,8 @@ html.lenis body {
   html { scroll-behavior: auto; }
   .marquee-track,
   .heat-waves path { animation: none; }
+  .cart-drawer-veil,
+  .cart-drawer-panel { animation-duration: 0.01s; }
   .btn { transition: none; }
 }
 

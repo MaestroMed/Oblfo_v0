@@ -44,7 +44,16 @@ export function toCardProduct(p: Product): CardProduct {
 const button = "btn btn-outline btn-sm btn-block relative z-[1] mt-1 px-3";
 
 /** Carte produit : la photo détourée sur la teinte du produit (`src/lib/tile.ts`), puis nom, prix et bouton sur la page. */
-export function ProductCard({ product, locale }: { product: CardProduct; locale: Locale }) {
+export function ProductCard({
+  product,
+  locale,
+  priority = false,
+}: {
+  product: CardProduct;
+  locale: Locale;
+  /** Première rangée d'une page : image chargée sans attendre (c'est le plus grand élément visible). */
+  priority?: boolean;
+}) {
   const t = useTranslations("HomeV2");
   const tCart = useTranslations("Cart");
   const href = {
@@ -60,6 +69,8 @@ export function ProductCard({ product, locale }: { product: CardProduct; locale:
             src={product.cutout}
             alt=""
             fill
+            priority={priority}
+            fetchPriority={priority ? "high" : undefined}
             sizes="(min-width: 1024px) 25vw, 50vw"
             className="cutout p-[7%] transition-transform duration-300 group-hover:scale-105"
           />

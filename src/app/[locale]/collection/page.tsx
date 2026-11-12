@@ -49,7 +49,7 @@ export default async function CollectionPage({ params }: Props) {
       <FamilyPills current="all" className="mt-3 sm:mt-5" />
 
       <div className="mt-6 flex flex-col gap-12 sm:mt-10 sm:gap-20">
-        {sections.map((section) => (
+        {sections.map((section, n) => (
           <section key={section.category}>
             {/* Toute la bande mène à la famille : une seule cible, à la couleur de la famille. */}
             <Link
@@ -65,8 +65,8 @@ export default async function CollectionPage({ params }: Props) {
               </span>
             </Link>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-[repeat(auto-fill,minmax(250px,1fr))] sm:gap-6">
-              {section.items.map((product) => (
-                <ProductCard key={product.id} product={product} locale={locale} />
+              {section.items.map((product, i) => (
+                <ProductCard key={product.id} product={product} locale={locale} priority={n === 0 && i < 2} />
               ))}
             </div>
           </section>

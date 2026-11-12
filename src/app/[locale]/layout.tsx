@@ -11,7 +11,6 @@ import { AnnouncementBar } from "@/components/announcement-bar";
 import { CartDrawer } from "@/components/cart-drawer";
 import { CartProvider } from "@/components/cart-context";
 import { Toaster } from "sonner";
-import { MotionProvider } from "@/components/ui/motion-provider";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { isLocale, ogLocale, routing } from "@/i18n/routing";
@@ -81,7 +80,6 @@ export default async function LocaleLayout({ children, params }: Props) {
     >
       <body className="min-h-full flex flex-col">
         <NextIntlClientProvider>
-          <MotionProvider>
           <CartProvider>
             <AnnouncementBar promo={isFreeShippingPromo(new Date())} />
             <SiteHeader />
@@ -90,7 +88,6 @@ export default async function LocaleLayout({ children, params }: Props) {
             <CartDrawer />
             <Toaster position="bottom-center" offset={88} mobileOffset={{ bottom: 88 }} toastOptions={{ className: "obflo-toast" }} />
           </CartProvider>
-          </MotionProvider>
           {/* Dans le provider : le bandeau lit ses libellés via useTranslations. */}
           <CookieBanner />
         </NextIntlClientProvider>

@@ -173,7 +173,6 @@ export function SiteHeader() {
           role="dialog"
           aria-modal="true"
           aria-label={t("menu")}
-          data-lenis-prevent
           className="on-cream fixed inset-0 z-[70] flex flex-col overflow-y-auto overscroll-contain xl:hidden"
         >
           <div className="flex h-16 shrink-0 items-center justify-between px-4 sm:h-[72px] sm:px-8">

@@ -20,8 +20,10 @@ export function GuideCard({
   guide,
   tone,
   level = 2,
+  priority = false,
 }: {
   guide: GuideCardData;
+  priority?: boolean;
   tone: Tile;
   level?: 2 | 3;
 }) {
@@ -39,6 +41,8 @@ export function GuideCard({
             src={photo.src}
             alt=""
             fill
+            priority={priority}
+            fetchPriority={priority ? "high" : undefined}
             sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
             className="object-cover transition-transform duration-300 group-hover:scale-105 motion-reduce:transform-none"
           />

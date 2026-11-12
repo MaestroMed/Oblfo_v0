@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useCart } from "@/components/cart-context";
+import { trackEvent } from "@/components/ga4";
 import type { Locale } from "@/i18n/routing";
 
 /**
@@ -53,6 +54,8 @@ export function useCheckout(locale: Locale) {
       // Stripe peut renvoyer url: null — sans ce garde-fou, assign(null) mène à /null.
       if (!url) return fail("error");
       setState("redirecting");
+      // Paiement commencé : sert à lire le tunnel panier → paiement → achat dans GA4.
+      trackEvent("begin_checkout", { currency: "EUR", value: items.reduce((sum, i) => sum + i.price * i.qty, 0) });
       window.location.assign(url);
     } catch {
       fail("error");

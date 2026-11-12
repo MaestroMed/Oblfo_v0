@@ -259,7 +259,7 @@
       {
         "title": "Shipping times",
         "paragraphs": [
-          "Orders are prepared and shipped within 1 to 3 business days. Allow 8 to 20 days between order and delivery in metropolitan France. A tracking number is emailed to you as soon as your order ships."
+          "Orders are prepared and shipped within 1 to 3 business days. Allow 8 to 20 days between order and delivery. We deliver to metropolitan France, Germany, Spain (mainland and Balearic Islands) and mainland Portugal. A tracking number is emailed to you as soon as your order ships."
         ]
       },
       {
@@ -314,11 +314,11 @@
     "s1Title": "1. Purpose",
     "s1P1": "These terms govern sales concluded between Opcodia LLC (1209 Mountain Road Pl NE, Ste R, Albuquerque, NM 87110, USA) and any customer placing an order on the OBFLO website.",
     "s2Title": "2. Prices",
-    "s2P1": "Prices are shown in euros, all taxes included, excluding shipping. Shipping costs are displayed before order confirmation. Shipping is free over €60 in metropolitan France.",
+    "s2P1": "Prices are shown in euros, all taxes included, excluding shipping. Shipping costs are displayed before order confirmation. Shipping is free over €60.",
     "s3Title": "3. Orders and payment",
     "s3P1": "Orders are final once payment is confirmed. Accepted payment methods: bank card (plus Apple Pay / Google Pay depending on device). Payments are secured by Stripe; no card data ever touches our servers.",
     "s4Title": "4. Delivery",
-    "s4P1": "Orders ship within 1 to 3 business days, with tracked delivery 8 to 20 days after the order in metropolitan France. If delivery is delayed by more than 7 business days, the customer may cancel the order for a full refund.",
+    "s4P1": "Orders ship within 1 to 3 business days, with tracked delivery 8 to 20 days after the order. We deliver to metropolitan France, Germany, Spain (mainland and Balearic Islands) and mainland Portugal. If delivery is delayed by more than 7 business days, the customer may cancel the order for a full refund.",
     "s5Title": "5. Withdrawal and returns",
     "s5P1": "Under the French Consumer Code, customers have 14 days to withdraw. OBFLO extends this to 30 days after delivery, no questions asked. Return shipping costs are borne by the customer, except for defective products or our error. The full refund is issued once the returned product arrives complete and in good condition.",
     "s6Title": "6. Warranties",

@@ -2,6 +2,13 @@
 export const FREE_SHIPPING_THRESHOLD = 60;
 export const STANDARD_SHIPPING = 4.9;
 
+// Pays livrés, avec le nom que CJ attend. Ouverts le 12/11/2026 après relevé des lignes CJ : mêmes lignes
+// et coût de port égal ou voisin de la France (Portugal : +0,3 à +1,2 $). Ajouter un pays = refaire ce relevé,
+// puis mettre à jour la page Livraison et les CGV.
+export const SHIPPING_COUNTRIES = { FR: "France", DE: "Germany", ES: "Spain", PT: "Portugal" } as const;
+export type ShippingCountry = keyof typeof SHIPPING_COUNTRIES;
+export const SHIPPING_COUNTRY_CODES = Object.keys(SHIPPING_COUNTRIES) as ShippingCountry[];
+
 // Black Friday 2026 : livraison offerte sans minimum du lundi 23/11 00:00 au
 // lundi 30/11 23:59, heure de Paris (UTC+1 en novembre). Début inclus, fin exclue.
 export const FREE_SHIPPING_PROMO = {
@@ -33,7 +40,7 @@ export function shippingCostFor(subtotal: number, now = new Date()): number {
 
 export const MERCHANT_RETURN_POLICY = {
   "@type": "MerchantReturnPolicy",
-  applicableCountry: "FR",
+  applicableCountry: SHIPPING_COUNTRY_CODES,
   returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
   merchantReturnDays: 30,
   returnMethod: "https://schema.org/ReturnByMail",
@@ -48,10 +55,10 @@ const DELIVERY_TIME = {
   transitTime: { "@type": "QuantitativeValue", minValue: 7, maxValue: 17, unitCode: "d" },
 } as const;
 
-const SHIPPING_DESTINATION = {
+const SHIPPING_DESTINATION = SHIPPING_COUNTRY_CODES.map((addressCountry) => ({
   "@type": "DefinedRegion",
-  addressCountry: "FR",
-} as const;
+  addressCountry,
+}));
 
 /**
  * Deux tarifs déclarés, comme sur le site : le tarif standard, et la gratuité

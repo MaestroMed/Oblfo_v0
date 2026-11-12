@@ -4,6 +4,7 @@ import type Stripe from "stripe";
 import { getProductById } from "@/data/catalog";
 import { packSources } from "@/data/catalog-packs";
 import { CJ_MAP } from "@/data/cj-map";
+import { SHIPPING_COUNTRIES, type ShippingCountry } from "@/lib/shipping";
 
 const CJ_API = "https://developers.cjdropshipping.com/api2.0/v1";
 
@@ -48,7 +49,8 @@ export function buildCjOrders(
 ): { ok: true; orders: CjOrderBody[] } | { ok: false; reason: string } {
   const address = order.shippingAddress;
   const name = order.shippingName ?? order.customerName;
-  if (address?.country !== "FR") {
+  const country = address?.country as ShippingCountry | undefined;
+  if (!address || !country || !(country in SHIPPING_COUNTRIES)) {
     return { ok: false, reason: `pays non vendu : ${address?.country ?? "inconnu"}` };
   }
   if (!name || !address.line1 || !address.city || !address.postal_code) {
@@ -84,9 +86,9 @@ export function buildCjOrders(
   const orders = [...groups.keys()].sort().map(
     (logisticName, index): CjOrderBody => ({
       orderNumber: `obflo-${order.sessionId.slice(-38)}-${index + 1}`,
-      shippingCountryCode: "FR",
-      shippingCountry: "France",
-      // Stripe laisse souvent state vide en France, et CJ exige le champ.
+      shippingCountryCode: country,
+      shippingCountry: SHIPPING_COUNTRIES[country],
+      // Stripe laisse souvent state vide, et CJ exige le champ.
       shippingProvince: address.state || address.city!,
       shippingCity: address.city!,
       shippingCustomerName: name,

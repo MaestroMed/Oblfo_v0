@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { getProducts, type Product } from "@/data/catalog";
 import { getPathname } from "@/i18n/navigation";
 import { isLocale, type Locale } from "@/i18n/routing";
-import { shippingCostFor } from "@/lib/shipping";
+import { shippingCostFor, SHIPPING_COUNTRY_CODES } from "@/lib/shipping";
 import { SITE_URL } from "@/lib/site";
 
 // Flux Google Merchant Center (RSS 2.0, namespace g:) — un flux par locale :
@@ -61,7 +61,10 @@ function itemXml(
     `<g:condition>new</g:condition>`,
     // Pas de GTIN fabricant sur ces références marque propre.
     `<g:identifier_exists>no</g:identifier_exists>`,
-    `<g:shipping><g:country>FR</g:country><g:service>Standard</g:service><g:price>${money(shipping)}</g:price></g:shipping>`,
+    ...SHIPPING_COUNTRY_CODES.map(
+      (country) =>
+        `<g:shipping><g:country>${country}</g:country><g:service>Standard</g:service><g:price>${money(shipping)}</g:price></g:shipping>`,
+    ),
   ];
   if (product.color) {
     lines.push(`<g:color>${esc(product.color)}</g:color>`, `<g:gender>unisex</g:gender>`, `<g:age_group>adult</g:age_group>`);

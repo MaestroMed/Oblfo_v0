@@ -15,7 +15,7 @@ export const H2 = "text-[clamp(28px,5vw,44px)]";
 export function Crumbs({ items }: { items: { label: string; href?: Href }[] }) {
   const t = useTranslations("CategoryPage");
   return (
-    <nav aria-label={t("breadcrumb")} className="text-[15px]">
+    <nav aria-label={t("breadcrumb")} className="text-[16px]">
       <ol className="flex flex-wrap items-center gap-x-2">
         {items.map((item, i) => (
           <li key={item.label} className="flex items-center gap-x-2">
@@ -27,12 +27,12 @@ export function Crumbs({ items }: { items: { label: string; href?: Href }[] }) {
             {item.href ? (
               <Link
                 href={item.href}
-                className="flex min-h-11 items-center text-muted underline-offset-4 transition-colors hover:text-choco hover:underline"
+                className="flex min-h-12 min-w-12 items-center justify-center text-muted underline-offset-4 transition-colors hover:text-choco hover:underline"
               >
                 {item.label}
               </Link>
             ) : (
-              <span aria-current="page" className="flex min-h-11 items-center font-semibold">
+              <span aria-current="page" className="flex min-h-12 items-center font-semibold">
                 {item.label}
               </span>
             )}
@@ -77,7 +77,7 @@ export function PageBanner({
       >
         <div className="max-w-[780px]">
           {waves ? (
-            <HeatWaves className="mb-4 h-11 w-11 sm:mb-6 sm:h-16 sm:w-16" />
+            <HeatWaves className="mb-4 h-12 w-12 sm:mb-6 sm:h-16 sm:w-16" />
           ) : null}
           {meta}
           {/* Césure : « Geschäftsbedingungen » dépasse 288 px sans elle. */}

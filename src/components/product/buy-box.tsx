@@ -53,9 +53,9 @@ const REASSURE = [
 ] as const;
 
 /**
- * Bloc d'achat : prix, déclinaison, double bouton, réassurance,
+ * Bloc d'achat : prix, déclinaison, un seul bouton (1 CTA par écran), réassurance,
  * et barre collante mobile qui apparaît quand les boutons sortent de l'écran.
- * « Acheter maintenant » ajoute sans toast et ouvre le tiroir : c'est lui qui porte
+ * Le bouton ajoute sans toast et ouvre le tiroir : c'est lui qui porte
  * l'acceptation des CGV et le passage au paiement Stripe.
  */
 export function BuyBox({
@@ -146,7 +146,7 @@ export function BuyBox({
             ))}
           </div>
           {touched && !selected ? (
-            <p role="alert" className="text-[15px] font-bold text-tomate">
+            <p role="alert" className="text-[16px] font-bold text-tomate">
               {tCart("variantRequired", { label: variant.label })}
             </p>
           ) : null}
@@ -154,18 +154,15 @@ export function BuyBox({
       ) : null}
 
       <div ref={ctaRef} className="flex flex-col gap-3">
-        <button type="button" onClick={() => add(false)} className="btn btn-braise btn-lg btn-block">
+        <button type="button" onClick={() => add(true)} className="btn btn-braise btn-lg btn-block">
           {tPage("addToCart")}
-        </button>
-        <button type="button" onClick={() => add(true)} className="btn btn-outline btn-block">
-          {t("buyNow")}
         </button>
       </div>
       <PaymentIcons className="justify-center" />
 
       <ul className="tile on-cream-2 grid gap-3 p-5 sm:grid-cols-2 sm:gap-x-5 sm:gap-y-4 sm:p-6">
         {REASSURE.map(({ key, icon }) => (
-          <li key={key} className="flex items-center gap-3 text-[15px] leading-snug font-medium">
+          <li key={key} className="flex items-center gap-3 text-[16px] leading-snug font-medium">
             <span className="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-miel">
               <svg
                 aria-hidden
@@ -191,7 +188,7 @@ export function BuyBox({
           barVisible ? "translate-y-0" : "translate-y-full"
         }`}
       >
-        <div className="font-display line-clamp-2 min-w-0 flex-1 text-[15px] leading-tight font-semibold">
+        <div className="font-display line-clamp-2 min-w-0 flex-1 text-[16px] leading-tight font-semibold">
           {name}
         </div>
         <button

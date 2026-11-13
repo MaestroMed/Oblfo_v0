@@ -17,7 +17,7 @@ export function Essentials({ locale }: { locale: Locale }) {
           <h2 className="text-[clamp(28px,5vw,44px)]">{t("essentialsTitle")}</h2>
           <Link
             href="/collection"
-            className="link inline-flex min-h-11 items-center text-[17px] font-semibold"
+            className="link inline-flex min-h-12 items-center text-[17px] font-semibold"
           >
             {t("essentialsSeeAll")}
           </Link>

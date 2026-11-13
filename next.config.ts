@@ -38,6 +38,8 @@ const SECURITY_HEADERS = [
 ];
 
 const nextConfig: NextConfig = {
+  // Brief perf : CSS critique dans la page (11 Ko compressés, sous le plafond de 14 Ko) au lieu d'un fichier bloquant.
+  experimental: { inlineCss: true },
   // AVIF pèse nettement moins que WebP à rendu égal. Cache 31 jours : une photo remplacée doit changer de nom de fichier.
   images: { formats: ["image/avif", "image/webp"], qualities: [60, 75], minimumCacheTTL: 2678400 },
   async headers() {

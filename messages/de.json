@@ -1,11 +1,11 @@
 {
   "Metadata": {
     "title": "OBFLO — Tragbare Wärme: beheizbare Handschuhe, Sohlen & mehr",
-    "description": "Beheizbare Handschuhe, Hausschuhe, Tassenwärmer und Heizlüfter: gezielte Wärme in Sekunden. Kostenloser Versand ab 60 €, 30 Tage Rückgaberecht."
+    "description": "Beheizbare Handschuhe, Hausschuhe, Tassenwärmer und Heizlüfter: gezielte Wärme in Sekunden. Kostenloser Versand ab 60 €, 30 Tage Rückgaberecht."
   },
   "Announcement": {
-    "msg1": "BLACK FRIDAY · SETS BIS ZU −19,70 €",
-    "msg2": "VERSANDKOSTENFREI AB 60 €",
+    "msg1": "BLACK FRIDAY · SETS BIS ZU −19,70 €",
+    "msg2": "VERSANDKOSTENFREI AB 60 €",
     "msg2Promo": "BLACK FRIDAY: GRATISVERSAND OHNE MINDESTBESTELLWERT BIS 30. NOVEMBER",
     "msg3": "30 TAGE RÜCKGABE",
     "close": "Banner schließen"
@@ -125,6 +125,24 @@
     "read": "Ratgeber lesen",
     "seePacks": "Zu den Sets"
   },
+  "ProductFaq": {
+    "title": "Ihre Fragen zu diesem Produkt.",
+    "qPower": "Welche Stromversorgung braucht es?",
+    "qCharge": "Wie wird es aufgeladen?",
+    "qWattage": "Wie viel Leistung hat es?",
+    "qLevels": "Welche Wärmestufen gibt es?",
+    "qSize": "Welche Maße oder Größen?",
+    "qMaterial": "Aus welchem Material?",
+    "qSafety": "Welche Sicherheitsfunktionen?",
+    "qContents": "Was ist im Paket?",
+    "qCare": "Wie pflege ich es?",
+    "qDelivery": "Wie lange dauert die Lieferung?",
+    "aDelivery": "Bearbeitung und Versand in 1 bis 3 Werktagen, danach Sendungsverfolgung: rechnen Sie mit 8 bis 20 Tagen zwischen Bestellung und Lieferung, nach Frankreich, Deutschland, Spanien und Portugal.",
+    "qReturns": "Kann ich den Artikel zurückgeben?",
+    "aReturns": "Ja: innerhalb von 30 Tagen nach Erhalt, ohne Angabe von Gründen. Die Schritte stehen auf der Seite Versand und Rückgabe.",
+    "qWarranty": "Welche Garantie gilt?",
+    "aWarranty": "Es gilt die gesetzliche Gewährleistung von 2 Jahren, wie bei jedem Onlinekauf in der Europäischen Union."
+  },
   "Faq": {
     "label": "FAQ",
     "title": "Häufige Fragen.",
@@ -143,7 +161,7 @@
     "paymentMethods": "Akzeptierte Zahlungsarten",
     "checkoutSoon": "Zahlungen werden gerade aktiviert. Bitte versuchen Sie es bald erneut.",
     "checkoutError": "Die Kasse konnte nicht starten. Bitte gleich noch einmal versuchen.",
-    "reassurance": "Gratisversand ab 60 €. 30 Tage Rückgabe.",
+    "reassurance": "Gratisversand ab 60 €. 30 Tage Rückgabe.",
     "reassurancePromo": "Gratisversand ohne Mindestbestellwert bis 30. November. 30 Tage Rückgabe.",
     "toastAdded": "Im Warenkorb: {name}",
     "viewCart": "Warenkorb ansehen",
@@ -168,11 +186,12 @@
     "crossSellTitle": "Passt gut dazu"
   },
   "ProductPage": {
+    "guidesLabel": "Vor dem Kauf lesen",
     "breadcrumbHome": "Start",
     "breadcrumbLabel": "Brotkrumen-Navigation",
     "kicker": "OBFLO — TRAGBARE WÄRME",
     "addToCart": "In den Warenkorb",
-    "reassurance": "LIEFERUNG 8–20 TAGE  ·  30 TAGE RÜCKGABE  ·  GRATIS AB 60 €",
+    "reassurance": "LIEFERUNG 8–20 TAGE  ·  30 TAGE RÜCKGABE  ·  GRATIS AB 60 €",
     "specsLabel": "Technische Daten",
     "packsLabel": "Günstiger im Set",
     "rangeLabel": "Passt dazu",
@@ -244,7 +263,7 @@
   },
   "ShippingPage": {
     "metaTitle": "Versand & Rückgabe",
-    "metaDescription": "OBFLO-Versandzeiten, Kosten und 30-Tage-Rückgaberecht. Gratisversand ab 60 €.",
+    "metaDescription": "OBFLO-Versandzeiten, Kosten und 30-Tage-Rückgaberecht. Gratisversand ab 60 €.",
     "title": "Versand & Rückgabe.",
     "intro": "Ehrliche Lieferzeiten und einfache Rückgaben: So funktioniert es.",
     "sections": [
@@ -257,7 +276,7 @@
       {
         "title": "Versandkosten",
         "paragraphs": [
-          "Ab 60 € ist der Versand kostenlos. Darunter werden die Kosten an der Kasse nach Zielort berechnet und vor der Zahlung angezeigt — keine Überraschungen."
+          "Ab 60 € ist der Versand kostenlos. Darunter werden die Kosten an der Kasse nach Zielort berechnet und vor der Zahlung angezeigt — keine Überraschungen."
         ]
       },
       {
@@ -306,7 +325,7 @@
     "s1Title": "1. Geltungsbereich",
     "s1P1": "Diese Bedingungen regeln die Verkäufe zwischen Opcodia LLC (1209 Mountain Road Pl NE, Ste R, Albuquerque, NM 87110, USA) und jedem Kunden, der auf der OBFLO-Website bestellt.",
     "s2Title": "2. Preise",
-    "s2P1": "Alle Preise sind in Euro inklusive Steuern, zuzüglich Versandkosten. Die Versandkosten werden vor Abschluss der Bestellung angezeigt. Ab 60 € ist der Versand kostenlos.",
+    "s2P1": "Alle Preise sind in Euro inklusive Steuern, zuzüglich Versandkosten. Die Versandkosten werden vor Abschluss der Bestellung angezeigt. Ab 60 € ist der Versand kostenlos.",
     "s3Title": "3. Bestellung und Zahlung",
     "s3P1": "Die Bestellung ist mit Bestätigung der Zahlung verbindlich. Akzeptierte Zahlungsarten: Kreditkarte (sowie je nach Gerät Apple Pay / Google Pay). Die Zahlung wird über Stripe abgesichert; Kartendaten erreichen unsere Server zu keinem Zeitpunkt.",
     "s4Title": "4. Lieferung",
@@ -360,7 +379,7 @@
     "accCare": "Pflege",
     "accShipping": "Lieferung",
     "careFallback": "Beachten Sie die beiliegende Anleitung. Vor dem Reinigen immer das USB-Kabel trennen.",
-    "shippingText": "Vorbereitung und Versand innerhalb von 1 bis 3 Werktagen, dann Lieferung mit Tracking: Zwischen Bestellung und Erhalt liegen 8 bis 20 Tage. Versandkostenfrei ab 60 €, sonst 4,90 €. 30 Tage Rückgabe.",
+    "shippingText": "Vorbereitung und Versand innerhalb von 1 bis 3 Werktagen, dann Lieferung mit Tracking: Zwischen Bestellung und Erhalt liegen 8 bis 20 Tage. Versandkostenfrei ab 60 €, sonst 4,90 €. 30 Tage Rückgabe.",
     "shippingTextPromo": "Vorbereitung und Versand innerhalb von 1 bis 3 Werktagen, dann Lieferung mit Tracking: Zwischen Bestellung und Erhalt liegen 8 bis 20 Tage. Black Friday: Gratisversand ohne Mindestbestellwert bis 30. November. 30 Tage Rückgabe.",
     "reassureShip": "Lieferung mit Tracking in 8 bis 20 Tagen",
     "reassureReturn": "30 Tage Rückgabe",
@@ -387,7 +406,7 @@
     "title": "Black Friday: beheizbare Handschuhe und Zubehör",
     "leadBefore": "Vom 23. bis 30. November ist der Versand kostenlos, ohne Mindestbestellwert.",
     "leadDuring": "Der Versand ist bis 30. November kostenlos, ohne Mindestbestellwert.",
-    "leadAfter": "Das Black-Friday-Angebot ist beendet. Ab 60 € bleibt der Versand kostenlos.",
+    "leadAfter": "Das Black-Friday-Angebot ist beendet. Ab 60 € bleibt der Versand kostenlos.",
     "delivery": "Die Lieferung erfolgt mit Tracking und dauert 8 bis 20 Tage. Für ein Weihnachtsgeschenk bestellen Sie am besten vor dem 1. Dezember. Ein Ankunftsdatum können wir nicht garantieren.",
     "deliveryAfter": "Die Lieferung erfolgt mit Tracking und dauert 8 bis 20 Tage. Ein Ankunftsdatum können wir nicht garantieren.",
     "giftsTitle": "Geschenkideen"
@@ -395,6 +414,6 @@
   "Og": {
     "title": "Beheizbares Zubehör",
     "subtitle": "Handschuhe, Hausschuhe, Decken und Heizlüfter.",
-    "footer": "Kostenloser Versand ab 60 € · 30 Tage Rückgabe"
+    "footer": "Kostenloser Versand ab 60 € · 30 Tage Rückgabe"
   }
 }

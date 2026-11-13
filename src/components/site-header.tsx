@@ -11,6 +11,8 @@ import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 
 const CATEGORIES = Object.keys(CATEGORY_SLUGS) as Category[];
+// Le lien Black Friday quitte le menu après Cyber Monday (fin de l'offre le 30/11/2026).
+const BLACK_FRIDAY_END = Date.parse("2026-12-01T00:00:00+01:00");
 
 const ICON = {
   viewBox: "0 0 24 24",
@@ -26,6 +28,7 @@ export function SiteHeader() {
   const { count, openDrawer } = useCart();
   const t = useTranslations("Nav");
   const tCat = useTranslations("Categories");
+  const tFooter = useTranslations("Footer");
   const locale = useLocale() as Locale;
   const [menuOpen, setMenuOpen] = useState(false);
   const closeMenu = () => setMenuOpen(false);
@@ -69,12 +72,13 @@ export function SiteHeader() {
     };
   }, [menuOpen]);
 
-  const navLinks = (cls: string) => (
+  // Menu ordinateur : 4 entrées (brief : 5 au plus). Le menu mobile plein écran garde les familles.
+  const navLinks = (cls: string, full = true) => (
     <>
       <Link href="/collection" className={cls} onClick={closeMenu}>
         {t("collection")}
       </Link>
-      {CATEGORIES.map((category) => (
+      {full && CATEGORIES.map((category) => (
         <Link
           key={category}
           onClick={closeMenu}
@@ -93,18 +97,23 @@ export function SiteHeader() {
       <Link href="/guides" className={cls} onClick={closeMenu}>
         {t("guides")}
       </Link>
+      {Date.now() < BLACK_FRIDAY_END ? (
+        <Link href="/black-friday" className={cls} onClick={closeMenu}>
+          {tFooter("blackFriday")}
+        </Link>
+      ) : null}
     </>
   );
 
   const iconButton =
-    "relative flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center rounded-full transition-colors duration-150 hover:bg-cream-2";
+    "relative flex h-12 w-12 shrink-0 cursor-pointer items-center justify-center rounded-full transition-colors duration-150 hover:bg-cream-2";
 
   const logo = (
     <a
       href={`/${locale}`}
       aria-label="OBFLO"
       onClick={closeMenu}
-      className="flex h-11 shrink-0 items-center"
+      className="flex h-12 shrink-0 items-center"
     >
       <ObfloLogo className="h-8 w-auto text-braise sm:h-9" />
     </a>
@@ -114,9 +123,10 @@ export function SiteHeader() {
     <header className="on-cream sticky top-0 z-[60] border-b border-choco/10">
       <div className="mx-auto flex h-16 max-w-[1240px] items-center justify-between gap-2 px-4 sm:h-[72px] sm:px-8">
         {logo}
-        <nav className="hidden items-center xl:flex">
+        <nav className="hidden items-center lg:flex">
           {navLinks(
-            "flex min-h-11 items-center px-2.5 font-display text-[18px] font-semibold whitespace-nowrap no-underline decoration-[3px] underline-offset-[6px] hover:underline",
+            "flex min-h-12 items-center px-3 font-display text-[18px] font-semibold whitespace-nowrap no-underline decoration-[3px] underline-offset-[6px] hover:underline",
+            false,
           )}
         </nav>
         <div className="flex items-center">
@@ -146,7 +156,7 @@ export function SiteHeader() {
               <path d="M9 8a3 3 0 0 1 6 0" />
             </svg>
             {count > 0 ? (
-              <span className="absolute top-0 right-0 flex h-[22px] min-w-[22px] items-center justify-center rounded-full bg-braise px-1 font-display text-[14px] leading-none font-bold text-cream tabular-nums">
+              <span className="absolute top-0 right-0 flex h-[22px] min-w-[22px] items-center justify-center rounded-full bg-braise px-1 font-display text-[16px] leading-none font-bold text-cream tabular-nums">
                 {count}
               </span>
             ) : null}
@@ -158,7 +168,7 @@ export function SiteHeader() {
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
             aria-label={t("menu")}
-            className={`${iconButton} xl:hidden`}
+            className={`${iconButton} lg:hidden`}
           >
             <svg {...ICON} className="h-7 w-7">
               <path d="M4 7h16M4 12h16M4 17h16" />
@@ -173,7 +183,7 @@ export function SiteHeader() {
           role="dialog"
           aria-modal="true"
           aria-label={t("menu")}
-          className="on-cream fixed inset-0 z-[70] flex flex-col overflow-y-auto overscroll-contain xl:hidden"
+          className="on-cream fixed inset-0 z-[70] flex flex-col overflow-y-auto overscroll-contain lg:hidden"
         >
           <div className="flex h-16 shrink-0 items-center justify-between px-4 sm:h-[72px] sm:px-8">
             {logo}

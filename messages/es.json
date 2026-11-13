@@ -1,11 +1,11 @@
 {
   "Metadata": {
     "title": "OBFLO — Calor portátil: guantes, zapatillas y calefactores",
-    "description": "Guantes y zapatillas calefactables, calientatazas y mini calefactor: calor dirigido en segundos. Envío gratis desde 60 €, devoluciones de 30 días."
+    "description": "Guantes y zapatillas calefactables, calientatazas y mini calefactor: calor dirigido en segundos. Envío gratis desde 60 €, devoluciones de 30 días."
   },
   "Announcement": {
-    "msg1": "BLACK FRIDAY · PACKS HASTA −19,70 €",
-    "msg2": "ENVÍO GRATIS DESDE 60 €",
+    "msg1": "BLACK FRIDAY · PACKS HASTA −19,70 €",
+    "msg2": "ENVÍO GRATIS DESDE 60 €",
     "msg2Promo": "BLACK FRIDAY: ENVÍO GRATIS SIN MÍNIMO HASTA EL 30 DE NOVIEMBRE",
     "msg3": "DEVOLUCIONES EN 30 DÍAS",
     "close": "Cerrar el aviso"
@@ -125,6 +125,24 @@
     "read": "Leer la guía",
     "seePacks": "Ver los packs"
   },
+  "ProductFaq": {
+    "title": "Sus preguntas sobre este producto.",
+    "qPower": "¿Qué alimentación necesita?",
+    "qCharge": "¿Cómo se recarga?",
+    "qWattage": "¿Qué potencia tiene?",
+    "qLevels": "¿Qué niveles de calor tiene?",
+    "qSize": "¿Qué medidas o tallas?",
+    "qMaterial": "¿De qué material es?",
+    "qSafety": "¿Qué medidas de seguridad tiene?",
+    "qContents": "¿Qué incluye el paquete?",
+    "qCare": "¿Cómo se cuida?",
+    "qDelivery": "¿Cuánto tarda la entrega?",
+    "aDelivery": "Preparación y envío en 1 a 3 días laborables, después entrega con seguimiento: cuente de 8 a 20 días entre el pedido y la recepción, en Francia, Alemania, España y Portugal.",
+    "qReturns": "¿Puedo devolver el artículo?",
+    "aReturns": "Sí: 30 días desde la recepción, sin justificación. Los pasos están en la página Envíos y devoluciones.",
+    "qWarranty": "¿Qué garantía tiene?",
+    "aWarranty": "Se aplica la garantía legal de conformidad de 2 años, como en cualquier compra en línea en la Unión Europea."
+  },
   "Faq": {
     "label": "FAQ",
     "title": "Preguntas frecuentes.",
@@ -143,7 +161,7 @@
     "paymentMethods": "Métodos de pago aceptados",
     "checkoutSoon": "Los pagos se están activando. Inténtalo de nuevo pronto.",
     "checkoutError": "No se pudo iniciar el pago. Inténtalo de nuevo en un momento.",
-    "reassurance": "Envío gratis desde 60 €. Devoluciones en 30 días.",
+    "reassurance": "Envío gratis desde 60 €. Devoluciones en 30 días.",
     "reassurancePromo": "Envío gratis sin mínimo hasta el 30 de noviembre. Devoluciones en 30 días.",
     "toastAdded": "Añadido al carrito: {name}",
     "viewCart": "Ver el carrito",
@@ -168,11 +186,12 @@
     "crossSellTitle": "Añade a tu pedido"
   },
   "ProductPage": {
+    "guidesLabel": "Leer antes de comprar",
     "breadcrumbHome": "Inicio",
     "breadcrumbLabel": "Ruta de navegación",
     "kicker": "OBFLO — CALOR PORTÁTIL",
     "addToCart": "Añadir al carrito",
-    "reassurance": "ENTREGA 8–20 DÍAS  ·  DEVOLUCIONES 30 DÍAS  ·  GRATIS DESDE 60 €",
+    "reassurance": "ENTREGA 8–20 DÍAS  ·  DEVOLUCIONES 30 DÍAS  ·  GRATIS DESDE 60 €",
     "specsLabel": "Características",
     "packsLabel": "Más barato en pack",
     "rangeLabel": "Para completar",
@@ -244,7 +263,7 @@
   },
   "ShippingPage": {
     "metaTitle": "Envíos y devoluciones",
-    "metaDescription": "Plazos de envío, costes y política de devoluciones de 30 días de OBFLO. Envío gratis desde 60 €.",
+    "metaDescription": "Plazos de envío, costes y política de devoluciones de 30 días de OBFLO. Envío gratis desde 60 €.",
     "title": "Envíos y devoluciones.",
     "intro": "Plazos de entrega claros y devoluciones sencillas: así funciona.",
     "sections": [
@@ -257,7 +276,7 @@
       {
         "title": "Gastos de envío",
         "paragraphs": [
-          "El envío es gratis a partir de 60 €. Por debajo, los gastos se calculan al pagar según el destino y se muestran antes del pago — sin sorpresas."
+          "El envío es gratis a partir de 60 €. Por debajo, los gastos se calculan al pagar según el destino y se muestran antes del pago — sin sorpresas."
         ]
       },
       {
@@ -306,7 +325,7 @@
     "s1Title": "1. Objeto",
     "s1P1": "Las presentes condiciones rigen las ventas entre Opcodia LLC (1209 Mountain Road Pl NE, Ste R, Albuquerque, NM 87110, EE. UU.) y cualquier cliente que realice un pedido en el sitio OBFLO.",
     "s2Title": "2. Precios",
-    "s2P1": "Los precios se muestran en euros, impuestos incluidos, sin gastos de envío. Los gastos de envío se muestran antes de confirmar el pedido. El envío es gratis a partir de 60 €.",
+    "s2P1": "Los precios se muestran en euros, impuestos incluidos, sin gastos de envío. Los gastos de envío se muestran antes de confirmar el pedido. El envío es gratis a partir de 60 €.",
     "s3Title": "3. Pedido y pago",
     "s3P1": "El pedido es firme desde la confirmación del pago. Medios de pago aceptados: tarjeta (y según el dispositivo, Apple Pay / Google Pay). El pago está protegido por Stripe; ningún dato bancario pasa por nuestros servidores.",
     "s4Title": "4. Entrega",
@@ -360,7 +379,7 @@
     "accCare": "Cuidado",
     "accShipping": "Entrega",
     "careFallback": "Sigue las instrucciones incluidas con el producto. Desconecta siempre el cable USB antes de limpiarlo.",
-    "shippingText": "Preparación y envío en 1 a 3 días laborables, luego entrega con seguimiento: cuenta 8 a 20 días entre el pedido y la recepción. Gratis desde 60 €, si no 4,90 €. Devoluciones en 30 días.",
+    "shippingText": "Preparación y envío en 1 a 3 días laborables, luego entrega con seguimiento: cuenta 8 a 20 días entre el pedido y la recepción. Gratis desde 60 €, si no 4,90 €. Devoluciones en 30 días.",
     "shippingTextPromo": "Preparación y envío en 1 a 3 días laborables, luego entrega con seguimiento: cuenta 8 a 20 días entre el pedido y la recepción. Black Friday: envío gratis sin mínimo hasta el 30 de noviembre. Devoluciones en 30 días.",
     "reassureShip": "Entrega con seguimiento en 8 a 20 días",
     "reassureReturn": "Devoluciones en 30 días",
@@ -387,7 +406,7 @@
     "title": "Black Friday: guantes y accesorios calefactables",
     "leadBefore": "Del 23 al 30 de noviembre, el envío es gratis sin mínimo.",
     "leadDuring": "El envío es gratis sin mínimo hasta el 30 de noviembre.",
-    "leadAfter": "La oferta de Black Friday ha terminado. El envío sigue siendo gratis desde 60 €.",
+    "leadAfter": "La oferta de Black Friday ha terminado. El envío sigue siendo gratis desde 60 €.",
     "delivery": "La entrega tiene seguimiento y tarda de 8 a 20 días. Para un regalo de Navidad, es mejor pedir antes del 1 de diciembre. No podemos garantizar una fecha de llegada.",
     "deliveryAfter": "La entrega tiene seguimiento y tarda de 8 a 20 días. No podemos garantizar una fecha de llegada.",
     "giftsTitle": "Ideas para regalar"
@@ -395,6 +414,6 @@
   "Og": {
     "title": "Accesorios calefactables",
     "subtitle": "Guantes, zapatillas, mantas y calefactores.",
-    "footer": "Envío gratis desde 60 € · Devoluciones de 30 días"
+    "footer": "Envío gratis desde 60 € · Devoluciones de 30 días"
   }
 }

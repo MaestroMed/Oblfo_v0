@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useId, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 
 /** idle → loading → (subscribed | soon | error) ; soon/error → loading au nouvel envoi. */
@@ -13,10 +13,12 @@ export function NewsletterForm() {
   const inputRef = useRef<HTMLInputElement>(null);
   // Verrou synchrone : Entrée + clic avant re-rendu ne doublent pas l'inscription.
   const busy = useRef(false);
+  const inputId = useId();
 
   const subscribe = async () => {
-    const email = inputRef.current?.value.trim() ?? "";
-    if (!email || busy.current) return;
+    // Champ vide ou mal formé : le navigateur le signale au lieu d'un clic sans effet.
+    if (!inputRef.current?.reportValidity() || busy.current) return;
+    const email = inputRef.current.value.trim();
     busy.current = true;
     setState("loading");
     try {
@@ -45,12 +47,17 @@ export function NewsletterForm() {
 
   return (
     <div data-state={state} className="flex flex-col gap-3">
+      <label htmlFor={inputId} className="text-[16px] font-semibold">
+        {t("newsletterLabel")}
+      </label>
       <div className="flex flex-col gap-3 sm:flex-row">
         <input
           ref={inputRef}
+          id={inputId}
           type="email"
+          inputMode="email"
+          required
           autoComplete="email"
-          aria-label={t("newsletterLabel")}
           placeholder={t("newsletterPlaceholder")}
           onKeyDown={(e) => {
             if (e.key === "Enter") subscribe();

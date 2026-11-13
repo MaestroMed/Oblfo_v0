@@ -73,7 +73,7 @@ export function AnnouncementBar({ promo: serverPromo }: { promo: boolean }) {
   );
 
   return (
-    <div className="on-choco relative bg-choco-2 px-11 py-2 text-center font-display text-[14px] font-semibold leading-tight sm:text-[15px]">
+    <div className="on-choco relative flex min-h-12 items-center justify-center bg-choco-2 px-12 py-2 text-center [text-wrap:balance] font-display text-[16px] font-semibold leading-tight sm:text-[16px]">
       {/* Pendant la promo, tout le bandeau mène à la page Black Friday. */}
       {promo ? (
         <Link href="/black-friday" className="block">
@@ -86,7 +86,7 @@ export function AnnouncementBar({ promo: serverPromo }: { promo: boolean }) {
         type="button"
         onClick={dismiss}
         aria-label={t("close")}
-        className="absolute inset-y-0 right-0 flex w-11 cursor-pointer items-center justify-center"
+        className="absolute inset-y-0 right-0 flex w-12 cursor-pointer items-center justify-center"
       >
         <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" aria-hidden="true">
           <path d="M6 6l12 12M18 6L6 18" />

@@ -24,7 +24,7 @@ export function Reassurance() {
                 <Icon name={icon} className="h-6 w-6" />
               </span>
               <div className="flex min-w-0 flex-col gap-1">
-                <h3 className="text-[20px] leading-tight">{t(titleKey)}</h3>
+                <span className="block font-display font-semibold [text-wrap:balance] text-[20px] leading-tight">{t(titleKey)}</span>
                 <p className="text-[16px] leading-snug">{t(textKey)}</p>
               </div>
             </li>

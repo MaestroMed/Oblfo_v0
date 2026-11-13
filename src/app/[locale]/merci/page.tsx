@@ -87,15 +87,15 @@ export default async function MerciPage({ params, searchParams }: Props) {
         <h2 className="text-[clamp(28px,5vw,44px)]">{t("nextTitle")}</h2>
         <ul className="mt-6 grid gap-3 sm:mt-10 sm:gap-5 md:grid-cols-3">
           <li className="tile on-miel p-6 sm:p-8">
-            <h3 className="text-[22px]">{t("step1Title")}</h3>
+            <span className="block font-display font-semibold leading-[1.06] [text-wrap:balance] text-[22px]">{t("step1Title")}</span>
             <p className="mt-2.5">{t("step1Text")}</p>
           </li>
           <li className="tile on-choco p-6 sm:p-8">
-            <h3 className="text-[22px]">{t("step2Title")}</h3>
+            <span className="block font-display font-semibold leading-[1.06] [text-wrap:balance] text-[22px]">{t("step2Title")}</span>
             <p className="mt-2.5">{t("step2Text")}</p>
           </li>
           <li className="tile on-sable p-6 sm:p-8">
-            <h3 className="text-[22px]">{t("step3Title")}</h3>
+            <span className="block font-display font-semibold leading-[1.06] [text-wrap:balance] text-[22px]">{t("step3Title")}</span>
             <p className="mt-2.5">{t("step3Text")}</p>
           </li>
         </ul>
@@ -105,7 +105,7 @@ export default async function MerciPage({ params, searchParams }: Props) {
           </Link>
           <p>
             {t("helpText")}{" "}
-            <Link href="/contact" className="link inline-flex min-h-11 items-center font-semibold">
+            <Link href="/contact" className="link inline-flex min-h-12 items-center font-semibold">
               {t("helpCta")}
             </Link>
           </p>

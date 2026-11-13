@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { GuideCard, guideTone } from "@/components/guide-card";
+import { getGuides } from "@/data/guides";
+import { productFaq } from "@/lib/product-faq";
 import { Faq } from "@/components/faq";
 import { PackRail } from "@/components/pack-card";
 import { BuyBox } from "@/components/product/buy-box";
@@ -31,6 +34,30 @@ import {
 } from "@/lib/shipping";
 import { SITE_URL } from "@/lib/site";
 import { productTile } from "@/lib/tile";
+
+// Guides proches pour les produits qu'aucun guide ne cite encore (ou un seul).
+const EXTRA_GUIDES: Record<string, string[]> = {
+  "coussin-chauffant": ["plaid-chauffant-guide", "sous-main-guide", "chauffage-appoint-economique"],
+  "echarpe-chauffante": ["gilet-chauffant-guide", "choisir-gants-chauffants"],
+  "ceinture-lombaire-chauffante": ["chauffe-mains-guide", "gilet-chauffant-guide"],
+  "bonnet-chauffant": ["choisir-gants-chauffants", "gilet-chauffant-guide"],
+  "chaussettes-chauffantes": ["pieds-froids-guide", "chaussons-guide"],
+  "gilet-chauffant": ["choisir-gants-chauffants", "chauffe-mains-guide"],
+  "plaid-chauffant": ["chauffage-appoint-economique", "chaussons-guide"],
+  "chauffage-appoint": ["plaid-chauffant-guide", "chaussons-guide"],
+  "semelles-chauffantes": ["chaussons-guide", "choisir-gants-chauffants"],
+  "mini-chauffe-tasse": ["sous-main-guide"],
+  "gants-chauffants": ["gilet-chauffant-guide"],
+  "chauffe-mains": ["gilet-chauffant-guide"],
+  "chaussons-chauffants": ["plaid-chauffant-guide"],
+};
+
+function guidesFor(productId: string, locale: Locale) {
+  const all = getGuides(locale).map((guide, index) => ({ guide, index }));
+  const cited = all.filter(({ guide }) => guide.relatedProductIds.includes(productId));
+  const extra = (EXTRA_GUIDES[productId] ?? []).flatMap((id) => all.filter(({ guide }) => guide.id === id));
+  return [...new Map([...cited, ...extra].map((g) => [g.guide.id, g])).values()].slice(0, 3);
+}
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
@@ -95,6 +122,9 @@ export default async function ProductPage({ params }: Props) {
   const t = await getTranslations("ProductPage");
   const tUx = await getTranslations("Ux");
   const tCat = await getTranslations("Categories");
+  const tFaq = await getTranslations("ProductFaq");
+  const faqItems = productFaq(product.specs, (key) => tFaq(key));
+  const guides = guidesFor(product.id, locale);
   const now = new Date();
   const categoryHref = {
     pathname: "/collection/[category]" as const,
@@ -159,6 +189,14 @@ export default async function ProductPage({ params }: Props) {
           { "@type": "ListItem", position: 3, name: product.name },
         ],
       },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqItems.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: { "@type": "Answer", text: item.answer },
+        })),
+      },
     ],
   };
 
@@ -173,7 +211,7 @@ export default async function ProductPage({ params }: Props) {
   const wrap = "mx-auto max-w-[1240px] px-4 sm:px-8";
   const sectionTitle = "mb-6 text-[clamp(28px,5vw,44px)] sm:mb-10";
   const blockTitle = "mb-4 text-[clamp(24px,7.5vw,36px)] break-words hyphens-auto sm:mb-6";
-  const crumb = "inline-flex min-h-11 items-center font-medium underline-offset-4 hover:underline";
+  const crumb = "inline-flex min-h-12 min-w-12 items-center justify-center font-medium underline-offset-4 hover:underline";
   const chevron = (
     <svg
       aria-hidden
@@ -194,7 +232,7 @@ export default async function ProductPage({ params }: Props) {
       {/* ── Haut de fiche : galerie + achat ── */}
       <div className={`${wrap} pb-14 sm:pb-24`}>
         <nav aria-label={t("breadcrumbLabel")} className="py-1 sm:py-3">
-          <ol className="flex flex-wrap items-center gap-x-2 text-[15px]">
+          <ol className="flex flex-wrap items-center gap-x-2 text-[16px]">
             <li>
               <Link href="/" className={crumb}>
                 {t("breadcrumbHome")}
@@ -206,7 +244,7 @@ export default async function ProductPage({ params }: Props) {
                 {tCat(product.category)}
               </Link>
             </li>
-            <li aria-current="page" className="flex min-h-11 items-center gap-x-2 text-muted">
+            <li aria-current="page" className="flex min-h-12 items-center gap-x-2 text-muted">
               {chevron}
               {product.name}
             </li>
@@ -235,10 +273,11 @@ export default async function ProductPage({ params }: Props) {
                 </li>
               ))}
             </ul>
-            <h1 className="text-[clamp(34px,10vw,64px)] break-words hyphens-auto lg:text-[clamp(40px,4.4vw,60px)]">{product.name}</h1>
-            <p className="max-w-[34ch] text-[18px] leading-snug font-medium sm:text-[20px]">
-              {product.tagline}
-            </p>
+            {/* Brief SEO : H1 = produit + bénéfice. Le bénéfice garde l'allure de l'ancien sous-titre. */}
+            <h1 className="flex flex-col gap-3">
+              <span className="text-[clamp(34px,10vw,64px)] break-words hyphens-auto lg:text-[clamp(40px,4.4vw,60px)]">{product.name}</span>
+              <span className="max-w-[34ch] font-sans text-[18px] leading-snug font-medium sm:text-[20px]">{product.tagline}</span>
+            </h1>
             <BuyBox
               id={product.id}
               name={product.name}
@@ -260,7 +299,7 @@ export default async function ProductPage({ params }: Props) {
                 const { figure, label } = proofText[p.kind](p.value);
                 return (
                   <div key={p.kind} className="flex flex-col-reverse gap-1">
-                    <dt className="text-[15px] font-medium">{label}</dt>
+                    <dt className="text-[16px] font-medium">{label}</dt>
                     <dd className="font-display text-[44px] leading-none font-bold tabular-nums">
                       {figure}
                     </dd>
@@ -357,7 +396,20 @@ export default async function ProductPage({ params }: Props) {
         className="pb-14 sm:pb-24"
       />
 
-      <Faq locale={locale} />
+      {guides.length > 0 ? (
+        <section className="pb-14 sm:pb-24">
+          <div className={wrap}>
+            <h2 className={sectionTitle}>{t("guidesLabel")}</h2>
+            <div className="grid gap-3 sm:gap-5 md:grid-cols-3">
+              {guides.map(({ guide, index }) => (
+                <GuideCard key={guide.id} guide={guide} tone={guideTone(index)} />
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      <Faq locale={locale} items={faqItems} title={tFaq("title")} />
 
       <TrackProductView id={product.id} />
       <script

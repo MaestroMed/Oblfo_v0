@@ -64,7 +64,7 @@ export async function HeatProofs({ locale }: { locale: Locale }) {
             </li>
           ))}
         </ul>
-        <p className="mt-4 text-[14px] leading-snug text-muted">{t("heatNote")}</p>
+        <p className="mt-4 text-[16px] leading-snug text-muted">{t("heatNote")}</p>
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import { useTranslations } from "next-intl";
 import { useCart } from "@/components/cart-context";
 
@@ -34,6 +34,7 @@ export function VariantPicker({
   const { addItem } = useCart();
   const [selected, setSelected] = useState<string | null>(null);
   const [touched, setTouched] = useState(false);
+  const selectId = useId();
 
   const add = () => {
     if (!selected) {
@@ -47,7 +48,10 @@ export function VariantPicker({
     <div className="flex flex-col gap-3">
       {/* Le libellé et l'alerte héritent de la couleur du bloc ; champ et pastilles portent leur propre fond. */}
       <div className="flex flex-col gap-2">
-        <span className="text-[15px] font-semibold">{label}</span>
+        {/* Étiquette visible et liée au champ (brief : pas de libellé seulement en placeholder). */}
+        <label htmlFor={layout === "select" ? selectId : undefined} className="text-[16px] font-semibold">
+          {label}
+        </label>
         {layout === "pills" ? (
           <div className="flex flex-wrap gap-2" role="group" aria-label={label}>
             {options.map((option) => (
@@ -56,7 +60,7 @@ export function VariantPicker({
                 type="button"
                 onClick={() => setSelected(option)}
                 aria-pressed={selected === option}
-                className={`font-display min-h-11 min-w-11 cursor-pointer rounded-full px-4 text-[16px] font-semibold ring-2 ring-inset transition-colors duration-150 ${
+                className={`font-display min-h-12 min-w-12 cursor-pointer rounded-full px-4 text-[16px] font-semibold ring-2 ring-inset transition-colors duration-150 ${
                   selected === option
                     ? "bg-choco text-cream ring-cream"
                     : "bg-paper text-choco ring-choco/25"
@@ -68,9 +72,9 @@ export function VariantPicker({
           </div>
         ) : (
           <select
+            id={selectId}
             value={selected ?? ""}
             onChange={(e) => setSelected(e.target.value || null)}
-            aria-label={label}
             className="field cursor-pointer"
           >
             <option value="">{label}…</option>
@@ -83,7 +87,7 @@ export function VariantPicker({
         )}
       </div>
       {touched && !selected ? (
-        <p role="alert" className="text-[15px] font-bold">
+        <p role="alert" className="text-[16px] font-bold">
           {t("variantRequired", { label })}
         </p>
       ) : null}

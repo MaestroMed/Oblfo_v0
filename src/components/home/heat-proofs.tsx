@@ -33,9 +33,9 @@ export async function HeatProofs({ locale }: { locale: Locale }) {
   return (
     <section className="pb-14 sm:pb-24">
       <div className="mx-auto max-w-[1240px] px-4 sm:px-8">
-        <h2 className="mb-6 text-[clamp(28px,5vw,44px)] sm:mb-10">{t("heatTitle")}</h2>
+        <h2 className="reveal mb-6 text-[clamp(28px,5vw,44px)] sm:mb-10">{t("heatTitle")}</h2>
         {/* Chaque chiffre est posé à côté du produit qui le porte : la carte entière mène à sa fiche. */}
-        <ul className={`grid gap-3 sm:gap-6 ${rows.length === 2 ? "md:grid-cols-2" : "md:grid-cols-3"}`}>
+        <ul className={`reveal-kids grid gap-3 sm:gap-6 ${rows.length === 2 ? "md:grid-cols-2" : "md:grid-cols-3"}`}>
           {rows.map((row) => (
             <li key={row.unit}>
               <Link
@@ -50,7 +50,7 @@ export async function HeatProofs({ locale }: { locale: Locale }) {
                   <span className="text-[16px] leading-snug">{row.caption}</span>
                 </span>
                 {row.cutout ? (
-                  <span className="relative block h-28 w-28 flex-none sm:h-40 sm:w-40">
+                  <span className="float relative block h-28 w-28 flex-none sm:h-40 sm:w-40">
                     <Image
                       src={row.cutout}
                       alt=""

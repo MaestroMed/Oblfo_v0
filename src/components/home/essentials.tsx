@@ -13,7 +13,7 @@ export function Essentials({ locale }: { locale: Locale }) {
   return (
     <section id="essentiels" className="scroll-mt-24 pb-14 sm:pb-24">
       <div className="mx-auto max-w-[1240px] px-4 sm:px-8">
-        <div className="mb-6 flex flex-wrap items-end justify-between gap-x-6 gap-y-1 sm:mb-10">
+        <div className="reveal mb-6 flex flex-wrap items-end justify-between gap-x-6 gap-y-1 sm:mb-10">
           <h2 className="text-[clamp(28px,5vw,44px)]">{t("essentialsTitle")}</h2>
           <Link
             href="/collection"
@@ -22,7 +22,7 @@ export function Essentials({ locale }: { locale: Locale }) {
             {t("essentialsSeeAll")}
           </Link>
         </div>
-        <div className="grid grid-cols-2 gap-x-3 gap-y-8 sm:gap-x-6 lg:grid-cols-4">
+        <div className="reveal-kids grid grid-cols-2 gap-x-3 gap-y-8 sm:gap-x-6 lg:grid-cols-4">
           {products.slice(0, 4).map((product) => (
             <ProductCard key={product.id} product={product} locale={locale} />
           ))}

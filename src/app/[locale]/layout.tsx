@@ -26,12 +26,16 @@ const fredoka = Fredoka({
   variable: "--font-fredoka",
   subsets: ["latin"],
   display: "swap",
+  // Brief perf : la photo principale passe avant les polices sur une connexion lente.
+  preload: false,
 });
 
 const figtree = Figtree({
   variable: "--font-figtree",
   subsets: ["latin"],
   display: "swap",
+  // Brief perf : la photo principale passe avant les polices sur une connexion lente.
+  preload: false,
 });
 
 type Props = {

@@ -15,7 +15,7 @@ function Items({ products, locale }: { products: Product[]; locale: Locale }) {
           <Image src={p.cutout!} alt="" fill sizes="48px" loading="lazy" fetchPriority="low" className="object-contain p-1" />
         </span>
         <span className="font-display text-[15px] font-semibold whitespace-nowrap">{p.name}</span>
-        <span className="text-[15px] font-bold whitespace-nowrap text-braise">{formatPrice(p.price, locale)}</span>
+        <span className="text-[15px] font-bold whitespace-nowrap text-braise-2">{formatPrice(p.price, locale)}</span>
       </Link>
     </li>
   ));

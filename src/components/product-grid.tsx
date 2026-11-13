@@ -58,7 +58,7 @@ export function ProductGrid({
         {products.length > 1 ? (
           <div className="flex flex-wrap items-center gap-x-5">
             {products.some((p) => !p.available) ? (
-              <label className="flex min-h-11 cursor-pointer items-center gap-2.5">
+              <label className="flex min-h-12 cursor-pointer items-center gap-2.5">
                 <input
                   type="checkbox"
                   checked={inStockOnly}
@@ -74,7 +74,7 @@ export function ProductGrid({
                 value={sort}
                 onChange={(e) => setSort(e.target.value as SortKey)}
                 aria-label={t("sortLabel")}
-                className="field min-h-11 w-auto cursor-pointer py-1.5 font-sans font-normal"
+                className="field min-h-12 w-auto cursor-pointer py-1.5 font-sans font-normal"
               >
                 {sortOptions.map((o) => (
                   <option key={o.value} value={o.value}>
@@ -85,7 +85,7 @@ export function ProductGrid({
             </label>
           </div>
         ) : (
-          <span className="min-h-11" />
+          <span className="min-h-12" />
         )}
       </div>
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-[repeat(auto-fill,minmax(250px,1fr))] sm:gap-6">

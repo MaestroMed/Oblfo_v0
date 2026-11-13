@@ -1,11 +1,11 @@
 {
   "Metadata": {
     "title": "OBFLO — Chaleur portable : gants, chaussons, chauffages USB",
-    "description": "Gants, semelles, chaussons et plaids chauffants USB : une chaleur ciblée en quelques secondes. Livraison offerte dès 60 €, retours 30 jours."
+    "description": "Gants, semelles, chaussons et plaids chauffants USB : une chaleur ciblée en quelques secondes. Livraison offerte dès 60 €, retours 30 jours."
   },
   "Announcement": {
-    "msg1": "BLACK FRIDAY · PACKS JUSQU'À −19,70 €",
-    "msg2": "LIVRAISON OFFERTE DÈS 60 €",
+    "msg1": "BLACK FRIDAY · PACKS JUSQU'À −19,70 €",
+    "msg2": "LIVRAISON OFFERTE DÈS 60 €",
     "msg2Promo": "BLACK FRIDAY : LIVRAISON OFFERTE SANS MINIMUM JUSQU'AU 30 NOVEMBRE",
     "msg3": "RETOURS SOUS 30 JOURS",
     "close": "Fermer le bandeau"
@@ -134,6 +134,24 @@
     "packPrice": "Prix du pack",
     "add": "Ajouter le pack · {price}"
   },
+  "ProductFaq": {
+    "title": "Vos questions sur ce produit.",
+    "qPower": "Quelle alimentation faut-il ?",
+    "qCharge": "Comment se fait la recharge ?",
+    "qWattage": "Quelle est sa puissance ?",
+    "qLevels": "Quels réglages de chaleur ?",
+    "qSize": "Quelles dimensions ou tailles ?",
+    "qMaterial": "En quelle matière ?",
+    "qSafety": "Quelles sécurités ?",
+    "qContents": "Que contient le colis ?",
+    "qCare": "Comment l'entretenir ?",
+    "qDelivery": "Quels délais de livraison ?",
+    "aDelivery": "Préparation et expédition sous 1 à 3 jours ouvrés, puis livraison suivie : comptez 8 à 20 jours entre la commande et la réception, en France, en Allemagne, en Espagne et au Portugal.",
+    "qReturns": "Peut-on retourner l'article ?",
+    "aReturns": "Oui : 30 jours après réception, sans justification. La marche à suivre est sur la page Livraison et retours.",
+    "qWarranty": "Quelle garantie ?",
+    "aWarranty": "La garantie légale de conformité de 2 ans s'applique, comme pour tout achat en ligne dans l'Union européenne."
+  },
   "Faq": {
     "label": "FAQ",
     "title": "Questions fréquentes.",
@@ -152,7 +170,7 @@
     "paymentMethods": "Moyens de paiement acceptés",
     "checkoutSoon": "Paiement en cours d'activation. Réessayez bientôt.",
     "checkoutError": "Le paiement n'a pas pu démarrer. Réessayez dans un instant.",
-    "reassurance": "Livraison offerte dès 60 €. Retours sous 30 jours.",
+    "reassurance": "Livraison offerte dès 60 €. Retours sous 30 jours.",
     "reassurancePromo": "Livraison offerte sans minimum jusqu'au 30 novembre. Retours sous 30 jours.",
     "toastAdded": "Ajouté au panier : {name}",
     "viewCart": "Voir le panier",
@@ -177,11 +195,12 @@
     "crossSellTitle": "À ajouter à votre commande"
   },
   "ProductPage": {
+    "guidesLabel": "À lire avant d'acheter",
     "breadcrumbHome": "Accueil",
     "breadcrumbLabel": "Fil d'Ariane",
     "kicker": "OBFLO — CHALEUR PORTABLE",
     "addToCart": "Ajouter au panier",
-    "reassurance": "LIVRAISON 8–20 J  ·  RETOURS 30 J  ·  OFFERTE DÈS 60 €",
+    "reassurance": "LIVRAISON 8–20 J  ·  RETOURS 30 J  ·  OFFERTE DÈS 60 €",
     "specsLabel": "Caractéristiques",
     "packsLabel": "Moins cher en pack",
     "rangeLabel": "Pour compléter",
@@ -253,7 +272,7 @@
   },
   "ShippingPage": {
     "metaTitle": "Livraison & retours",
-    "metaDescription": "Délais de livraison, frais de port et politique de retours 30 jours OBFLO. Livraison offerte dès 60 € en France, Allemagne, Espagne et Portugal.",
+    "metaDescription": "Délais de livraison, frais de port et politique de retours 30 jours OBFLO. Livraison offerte dès 60 € en France, Allemagne, Espagne et Portugal.",
     "title": "Livraison & retours.",
     "intro": "Des délais annoncés sans détour et des retours simples : voici comment ça se passe.",
     "sections": [
@@ -266,7 +285,7 @@
       {
         "title": "Frais de port",
         "paragraphs": [
-          "La livraison est offerte dès 60 € d'achat. En dessous, les frais sont calculés au checkout selon la destination et affichés avant le paiement — jamais de surprise."
+          "La livraison est offerte dès 60 € d'achat. En dessous, les frais sont calculés au checkout selon la destination et affichés avant le paiement — jamais de surprise."
         ]
       },
       {
@@ -315,7 +334,7 @@
     "s1Title": "1. Objet",
     "s1P1": "Les présentes conditions régissent les ventes conclues entre Opcodia LLC (1209 Mountain Road Pl NE, Ste R, Albuquerque, NM 87110, États-Unis) et tout client passant commande sur le site OBFLO.",
     "s2Title": "2. Prix",
-    "s2P1": "Les prix sont indiqués en euros, toutes taxes comprises, hors frais de livraison. Les frais de livraison sont affichés avant validation de la commande. La livraison est offerte dès 60 € d'achat.",
+    "s2P1": "Les prix sont indiqués en euros, toutes taxes comprises, hors frais de livraison. Les frais de livraison sont affichés avant validation de la commande. La livraison est offerte dès 60 € d'achat.",
     "s3Title": "3. Commande et paiement",
     "s3P1": "La commande est ferme dès validation du paiement. Moyens de paiement acceptés : carte bancaire (et selon l'appareil Apple Pay / Google Pay). Le paiement est sécurisé par Stripe ; aucune donnée bancaire ne transite par nos serveurs.",
     "s4Title": "4. Livraison",
@@ -369,7 +388,7 @@
     "accCare": "Entretien",
     "accShipping": "Livraison",
     "careFallback": "Suivez la notice fournie avec le produit. Débranchez toujours le câble USB avant de le nettoyer.",
-    "shippingText": "Préparation et expédition sous 1 à 3 jours ouvrés, puis livraison suivie : comptez 8 à 20 jours entre la commande et la réception. Offerte dès 60 €, sinon 4,90 €. Retours sous 30 jours.",
+    "shippingText": "Préparation et expédition sous 1 à 3 jours ouvrés, puis livraison suivie : comptez 8 à 20 jours entre la commande et la réception. Offerte dès 60 €, sinon 4,90 €. Retours sous 30 jours.",
     "shippingTextPromo": "Préparation et expédition sous 1 à 3 jours ouvrés, puis livraison suivie : comptez 8 à 20 jours entre la commande et la réception. Black Friday : livraison offerte sans minimum jusqu'au 30 novembre. Retours sous 30 jours.",
     "reassureShip": "Livraison suivie 8 à 20 jours",
     "reassureReturn": "Retours sous 30 jours",
@@ -387,7 +406,7 @@
     "title": "Black Friday : gants et accessoires chauffants",
     "leadBefore": "Du 23 au 30 novembre, la livraison est offerte sans minimum.",
     "leadDuring": "La livraison est offerte sans minimum jusqu'au 30 novembre.",
-    "leadAfter": "L'offre Black Friday est terminée. La livraison reste offerte dès 60 €.",
+    "leadAfter": "L'offre Black Friday est terminée. La livraison reste offerte dès 60 €.",
     "delivery": "La livraison est suivie et prend 8 à 20 jours. Pour un cadeau de Noël, mieux vaut commander avant le 1er décembre. On ne peut pas garantir de date d'arrivée.",
     "deliveryAfter": "La livraison est suivie et prend 8 à 20 jours. On ne peut pas garantir de date d'arrivée.",
     "giftsTitle": "Idées cadeaux"
@@ -395,6 +414,6 @@
   "Og": {
     "title": "Accessoires chauffants",
     "subtitle": "Gants, chaussons, plaids et chauffages d'appoint.",
-    "footer": "Livraison offerte dès 60 € · Retours 30 jours"
+    "footer": "Livraison offerte dès 60 € · Retours 30 jours"
   }
 }

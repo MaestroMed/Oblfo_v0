@@ -66,11 +66,11 @@ export function CookieBanner() {
     <div
       role="dialog"
       aria-label={t("ariaLabel")}
-      className="tile on-paper fixed inset-x-3 bottom-3 z-[110] mx-auto max-w-md border-2 border-choco p-4 sm:inset-x-auto sm:right-5 sm:bottom-5 sm:p-5"
+      className="tile on-paper fixed inset-x-3 bottom-[max(0.75rem,env(safe-area-inset-bottom))] z-[110] mx-auto max-w-md border-2 border-choco p-4 sm:inset-x-auto sm:right-5 sm:bottom-5 sm:p-5"
     >
-      <p className="text-[15px] leading-snug sm:text-[16px]">
+      <p className="text-[16px] leading-snug sm:text-[16px]">
         {t("message")}{" "}
-        <Link href="/confidentialite" className="link font-semibold">
+        <Link href="/confidentialite" className="link -my-[15px] inline-block py-[15px] font-semibold">
           {t("privacyLink")}
         </Link>
       </p>

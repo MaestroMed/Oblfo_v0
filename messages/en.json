@@ -134,6 +134,24 @@
     "packPrice": "Bundle price",
     "add": "Add bundle · {price}"
   },
+  "ProductFaq": {
+    "title": "Your questions about this product.",
+    "qPower": "What power source does it need?",
+    "qCharge": "How does charging work?",
+    "qWattage": "How powerful is it?",
+    "qLevels": "What heat settings?",
+    "qSize": "What dimensions or sizes?",
+    "qMaterial": "What is it made of?",
+    "qSafety": "What safety features?",
+    "qContents": "What's in the box?",
+    "qCare": "How do I care for it?",
+    "qDelivery": "How long does delivery take?",
+    "aDelivery": "Orders are prepared and shipped within 1 to 3 business days, then delivered with tracking: allow 8 to 20 days from order to delivery, in France, Germany, Spain and Portugal.",
+    "qReturns": "Can I return it?",
+    "aReturns": "Yes: within 30 days of delivery, no reason needed. The steps are on the Shipping and returns page.",
+    "qWarranty": "What warranty applies?",
+    "aWarranty": "The 2-year legal guarantee of conformity applies, as for any online purchase in the European Union."
+  },
   "Faq": {
     "label": "FAQ",
     "title": "Frequently asked questions.",
@@ -177,6 +195,7 @@
     "crossSellTitle": "Add to your order"
   },
   "ProductPage": {
+    "guidesLabel": "Read before you buy",
     "breadcrumbHome": "Home",
     "breadcrumbLabel": "Breadcrumb",
     "kicker": "OBFLO — PORTABLE WARMTH",

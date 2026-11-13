@@ -85,7 +85,7 @@ export function CartDrawer() {
             ref={closeButton}
             onClick={closeDrawer}
             aria-label={t("close")}
-            className="ml-auto flex h-11 w-11 flex-none cursor-pointer items-center justify-center rounded-full bg-cream-2 text-choco transition-colors duration-150 hover:bg-miel"
+            className="ml-auto flex h-12 w-12 flex-none cursor-pointer items-center justify-center rounded-full bg-cream-2 text-choco transition-colors duration-150 hover:bg-miel"
           >
             <svg
               viewBox="0 0 24 24"
@@ -121,12 +121,12 @@ export function CartDrawer() {
                   {formatPrice(total, locale)}
                 </span>
               </div>
-              <p className="mt-1 mb-3 text-sm text-muted">{t("shippingAtCheckout")}</p>
+              <p className="mt-1 mb-3 text-[16px] text-muted">{t("shippingAtCheckout")}</p>
               <CartCheckout amount={total} />
               <Link
                 href="/panier"
                 onClick={closeDrawer}
-                className="link mx-auto mt-1 flex min-h-11 w-fit items-center font-display font-semibold"
+                className="link mx-auto mt-1 flex min-h-12 w-fit items-center font-display font-semibold"
               >
                 {t("viewCart")}
               </Link>

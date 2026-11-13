@@ -62,7 +62,7 @@ export function LocaleSwitcher({ label }: { label?: string }) {
           <span
             key={l}
             aria-current="true"
-            className="flex h-11 min-w-11 items-center justify-center rounded-full bg-moutarde px-3 text-choco"
+            className="flex h-12 min-w-12 items-center justify-center rounded-full bg-moutarde px-3 text-choco"
           >
             {l.toUpperCase()}
           </span>
@@ -71,7 +71,7 @@ export function LocaleSwitcher({ label }: { label?: string }) {
             key={l}
             href={alternateHref(rawPathname, locale, l)}
             hrefLang={l}
-            className="flex h-11 min-w-11 items-center justify-center rounded-full px-3 no-underline hover:underline hover:decoration-2 hover:underline-offset-4"
+            className="flex h-12 min-w-12 items-center justify-center rounded-full px-3 no-underline hover:underline hover:decoration-2 hover:underline-offset-4"
           >
             {l.toUpperCase()}
           </a>

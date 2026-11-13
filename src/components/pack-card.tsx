@@ -7,7 +7,7 @@ import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import { TILE_CLASS, productTile } from "@/lib/tile";
 
-const button = "btn btn-braise btn-block px-3 py-2 max-[359px]:text-[15px]";
+const button = "btn btn-braise btn-block px-3 py-2 max-[359px]:text-[16px]";
 
 /** Un pack se lit comme un ticket : ses articles et leur prix, le total à l'unité barré, le prix du pack. */
 export function PackCard({ pack, locale }: { pack: Pack; locale: Locale }) {
@@ -20,7 +20,7 @@ export function PackCard({ pack, locale }: { pack: Pack; locale: Locale }) {
       className={`tile on-paper flex h-full flex-col gap-4 border-2 p-4 sm:p-6 ${pack.featured ? "border-braise" : "border-choco/10"}`}
     >
       <header className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
-        <h3 className="text-[21px] sm:text-[24px]">{pack.name}</h3>
+        <span className="block font-display font-semibold leading-[1.06] [text-wrap:balance] text-[21px] sm:text-[24px]">{pack.name}</span>
         {pack.featured ? <span className="chip chip-moutarde">{t("bestDeal")}</span> : null}
       </header>
 
@@ -37,7 +37,7 @@ export function PackCard({ pack, locale }: { pack: Pack; locale: Locale }) {
             </span>
             <Link
               href={{ pathname: "/produits/[slug]", params: { slug: line.slug } }}
-              className="flex min-h-11 min-w-0 flex-1 items-center text-[16px] leading-snug font-semibold decoration-2 underline-offset-4 hover:underline"
+              className="flex min-h-12 min-w-0 flex-1 items-center text-[16px] leading-snug font-semibold decoration-2 underline-offset-4 hover:underline"
             >
               {line.name}
             </Link>

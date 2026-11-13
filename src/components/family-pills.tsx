@@ -11,7 +11,7 @@ import type { Locale } from "@/i18n/routing";
 const FAMILIES = Object.keys(CATEGORY_SLUGS) as Category[];
 
 const pill =
-  "flex min-h-11 shrink-0 items-center rounded-full px-5 font-display text-[16px] font-semibold transition-colors duration-150";
+  "flex min-h-12 shrink-0 items-center rounded-full px-5 font-display text-[16px] font-semibold transition-colors duration-150";
 const idle = `${pill} bg-cream-2 text-choco hover:bg-moutarde`;
 const active = `${pill} bg-choco text-cream`;
 

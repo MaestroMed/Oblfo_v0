@@ -138,6 +138,12 @@ export async function POST(request: Request) {
 
   try {
     const session = await stripe.checkout.sessions.create({
+      // Brief growth : relance des paniers abandonnés. Stripe crée un lien de reprise valable 30 jours
+      // (événement checkout.session.expired) ; l'e-mail de relance partira avec l'outil d'e-mail, et seulement
+      // vers les clients qui ont coché l'accord marketing. Session expirée après 1 h (brief : relance à 1 h).
+      expires_at: Math.floor(Date.now() / 1000) + 3600,
+      after_expiration: { recovery: { enabled: true } },
+      consent_collection: { promotions: "auto" },
       mode: "payment",
       locale,
       line_items: lineItems,

@@ -82,12 +82,12 @@ export function ProductCard({
         ) : null}
       </span>
       <div className="flex min-w-0 flex-1 flex-col gap-1 pt-3">
-        <h3 className="text-[17px] leading-[1.15] [overflow-wrap:anywhere] hyphens-auto sm:text-[19px]">
+        <span className="block font-display font-semibold [text-wrap:balance] text-[17px] leading-[1.15] [overflow-wrap:anywhere] hyphens-auto sm:text-[19px]">
           {/* Le lien du titre couvre toute la carte : l'image reste décorative. */}
           <Link href={href} className="no-underline after:absolute after:inset-0">
             {product.name}
           </Link>
-        </h3>
+        </span>
         <span className="mb-auto text-[17px] font-bold tabular-nums sm:text-[18px]">
           {formatPrice(product.price, locale)}
         </span>

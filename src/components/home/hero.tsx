@@ -24,7 +24,7 @@ export function Hero({ locale }: { locale: Locale }) {
       <div className="mx-auto grid max-w-[1240px] items-center gap-7 px-4 pt-8 sm:px-8 sm:pt-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-12 lg:pt-14">
         <div className="flex flex-col items-start gap-4 sm:gap-6">
           {/* Le H1 porte ce que les gens tapent dans Google ; la phrase de marque reste en grand juste dessous. */}
-          <h1 className="rise font-display text-[15px] font-bold tracking-wide text-braise-2 uppercase sm:text-[17px]">
+          <h1 className="rise font-display text-[16px] font-bold tracking-wide text-braise-2 uppercase sm:text-[17px]">
             {t("heroKicker")}
           </h1>
           <p className="rise -mt-2 font-display text-[clamp(40px,10.5vw,76px)] leading-none font-semibold [text-wrap:balance] [--d:40ms] sm:-mt-3">
@@ -65,8 +65,8 @@ export function Hero({ locale }: { locale: Locale }) {
                   <Image src={p.cutout!} alt="" fill sizes="48px" loading="lazy" fetchPriority="low" className="object-contain p-1" />
                 </span>
                 <span className="flex min-w-0 flex-col leading-tight">
-                  <span className="truncate font-display text-[13px] font-semibold sm:text-[15px]">{p.name}</span>
-                  <span className="text-[13px] font-bold text-braise-2 sm:text-[15px]">{formatPrice(p.price, locale)}</span>
+                  <span className="truncate font-display text-[16px] font-semibold sm:text-[16px]">{p.name}</span>
+                  <span className="text-[16px] font-bold text-braise-2 sm:text-[16px]">{formatPrice(p.price, locale)}</span>
                 </span>
               </Link>
             ))}

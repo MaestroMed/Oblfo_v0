@@ -55,7 +55,7 @@ function Thumb({ id, locale, roomy }: { id: string; locale: Locale; roomy: boole
 }
 
 const STEP_BUTTON =
-  "flex h-11 w-11 cursor-pointer items-center justify-center rounded-full font-display text-[22px] leading-none font-semibold transition-colors duration-150 hover:bg-miel";
+  "flex h-12 w-12 cursor-pointer items-center justify-center rounded-full font-display text-[22px] leading-none font-semibold transition-colors duration-150 hover:bg-miel";
 
 /** Lignes du panier. `roomy` : version aérée de la page panier (vignette et textes plus grands dès 640 px). */
 export function CartLines({ roomy = false }: { roomy?: boolean }) {
@@ -86,7 +86,7 @@ export function CartLines({ roomy = false }: { roomy?: boolean }) {
                   type="button"
                   onClick={() => removeItem(key)}
                   aria-label={t("removeItem", { name: item.name })}
-                  className="-mt-2.5 -mr-2.5 flex h-11 w-11 flex-none cursor-pointer items-center justify-center rounded-full text-muted transition-colors duration-150 hover:bg-cream-2 hover:text-choco"
+                  className="-mt-2.5 -mr-2.5 flex h-12 w-12 flex-none cursor-pointer items-center justify-center rounded-full text-muted transition-colors duration-150 hover:bg-cream-2 hover:text-choco"
                 >
                   <svg
                     viewBox="0 0 24 24"
@@ -102,7 +102,7 @@ export function CartLines({ roomy = false }: { roomy?: boolean }) {
                   </svg>
                 </button>
               </div>
-              <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted">
+              <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[16px] text-muted">
                 {item.variant ? <span className="chip chip-moutarde">{item.variant}</span> : null}
                 <span className="tabular-nums">{t("perUnit", { price: formatPrice(item.price, locale) })}</span>
               </div>
@@ -165,8 +165,8 @@ export function PackSuggestion({ className = "" }: { className?: string }) {
     <section aria-label={pack.name} className={`tile on-miel p-4 sm:p-5 ${className}`}>
       <div className="flex items-start gap-3">
         <div className="min-w-0 flex-1">
-          <h3 className="text-[22px]">{pack.name}</h3>
-          <p className="mt-1.5 text-[15px] leading-snug">{pack.lines.map((line) => line.name).join(" + ")}</p>
+          <span className="block font-display font-semibold leading-[1.06] [text-wrap:balance] text-[22px]">{pack.name}</span>
+          <p className="mt-1.5 text-[16px] leading-snug">{pack.lines.map((line) => line.name).join(" + ")}</p>
         </div>
         <div className="flex flex-none -space-x-2">
           {pack.lines.slice(0, 2).map((line) =>
@@ -180,7 +180,7 @@ export function PackSuggestion({ className = "" }: { className?: string }) {
       </div>
       <p className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1.5">
         <span className="price">{formatPrice(pack.price, locale)}</span>
-        <span className="text-sm">
+        <span className="text-[16px]">
           {tPacks("separately")} <span className="strike">{formatPrice(pack.compareAt, locale)}</span>
         </span>
       </p>
@@ -232,7 +232,7 @@ export function CartCheckout({ amount }: { amount: number }) {
   const locale = useLocale() as Locale;
   const { state, busy, startCheckout } = useCheckout(locale);
   const [termsAccepted, setTermsAccepted] = useState(false);
-  const alert = "on-tomate mt-3 rounded-2xl px-4 py-3 text-center text-[15px] leading-snug font-semibold";
+  const alert = "on-tomate mt-3 rounded-2xl px-4 py-3 text-center text-[16px] leading-snug font-semibold";
 
   return (
     <>

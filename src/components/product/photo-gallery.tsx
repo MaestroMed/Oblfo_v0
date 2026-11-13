@@ -65,7 +65,7 @@ export function PhotoGallery({
                 className={src === cutout ? "cutout p-[10%]" : "object-cover"}
               />
               {src === cutout ? (
-                <HeatWaves className="absolute top-5 right-5 h-11 w-11 sm:top-7 sm:right-7 sm:h-16 sm:w-16" />
+                <HeatWaves className="absolute top-5 right-5 h-12 w-12 sm:top-7 sm:right-7 sm:h-16 sm:w-16" />
               ) : null}
             </div>
           ))}

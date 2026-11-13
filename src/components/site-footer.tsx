@@ -14,7 +14,7 @@ function FooterHeading({ children }: { children: React.ReactNode }) {
 
 // Cible de 44 px de haut, même quand le nom passe sur deux lignes.
 const footerLinkClass =
-  "flex min-h-11 items-center py-1.5 text-[16px] leading-snug no-underline decoration-2 underline-offset-4 hover:underline";
+  "flex min-h-12 items-center py-1.5 text-[16px] leading-snug no-underline decoration-2 underline-offset-4 hover:underline";
 
 const BADGES: [IconName, "badge1" | "badge2" | "badge3" | "badge4"][] = [
   ["lock", "badge1"],
@@ -35,7 +35,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-[1240px] px-4 py-14 sm:px-8 sm:py-24">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
           <div className="flex flex-col gap-6">
-            <a href={`/${locale}`} aria-label="OBFLO" className="flex h-11 items-center self-start">
+            <a href={`/${locale}`} aria-label="OBFLO" className="flex h-12 items-center self-start">
               <ObfloLogo className="h-10 w-auto" />
             </a>
             <p className="max-w-[420px] text-[17px] leading-relaxed">{t("tagline")}</p>
@@ -106,13 +106,13 @@ export function SiteFooter() {
                 <span className="font-display text-[17px] leading-tight font-semibold">
                   {t(`${key}Title`)}
                 </span>
-                <span className="text-[15px] leading-snug">{t(`${key}Text`)}</span>
+                <span className="text-[16px] leading-snug">{t(`${key}Text`)}</span>
               </span>
             </li>
           ))}
         </ul>
         <div className="mt-10 flex flex-wrap items-center justify-between gap-x-6 gap-y-2">
-          <span className="text-[15px]">{t("copyright")}</span>
+          <span className="text-[16px]">{t("copyright")}</span>
           <PaymentIcons />
           <LocaleSwitcher label={tNav("language")} />
         </div>

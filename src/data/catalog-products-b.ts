@@ -684,6 +684,8 @@ export const productsB: ProductSource[] = [
       es: "alfombrilla-termica",
     },
     price: 39.9,
+    // La fiche CJ ne montre pas la prise murale (variante unique, 220 V) : en vente seulement quand une prise EU est confirmée.
+    available: false,
     category: "bureau",
     glow: "warm",
     badge: "new",

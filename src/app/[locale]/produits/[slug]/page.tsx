@@ -209,8 +209,8 @@ export default async function ProductPage({ params }: Props) {
   const careSpec = product.specs.find((s) => /entretien|care|pflege|cuidado/i.test(s.label));
 
   const wrap = "mx-auto max-w-[1240px] px-4 sm:px-8";
-  const sectionTitle = "mb-6 text-[clamp(28px,5vw,44px)] sm:mb-10";
-  const blockTitle = "mb-4 text-[clamp(24px,7.5vw,36px)] break-words hyphens-auto sm:mb-6";
+  const sectionTitle = "mb-6 text-display sm:mb-8";
+  const blockTitle = "mb-4 text-display break-words hyphens-auto sm:mb-6";
   const crumb = "inline-flex min-h-12 min-w-12 items-center justify-center font-medium underline-offset-4 hover:underline";
   const chevron = (
     <svg
@@ -230,9 +230,9 @@ export default async function ProductPage({ params }: Props) {
   return (
     <main>
       {/* ── Haut de fiche : galerie + achat ── */}
-      <div className={`${wrap} pb-14 sm:pb-24`}>
-        <nav aria-label={t("breadcrumbLabel")} className="py-1 sm:py-3">
-          <ol className="flex flex-wrap items-center gap-x-2 text-[16px]">
+      <div className={`${wrap} pb-12 sm:pb-16`}>
+        <nav aria-label={t("breadcrumbLabel")} className="py-1 sm:py-4">
+          <ol className="flex flex-wrap items-center gap-x-2 text-caption">
             <li>
               <Link href="/" className={crumb}>
                 {t("breadcrumbHome")}
@@ -251,9 +251,9 @@ export default async function ProductPage({ params }: Props) {
           </ol>
         </nav>
 
-        <div className="grid items-start gap-7 lg:grid-cols-2 lg:gap-14">
+        <div className="grid items-start gap-8 lg:grid-cols-2 lg:gap-12">
           {/* min-w-0 : la bande défilante de la galerie ne doit pas élargir la colonne */}
-          <div className="min-w-0 lg:sticky lg:top-24">
+          <div className="min-w-0 lg:sticky lg:below-header">
             <PhotoGallery
               photos={product.photos ?? (product.image ? [product.image] : [])}
               cutout={product.cutout}
@@ -262,7 +262,7 @@ export default async function ProductPage({ params }: Props) {
             />
           </div>
 
-          <div className="flex min-w-0 flex-col gap-5">
+          <div className="flex min-w-0 flex-col gap-4">
             <ul className="flex flex-wrap gap-2">
               {product.badge === "new" ? (
                 <li className="chip chip-moutarde">{t("badgeNew")}</li>
@@ -274,9 +274,9 @@ export default async function ProductPage({ params }: Props) {
               ))}
             </ul>
             {/* Brief SEO : H1 = produit + bénéfice. Le bénéfice garde l'allure de l'ancien sous-titre. */}
-            <h1 className="flex flex-col gap-3">
-              <span className="text-[clamp(34px,10vw,64px)] break-words hyphens-auto lg:text-[clamp(40px,4.4vw,60px)]">{product.name}</span>
-              <span className="max-w-[34ch] font-sans text-[18px] leading-snug font-medium sm:text-[20px]">{product.tagline}</span>
+            <h1 className="flex flex-col gap-4">
+              <span className="text-display break-words hyphens-auto">{product.name}</span>
+              <span className="max-w-[34ch] font-sans text-body font-medium">{product.tagline}</span>
             </h1>
             <BuyBox
               id={product.id}
@@ -290,8 +290,8 @@ export default async function ProductPage({ params }: Props) {
       </div>
 
       {/* ── Le produit en blocs d'aplat ── */}
-      <div className={`${wrap} grid gap-4 pb-14 sm:gap-5 sm:pb-24 lg:grid-cols-12`}>
-        <section className="tile on-miel p-6 sm:p-10 lg:col-span-5">
+      <div className={`${wrap} grid gap-4 pb-12 sm:gap-6 sm:pb-16 lg:grid-cols-12`}>
+        <section className="tile on-miel p-6 sm:p-8 lg:col-span-5">
           <h2 className={blockTitle}>{t("highlightsLabel")}</h2>
           {proofs.length ? (
             <dl className="mb-6 flex flex-wrap gap-x-8 gap-y-4">
@@ -299,8 +299,8 @@ export default async function ProductPage({ params }: Props) {
                 const { figure, label } = proofText[p.kind](p.value);
                 return (
                   <div key={p.kind} className="flex flex-col-reverse gap-1">
-                    <dt className="text-[16px] font-medium">{label}</dt>
-                    <dd className="font-display text-[44px] leading-none font-bold tabular-nums">
+                    <dt className="text-caption font-medium">{label}</dt>
+                    <dd className="font-display text-display font-bold tabular-nums">
                       {figure}
                     </dd>
                   </div>
@@ -308,9 +308,9 @@ export default async function ProductPage({ params }: Props) {
               })}
             </dl>
           ) : null}
-          <ul className="flex flex-col gap-3">
+          <ul className="flex flex-col gap-4">
             {product.highlights.map((highlight) => (
-              <li key={highlight} className="flex items-start gap-3 text-[17px] leading-snug font-medium">
+              <li key={highlight} className="flex items-start gap-4 text-body font-medium">
                 <svg
                   aria-hidden
                   viewBox="0 0 24 24"
@@ -319,7 +319,7 @@ export default async function ProductPage({ params }: Props) {
                   strokeWidth="3.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="mt-0.5 h-5 w-5 flex-none"
+                  className="mt-1 h-5 w-5 flex-none"
                 >
                   <path d="M20 6 9 17l-5-5" />
                 </svg>
@@ -329,22 +329,22 @@ export default async function ProductPage({ params }: Props) {
           </ul>
         </section>
 
-        <section className="tile on-paper p-6 sm:p-10 lg:col-span-7">
+        <section className="tile on-paper p-6 sm:p-8 lg:col-span-7">
           <h2 className={blockTitle}>{t("descriptionLabel")}</h2>
-          <div className="flex max-w-[62ch] flex-col gap-4 text-[17px] leading-relaxed">
+          <div className="flex max-w-[62ch] flex-col gap-4 text-body">
             {product.description.map((paragraph) => (
               <p key={paragraph.slice(0, 32)}>{paragraph}</p>
             ))}
           </div>
         </section>
 
-        <section className="tile on-choco p-6 sm:p-10 lg:col-span-7">
+        <section className="tile on-choco p-6 sm:p-8 lg:col-span-7">
           <h2 className={blockTitle}>{t("specsLabel")}</h2>
           <dl>
             {product.specs.map((spec) => (
               <div
                 key={spec.label}
-                className="grid gap-1 border-b border-cream/20 py-3 text-[16px] leading-snug last:border-0 sm:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] sm:gap-4"
+                className="grid gap-1 border-b border-cream/20 py-4 text-caption last:border-0 sm:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] sm:gap-4"
               >
                 <dt className="text-cream/80">{spec.label}</dt>
                 <dd className="font-semibold break-words">{spec.value}</dd>
@@ -353,21 +353,21 @@ export default async function ProductPage({ params }: Props) {
           </dl>
         </section>
 
-        <div className="flex flex-col gap-4 sm:gap-5 lg:col-span-5">
-          <section className="tile on-sable flex-auto p-6 sm:p-10">
+        <div className="flex flex-col gap-4 sm:gap-6 lg:col-span-5">
+          <section className="tile on-sable flex-auto p-6 sm:p-8">
             <h2 className={blockTitle}>{tUx("accShipping")}</h2>
-            <p className="text-[17px] leading-relaxed">{tUx(isFreeShippingPromo(now) ? "shippingTextPromo" : "shippingText")}</p>
+            <p className="text-body">{tUx(isFreeShippingPromo(now) ? "shippingTextPromo" : "shippingText")}</p>
           </section>
-          <section className="tile on-cream-2 flex-auto p-6 sm:p-10">
+          <section className="tile on-cream-2 flex-auto p-6 sm:p-8">
             <h2 className={blockTitle}>{tUx("accCare")}</h2>
-            <p className="text-[17px] leading-relaxed">{careSpec?.value ?? tUx("careFallback")}</p>
+            <p className="text-body">{careSpec?.value ?? tUx("careFallback")}</p>
           </section>
         </div>
       </div>
 
       {/* ── Moins cher en pack ── */}
       {packsWithProduct.length > 0 ? (
-        <section className="defer on-cream-2 py-14 sm:py-24">
+        <section className="defer on-cream-2 py-12 sm:py-16">
           <div className={wrap}>
             <h2 className={sectionTitle}>{t("packsLabel")}</h2>
             <PackRail
@@ -380,10 +380,10 @@ export default async function ProductPage({ params }: Props) {
       ) : null}
 
       {/* ── Vente croisée ── */}
-      <section className="defer py-14 sm:py-24">
+      <section className="defer py-12 sm:py-16">
         <div className={wrap}>
           <h2 className={sectionTitle}>{t("rangeLabel")}</h2>
-          <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
             {otherProducts.map((other) => (
               <ProductCard key={other.id} product={toCardProduct(other)} locale={locale} />
             ))}
@@ -393,14 +393,14 @@ export default async function ProductPage({ params }: Props) {
 
       <RecentlyViewed
         exclude={[product.id, ...otherProducts.map((p) => p.id)]}
-        className="pb-14 sm:pb-24"
+        className="pb-12 sm:pb-16"
       />
 
       {guides.length > 0 ? (
-        <section className="defer pb-14 sm:pb-24">
+        <section className="defer pb-12 sm:pb-16">
           <div className={wrap}>
             <h2 className={sectionTitle}>{t("guidesLabel")}</h2>
-            <div className="grid gap-3 sm:gap-5 md:grid-cols-3">
+            <div className="grid gap-4 sm:gap-6 md:grid-cols-3">
               {guides.map(({ guide, index }) => (
                 <GuideCard key={guide.id} guide={guide} tone={guideTone(index)} />
               ))}

@@ -6,6 +6,7 @@ import { isLocale, routing } from "@/i18n/routing";
 import { MAX_QTY } from "@/lib/cart";
 import { shippingCostFor, SHIPPING_COUNTRY_CODES } from "@/lib/shipping";
 import { SITE_URL } from "@/lib/site";
+import { readStock, unitsOf } from "@/lib/stock";
 
 type CheckoutBody = {
   locale?: string;
@@ -117,6 +118,16 @@ export async function POST(request: Request) {
         },
       },
     });
+  }
+
+  // Stock réservé épuisé : on refuse avant Stripe plutôt que d'encaisser une commande impossible à servir.
+  const stock = await readStock().catch(() => null);
+  if (stock) {
+    for (const [id, qty] of Object.entries(unitsOf(normalizedItems))) {
+      if (id in stock && stock[id] < qty) {
+        return NextResponse.json({ error: "out_of_stock", id }, { status: 409 });
+      }
+    }
   }
 
   const secretKey = process.env.STRIPE_SECRET_KEY;

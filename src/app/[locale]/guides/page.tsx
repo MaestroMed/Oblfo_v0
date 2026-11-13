@@ -34,9 +34,9 @@ export default async function GuidesPage({ params }: Props) {
   const guides = getGuides(locale);
 
   return (
-    <main className={`${PAGE} pt-4 pb-14 sm:pt-6 sm:pb-24`}>
+    <main className={`${PAGE} pt-4 pb-12 sm:pt-6 sm:pb-16`}>
       <PageBanner tone="peche" waves title={t("title")} lead={t("intro")} />
-      <div className="mt-6 grid gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
+      <div className="mt-6 grid gap-4 sm:mt-8 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
         {guides.map((guide, i) => (
           <GuideCard key={guide.id} guide={guide} tone={guideTone(i)} priority={i === 0} />
         ))}

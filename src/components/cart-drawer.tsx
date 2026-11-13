@@ -71,14 +71,14 @@ export function CartDrawer() {
         tabIndex={-1}
         aria-label={t("closeCart")}
         onClick={closeDrawer}
-        className="cart-drawer-veil absolute inset-0 cursor-default bg-choco/60"
+        className="cart-drawer-veil absolute inset-0 cursor-default"
       />
       <aside
         // Écran très bas (téléphone à l'horizontale) : tout le panneau défile, le pied ne mange plus la liste.
-        className="cart-drawer-panel absolute top-0 right-0 flex h-full w-full max-w-[440px] flex-col bg-cream text-choco [@media(max-height:560px)]:overflow-y-auto"
+        className="cart-drawer-panel absolute top-0 right-0 flex h-full w-full max-w-[440px] flex-col bg-cream text-choco shadow-modal [@media(max-height:560px)]:overflow-y-auto"
       >
-        <div className="flex flex-none items-center gap-3 border-b border-choco/10 py-2.5 pr-3 pl-4 sm:pl-6">
-          <h2 className="text-[26px]">{t("title")}</h2>
+        <div className="flex flex-none items-center gap-4 border-b border-choco/10 py-2 pr-4 pl-4 sm:pl-6">
+          <h2 className="text-body">{t("title")}</h2>
           {count > 0 ? <span className="chip tabular-nums">{count}</span> : null}
           <button
             type="button"
@@ -102,12 +102,12 @@ export function CartDrawer() {
         </div>
 
         {items.length === 0 ? (
-          <div className="flex flex-1 flex-col justify-center px-6 py-10">
+          <div className="flex flex-1 flex-col justify-center px-6 py-8">
             <CartEmpty onNavigate={closeDrawer} />
           </div>
         ) : (
           <>
-            <FreeShippingBar className="on-choco flex-none px-4 py-3 sm:px-6" />
+            <FreeShippingBar className="on-choco flex-none px-4 py-4 sm:px-6" />
 
             <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 sm:px-6 [@media(max-height:560px)]:flex-none [@media(max-height:560px)]:overflow-visible">
               <CartLines />
@@ -115,13 +115,13 @@ export function CartDrawer() {
             </div>
 
             <div className="on-cream-2 flex-none px-4 pt-4 pb-[max(0.5rem,env(safe-area-inset-bottom))] sm:px-6">
-              <div className="flex items-baseline justify-between gap-3">
-                <span className="font-display text-lg font-semibold">{t("subtotal")}</span>
-                <span className="font-display text-[28px] leading-none font-bold tabular-nums">
+              <div className="flex items-baseline justify-between gap-4">
+                <span className="font-display text-body font-semibold">{t("subtotal")}</span>
+                <span className="font-display text-body font-bold tabular-nums">
                   {formatPrice(total, locale)}
                 </span>
               </div>
-              <p className="mt-1 mb-3 text-[16px] text-muted">{t("shippingAtCheckout")}</p>
+              <p className="mt-1 mb-4 text-caption text-muted">{t("shippingAtCheckout")}</p>
               <CartCheckout amount={total} />
               <Link
                 href="/panier"

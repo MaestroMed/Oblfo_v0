@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/pull-overrides.mjs && next build",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
+    "@vercel/blob": "2.9.0",
     "next": "16.2.10",
     "next-intl": "^4.13.2",
     "react": "19.2.4",

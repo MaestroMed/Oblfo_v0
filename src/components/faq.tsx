@@ -16,17 +16,17 @@ export function Faq({
   const faqItems = items ?? getFaqItems(locale);
 
   return (
-    <section id="faq" className="defer on-cream-2 scroll-mt-24 py-14 sm:py-24">
+    <section id="faq" className="defer on-cream-2 anchor-below-header py-12 sm:py-16">
       <div className="mx-auto grid max-w-[1240px] gap-8 px-4 sm:px-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:gap-16">
-        <div className="flex flex-col gap-3">
-          <h2 className="text-[clamp(28px,5vw,44px)]">{title ?? t("title")}</h2>
-          <p className="max-w-[420px] text-[17px] leading-relaxed">{t("subtitle")}</p>
+        <div className="flex flex-col gap-4">
+          <h2 className="text-display">{title ?? t("title")}</h2>
+          <p className="max-w-[420px] text-body">{t("subtitle")}</p>
         </div>
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-4">
           {faqItems.map((item) => (
             <details key={item.question} className="tile on-paper group">
-              <summary className="flex min-h-14 cursor-pointer items-center justify-between gap-4 px-5 py-3 sm:px-6">
-                <span className="block font-display [text-wrap:balance] text-[18px] leading-snug font-semibold sm:text-[20px]">
+              <summary className="flex min-h-14 cursor-pointer items-center justify-between gap-4 px-4 py-4 sm:px-6">
+                <span className="block font-display [text-wrap:balance] text-body font-semibold">
                   {item.question}
                 </span>
                 <svg
@@ -41,7 +41,7 @@ export function Faq({
                   <path d="M12 5v14M5 12h14" />
                 </svg>
               </summary>
-              <p className="px-5 pb-5 text-[16px] leading-relaxed sm:px-6 sm:pr-14">
+              <p className="px-4 pb-4 text-body sm:px-6 sm:pr-12">
                 {item.answer}
               </p>
             </details>

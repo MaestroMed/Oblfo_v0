@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { PaymentIcons } from "@/components/payment-icons";
+import { StockLine } from "@/components/product/stock-line";
 import { useLocale, useTranslations } from "next-intl";
 import { useCart } from "@/components/cart-context";
 import { formatPrice } from "@/data/catalog";
@@ -103,8 +104,8 @@ export function BuyBox({
 
   if (!available) {
     return (
-      <div className="flex flex-col items-start gap-5">
-        <span className="font-display text-[32px] leading-none font-bold tabular-nums">{priceLabel}</span>
+      <div className="flex flex-col items-start gap-4">
+        <span className="font-display text-display font-bold tabular-nums">{priceLabel}</span>
         <button type="button" disabled className="btn btn-lg btn-block">
           {tCart("unavailable")}
         </button>
@@ -114,13 +115,14 @@ export function BuyBox({
 
   return (
     <div className="flex flex-col gap-6">
-      <div>
-        <span className="font-display text-[32px] leading-none font-bold tabular-nums">{priceLabel}</span>
+      <div className="flex flex-col gap-2">
+        <span className="font-display text-display font-bold tabular-nums">{priceLabel}</span>
+        <StockLine id={id} />
       </div>
 
       {variant ? (
-        <div ref={pickerRef} className="flex flex-col gap-2.5">
-          <span className="flex items-baseline gap-2 text-[16px] font-semibold">
+        <div ref={pickerRef} className="flex flex-col gap-2">
+          <span className="flex items-baseline gap-2 text-caption font-semibold">
             {variant.label}
             {selected ? <span className="font-normal text-muted">{selected}</span> : null}
           </span>
@@ -135,7 +137,7 @@ export function BuyBox({
                 type="button"
                 onClick={() => setSelected(option)}
                 aria-pressed={selected === option}
-                className={`font-display min-h-[52px] cursor-pointer rounded-2xl px-2 text-[17px] font-semibold ring-2 ring-inset transition-colors duration-150 ${
+                className={`font-display min-h-[52px] cursor-pointer rounded px-2 text-body font-semibold ring-2 ring-inset transition-colors duration-150 ${
                   selected === option
                     ? "bg-choco text-cream ring-choco"
                     : "bg-paper text-choco ring-choco/25 hover:ring-choco"
@@ -146,23 +148,23 @@ export function BuyBox({
             ))}
           </div>
           {touched && !selected ? (
-            <p role="alert" className="text-[16px] font-bold text-tomate">
+            <p role="alert" className="text-caption font-bold text-tomate">
               {tCart("variantRequired", { label: variant.label })}
             </p>
           ) : null}
         </div>
       ) : null}
 
-      <div ref={ctaRef} className="flex flex-col gap-3">
+      <div ref={ctaRef} className="flex flex-col gap-4">
         <button type="button" onClick={() => add(true)} className="btn btn-braise btn-lg btn-block">
           {tPage("addToCart")}
         </button>
       </div>
       <PaymentIcons className="justify-center" />
 
-      <ul className="tile on-cream-2 grid gap-3 p-5 sm:grid-cols-2 sm:gap-x-5 sm:gap-y-4 sm:p-6">
+      <ul className="tile on-cream-2 grid gap-4 p-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-4 sm:p-6">
         {REASSURE.map(({ key, icon }) => (
-          <li key={key} className="flex items-center gap-3 text-[16px] leading-snug font-medium">
+          <li key={key} className="flex items-center gap-4 text-caption font-medium">
             <span className="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-miel">
               <svg
                 aria-hidden
@@ -184,11 +186,11 @@ export function BuyBox({
 
       <div
         aria-hidden={!barVisible}
-        className={`on-choco fixed inset-x-0 bottom-0 z-[60] flex items-center gap-3 px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] transition-transform duration-300 motion-reduce:transition-none lg:hidden ${
+        className={`on-choco fixed inset-x-0 bottom-0 z-[60] flex items-center gap-4 px-4 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] transition-transform duration-300 motion-reduce:transition-none lg:hidden ${
           barVisible ? "translate-y-0" : "translate-y-full"
         }`}
       >
-        <div className="font-display line-clamp-2 min-w-0 flex-1 text-[16px] leading-tight font-semibold">
+        <div className="font-display line-clamp-2 min-w-0 flex-1 text-caption font-semibold">
           {name}
         </div>
         <button

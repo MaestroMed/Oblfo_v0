@@ -53,7 +53,7 @@ export default async function BlackFridayPage({ params }: Props) {
 
   return (
     <main className="pt-4 sm:pt-6">
-      <div className={`${PAGE} pb-14 sm:pb-24`}>
+      <div className={`${PAGE} pb-12 sm:pb-16`}>
         <PageBanner tone="miel" waves title={t("title")} lead={lead}>
           {after ? (
             <Link href="/collection" className="btn btn-braise btn-lg mt-6">
@@ -61,12 +61,12 @@ export default async function BlackFridayPage({ params }: Props) {
             </Link>
           ) : null}
         </PageBanner>
-        <p className="mt-6 max-w-[68ch] text-[17px] leading-[1.7] sm:mt-10">
+        <p className="mt-6 max-w-[68ch] text-body sm:mt-8">
           {t(after ? "deliveryAfter" : "delivery")}
         </p>
-        <section className="mt-10 sm:mt-16">
-          <h2 className={`${H2} mb-6 sm:mb-10`}>{t("giftsTitle")}</h2>
-          <div className="grid grid-cols-2 gap-x-3 gap-y-8 sm:gap-x-6 lg:grid-cols-4">
+        <section className="mt-8 sm:mt-16">
+          <h2 className={`${H2} mb-6 sm:mb-8`}>{t("giftsTitle")}</h2>
+          <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-6 lg:grid-cols-4">
             {gifts.map((product) => (
               <ProductCard key={product.id} product={product} locale={locale} />
             ))}

@@ -50,7 +50,7 @@ export function AnnouncementBar({ promo: serverPromo }: { promo: boolean }) {
 
   // Mobile : un message à la fois, en fondu. Grand écran : les trois en ligne.
   const messages = (
-    <div className="grid items-center sm:flex sm:flex-wrap sm:justify-center sm:gap-x-3">
+    <div className="grid items-center sm:flex sm:flex-wrap sm:justify-center sm:gap-x-4">
       {(["msg1", promo ? "msg2Promo" : "msg2", "msg3"] as const).map((key, i) => (
         <span
           key={key}
@@ -58,7 +58,7 @@ export function AnnouncementBar({ promo: serverPromo }: { promo: boolean }) {
           style={{ "--i": i } as React.CSSProperties}
         >
           {i > 0 ? (
-            <span aria-hidden className="mr-3 hidden text-moutarde sm:inline">
+            <span aria-hidden className="mr-4 hidden text-moutarde sm:inline">
               ·
             </span>
           ) : null}
@@ -73,7 +73,7 @@ export function AnnouncementBar({ promo: serverPromo }: { promo: boolean }) {
   );
 
   return (
-    <div className="on-choco relative flex min-h-12 items-center justify-center bg-choco-2 px-12 py-2 text-center [text-wrap:balance] font-display text-[16px] font-semibold leading-tight sm:text-[16px]">
+    <div className="on-choco relative flex min-h-12 items-center justify-center bg-choco-2 px-12 py-2 text-center [text-wrap:balance] font-display text-caption font-semibold">
       {/* Pendant la promo, tout le bandeau mène à la page Black Friday. */}
       {promo ? (
         <Link href="/black-friday" className="block">

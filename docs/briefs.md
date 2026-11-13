@@ -53,11 +53,10 @@ jamais plus de 500 €/jour sans validation.
 ## Écarts assumés pour Obflo (et pourquoi)
 
 - **Délais affichés** : le brief cite « Livraison 2-4 j ». Obflo livre en 8 à 20 jours : on affiche le vrai délai.
-- **« Plus que X en stock »** : seulement si le stock réel est connu. Pas d'urgence inventée.
+- **« Plus que X en stock »** : stock réservé chez le fournisseur, réglé dans le back-office (/admin) et qui baisse à chaque vente payée.
 - **Avis** : aucun avis tant qu'il n'y a pas de vrais clients. Avis contre réduction : seulement avec
   mention visible de la contrepartie (décret 2017-1436) et sans tri des avis négatifs.
 - **Promotion** : un prix barré seulement s'il correspond à un vrai prix antérieur ou à une somme réelle (packs).
-- **Mode sombre, une seule police, un seul arrondi, 5 couleurs** : la charte actuelle (2 polices, tuiles
-  colorées par produit) est gardée. Refaire la charte est un chantier à décider avec Mehdi, pas un réglage.
+- **Polices** : 2 familles (Fredoka, Figtree), plafond du brief côté performance ; la section design en demandait 1.
 - **Bandeau défilant de l'accueil** : ajouté le 13/11 à la demande de Mehdi (« accueil trop statique »).
   Le brief déconseille le défilement automatique sur mobile : à trancher par un test (voir experiments.md).

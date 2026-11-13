@@ -24,21 +24,21 @@ export function CartPageContent({ locale }: { locale: Locale }) {
     .slice(0, 4);
 
   return (
-    <main className="mx-auto w-full max-w-[1240px] px-4 pt-8 pb-14 sm:px-8 sm:pt-12 sm:pb-24">
-      <h1 className="mb-6 text-[clamp(28px,5vw,44px)] sm:mb-10">{t("title")}</h1>
+    <main className="mx-auto w-full max-w-[1240px] px-4 pt-8 pb-12 sm:px-8 sm:pt-12 sm:pb-16">
+      <h1 className="mb-6 text-display sm:mb-8">{t("title")}</h1>
 
       {!hydrated ? (
         // Le panier se lit dans le navigateur : on réserve la place plutôt que d'afficher « vide » une fraction de seconde.
         <div className="min-h-[50vh]" />
       ) : items.length === 0 ? (
-        <div className="tile on-cream-2 px-6 py-14 sm:py-20">
+        <div className="tile on-cream-2 px-6 py-12 sm:py-16">
           <CartEmpty />
         </div>
       ) : (
         <>
-          <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_400px] lg:items-start lg:gap-10">
+          <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_400px] lg:items-start lg:gap-8">
             <div className="flex min-w-0 flex-col gap-4">
-              <div className="tile on-paper px-4 sm:px-7">
+              <div className="tile on-paper px-4 sm:px-8">
                 <CartLines roomy />
               </div>
               <PackSuggestion />
@@ -49,40 +49,40 @@ export function CartPageContent({ locale }: { locale: Locale }) {
 
             {/* Mobile : `contents`, le bloc de paiement devient un enfant de la grille et reste collé en bas d'écran
                 tant que le panier est visible. Bureau : une seule colonne collante. */}
-            <div className="contents lg:sticky lg:top-24 lg:block">
-              <section aria-labelledby="cart-summary" className="tile on-choco p-5 sm:p-7 lg:rounded-b-none">
-                <h2 id="cart-summary" className="text-2xl">
+            <div className="contents lg:sticky lg:below-header lg:block">
+              <section aria-labelledby="cart-summary" className="tile on-choco p-4 sm:p-8 lg:rounded-b-none">
+                <h2 id="cart-summary" className="text-body">
                   {t("summaryTitle")}
                 </h2>
                 <FreeShippingBar className="mt-4" />
-                <dl className="mt-5 flex flex-col gap-2.5">
-                  <div className="flex items-baseline justify-between gap-3">
+                <dl className="mt-4 flex flex-col gap-2">
+                  <div className="flex items-baseline justify-between gap-4">
                     <dt>{t("subtotal")}</dt>
                     <dd className="font-semibold tabular-nums">{formatPrice(total, locale)}</dd>
                   </div>
-                  <div className="flex items-baseline justify-between gap-3">
+                  <div className="flex items-baseline justify-between gap-4">
                     <dt>{t("shipping")}</dt>
                     <dd className={`font-semibold tabular-nums ${shipping === 0 ? "text-moutarde" : ""}`}>
                       {shipping === 0 ? t("shippingFree") : formatPrice(shipping, locale)}
                     </dd>
                   </div>
-                  <div className="mt-2 flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
-                    <dt className="font-display text-xl font-semibold">{t("total")}</dt>
+                  <div className="mt-2 flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
+                    <dt className="font-display text-body font-semibold">{t("total")}</dt>
                     <dd className="price price-moutarde price-lg">{formatPrice(grandTotal, locale)}</dd>
                   </div>
                 </dl>
               </section>
-              <div className="on-cream-2 sticky bottom-0 z-10 -mx-4 px-4 pt-3 pb-[max(1rem,env(safe-area-inset-bottom))] sm:-mx-8 sm:px-8 lg:static lg:mx-0 lg:rounded-b-[28px] lg:p-7">
+              <div className="on-cream-2 sticky bottom-0 z-10 -mx-4 px-4 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] sm:-mx-8 sm:px-8 lg:static lg:mx-0 lg:rounded-b lg:p-8">
                 <CartCheckout amount={grandTotal} />
-                <p className="mt-4 hidden text-center text-[16px] text-muted lg:block">{tCart(promo ? "reassurancePromo" : "reassurance")}</p>
+                <p className="mt-4 hidden text-center text-caption text-muted lg:block">{tCart(promo ? "reassurancePromo" : "reassurance")}</p>
               </div>
             </div>
           </div>
 
           {crossSell.length > 0 ? (
-            <section className="mt-14 sm:mt-24">
-              <h2 className="mb-6 text-[clamp(28px,5vw,44px)] sm:mb-10">{t("crossSellTitle")}</h2>
-              <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
+            <section className="mt-12 sm:mt-16">
+              <h2 className="mb-6 text-display sm:mb-8">{t("crossSellTitle")}</h2>
+              <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
                 {crossSell.map((product) => (
                   <ProductCard key={product.id} product={toCardProduct(product)} locale={locale} />
                 ))}

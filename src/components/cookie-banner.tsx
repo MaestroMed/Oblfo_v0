@@ -66,16 +66,16 @@ export function CookieBanner() {
     <div
       role="dialog"
       aria-label={t("ariaLabel")}
-      className="tile on-paper fixed inset-x-3 bottom-[max(0.75rem,env(safe-area-inset-bottom))] z-[110] mx-auto max-w-md border-2 border-choco p-4 sm:inset-x-auto sm:right-5 sm:bottom-5 sm:p-5"
+      className="tile on-paper fixed inset-x-4 bottom-[max(1rem,env(safe-area-inset-bottom))] z-[110] mx-auto max-w-md border-2 border-choco p-4 shadow-modal sm:inset-x-auto sm:right-6 sm:bottom-6 sm:p-6"
     >
-      <p className="text-[16px] leading-snug sm:text-[16px]">
+      <p className="text-caption">
         {t("message")}{" "}
-        <Link href="/confidentialite" className="link -my-[15px] inline-block py-[15px] font-semibold">
+        <Link href="/confidentialite" className="link -my-4 inline-block py-4 font-semibold">
           {t("privacyLink")}
         </Link>
       </p>
       {/* Refuser et accepter : même taille, même poids. */}
-      <div className="mt-3 grid grid-cols-2 gap-2">
+      <div className="mt-4 grid grid-cols-2 gap-2">
         <button type="button" onClick={() => save(false)} className="btn btn-sm px-2">
           {t("refuse")}
         </button>

@@ -44,8 +44,8 @@ export function PhotoGallery({
   };
 
   return (
-    <div className="flex flex-col gap-2 sm:gap-3">
-      <div className={`tile aspect-square ${TILE_CLASS[tile]}`}>
+    <div className="flex flex-col gap-2 sm:gap-4">
+      <div className={`keep-light tile aspect-square ${TILE_CLASS[tile]}`}>
         <div
           ref={strip}
           onScroll={(e) =>
@@ -62,10 +62,10 @@ export function PhotoGallery({
                 priority={i === 0}
                 fetchPriority={i === 0 ? "high" : undefined}
                 sizes="(min-width: 1024px) 50vw, 100vw"
-                className={src === cutout ? "cutout p-[10%]" : "object-cover"}
+                className={src === cutout ? "cutout p-8 sm:p-12 lg:p-16" : "object-cover"}
               />
               {src === cutout ? (
-                <HeatWaves className="absolute top-5 right-5 h-12 w-12 sm:top-7 sm:right-7 sm:h-16 sm:w-16" />
+                <HeatWaves className="absolute top-4 right-4 h-12 w-12 sm:top-8 sm:right-8 sm:h-16 sm:w-16" />
               ) : null}
             </div>
           ))}
@@ -73,7 +73,7 @@ export function PhotoGallery({
       </div>
 
       {slides.length > 1 ? (
-        <div role="group" aria-label={t("galleryLabel")} className="grid grid-cols-5 gap-2 sm:gap-3">
+        <div role="group" aria-label={t("galleryLabel")} className="grid grid-cols-5 gap-2 sm:gap-4">
           {slides.map((src, i) => (
             <button
               key={src}
@@ -81,16 +81,16 @@ export function PhotoGallery({
               onClick={() => go(i)}
               aria-label={t("galleryPhoto", { index: i + 1, total: slides.length })}
               aria-pressed={i === current}
-              className={`relative aspect-square cursor-pointer overflow-hidden rounded-[14px] border-3 sm:rounded-[18px] ${
+              className={`relative aspect-square cursor-pointer overflow-hidden rounded border-3 ${
                 i === current ? "border-choco" : "border-transparent"
-              } ${src === cutout ? TILE_CLASS[tile] : "bg-cream-2"}`}
+              } ${src === cutout ? `keep-light ${TILE_CLASS[tile]}` : "bg-cream-2"}`}
             >
               <Image
                 src={src}
                 alt=""
                 fill
                 sizes="120px"
-                className={src === cutout ? "object-contain p-1.5" : "object-cover"}
+                className={src === cutout ? "object-contain p-2" : "object-cover"}
               />
             </button>
           ))}

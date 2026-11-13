@@ -9,13 +9,13 @@ type Href = React.ComponentProps<typeof Link>["href"];
 /** Conteneur des pages intérieures : gouttière 16 px mobile, 32 px bureau, 1240 px au plus. */
 export const PAGE = "mx-auto w-full max-w-[1240px] px-4 sm:px-8";
 /** Titre de section de la charte. */
-export const H2 = "text-[clamp(28px,5vw,44px)]";
+export const H2 = "text-display";
 
 /** Fil d'Ariane en texte normal, sur le crème au-dessus du bandeau. Un élément sans lien est la page courante. */
 export function Crumbs({ items }: { items: { label: string; href?: Href }[] }) {
   const t = useTranslations("CategoryPage");
   return (
-    <nav aria-label={t("breadcrumb")} className="text-[16px]">
+    <nav aria-label={t("breadcrumb")} className="text-caption">
       <ol className="flex flex-wrap items-center gap-x-2">
         {items.map((item, i) => (
           <li key={item.label} className="flex items-center gap-x-2">
@@ -67,11 +67,11 @@ export function PageBanner({
   children?: React.ReactNode;
 }) {
   return (
-    <div className={`tile ${TILE_CLASS[tone]} px-5 py-7 sm:px-10 sm:py-12 lg:px-14 lg:py-16`}>
+    <div className={`tile ${TILE_CLASS[tone]} px-4 py-8 sm:px-8 sm:py-12 lg:px-12 lg:py-16`}>
       <div
         className={
           image
-            ? "grid items-center gap-x-10 gap-y-4 md:grid-cols-[minmax(0,1fr)_minmax(0,36%)]"
+            ? "grid items-center gap-x-8 gap-y-4 md:grid-cols-[minmax(0,1fr)_minmax(0,36%)]"
             : undefined
         }
       >
@@ -82,12 +82,12 @@ export function PageBanner({
           {meta}
           {/* Césure : « Geschäftsbedingungen » dépasse 288 px sans elle. */}
           <h1
-            className={`display hyphens-auto wrap-anywhere ${compact ? H2 : "text-[clamp(32px,8.5vw,68px)]"}`}
+            className={`display hyphens-auto wrap-anywhere ${compact ? H2 : "text-display"}`}
           >
             {title}
           </h1>
           {lead ? (
-            <p className="mt-4 max-w-[600px] text-[18px] leading-[1.45] sm:mt-5 sm:text-[20px]">
+            <p className="mt-4 max-w-[600px] text-body sm:mt-6">
               {lead}
             </p>
           ) : null}

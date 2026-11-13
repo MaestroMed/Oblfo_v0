@@ -19,6 +19,7 @@ import type {
 } from "./catalog-types";
 import type { Locale } from "@/i18n/routing";
 import { frTypoDeep } from "@/lib/typo";
+import { applyProductOverride } from "./overrides";
 
 export type { Category, GlowTone } from "./catalog-types";
 
@@ -31,7 +32,8 @@ export const CATEGORY_ORDER: Category[] = [
   "piece",
 ];
 
-const productSources: ProductSource[] = [...productsA, ...productsB, ...productsC];
+// Réglages du back-office appliqués ici : prix, disponibilité, noms… valent partout (pages, panier, Stripe, flux Google).
+const productSources: ProductSource[] = [...productsA, ...productsB, ...productsC].map(applyProductOverride);
 
 export type Product = {
   id: string;

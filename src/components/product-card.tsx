@@ -41,7 +41,7 @@ export function toCardProduct(p: Product): CardProduct {
   };
 }
 
-const button = "btn btn-outline btn-sm btn-block relative z-[1] mt-1 px-3";
+const button = "btn btn-outline btn-sm btn-block relative z-[1] mt-1 px-4";
 
 /** Carte produit : la photo détourée sur la teinte du produit (`src/lib/tile.ts`), puis nom, prix et bouton sur la page. */
 export function ProductCard({
@@ -63,7 +63,7 @@ export function ProductCard({
 
   return (
     <article className="group relative flex h-full flex-col">
-      <span className={`tile relative block aspect-square shrink-0 ${TILE_CLASS[productTile(product.id)]}`}>
+      <span className={`keep-light tile relative block aspect-square shrink-0 ${TILE_CLASS[productTile(product.id)]}`}>
         {product.cutout ? (
           <Image
             src={product.cutout}
@@ -72,23 +72,23 @@ export function ProductCard({
             priority={priority}
             fetchPriority={priority ? "high" : undefined}
             sizes="(min-width: 1024px) 25vw, 50vw"
-            className="cutout p-[7%] transition-transform duration-300 group-hover:scale-105"
+            className="cutout p-4 transition-transform duration-300 group-hover:scale-105"
           />
         ) : (
           <ImageSlot />
         )}
         {product.badge === "new" ? (
-          <span className="chip absolute top-3 left-3">{t("badgeNew")}</span>
+          <span className="chip absolute top-4 left-4">{t("badgeNew")}</span>
         ) : null}
       </span>
-      <div className="flex min-w-0 flex-1 flex-col gap-1 pt-3">
-        <span className="block font-display font-semibold [text-wrap:balance] text-[17px] leading-[1.15] [overflow-wrap:anywhere] hyphens-auto sm:text-[19px]">
+      <div className="flex min-w-0 flex-1 flex-col gap-1 pt-4">
+        <span className="block font-display font-semibold [text-wrap:balance] text-body [overflow-wrap:anywhere] hyphens-auto">
           {/* Le lien du titre couvre toute la carte : l'image reste décorative. */}
           <Link href={href} className="no-underline after:absolute after:inset-0">
             {product.name}
           </Link>
         </span>
-        <span className="mb-auto text-[17px] font-bold tabular-nums sm:text-[18px]">
+        <span className="mb-auto text-body font-bold tabular-nums">
           {formatPrice(product.price, locale)}
         </span>
         {product.available ? (

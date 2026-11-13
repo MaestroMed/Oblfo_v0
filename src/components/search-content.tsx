@@ -27,7 +27,7 @@ function normalize(value: string) {
     .toLowerCase();
 }
 
-const GRID = "grid grid-cols-2 gap-3 sm:grid-cols-[repeat(auto-fill,minmax(250px,1fr))] sm:gap-6";
+const GRID = "grid grid-cols-2 gap-4 sm:grid-cols-[repeat(auto-fill,minmax(250px,1fr))] sm:gap-6";
 
 /**
  * Recherche instantanée côté client : l'index (une trentaine d'entrées) est construit
@@ -48,7 +48,7 @@ export function SearchContent({ products, families, guides }: SearchIndex) {
   const count = foundProducts.length + foundFamilies.length + foundGuides.length;
 
   return (
-    <main className={`${PAGE} pt-4 pb-14 sm:pt-6 sm:pb-24`}>
+    <main className={`${PAGE} pt-4 pb-12 sm:pt-6 sm:pb-16`}>
       <PageBanner tone="sable" title={t("title")} lead={t("intro")}>
         <input
           type="search"
@@ -57,20 +57,20 @@ export function SearchContent({ products, families, guides }: SearchIndex) {
           placeholder={t("placeholder")}
           aria-label={t("title")}
           autoFocus
-          className="field mt-6 min-h-14 max-w-[560px] text-[18px]"
+          className="field mt-6 min-h-14 max-w-[560px]"
         />
       </PageBanner>
 
       <p
         aria-live="polite"
-        className={`mt-6 font-display sm:mt-10 ${count > 0 ? "text-[18px] font-semibold" : "text-[clamp(26px,5vw,40px)] leading-[1.05] font-bold wrap-anywhere"}`}
+        className={`mt-6 font-display sm:mt-8 ${count > 0 ? "text-body font-semibold" : "text-display font-bold wrap-anywhere"}`}
       >
         {count > 0 ? t("count", { count }) : t("noResultsTitle", { query: query.trim() })}
       </p>
 
       {count === 0 ? (
         <div className="mt-4 flex flex-col items-start gap-4">
-          <p className="text-[17px]">{t("noResults")}</p>
+          <p className="text-body">{t("noResults")}</p>
           <FamilyPills className="self-stretch" />
           <Link href="/collection" className="btn">
             {tPage("backToCollection")}
@@ -80,7 +80,7 @@ export function SearchContent({ products, families, guides }: SearchIndex) {
 
       {foundProducts.length > 0 ? (
         <section className="mt-8 sm:mt-12">
-          <h2 className="mb-4 text-[28px] sm:mb-6">{t("groupProducts")}</h2>
+          <h2 className="mb-4 text-display sm:mb-6">{t("groupProducts")}</h2>
           <div className={GRID}>
             {foundProducts.map((product) => (
               <ProductCard key={product.id} product={product} locale={locale} />
@@ -90,15 +90,15 @@ export function SearchContent({ products, families, guides }: SearchIndex) {
       ) : null}
 
       {foundFamilies.length > 0 ? (
-        <section className="mt-12 sm:mt-20">
-          <h2 className="mb-2 text-[28px] sm:mb-4">{t("groupCategories")}</h2>
+        <section className="mt-12 sm:mt-16">
+          <h2 className="mb-2 text-display sm:mb-4">{t("groupCategories")}</h2>
           <FamilyPills only={foundFamilies} />
         </section>
       ) : null}
 
       {foundGuides.length > 0 ? (
-        <section className="mt-12 sm:mt-20">
-          <h2 className="mb-4 text-[28px] sm:mb-6">{t("groupGuides")}</h2>
+        <section className="mt-12 sm:mt-16">
+          <h2 className="mb-4 text-display sm:mb-6">{t("groupGuides")}</h2>
           <div className="grid gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
             {foundGuides.map((guide) => (
               <GuideCard key={guide.slug} guide={guide} tone={guide.tone} level={3} />

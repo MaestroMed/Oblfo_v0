@@ -19,11 +19,11 @@ export function About() {
   const t = useTranslations("HomeV2");
 
   return (
-    <section id="apropos" className="defer scroll-mt-24 py-14 sm:py-24">
-      <div className="mx-auto grid max-w-[1240px] gap-10 px-4 sm:px-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12">
-        <div className="reveal flex flex-col gap-5">
-          <h2 className="text-[clamp(28px,5vw,44px)] text-balance">{t("aboutTitle")}</h2>
-          <p className="max-w-[52ch] text-[17px] leading-relaxed">{t("aboutText")}</p>
+    <section id="apropos" className="defer anchor-below-header py-12 sm:py-16">
+      <div className="mx-auto grid max-w-[1240px] gap-8 px-4 sm:px-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12">
+        <div className="reveal flex flex-col gap-4">
+          <h2 className="text-display text-balance">{t("aboutTitle")}</h2>
+          <p className="max-w-[52ch] text-body">{t("aboutText")}</p>
           <ul className="mt-2 flex flex-col gap-4">
             {trust.map(([titleKey, textKey, icon]) => (
               <li key={titleKey} className="flex items-center gap-4">
@@ -31,15 +31,15 @@ export function About() {
                   <Icon name={icon} className="h-6 w-6" />
                 </span>
                 <span className="flex min-w-0 flex-col">
-                  <span className="font-display text-[19px] leading-tight font-semibold">{t(titleKey)}</span>
-                  <span className="text-[16px] leading-snug">{t(textKey)}</span>
+                  <span className="font-display text-body font-semibold">{t(titleKey)}</span>
+                  <span className="text-caption">{t(textKey)}</span>
                 </span>
               </li>
             ))}
           </ul>
         </div>
         {/* La légende dit déjà la scène : les photos restent décoratives. */}
-        <ul className="reveal-kids grid gap-3 sm:grid-cols-3 sm:gap-4">
+        <ul className="reveal-kids grid gap-4 sm:grid-cols-3 sm:gap-4">
           {lifestyle.map((card) => (
             <li key={card.id} className={`tile ${card.tone} flex items-center sm:flex-col sm:items-stretch`}>
               <span className="relative block aspect-square w-2/5 shrink-0 self-stretch bg-paper/50 sm:aspect-[4/5] sm:w-auto">
@@ -51,9 +51,9 @@ export function About() {
                   className="object-cover"
                 />
               </span>
-              <span className="flex min-w-0 flex-col gap-1.5 p-4 sm:pb-6">
-                <span className="font-display text-[20px] leading-tight font-semibold">{t(card.kickerKey)}</span>
-                <span className="text-[16px] leading-snug">{t(card.titleKey)}</span>
+              <span className="flex min-w-0 flex-col gap-2 p-4 sm:pb-6">
+                <span className="font-display text-body font-semibold">{t(card.kickerKey)}</span>
+                <span className="text-caption">{t(card.titleKey)}</span>
               </span>
             </li>
           ))}

@@ -1,7 +1,8 @@
 // Packs et FAQ — fr/en/de/es.
 import type { FaqSource, PackSource } from "./catalog-types";
+import { applyPackOverride } from "./overrides";
 
-export const packSources: PackSource[] = [
+export const basePackSources: PackSource[] = [
   {
     id: "pack-sortie-hiver",
     name: {
@@ -66,6 +67,9 @@ export const packSources: PackSource[] = [
     featured: true,
   },
 ];
+
+// Prix et disponibilité des packs réglables depuis le back-office.
+export const packSources: PackSource[] = basePackSources.map(applyPackOverride);
 
 export const faqSources: FaqSource[] = [
   {

@@ -11,18 +11,18 @@ export function Essentials({ locale }: { locale: Locale }) {
   const products = getListedProducts(locale).sort((a, b) => Number(b.id === lead) - Number(a.id === lead));
 
   return (
-    <section id="essentiels" className="scroll-mt-24 pb-14 sm:pb-24">
+    <section id="essentiels" className="anchor-below-header pb-12 sm:pb-16">
       <div className="mx-auto max-w-[1240px] px-4 sm:px-8">
-        <div className="reveal mb-6 flex flex-wrap items-end justify-between gap-x-6 gap-y-1 sm:mb-10">
-          <h2 className="text-[clamp(28px,5vw,44px)]">{t("essentialsTitle")}</h2>
+        <div className="reveal mb-6 flex flex-wrap items-end justify-between gap-x-6 gap-y-1 sm:mb-8">
+          <h2 className="text-display">{t("essentialsTitle")}</h2>
           <Link
             href="/collection"
-            className="link inline-flex min-h-12 items-center text-[17px] font-semibold"
+            className="link inline-flex min-h-12 items-center text-body font-semibold"
           >
             {t("essentialsSeeAll")}
           </Link>
         </div>
-        <div className="reveal-kids grid grid-cols-2 gap-x-3 gap-y-8 sm:gap-x-6 lg:grid-cols-4">
+        <div className="reveal-kids grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-6 lg:grid-cols-4">
           {products.slice(0, 4).map((product) => (
             <ProductCard key={product.id} product={product} locale={locale} />
           ))}

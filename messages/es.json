@@ -366,6 +366,8 @@
     "refuse": "Rechazar"
   },
   "Ux": {
+    "stockLow": "Solo quedan {count} en stock",
+    "stockOut": "Agotado",
     "heatTitle": "Cifras, no promesas.",
     "heatNote": "Valores del fabricante, tomados de nuestras fichas de producto.",
     "heatTemp": "en el nivel máximo · {product}",

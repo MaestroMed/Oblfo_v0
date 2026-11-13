@@ -1,6 +1,8 @@
 // Auto-contrôle : npx tsx src/lib/cj.check.ts
 import assert from "node:assert/strict";
 import { buildCjOrders, type PaidOrder } from "./cj";
+import { getProducts } from "@/data/catalog";
+import { CJ_MAP } from "@/data/cj-map";
 
 const base: PaidOrder = {
   sessionId: "cs_test_a1B2c3D4e5F6g7H8i9J0k1L2m3N4o5P6q7R8s9T0u1V2w3X4y5Z6a7B8c9",
@@ -89,12 +91,29 @@ for (const o of [simple, withState, pack, ...two]) {
 }
 
 // Un seul article non relié → refus entier, aucune commande partielle.
-assert.match(reason({ items: [{ id: "pack-sortie-hiver", qty: 1 }] }), /mini-chauffe-tasse/);
+assert.match(
+  reason({
+    items: [
+      { id: "gants-chauffants", qty: 1 },
+      { id: "tapis-chauffant-animaux", qty: 1 },
+    ],
+  }),
+  /tapis-chauffant-animaux$/,
+);
 
 // La variante d'un pack ne va qu'à son produit à variantes.
-const exterieur = reason({ items: [{ id: "pack-exterieur", qty: 1, variant: "EU 35–40" }] });
-assert.match(exterieur, /semelles-chauffantes\|EU 35–40, chauffe-mains$/);
-assert.doesNotMatch(exterieur, /gants-chauffants/);
+const exterieur = orders({ items: [{ id: "pack-exterieur", qty: 1, variant: "EU 35–40" }] });
+const skus = exterieur.flatMap((o) => o.products.map((p) => p.sku));
+assert.ok(skus.includes("CJNSFJWZ00204-35to40-USB-Full foot heat"), skus.join());
+assert.ok(skus.includes("CJYD214762501AZ") && skus.includes("CJJT131810506FU"), skus.join());
+
+// Tout ce qui se vend est relié : un oubli ici veut dire une commande à saisir à la main.
+for (const p of getProducts("fr")) {
+  if (p.available === false) continue;
+  for (const key of p.variant ? p.variant.options.map((o) => `${p.id}|${o}`) : [p.id]) {
+    assert.ok(CJ_MAP[key], `non relié à CJ : ${key}`);
+  }
+}
 
 // Pays livré hors France : code et nom du pays suivent l'adresse.
 const [berlin] = orders({

@@ -33,16 +33,29 @@ Aussi : descriptions produit sous 150 mots (59 à 92) à enrichir sans rien inve
 | 1.13 | Panier sans distraction, 1 seule suggestion | à contrôler | 1 suggestion |
 | 1.14 | Relance des paniers abandonnés | absente | relance Stripe (accord de Mehdi du 13/11) |
 
-## Phase 2 : système de design
+## Phase 2 : système de design (branche claude/braise, 13/11, non mis en ligne)
 
-| Point du brief | Aujourd'hui | À faire |
+Tout est dans `src/app/globals.css` ; les composants n'utilisent plus que les jetons.
+
+| Point du brief | Avant | Fait |
 |---|---|---|
-| 5 couleurs maximum | 14 | 5 couleurs de base, teintes de tuiles dérivées |
-| 1 arrondi | 10 valeurs | 1 valeur pour les blocs, pilule pour les boutons |
-| 3 tailles de texte, grille 8 px | 14 tailles | échelle titre / texte / légende |
-| Mode sombre selon le système | absent | thème sombre |
+| 5 couleurs maximum | 14 hex | 5 bases (`--base-braise` #c93d18, `--base-choco` #3b160d, `--base-moutarde` #f3c058, `--base-creme` #fcf1da, `--base-papier` #fffaf0) ; cream-2, choco-2, braise-2, tomate, miel, pêche, sable, argile, muted dérivées par `color-mix()` (écart ΔE < 2,5 sauf tomate, devenue un rouge braise foncé). Palette Tailwind par défaut retirée, 0 hex dans les composants |
+| 1 arrondi | 10 valeurs | `--radius` 12 px (classe `rounded`) sur tuiles, boutons, pastilles, champs, cartes, vignettes, notification ; `rounded-full` seulement pour les cercles (boutons icône 48 px, pastilles d'icône, compteur du panier, langue, point de stock) |
+| 2 ombres | 3 ombres ad hoc | `--shadow-elevated` (pastilles du héros, détourés via `drop-shadow`) et `--shadow-modal` (tiroir, bandeau cookies, notification) |
+| 3 tailles de texte | 28 tailles | `text-display` clamp(32px, 7vw, 56px) pour H1, H2, gros chiffres et grand prix ; `text-body` 18 px ; `text-caption` 16 px. Interligne 1,2 pour la police de titre, 1,5 pour le texte. Tailles Tailwind par défaut retirées |
+| Espacements 4/8/16/24/32/48/64 | 3, 5, 7, 10, 14, 20, 24… | grille seule ; sections `py-12 sm:py-16` ; décalages sous l'en-tête collant calculés (`below-header`, `anchor-below-header` = hauteur de l'en-tête + 24 / 16 px) |
+| Mode sombre selon le système | absent | `@media (prefers-color-scheme: dark)`, `color-scheme: light dark`, sans JavaScript. Fond choco assombri, texte crème, tuiles sombres dérivées ; aplats chocolat/tomate/moutarde et tuiles des détourés gardent l'aspect clair (`.keep-light`) |
 
-Note : le brief demande « max 2 familles » (performance) puis « 1 famille » (design). Le site en a 2 (Fredoka, Figtree).
+Contraste mesuré sur le rendu (9 pages, 390 et 1440 px, clair et sombre) : 0 paire texte/fond sous 4,5:1.
+Plus faibles : 4,85 (papier sur braise, boutons et compteur), 5,21 (muted sur cream-2), 5,23 en sombre (prix braise-2 sur carte).
+
+Reste :
+- Familles de polices : le brief dit « max 2 familles » (performance) puis « 1 famille » (design). On garde 2 (Fredoka titres, Figtree texte), conforme au plafond performance ; passer à 1 famille est un choix de charte à trancher avec Mehdi.
+- Le H1 de l'accueil reste en `text-caption` (accroche SEO en petites capitales, la phrase de marque en dessous est en `display`).
+- La case des CGV (24 px) devient ronde avec l'arrondi unique de 12 px.
+- Les logos de paiement gardent leur propre dessin (coins de 3 px dans le SVG) : ce sont des logos, pas des blocs.
+- `docs/briefs.md` (« Écarts assumés ») dit encore que la charte garde plusieurs arrondis et pas de mode sombre : à mettre à jour.
+- À mesurer après mise en ligne : Lighthouse et CLS (titres plus petits sur ordinateur : 56 px au lieu de 60 à 76 px).
 
 ## Phase 3 : attend une action de Mehdi
 

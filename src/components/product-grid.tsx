@@ -49,16 +49,16 @@ export function ProductGrid({
   ];
 
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col gap-4">
       {/* Les cartes sont des h3 : il leur faut un h2 au-dessus (ordre des titres). */}
       <h2 className="sr-only">{tSearch("groupProducts")}</h2>
-      <div className="flex flex-wrap items-center justify-between gap-x-5 border-b-2 border-choco/15 pb-2 font-display text-[16px] font-semibold">
+      <div className="flex flex-wrap items-center justify-between gap-x-4 border-b-2 border-choco/15 pb-2 font-display text-caption font-semibold">
         <span aria-live="polite">{t("count", { count: visible.length })}</span>
         {/* Trier un seul produit n'a pas de sens ; filtrer le stock non plus si tout est en stock. */}
         {products.length > 1 ? (
-          <div className="flex flex-wrap items-center gap-x-5">
+          <div className="flex flex-wrap items-center gap-x-4">
             {products.some((p) => !p.available) ? (
-              <label className="flex min-h-12 cursor-pointer items-center gap-2.5">
+              <label className="flex min-h-12 cursor-pointer items-center gap-2">
                 <input
                   type="checkbox"
                   checked={inStockOnly}
@@ -68,13 +68,13 @@ export function ProductGrid({
                 {t("inStockOnly")}
               </label>
             ) : null}
-            <label className="flex items-center gap-2.5">
+            <label className="flex items-center gap-2">
               <span className="max-sm:sr-only">{t("sortLabel")}</span>
               <select
                 value={sort}
                 onChange={(e) => setSort(e.target.value as SortKey)}
                 aria-label={t("sortLabel")}
-                className="field min-h-12 w-auto cursor-pointer py-1.5 font-sans font-normal"
+                className="field min-h-12 w-auto cursor-pointer py-2 font-sans font-normal"
               >
                 {sortOptions.map((o) => (
                   <option key={o.value} value={o.value}>
@@ -88,7 +88,7 @@ export function ProductGrid({
           <span className="min-h-12" />
         )}
       </div>
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-[repeat(auto-fill,minmax(250px,1fr))] sm:gap-6">
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-[repeat(auto-fill,minmax(250px,1fr))] sm:gap-6">
         {visible.map((product) => (
           <ProductCard key={product.id} product={product} locale={locale} />
         ))}

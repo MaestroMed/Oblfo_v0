@@ -9,12 +9,12 @@ import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 
 function FooterHeading({ children }: { children: React.ReactNode }) {
-  return <h2 className="mb-2 text-[20px] text-moutarde">{children}</h2>;
+  return <h2 className="mb-2 text-body text-moutarde">{children}</h2>;
 }
 
 // Cible de 44 px de haut, même quand le nom passe sur deux lignes.
 const footerLinkClass =
-  "flex min-h-12 items-center py-1.5 text-[16px] leading-snug no-underline decoration-2 underline-offset-4 hover:underline";
+  "flex min-h-12 items-center py-2 text-caption no-underline decoration-2 underline-offset-4 hover:underline";
 
 const BADGES: [IconName, "badge1" | "badge2" | "badge3" | "badge4"][] = [
   ["lock", "badge1"],
@@ -32,19 +32,19 @@ export function SiteFooter() {
 
   return (
     <footer className="defer on-choco mt-auto">
-      <div className="mx-auto max-w-[1240px] px-4 py-14 sm:px-8 sm:py-24">
+      <div className="mx-auto max-w-[1240px] px-4 py-12 sm:px-8 sm:py-16">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
           <div className="flex flex-col gap-6">
             <a href={`/${locale}`} aria-label="OBFLO" className="flex h-12 items-center self-start">
               <ObfloLogo className="h-10 w-auto" />
             </a>
-            <p className="max-w-[420px] text-[17px] leading-relaxed">{t("tagline")}</p>
-            <div className="tile on-moutarde flex flex-col gap-4 p-5 sm:p-7">
-              <h2 className="text-[24px] sm:text-[28px]">{t("newsletterTitle")}</h2>
+            <p className="max-w-[420px] text-body">{t("tagline")}</p>
+            <div className="tile on-moutarde flex flex-col gap-4 p-4 sm:p-8">
+              <h2 className="text-body">{t("newsletterTitle")}</h2>
               <NewsletterForm />
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3">
+          <div className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3">
             <nav aria-label={t("shop")} className="row-span-2 flex flex-col sm:row-span-1">
               <FooterHeading>{t("shop")}</FooterHeading>
               <Link href="/collection" className={footerLinkClass}>
@@ -98,21 +98,21 @@ export function SiteFooter() {
             </nav>
           </div>
         </div>
-        <ul className="mt-12 grid grid-cols-1 gap-3 min-[420px]:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-12 grid grid-cols-1 gap-4 min-[420px]:grid-cols-2 lg:grid-cols-4">
           {BADGES.map(([icon, key]) => (
-            <li key={key} className="tile flex items-start gap-3 bg-choco-2 p-4">
+            <li key={key} className="tile flex items-start gap-4 bg-choco-2 p-4">
               <Icon name={icon} className="h-7 w-7 shrink-0 text-moutarde" />
-              <span className="flex min-w-0 flex-col gap-0.5">
-                <span className="font-display text-[17px] leading-tight font-semibold">
+              <span className="flex min-w-0 flex-col gap-1">
+                <span className="font-display text-body font-semibold">
                   {t(`${key}Title`)}
                 </span>
-                <span className="text-[16px] leading-snug">{t(`${key}Text`)}</span>
+                <span className="text-caption">{t(`${key}Text`)}</span>
               </span>
             </li>
           ))}
         </ul>
-        <div className="mt-10 flex flex-wrap items-center justify-between gap-x-6 gap-y-2">
-          <span className="text-[16px]">{t("copyright")}</span>
+        <div className="mt-8 flex flex-wrap items-center justify-between gap-x-6 gap-y-2">
+          <span className="text-caption">{t("copyright")}</span>
           <PaymentIcons />
           <LocaleSwitcher label={tNav("language")} />
         </div>

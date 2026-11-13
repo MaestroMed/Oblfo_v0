@@ -14,10 +14,10 @@ export function Categories({ locale }: { locale: Locale }) {
   const categories = CATEGORY_ORDER.filter((c) => products.some((p) => p.category === c));
 
   return (
-    <section className="py-14 sm:py-24">
+    <section className="py-12 sm:py-16">
       <div className="mx-auto max-w-[1240px] px-4 sm:px-8">
-        <h2 className="reveal mb-6 text-[clamp(28px,5vw,44px)] sm:mb-10">{t("categoriesTitle")}</h2>
-        <ul className="reveal-kids grid grid-cols-3 gap-x-3 gap-y-5 sm:gap-x-4 lg:grid-cols-6">
+        <h2 className="reveal mb-6 text-display sm:mb-8">{t("categoriesTitle")}</h2>
+        <ul className="reveal-kids grid grid-cols-3 gap-x-4 gap-y-4 sm:gap-x-4 lg:grid-cols-6">
           {categories.map((category) => (
             <li key={category}>
               <Link
@@ -36,7 +36,7 @@ export function Categories({ locale }: { locale: Locale }) {
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 </span>
-                <span className="text-center font-display text-[17px] leading-tight font-semibold [overflow-wrap:anywhere] hyphens-auto sm:text-[20px]">
+                <span className="text-center font-display text-body font-semibold [overflow-wrap:anywhere] hyphens-auto">
                   {tCat(category)}
                 </span>
               </Link>

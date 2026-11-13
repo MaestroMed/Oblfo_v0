@@ -39,18 +39,18 @@ export function NewsletterForm() {
 
   if (state === "subscribed") {
     return (
-      <p data-state={state} role="status" className="font-display text-[18px] leading-snug font-semibold">
+      <p data-state={state} role="status" className="font-display text-body font-semibold">
         {t("subscribed")}
       </p>
     );
   }
 
   return (
-    <div data-state={state} className="flex flex-col gap-3">
-      <label htmlFor={inputId} className="text-[16px] font-semibold">
+    <div data-state={state} className="flex flex-col gap-4">
+      <label htmlFor={inputId} className="text-caption font-semibold">
         {t("newsletterLabel")}
       </label>
-      <div className="flex flex-col gap-3 sm:flex-row">
+      <div className="flex flex-col gap-4 sm:flex-row">
         <input
           ref={inputRef}
           id={inputId}
@@ -74,7 +74,7 @@ export function NewsletterForm() {
         </button>
       </div>
       {state === "soon" || state === "error" ? (
-        <p role="alert" className="text-[16px] leading-snug font-semibold">
+        <p role="alert" className="text-caption font-semibold">
           {t(state === "soon" ? "newsletterSoon" : "newsletterError")}
         </p>
       ) : null}

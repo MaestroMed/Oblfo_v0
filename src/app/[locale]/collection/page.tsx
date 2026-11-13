@@ -44,11 +44,11 @@ export default async function CollectionPage({ params }: Props) {
   })).filter((s) => s.items.length > 0);
 
   return (
-    <main className={`${PAGE} pt-4 pb-14 sm:pt-6 sm:pb-24`}>
+    <main className={`${PAGE} pt-4 pb-12 sm:pt-6 sm:pb-16`}>
       <PageBanner tone="miel" waves title={t("title")} lead={t("intro")} />
-      <FamilyPills current="all" className="mt-3 sm:mt-5" />
+      <FamilyPills current="all" className="mt-4 sm:mt-6" />
 
-      <div className="mt-6 flex flex-col gap-12 sm:mt-10 sm:gap-20">
+      <div className="mt-6 flex flex-col gap-12 sm:mt-8 sm:gap-16">
         {sections.map((section, n) => (
           <section key={section.category}>
             {/* Toute la bande mène à la famille : une seule cible, à la couleur de la famille. */}
@@ -57,14 +57,14 @@ export default async function CollectionPage({ params }: Props) {
                 pathname: "/collection/[category]",
                 params: { category: CATEGORY_SLUGS[section.category][locale] },
               }}
-              className={`tile ${TILE_CLASS[section.tone]} mb-3 flex min-h-[72px] flex-wrap items-center justify-between gap-x-4 gap-y-2 px-5 py-4 sm:mb-6 sm:px-8 sm:py-6`}
+              className={`tile ${TILE_CLASS[section.tone]} mb-4 flex min-h-[72px] flex-wrap items-center justify-between gap-x-4 gap-y-2 px-4 py-4 sm:mb-6 sm:px-8 sm:py-6`}
             >
-              <h2 className="text-[clamp(26px,5vw,40px)]">{tCat(section.category)}</h2>
+              <h2 className="text-display">{tCat(section.category)}</h2>
               <span className="chip">
                 {t("count", { count: section.items.length })}
               </span>
             </Link>
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-[repeat(auto-fill,minmax(250px,1fr))] sm:gap-6">
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-[repeat(auto-fill,minmax(250px,1fr))] sm:gap-6">
               {section.items.map((product, i) => (
                 <ProductCard key={product.id} product={product} locale={locale} priority={n === 0 && i < 2} />
               ))}

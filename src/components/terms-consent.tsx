@@ -14,13 +14,13 @@ export function TermsConsent({
   const t = useTranslations("Cart");
 
   return (
-    <label className="flex cursor-pointer items-start gap-3 py-2.5 text-[16px] leading-snug">
-      <span className="relative flex h-6 w-6 flex-none">
+    <label className="flex cursor-pointer items-start gap-4 py-2 text-caption">
+      <span className="keep-light relative flex h-6 w-6 flex-none">
         <input
           type="checkbox"
           checked={checked}
           onChange={(e) => onChange(e.target.checked)}
-          className="peer h-6 w-6 cursor-pointer appearance-none rounded-md border-2 border-choco bg-paper checked:bg-moutarde"
+          className="peer h-6 w-6 cursor-pointer appearance-none rounded border-2 border-choco bg-paper checked:bg-moutarde"
         />
         <svg
           aria-hidden

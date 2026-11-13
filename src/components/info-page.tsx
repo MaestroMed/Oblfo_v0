@@ -16,10 +16,10 @@ export function InfoPage({
   children: React.ReactNode;
 }) {
   return (
-    <main className={`${PAGE} pt-4 pb-14 sm:pt-6 sm:pb-24`}>
+    <main className={`${PAGE} pt-4 pb-12 sm:pt-6 sm:pb-16`}>
       <PageBanner tone={tone} title={title} lead={intro} />
       {/* Marge et non padding : le texte s'aligne sur celui du bandeau sans rogner les 68ch. */}
-      <div className="prose-obflo mt-8 sm:mt-14 sm:ml-10 lg:ml-14 [&>section:first-child>h2]:mt-0">
+      <div className="prose-obflo mt-8 sm:mt-12 sm:ml-8 lg:ml-12 [&>section:first-child>h2]:mt-0">
         {children}
       </div>
     </main>

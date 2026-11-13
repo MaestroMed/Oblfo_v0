@@ -155,7 +155,7 @@ export default async function CategoryPage({ params }: Props) {
 
   return (
     <main>
-      <div className={`${PAGE} pt-1 pb-14 sm:pt-3 sm:pb-24`}>
+      <div className={`${PAGE} pt-1 pb-12 sm:pt-4 sm:pb-16`}>
         <Crumbs
           items={[
             { label: t("home"), href: "/" },
@@ -170,18 +170,18 @@ export default async function CategoryPage({ params }: Props) {
           lead={c.lead}
           image={deco(category)}
         />
-        <FamilyPills current={category} className="mt-3 sm:mt-5" />
-        <div className="mt-3 sm:mt-6">
+        <FamilyPills current={category} className="mt-4 sm:mt-6" />
+        <div className="mt-4 sm:mt-6">
           <ProductGrid products={products.map(toCardProduct)} locale={locale} />
         </div>
       </div>
 
       {packs.length > 0 ? (
-        <section className="on-cream-2 py-14 sm:py-24">
+        <section className="on-cream-2 py-12 sm:py-16">
           <div className={PAGE}>
             <h2 className={H2}>{t("packsTitle")}</h2>
-            <p className="mt-3 text-[17px]">{t("packsText")}</p>
-            <div className="mt-6 sm:mt-10">
+            <p className="mt-4 text-body">{t("packsText")}</p>
+            <div className="mt-6 sm:mt-8">
               <PackRail packs={packs} locale={locale} cols="md:grid-cols-2 lg:grid-cols-3" />
             </div>
           </div>
@@ -189,16 +189,16 @@ export default async function CategoryPage({ params }: Props) {
       ) : null}
 
       <section
-        className={`${PAGE} grid gap-x-16 gap-y-12 pb-14 sm:pb-24 lg:grid-cols-[minmax(0,1fr)_minmax(0,400px)] ${packs.length > 0 ? "pt-14 sm:pt-24" : ""}`}
+        className={`${PAGE} grid gap-x-16 gap-y-12 pb-12 sm:pb-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,400px)] ${packs.length > 0 ? "pt-12 sm:pt-16" : ""}`}
       >
         <div>
           <h2 className={H2}>{t("aboutLabel")}</h2>
-          <p className="mt-5 max-w-[68ch] text-[17px] leading-[1.7]">{c.intro}</p>
+          <p className="mt-4 max-w-[68ch] text-body">{c.intro}</p>
         </div>
         {guides.length > 0 ? (
           <div>
-            <h2 className="text-[28px]">{t("guidesLabel")}</h2>
-            <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+            <h2 className="text-display">{t("guidesLabel")}</h2>
+            <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
               {guides.map(({ guide, tone }) => (
                 <GuideCard key={guide.id} guide={guide} tone={tone} level={3} />
               ))}

@@ -56,13 +56,13 @@ export function LocaleSwitcher({ label }: { label?: string }) {
   const rawPathname = useRawPathname();
 
   return (
-    <nav aria-label={label} className="flex items-center gap-1 font-display text-[16px] font-semibold">
+    <nav aria-label={label} className="flex items-center gap-1 font-display text-caption font-semibold">
       {routing.locales.map((l) =>
         l === locale ? (
           <span
             key={l}
             aria-current="true"
-            className="flex h-12 min-w-12 items-center justify-center rounded-full bg-moutarde px-3 text-choco"
+            className="keep-light flex h-12 min-w-12 items-center justify-center rounded-full bg-moutarde px-2 text-choco"
           >
             {l.toUpperCase()}
           </span>
@@ -71,7 +71,7 @@ export function LocaleSwitcher({ label }: { label?: string }) {
             key={l}
             href={alternateHref(rawPathname, locale, l)}
             hrefLang={l}
-            className="flex h-12 min-w-12 items-center justify-center rounded-full px-3 no-underline hover:underline hover:decoration-2 hover:underline-offset-4"
+            className="flex h-12 min-w-12 items-center justify-center rounded-full px-2 no-underline hover:underline hover:decoration-2 hover:underline-offset-4"
           >
             {l.toUpperCase()}
           </a>

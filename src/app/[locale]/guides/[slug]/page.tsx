@@ -130,7 +130,7 @@ export default async function GuidePage({ params }: Props) {
 
   return (
     <main>
-      <article className={`${PAGE} pt-1 pb-14 sm:pt-3 sm:pb-24`}>
+      <article className={`${PAGE} pt-1 pb-12 sm:pt-4 sm:pb-16`}>
         <Crumbs
           items={[
             { label: tPage("home"), href: "/" },
@@ -149,9 +149,9 @@ export default async function GuidePage({ params }: Props) {
           }
         />
 
-        <div className="mt-8 grid gap-x-16 gap-y-12 sm:mt-14 lg:grid-cols-[minmax(0,68ch)_minmax(0,1fr)]">
+        <div className="mt-8 grid gap-x-16 gap-y-12 sm:mt-12 lg:grid-cols-[minmax(0,68ch)_minmax(0,1fr)]">
           <div className="prose-obflo">
-            <p className="text-[19px] leading-[1.6] font-medium sm:text-[21px]">{guide.intro}</p>
+            <p className="text-body font-medium">{guide.intro}</p>
             {figure(0)}
             {guide.sections.map((section, i) => (
               <section key={section.title}>
@@ -166,26 +166,26 @@ export default async function GuidePage({ params }: Props) {
           </div>
 
           {related.length > 0 ? (
-            <aside className="tile on-cream-2 w-full max-w-[440px] p-5 sm:p-7 lg:sticky lg:top-24 lg:self-start lg:justify-self-end">
-              <h2 className="text-[24px]">{t("relatedLabel")}</h2>
+            <aside className="tile on-cream-2 w-full max-w-[440px] p-4 sm:p-8 lg:sticky lg:below-header lg:self-start lg:justify-self-end">
+              <h2 className="text-body">{t("relatedLabel")}</h2>
               <ul className="mt-2 flex flex-col divide-y-2 divide-choco/15">
                 {related.map(({ id, name, price, product }) => (
                   <li key={id} className="flex items-center gap-4 py-4 last:pb-0">
                     <span
-                      className={`relative flex h-[72px] w-[72px] flex-none items-center justify-center overflow-hidden rounded-2xl ${product ? TILE_CLASS[productTile(id)] : "on-miel"}`}
+                      className={`relative flex h-[72px] w-[72px] flex-none items-center justify-center overflow-hidden rounded keep-light ${product ? TILE_CLASS[productTile(id)] : "on-miel"}`}
                     >
                       {product?.cutout ? (
-                        <Image src={product.cutout} alt="" fill sizes="72px" className="cutout p-1.5" />
+                        <Image src={product.cutout} alt="" fill sizes="72px" className="cutout p-2" />
                       ) : (
                         <HeatWaves className="h-9 w-9" />
                       )}
                     </span>
                     <div className="flex min-w-0 flex-col items-start gap-2">
-                      <span className="font-display text-[18px] leading-[1.15] font-semibold">
+                      <span className="font-display text-body font-semibold">
                         {name}
                       </span>
                       <div className="flex flex-wrap items-center gap-2">
-                        <span className={product ? "text-[17px] font-bold tabular-nums" : "price price-sm"}>
+                        <span className={product ? "text-body font-bold tabular-nums" : "price price-sm"}>
                           {formatPrice(price, locale)}
                         </span>
                         {product ? (

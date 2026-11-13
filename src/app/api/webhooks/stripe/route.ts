@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 import { sendCjOrders } from "@/lib/cj";
+import { decrementStock } from "@/lib/stock";
 
 // CJ impose 1 requête par seconde : authentification + une commande par ligne de transport.
 export const maxDuration = 30;
@@ -104,6 +105,14 @@ export async function POST(request: Request) {
         );
         return NextResponse.json({ error: "cj_failed" }, { status: 500 });
       }
+    }
+
+    // Stock réservé : baisse après la commande fournisseur (un réessai Stripe après échec CJ ne décompte pas deux fois).
+    try {
+      const left = await decrementStock(items);
+      if (left) console.log(`[obflo:stock] ${JSON.stringify(left)}`);
+    } catch (error) {
+      console.error(`[obflo:stock] décompte impossible (session ${session.id}) :`, error);
     }
 
     const forwardUrl = process.env.ORDERS_WEBHOOK_URL;

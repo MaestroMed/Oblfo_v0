@@ -17,7 +17,7 @@ export function PaymentIcons({ className = "" }: { className?: string }) {
       {METHODS.map(([file, name]) => (
         <li key={file} className="flex">
           {/* eslint-disable-next-line @next/next/no-img-element -- SVG de 2 Ko, rien à optimiser */}
-          <img src={`/images/pay/${file}.svg`} alt={name} width={38} height={24} loading="lazy" decoding="async" className="h-6 w-auto rounded-[4px] bg-white" />
+          <img src={`/images/pay/${file}.svg`} alt={name} width={38} height={24} loading="lazy" decoding="async" className="h-6 w-auto" />
         </li>
       ))}
     </ul>

@@ -33,10 +33,10 @@ export function GuideCard({
   return (
     <Link
       href={{ pathname: "/guides/[slug]", params: { slug: guide.slug } }}
-      className={`tile ${TILE_CLASS[tone]} group flex h-full flex-col items-start gap-3 p-5 transition-transform duration-200 hover:-translate-y-1 motion-reduce:transform-none sm:p-7`}
+      className={`tile ${TILE_CLASS[tone]} group flex h-full flex-col items-start gap-4 p-4 transition-transform duration-200 hover:-translate-y-1 motion-reduce:transform-none sm:p-8`}
     >
       {photo ? (
-        <span className="relative -mx-5 -mt-5 mb-1 block aspect-[16/10] w-[calc(100%+2.5rem)] overflow-hidden rounded-t-[inherit] sm:-mx-7 sm:-mt-7 sm:w-[calc(100%+3.5rem)]">
+        <span className="relative -mx-4 -mt-4 mb-1 block aspect-[16/10] w-[calc(100%+2rem)] overflow-hidden rounded-t-[inherit] sm:-mx-8 sm:-mt-8 sm:w-[calc(100%+4rem)]">
           <Image
             src={photo.src}
             alt=""
@@ -51,11 +51,11 @@ export function GuideCard({
       <span className="chip">
         {t("readTime", { minutes: guide.readMinutes })}
       </span>
-      <Heading className="text-[22px] leading-[1.1] text-balance hyphens-auto wrap-anywhere sm:text-[24px]">
+      <Heading className="text-body text-balance hyphens-auto wrap-anywhere">
         {guide.title}
       </Heading>
-      <p className="text-[16px] leading-normal">{guide.metaDescription}</p>
-      <span className="mt-auto pt-2 font-display text-[17px] font-semibold underline decoration-2 underline-offset-4">
+      <p className="text-caption">{guide.metaDescription}</p>
+      <span className="mt-auto pt-2 font-display text-body font-semibold underline decoration-2 underline-offset-4">
         {t("read")}
       </span>
     </Link>

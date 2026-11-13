@@ -18,8 +18,8 @@ import { TILE_CLASS, productTile } from "@/lib/tile";
 
 // Briques communes au tiroir et à la page panier : mêmes lignes, même pack suggéré, même bloc de paiement.
 
-// L'ombre de `.cutout` est réglée pour un grand visuel : réduite ici pour une vignette.
-const THUMB_CUTOUT = "cutout [filter:drop-shadow(0_4px_3px_rgb(59_22_13/0.3))]";
+// Même ombre que les grands visuels : deux niveaux d'ombre seulement (jeton --shadow-elevated).
+const THUMB_CUTOUT = "cutout";
 
 /** Vignette d'une ligne : détouré sur l'aplat du produit ; pour un pack, ses deux premiers articles sur miel. */
 function Thumb({ id, locale, roomy }: { id: string; locale: Locale; roomy: boolean }) {
@@ -29,18 +29,18 @@ function Thumb({ id, locale, roomy }: { id: string; locale: Locale; roomy: boole
 
   return (
     <span
-      className={`relative block h-20 w-20 flex-none overflow-hidden rounded-2xl ${
-        roomy ? "sm:h-28 sm:w-28 sm:rounded-3xl" : ""
+      className={`keep-light relative block h-20 w-20 flex-none overflow-hidden rounded ${
+        roomy ? "sm:h-28 sm:w-28" : ""
       } ${product ? TILE_CLASS[productTile(id)] : "on-miel"}`}
     >
       {product && hasCutout ? (
-        <Image src={product.cutout!} alt="" fill sizes="112px" className={`${THUMB_CUTOUT} p-1.5`} />
+        <Image src={product.cutout!} alt="" fill sizes="112px" className={`${THUMB_CUTOUT} p-2`} />
       ) : product?.image ? (
         <Image src={product.image} alt="" fill sizes="112px" className="object-cover" />
       ) : product ? (
         <ImageSlot />
       ) : pack ? (
-        <span className="absolute inset-0 flex items-center gap-0.5 p-1.5">
+        <span className="absolute inset-0 flex items-center gap-1 p-2">
           {pack.lines.slice(0, 2).map((line) =>
             line.cutout ? (
               <span key={line.id} className="relative h-full flex-1">
@@ -55,7 +55,7 @@ function Thumb({ id, locale, roomy }: { id: string; locale: Locale; roomy: boole
 }
 
 const STEP_BUTTON =
-  "flex h-12 w-12 cursor-pointer items-center justify-center rounded-full font-display text-[22px] leading-none font-semibold transition-colors duration-150 hover:bg-miel";
+  "flex h-12 w-12 cursor-pointer items-center justify-center rounded-full font-display text-body font-semibold transition-colors duration-150 hover:bg-miel";
 
 /** Lignes du panier. `roomy` : version aérée de la page panier (vignette et textes plus grands dès 640 px). */
 export function CartLines({ roomy = false }: { roomy?: boolean }) {
@@ -70,15 +70,13 @@ export function CartLines({ roomy = false }: { roomy?: boolean }) {
         return (
           <li
             key={key}
-            className={`flex gap-3 border-b border-choco/15 py-4 last:border-b-0 ${roomy ? "sm:gap-5 sm:py-6" : ""}`}
+            className={`flex gap-4 border-b border-choco/15 py-4 last:border-b-0 ${roomy ? "sm:gap-6 sm:py-6" : ""}`}
           >
             <Thumb id={item.id} locale={locale} roomy={roomy} />
-            <div className="flex min-w-0 flex-1 flex-col gap-1.5">
+            <div className="flex min-w-0 flex-1 flex-col gap-2">
               <div className="flex items-start gap-1">
                 <p
-                  className={`min-w-0 flex-1 font-display text-[17px] leading-snug font-semibold [overflow-wrap:anywhere] ${
-                    roomy ? "sm:text-xl" : ""
-                  }`}
+                  className="min-w-0 flex-1 font-display text-body font-semibold [overflow-wrap:anywhere]"
                 >
                   {item.name}
                 </p>
@@ -86,7 +84,7 @@ export function CartLines({ roomy = false }: { roomy?: boolean }) {
                   type="button"
                   onClick={() => removeItem(key)}
                   aria-label={t("removeItem", { name: item.name })}
-                  className="-mt-2.5 -mr-2.5 flex h-12 w-12 flex-none cursor-pointer items-center justify-center rounded-full text-muted transition-colors duration-150 hover:bg-cream-2 hover:text-choco"
+                  className="-mt-2 -mr-2 flex h-12 w-12 flex-none cursor-pointer items-center justify-center rounded-full text-muted transition-colors duration-150 hover:bg-cream-2 hover:text-choco"
                 >
                   <svg
                     viewBox="0 0 24 24"
@@ -102,12 +100,12 @@ export function CartLines({ roomy = false }: { roomy?: boolean }) {
                   </svg>
                 </button>
               </div>
-              <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[16px] text-muted">
+              <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-caption text-muted">
                 {item.variant ? <span className="chip chip-moutarde">{item.variant}</span> : null}
                 <span className="tabular-nums">{t("perUnit", { price: formatPrice(item.price, locale) })}</span>
               </div>
               <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-2">
-                <div className="flex items-center rounded-full bg-cream-2">
+                <div className="flex items-center rounded bg-cream-2">
                   <button
                     type="button"
                     onClick={() => setQty(key, item.qty - 1)}
@@ -116,7 +114,7 @@ export function CartLines({ roomy = false }: { roomy?: boolean }) {
                   >
                     −
                   </button>
-                  <span className="min-w-7 text-center font-display text-[17px] font-semibold tabular-nums">
+                  <span className="min-w-7 text-center font-display text-body font-semibold tabular-nums">
                     {item.qty}
                   </span>
                   <button
@@ -128,7 +126,7 @@ export function CartLines({ roomy = false }: { roomy?: boolean }) {
                     +
                   </button>
                 </div>
-                <span className={`ml-auto font-display text-lg font-bold tabular-nums ${roomy ? "sm:text-xl" : ""}`}>
+                <span className="ml-auto font-display text-body font-bold tabular-nums">
                   {formatPrice(item.price * item.qty, locale)}
                 </span>
               </div>
@@ -162,11 +160,11 @@ export function PackSuggestion({ className = "" }: { className?: string }) {
   if (!pack) return null;
 
   return (
-    <section aria-label={pack.name} className={`tile on-miel p-4 sm:p-5 ${className}`}>
-      <div className="flex items-start gap-3">
+    <section aria-label={pack.name} className={`tile on-miel p-4 sm:p-6 ${className}`}>
+      <div className="flex items-start gap-4">
         <div className="min-w-0 flex-1">
-          <span className="block font-display font-semibold leading-[1.06] [text-wrap:balance] text-[22px]">{pack.name}</span>
-          <p className="mt-1.5 text-[16px] leading-snug">{pack.lines.map((line) => line.name).join(" + ")}</p>
+          <span className="block font-display font-semibold [text-wrap:balance] text-body">{pack.name}</span>
+          <p className="mt-2 text-caption">{pack.lines.map((line) => line.name).join(" + ")}</p>
         </div>
         <div className="flex flex-none -space-x-2">
           {pack.lines.slice(0, 2).map((line) =>
@@ -178,9 +176,9 @@ export function PackSuggestion({ className = "" }: { className?: string }) {
           )}
         </div>
       </div>
-      <p className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1.5">
+      <p className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
         <span className="price">{formatPrice(pack.price, locale)}</span>
-        <span className="text-[16px]">
+        <span className="text-caption">
           {tPacks("separately")} <span className="strike">{formatPrice(pack.compareAt, locale)}</span>
         </span>
       </p>
@@ -194,7 +192,7 @@ export function PackSuggestion({ className = "" }: { className?: string }) {
           }
           addItem({ id: pack.id, name: pack.name, price: pack.price }, { silent: true });
         }}
-        className="btn btn-block mt-4 px-5 py-2.5"
+        className="btn btn-block mt-4 px-4 py-2"
       >
         {t("packSuggestCta", { save: formatPrice(pack.save, locale) })}
       </button>
@@ -213,10 +211,10 @@ export function FreeShippingBar({ className = "" }: { className?: string }) {
 
   return (
     <div className={className}>
-      <p aria-live="polite" className={`font-display text-base font-semibold ${left > 0 ? "" : "text-moutarde"}`}>
+      <p aria-live="polite" className={`font-display text-caption font-semibold ${left > 0 ? "" : "text-moutarde"}`}>
         {left > 0 ? t("freeShipLeft", { amount: formatPrice(left, locale) }) : t(promo ? "freeShipPromo" : "freeShipDone")}
       </p>
-      <div className="mt-2 h-2.5 overflow-hidden rounded-full bg-choco-2">
+      <div className="mt-2 h-2.5 overflow-hidden rounded bg-choco-2">
         <div
           className="h-full origin-left bg-moutarde transition-transform duration-300 ease-out motion-reduce:transition-none"
           style={{ transform: `scaleX(${progress})` }}
@@ -232,7 +230,7 @@ export function CartCheckout({ amount }: { amount: number }) {
   const locale = useLocale() as Locale;
   const { state, busy, startCheckout } = useCheckout(locale);
   const [termsAccepted, setTermsAccepted] = useState(false);
-  const alert = "on-tomate mt-3 rounded-2xl px-4 py-3 text-center text-[16px] leading-snug font-semibold";
+  const alert = "on-tomate mt-4 rounded px-4 py-4 text-center text-caption font-semibold";
 
   return (
     <>
@@ -243,11 +241,11 @@ export function CartCheckout({ amount }: { amount: number }) {
         disabled={busy || !termsAccepted}
         data-state={state}
         aria-busy={busy}
-        className="btn btn-braise btn-lg btn-block mt-3 tabular-nums"
+        className="btn btn-braise btn-lg btn-block mt-4 tabular-nums"
       >
         {t("checkout")} · {formatPrice(amount, locale)}
       </button>
-      <PaymentIcons className="mt-3 justify-center" />
+      <PaymentIcons className="mt-4 justify-center" />
       {state === "unavailable" ? (
         <p role="alert" className={alert}>
           {t("checkoutSoon")}
@@ -271,7 +269,7 @@ export function CartEmpty({ onNavigate }: { onNavigate?: () => void }) {
       <span className="on-miel flex h-24 w-24 items-center justify-center rounded-full">
         <HeatWaves className="h-12 w-12" />
       </span>
-      <h2 className="text-[28px]">{t("emptyTitle")}</h2>
+      <h2 className="text-body">{t("emptyTitle")}</h2>
       <p className="max-w-[28ch]">{t("empty")}</p>
       <Link href="/collection" onClick={onNavigate} className="btn btn-braise mt-2">
         {t("emptyCta")}

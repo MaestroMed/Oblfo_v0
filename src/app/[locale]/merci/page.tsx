@@ -69,34 +69,34 @@ export default async function MerciPage({ params, searchParams }: Props) {
       )}
 
       <section className="on-peche">
-        <div className="relative mx-auto max-w-[1240px] px-4 py-14 sm:px-8 sm:py-24">
+        <div className="relative mx-auto max-w-[1240px] px-4 py-12 sm:px-8 sm:py-16">
           <HeatWaves className="absolute top-6 right-4 h-14 w-14 sm:top-12 sm:right-8 sm:h-28 sm:w-28" />
           <span className="chip">{t("badge")}</span>
-          <h1 className="mt-5 text-[clamp(36px,8vw,72px)] break-words">
+          <h1 className="mt-4 text-display break-words">
             {t("titleLine1")}
             <br />
             {t("titleLine2")}
           </h1>
-          <p className="mt-6 max-w-[26ch] font-display text-xl leading-snug font-bold sm:text-2xl">
+          <p className="mt-6 max-w-[26ch] font-display text-body font-bold">
             {t("lead")}
           </p>
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1240px] px-4 py-14 sm:px-8 sm:py-24">
-        <h2 className="text-[clamp(28px,5vw,44px)]">{t("nextTitle")}</h2>
-        <ul className="mt-6 grid gap-3 sm:mt-10 sm:gap-5 md:grid-cols-3">
+      <section className="mx-auto max-w-[1240px] px-4 py-12 sm:px-8 sm:py-16">
+        <h2 className="text-display">{t("nextTitle")}</h2>
+        <ul className="mt-6 grid gap-4 sm:mt-8 sm:gap-6 md:grid-cols-3">
           <li className="tile on-miel p-6 sm:p-8">
-            <span className="block font-display font-semibold leading-[1.06] [text-wrap:balance] text-[22px]">{t("step1Title")}</span>
-            <p className="mt-2.5">{t("step1Text")}</p>
+            <span className="block font-display font-semibold [text-wrap:balance] text-body">{t("step1Title")}</span>
+            <p className="mt-2">{t("step1Text")}</p>
           </li>
           <li className="tile on-choco p-6 sm:p-8">
-            <span className="block font-display font-semibold leading-[1.06] [text-wrap:balance] text-[22px]">{t("step2Title")}</span>
-            <p className="mt-2.5">{t("step2Text")}</p>
+            <span className="block font-display font-semibold [text-wrap:balance] text-body">{t("step2Title")}</span>
+            <p className="mt-2">{t("step2Text")}</p>
           </li>
           <li className="tile on-sable p-6 sm:p-8">
-            <span className="block font-display font-semibold leading-[1.06] [text-wrap:balance] text-[22px]">{t("step3Title")}</span>
-            <p className="mt-2.5">{t("step3Text")}</p>
+            <span className="block font-display font-semibold [text-wrap:balance] text-body">{t("step3Title")}</span>
+            <p className="mt-2">{t("step3Text")}</p>
           </li>
         </ul>
         <div className="mt-8 flex flex-col gap-x-8 gap-y-4 sm:mt-12 sm:flex-row sm:items-center">

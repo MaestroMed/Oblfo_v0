@@ -121,11 +121,11 @@ export function SiteHeader() {
 
   return (
     <header className="on-cream sticky top-0 z-[60] border-b border-choco/10">
-      <div className="mx-auto flex h-16 max-w-[1240px] items-center justify-between gap-2 px-4 sm:h-[72px] sm:px-8">
+      <div className="mx-auto flex h-(--header-h) max-w-[1240px] items-center justify-between gap-2 px-4 sm:px-8">
         {logo}
         <nav className="hidden items-center lg:flex">
           {navLinks(
-            "flex min-h-12 items-center px-3 font-display text-[18px] font-semibold whitespace-nowrap no-underline decoration-[3px] underline-offset-[6px] hover:underline",
+            "flex min-h-12 items-center px-4 font-display text-body font-semibold whitespace-nowrap no-underline decoration-[3px] underline-offset-[6px] hover:underline",
             false,
           )}
         </nav>
@@ -156,7 +156,7 @@ export function SiteHeader() {
               <path d="M9 8a3 3 0 0 1 6 0" />
             </svg>
             {count > 0 ? (
-              <span className="absolute top-0 right-0 flex h-[22px] min-w-[22px] items-center justify-center rounded-full bg-braise px-1 font-display text-[16px] leading-none font-bold text-cream tabular-nums">
+              <span className="keep-light absolute top-0 right-0 flex h-[22px] min-w-[22px] items-center justify-center rounded-full bg-braise px-1 font-display text-caption font-bold text-paper tabular-nums">
                 {count}
               </span>
             ) : null}
@@ -185,7 +185,7 @@ export function SiteHeader() {
           aria-label={t("menu")}
           className="on-cream fixed inset-0 z-[70] flex flex-col overflow-y-auto overscroll-contain lg:hidden"
         >
-          <div className="flex h-16 shrink-0 items-center justify-between px-4 sm:h-[72px] sm:px-8">
+          <div className="flex h-(--header-h) shrink-0 items-center justify-between px-4 sm:px-8">
             {logo}
             <button
               ref={closeRef}
@@ -201,10 +201,10 @@ export function SiteHeader() {
           </div>
           <nav className="flex flex-col px-4 pt-2 pb-6 sm:px-8">
             {navLinks(
-              "flex min-h-[54px] items-center font-display text-[30px] leading-none font-semibold no-underline sm:min-h-[64px] sm:text-[40px]",
+              "flex min-h-14 items-center font-display text-display font-semibold no-underline sm:min-h-16",
             )}
           </nav>
-          <div className="tile on-choco mx-4 mt-auto mb-4 flex justify-center px-3 py-2 sm:mx-8 sm:mb-8">
+          <div className="tile on-choco mx-4 mt-auto mb-4 flex justify-center px-4 py-2 sm:mx-8 sm:mb-8">
             <LocaleSwitcher label={t("language")} />
           </div>
         </div>

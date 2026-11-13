@@ -45,11 +45,11 @@ export function VariantPicker({
   };
 
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-4">
       {/* Le libellé et l'alerte héritent de la couleur du bloc ; champ et pastilles portent leur propre fond. */}
       <div className="flex flex-col gap-2">
         {/* Étiquette visible et liée au champ (brief : pas de libellé seulement en placeholder). */}
-        <label htmlFor={layout === "select" ? selectId : undefined} className="text-[16px] font-semibold">
+        <label htmlFor={layout === "select" ? selectId : undefined} className="text-caption font-semibold">
           {label}
         </label>
         {layout === "pills" ? (
@@ -60,7 +60,7 @@ export function VariantPicker({
                 type="button"
                 onClick={() => setSelected(option)}
                 aria-pressed={selected === option}
-                className={`font-display min-h-12 min-w-12 cursor-pointer rounded-full px-4 text-[16px] font-semibold ring-2 ring-inset transition-colors duration-150 ${
+                className={`font-display min-h-12 min-w-12 cursor-pointer rounded px-4 text-caption font-semibold ring-2 ring-inset transition-colors duration-150 ${
                   selected === option
                     ? "bg-choco text-cream ring-cream"
                     : "bg-paper text-choco ring-choco/25"
@@ -87,7 +87,7 @@ export function VariantPicker({
         )}
       </div>
       {touched && !selected ? (
-        <p role="alert" className="text-[16px] font-bold">
+        <p role="alert" className="text-caption font-bold">
           {t("variantRequired", { label })}
         </p>
       ) : null}

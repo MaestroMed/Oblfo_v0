@@ -8,10 +8,11 @@ function Items({ products, locale }: { products: Product[]; locale: Locale }) {
     <li key={p.id} className="shrink-0">
       <Link
         href={{ pathname: "/produits/[slug]", params: { slug: p.slug } }}
+        prefetch={false}
         className="flex items-center gap-3 rounded-full bg-cream py-1.5 pr-5 pl-1.5 text-choco no-underline"
       >
         <span className="relative block h-12 w-12 flex-none rounded-full bg-miel">
-          <Image src={p.cutout!} alt="" fill sizes="48px" className="object-contain p-1" />
+          <Image src={p.cutout!} alt="" fill sizes="48px" loading="lazy" fetchPriority="low" className="object-contain p-1" />
         </span>
         <span className="font-display text-[15px] font-semibold whitespace-nowrap">{p.name}</span>
         <span className="text-[15px] font-bold whitespace-nowrap text-braise">{formatPrice(p.price, locale)}</span>

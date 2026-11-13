@@ -7,6 +7,7 @@ import { Categories } from "@/components/home/categories";
 import { Essentials } from "@/components/home/essentials";
 import { Hero } from "@/components/home/hero";
 import { PackFeature } from "@/components/home/pack-feature";
+import { ProductTicker } from "@/components/home/product-ticker";
 import { Reassurance } from "@/components/home/reassurance";
 import { getFaqItems, getListedProducts } from "@/data/catalog";
 import { getPathname } from "@/i18n/navigation";
@@ -124,6 +125,7 @@ export default async function HomePage({ params }: Props) {
     <>
       <main>
         <Hero locale={locale} />
+        <ProductTicker locale={locale} />
         <Categories locale={locale} />
         <Essentials locale={locale} />
         <PackFeature locale={locale} />

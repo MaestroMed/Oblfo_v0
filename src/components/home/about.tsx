@@ -21,7 +21,7 @@ export function About() {
   return (
     <section id="apropos" className="scroll-mt-24 py-14 sm:py-24">
       <div className="mx-auto grid max-w-[1240px] gap-10 px-4 sm:px-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12">
-        <div className="flex flex-col gap-5">
+        <div className="reveal flex flex-col gap-5">
           <h2 className="text-[clamp(28px,5vw,44px)] text-balance">{t("aboutTitle")}</h2>
           <p className="max-w-[52ch] text-[17px] leading-relaxed">{t("aboutText")}</p>
           <ul className="mt-2 flex flex-col gap-4">
@@ -39,7 +39,7 @@ export function About() {
           </ul>
         </div>
         {/* La légende dit déjà la scène : les photos restent décoratives. */}
-        <ul className="grid gap-3 sm:grid-cols-3 sm:gap-4">
+        <ul className="reveal-kids grid gap-3 sm:grid-cols-3 sm:gap-4">
           {lifestyle.map((card) => (
             <li key={card.id} className={`tile ${card.tone} flex items-center sm:flex-col sm:items-stretch`}>
               <span className="relative block aspect-square w-2/5 shrink-0 self-stretch bg-paper/50 sm:aspect-[4/5] sm:w-auto">

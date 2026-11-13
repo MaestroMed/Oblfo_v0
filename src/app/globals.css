@@ -276,10 +276,46 @@ details > summary::-webkit-details-marker {
 .heat-waves path:nth-child(2) { animation-delay: 0.3s; }
 .heat-waves path:nth-child(3) { animation-delay: 0.6s; }
 
+/* Accueil : texte du haut qui monte, photo qui respire, produits qui flottent. */
+@keyframes rise-in { from { opacity: 0; transform: translateY(18px); } }
+.rise { animation: rise-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; animation-delay: var(--d, 0s); }
+@keyframes kenburns { to { transform: scale(1.08) translate(-1.5%, -1%); } }
+.kenburns { animation: kenburns 22s ease-in-out infinite alternate; }
+@keyframes float { 50% { transform: translateY(-7px); } }
+.float { animation: float 5s ease-in-out infinite; }
+@keyframes glow { 50% { opacity: 1; transform: scale(1.04); } }
+.hero-glow {
+  background: radial-gradient(closest-side, rgb(243 192 88 / 0.55), rgb(201 61 24 / 0.18) 55%, transparent);
+  opacity: 0.6;
+  animation: glow 6s ease-in-out infinite;
+}
+
+/* Apparition au défilement, sans script : seulement là où le navigateur sait lier une animation au défilement. */
+@keyframes reveal { from { opacity: 0; transform: translateY(28px); } }
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal,
+    .reveal-kids > * {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 22%;
+    }
+    .reveal-kids > :nth-child(2n) { animation-range: entry 6% cover 28%; }
+    .reveal-kids > :nth-child(3n) { animation-range: entry 12% cover 34%; }
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .marquee-track,
-  .heat-waves path { animation: none; }
+  .heat-waves path,
+  .rise,
+  .kenburns,
+  .float,
+  .hero-glow { animation: none; }
+  /* Sans défilement automatique, le bandeau se fait glisser au doigt et la copie de bouclage disparaît. */
+  .marquee { overflow-x: auto; }
+  .marquee-copy { display: none; }
   .cart-drawer-veil,
   .cart-drawer-panel { animation-duration: 0.01s; }
   .btn { transition: none; }

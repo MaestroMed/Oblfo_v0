@@ -14,8 +14,12 @@ export function PackFeature({ locale }: { locale: Locale }) {
   return (
     <section id="pack" className="scroll-mt-24 pb-14 sm:pb-24">
       <div className="mx-auto max-w-[1240px] px-4 sm:px-8">
-        <SectionHeading title={t("title")} description={t("description")} />
-        <PackRail packs={packs} locale={locale} cols="md:grid-cols-2" />
+        <div className="reveal">
+          <SectionHeading title={t("title")} description={t("description")} />
+        </div>
+        <div className="reveal">
+          <PackRail packs={packs} locale={locale} cols="md:grid-cols-2" />
+        </div>
       </div>
     </section>
   );

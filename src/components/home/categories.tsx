@@ -16,8 +16,8 @@ export function Categories({ locale }: { locale: Locale }) {
   return (
     <section className="py-14 sm:py-24">
       <div className="mx-auto max-w-[1240px] px-4 sm:px-8">
-        <h2 className="mb-6 text-[clamp(28px,5vw,44px)] sm:mb-10">{t("categoriesTitle")}</h2>
-        <ul className="grid grid-cols-3 gap-x-3 gap-y-5 sm:gap-x-4 lg:grid-cols-6">
+        <h2 className="reveal mb-6 text-[clamp(28px,5vw,44px)] sm:mb-10">{t("categoriesTitle")}</h2>
+        <ul className="reveal-kids grid grid-cols-3 gap-x-3 gap-y-5 sm:gap-x-4 lg:grid-cols-6">
           {categories.map((category) => (
             <li key={category}>
               <Link

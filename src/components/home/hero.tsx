@@ -51,11 +51,12 @@ export function Hero({ locale }: { locale: Locale }) {
               <Link
                 key={id}
                 href={{ pathname: "/produits/[slug]", params: { slug: p.slug } }}
+                prefetch={false}
                 style={{ animationDelay: delay }}
                 className={`float absolute ${place} flex max-w-[62%] items-center gap-2 rounded-full bg-paper/95 py-1.5 pr-4 pl-1.5 no-underline shadow-[0_10px_24px_rgb(59_22_13/0.22)] sm:gap-3 sm:pr-5`}
               >
                 <span className="relative block h-10 w-10 flex-none rounded-full bg-miel sm:h-12 sm:w-12">
-                  <Image src={p.cutout!} alt="" fill sizes="48px" className="object-contain p-1" />
+                  <Image src={p.cutout!} alt="" fill sizes="48px" loading="lazy" fetchPriority="low" className="object-contain p-1" />
                 </span>
                 <span className="flex min-w-0 flex-col leading-tight">
                   <span className="truncate font-display text-[13px] font-semibold sm:text-[15px]">{p.name}</span>

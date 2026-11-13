@@ -31,7 +31,7 @@ export async function HeatProofs({ locale }: { locale: Locale }) {
   if (!rows.length) return null;
 
   return (
-    <section className="pb-14 sm:pb-24">
+    <section className="defer pb-14 sm:pb-24">
       <div className="mx-auto max-w-[1240px] px-4 sm:px-8">
         <h2 className="reveal mb-6 text-[clamp(28px,5vw,44px)] sm:mb-10">{t("heatTitle")}</h2>
         {/* Chaque chiffre est posé à côté du produit qui le porte : la carte entière mène à sa fiche. */}

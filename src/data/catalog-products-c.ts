@@ -58,18 +58,26 @@ export const productsC: ProductSource[] = [
       fr: [
         "Le cou est l'endroit où le froid s'invite en premier. Cette écharpe chauffante en tissu doux se pose autour du cou et diffuse une chaleur régulière, sans la lourdeur d'un manteau supplémentaire.",
         "Elle s'alimente en USB (5 V, 4 W) et propose trois niveaux de chauffe signalés par une couleur : rouge 55 °C, bleu 48 °C, vert 42 °C. Un appui long de trois secondes la met en marche. Les niveaux sont ceux indiqués par le fabricant.",
+        "Pour l'allumer, reliez-la à une batterie externe (non incluse) et maintenez l'appui pendant trois secondes. La couleur de l'indicateur vous montre le niveau en cours : vert pour 42 °C, bleu pour 48 °C, rouge pour 55 °C. Vous pouvez ainsi rester sur une chaleur douce à l'intérieur et monter d'un cran sur un quai de gare.",
+        "Le tissu reste doux et léger autour du cou, dehors comme à la maison, et les trois niveaux vous laissent régler la chaleur selon vos besoins. D'après le fabricant, l'écharpe se lave à l'eau sans démontage : pensez simplement à la débrancher avant.",
       ],
       en: [
         "The neck is where the cold gets in first. This soft-fabric heated scarf sits around the neck and gives steady warmth, without the bulk of an extra coat.",
         "It runs on USB (5 V, 4 W) and offers three heat levels shown by colour: red 55 °C, blue 48 °C, green 42 °C. A three-second long press switches it on. Levels are those stated by the manufacturer.",
+        "To switch it on, connect it to a power bank (not included) and hold the press for three seconds. The indicator colour shows the current level: green for 42 °C, blue for 48 °C, red for 55 °C. So you can stay on gentle warmth indoors and go up a notch on a train platform.",
+        "The fabric stays soft and light around the neck, outdoors or at home, and the three levels let you adjust the warmth to suit you. According to the manufacturer, the scarf is water washable without disassembly: just remember to unplug it first.",
       ],
       de: [
         "Am Hals dringt die Kälte zuerst ein. Dieser Heizschal aus weichem Stoff wird um den Hals gelegt und gibt gleichmäßige Wärme, ohne die Schwere einer zusätzlichen Jacke.",
         "Er wird per USB betrieben (5 V, 4 W) und bietet drei Heizstufen, die farblich angezeigt werden: rot 55 °C, blau 48 °C, grün 42 °C. Ein dreisekündiger Druck schaltet ihn ein. Die Stufen entsprechen den Herstellerangaben.",
+        "Zum Einschalten an eine Powerbank (nicht enthalten) anschließen und drei Sekunden gedrückt halten. Die Farbe der Anzeige zeigt die aktuelle Stufe: grün für 42 °C, blau für 48 °C, rot für 55 °C. So bleiben Sie drinnen bei sanfter Wärme und schalten auf dem Bahnsteig eine Stufe höher.",
+        "Der Stoff bleibt am Hals weich und leicht, draußen wie zu Hause, und mit den drei Stufen passen Sie die Wärme an Ihren Bedarf an. Laut Hersteller ist der Schal ohne Zerlegen mit Wasser waschbar: Denken Sie nur daran, ihn vorher vom Strom zu trennen.",
       ],
       es: [
         "El cuello es por donde el frío entra primero. Esta bufanda calefactable de tela suave se coloca alrededor del cuello y da un calor constante, sin el peso de otro abrigo.",
         "Funciona por USB (5 V, 4 W) y ofrece tres niveles de calor indicados por color: rojo 55 °C, azul 48 °C, verde 42 °C. Una pulsación larga de tres segundos la enciende. Los niveles son los que indica el fabricante.",
+        "Para encenderla, conéctala a una batería externa (no incluida) y mantén pulsado tres segundos. El color del indicador muestra el nivel en curso: verde para 42 °C, azul para 48 °C, rojo para 55 °C. Así puedes quedarte en un calor suave en casa y subir un nivel en el andén de la estación.",
+        "La tela se mantiene suave y ligera en el cuello, fuera o en casa, y los tres niveles te permiten ajustar el calor a lo que necesites. Según el fabricante, la bufanda se lava con agua sin desmontarla: solo recuerda desenchufarla antes.",
       ],
     },
     highlights: {
@@ -190,18 +198,26 @@ export const productsC: ProductSource[] = [
       fr: [
         "Une ceinture en polaire à bande élastique, qui se porte à la taille et chauffe le bas du dos ou le ventre. Elle contient sa propre batterie : pas de câble pendant l'usage, on peut bouger, travailler ou rester sur le canapé.",
         "Trois températures au choix (45, 55 ou 65 °C) et cinq intensités de vibration. Elle se recharge en USB-C. C'est un produit de confort : il ne soigne rien et ne remplace pas un avis médical.",
+        "La bande élastique la maintient autour de la taille, et vous placez la zone chauffante soit dans le bas du dos, soit sur le ventre. Vous choisissez ensuite parmi trois températures, 45, 55 ou 65 °C, et cinq niveaux de vibration, selon ce qui vous convient.",
+        "Sa batterie lithium polymère intégrée de 2 500 mAh lui permet de fonctionner sans être reliée à une prise. Au bureau, au lit ou sur le canapé, aucun câble ne vous retient. Quand elle est déchargée, elle se recharge en USB-C. Sa puissance est de 8 W ; elle associe polaire, bande élastique et éléments en ABS et en PC.",
       ],
       en: [
         "A fleece belt with an elastic band, worn at the waist to warm the lower back or belly. It has its own battery: no cable while in use, so you can move, work or stay on the sofa.",
         "Three temperatures to choose from (45, 55 or 65 °C) and five vibration levels. It recharges over USB-C. It is a comfort product: it does not treat anything and is no substitute for medical advice.",
+        "The elastic band holds it around your waist, and you place the heated area either on your lower back or on your belly. Then choose from three temperatures, 45, 55 or 65 °C, and five vibration levels, whatever suits you.",
+        "Its built-in 2,500 mAh lithium polymer battery lets it run without being plugged into a socket. At your desk, in bed or on the sofa, no cable holds you back. When it runs flat, it recharges over USB-C. It draws 8 W and combines fleece, an elastic band and parts in ABS and PC.",
       ],
       de: [
         "Ein Fleecegürtel mit elastischem Band, der in der Taille getragen wird und den unteren Rücken oder den Bauch wärmt. Er hat einen eigenen Akku: kein Kabel im Betrieb, Sie können sich bewegen, arbeiten oder auf dem Sofa bleiben.",
         "Drei Temperaturen zur Wahl (45, 55 oder 65 °C) und fünf Vibrationsstufen. Aufgeladen wird per USB-C. Ein Komfortprodukt: Es behandelt nichts und ersetzt keinen ärztlichen Rat.",
+        "Das elastische Band hält ihn in der Taille, und Sie legen den beheizten Bereich entweder auf den unteren Rücken oder auf den Bauch. Dann wählen Sie aus drei Temperaturen, 45, 55 oder 65 °C, und fünf Vibrationsstufen, ganz nach Ihrem Empfinden.",
+        "Dank des integrierten Lithium-Polymer-Akkus mit 2.500 mAh läuft er ohne Steckdose. Am Schreibtisch, im Bett oder auf dem Sofa hält Sie kein Kabel fest. Ist der Akku leer, wird er per USB-C aufgeladen. Die Leistung beträgt 8 W; der Gürtel besteht aus Fleece, elastischem Band sowie Teilen aus ABS und PC.",
       ],
       es: [
         "Un cinturón de forro polar con banda elástica, que se lleva en la cintura y calienta la zona lumbar o el vientre. Lleva su propia batería: sin cable durante el uso, puedes moverte, trabajar o quedarte en el sofá.",
         "Tres temperaturas a elegir (45, 55 o 65 °C) y cinco niveles de vibración. Se recarga por USB-C. Es un producto de confort: no cura nada y no sustituye el consejo médico.",
+        "La banda elástica lo sujeta a la cintura, y colocas la zona calefactable en la zona lumbar o sobre el vientre. Después eliges entre tres temperaturas, 45, 55 o 65 °C, y cinco niveles de vibración, según lo que te resulte cómodo.",
+        "Su batería integrada de polímero de litio de 2.500 mAh le permite funcionar sin estar conectado a un enchufe. En el escritorio, en la cama o en el sofá, ningún cable te ata. Cuando se descarga, se recarga por USB-C. Tiene una potencia de 8 W y combina forro polar, banda elástica y piezas de ABS y PC.",
       ],
     },
     highlights: {
@@ -449,18 +465,26 @@ export const productsC: ProductSource[] = [
       fr: [
         "Un bonnet en peluche à petites oreilles, prolongé d'une écharpe dont les deux bouts font poches pour les mains. Il se branche en USB pour rester au chaud par temps froid : marche, attente à l'arrêt de bus, marché de Noël.",
         "Un module de conduction thermique produit une chaleur annoncée entre 40 et 50 °C. Il s'alimente en 5 V par un câble USB relié à une batterie externe (non incluse) glissée dans la poche. Un seul réglage : on branche et ça chauffe.",
+        "Tout tient en une seule pièce : le bonnet couvre la tête, l'écharpe entoure le cou et ses deux extrémités servent de poches. Vous y glissez les mains pendant que vous attendez ou que vous marchez. Le bonnet est blanc, en peluche et en tissu mélangé, avec ses petites oreilles.",
+        "Le câble USB est fourni : il suffit de le relier à votre batterie externe, à garder dans une poche. Il n'y a pas de niveau à choisir, la chaleur annoncée par le fabricant se situe entre 40 et 50 °C. Pensez simplement à emporter une batterie chargée avant de partir en balade ou au marché de Noël.",
       ],
       en: [
         "A plush hat with small ears, extended by a scarf whose two ends form hand pockets. It plugs in over USB to keep you warm in cold weather: walks, waiting at the bus stop, Christmas markets.",
         "A thermal conduction module gives a stated warmth of 40 to 50 °C. It runs on 5 V through a USB cable linked to a power bank (not included) in your pocket. No settings: plug in and it heats.",
+        "Everything is in one piece: the hat covers your head, the scarf goes round your neck and its two ends act as pockets. Slip your hands in while you wait or walk. The hat is white, plush and made of blended fabric, with its small ears.",
+        "The USB cable is supplied: just connect it to your power bank and keep that in a pocket. There is no level to choose; the manufacturer states a warmth of 40 to 50 °C. Simply remember to take a charged power bank before heading out for a walk or to a Christmas market.",
       ],
       de: [
         "Eine Plüschmütze mit kleinen Ohren, die in einen Schal übergeht – die beiden Enden sind Taschen für die Hände. Sie wird per USB angeschlossen und hält bei Kälte warm: Spaziergang, Warten an der Haltestelle, Weihnachtsmarkt.",
         "Ein Wärmeleitmodul erzeugt laut Hersteller 40 bis 50 °C. Betrieben wird die Mütze mit 5 V über ein USB-Kabel an einer Powerbank (nicht enthalten) in der Tasche. Keine Einstellungen: einstecken und es wird warm.",
+        "Alles ist ein Stück: Die Mütze bedeckt den Kopf, der Schal liegt um den Hals, und seine beiden Enden dienen als Taschen. Dort stecken Sie die Hände hinein, während Sie warten oder gehen. Die Mütze ist weiß, aus Plüsch und Mischgewebe, mit ihren kleinen Ohren.",
+        "Das USB-Kabel ist dabei: Sie verbinden es einfach mit Ihrer Powerbank und stecken diese in die Tasche. Eine Stufe müssen Sie nicht wählen; der Hersteller gibt eine Wärme von 40 bis 50 °C an. Denken Sie nur daran, vor dem Spaziergang oder dem Besuch auf dem Weihnachtsmarkt eine geladene Powerbank mitzunehmen.",
       ],
       es: [
         "Un gorro de peluche con orejitas que se prolonga en una bufanda cuyos dos extremos son bolsillos para las manos. Se conecta por USB para mantener el calor cuando hace frío: paseos, esperas en la parada, mercadillos de Navidad.",
         "Un módulo de conducción térmica da un calor indicado de 40 a 50 °C. Funciona a 5 V con un cable USB conectado a una batería externa (no incluida) en el bolsillo. Sin ajustes: conectas y calienta.",
+        "Todo va en una sola pieza: el gorro cubre la cabeza, la bufanda rodea el cuello y sus dos extremos hacen de bolsillos. Ahí metes las manos mientras esperas o caminas. El gorro es blanco, de peluche y tejido mixto, con sus orejitas.",
+        "El cable USB viene incluido: basta con conectarlo a tu batería externa y guardarla en un bolsillo. No hay niveles que elegir; el fabricante indica un calor de 40 a 50 °C. Solo recuerda llevar una batería cargada antes de salir de paseo o de ir al mercadillo de Navidad.",
       ],
     },
     highlights: {
@@ -584,18 +608,26 @@ export const productsC: ProductSource[] = [
       fr: [
         "Des chaussettes d'intérieur en velours très doux qui chauffent grâce à une alimentation USB. Pensées pour la maison : télétravail, lecture, soirée canapé sur un sol froid.",
         "Taille unique, de 24 à 28 cm, pour homme comme pour femme. Elles se branchent en USB sur une batterie externe ou un chargeur (non inclus). Le fabricant n'indique ni température ni autonomie : nous ne les annonçons donc pas.",
+        "Elles sont faites pour rester à la maison, pas pour sortir. Vous les enfilez comme des chaussettes ordinaires, puis vous les branchez en USB sur une batterie externe ou sur un chargeur, aucun des deux n'étant fourni. Cette paire est rouge.",
+        "Branchées sur un chargeur, elles vous gardent près d'une prise : à votre bureau pendant le télétravail, ou sur le canapé avec un livre. Avec une batterie externe, vous êtes plus libre de vos mouvements dans la maison. Dans les deux cas, vous gardez aux pieds un velours très doux, même sur un sol froid.",
       ],
       en: [
         "Indoor socks in very soft velvet that heat via USB power. Made for home: remote work, reading, sofa evenings on a cold floor.",
         "One size, 24 to 28 cm, for men and women. They plug into USB on a power bank or charger (not included). The manufacturer gives no temperature or battery life, so we do not state any.",
+        "They are made for staying in, not for going out. Pull them on like ordinary socks, then plug them into a power bank or a charger over USB; neither is supplied. This pair is red.",
+        "Plugged into a charger, they keep you near a socket: at your desk while working from home, or on the sofa with a book. With a power bank, you can move around the house more freely. Either way, you keep very soft velvet on your feet, even on a cold floor.",
       ],
       de: [
         "Hausstrümpfe aus sehr weichem Samt, die per USB-Strom heizen. Gemacht für zu Hause: Homeoffice, Lesen, Sofaabend auf kaltem Boden.",
         "Einheitsgröße, 24 bis 28 cm, für Damen und Herren. Der Anschluss erfolgt per USB an Powerbank oder Ladegerät (nicht enthalten). Der Hersteller nennt weder Temperatur noch Laufzeit, daher geben wir keine an.",
+        "Sie sind fürs Zuhause gemacht, nicht für draußen. Sie ziehen sie wie normale Socken an und schließen sie dann per USB an eine Powerbank oder ein Ladegerät an; beides ist nicht enthalten. Dieses Paar ist rot.",
+        "Am Ladegerät bleiben Sie in der Nähe einer Steckdose: am Schreibtisch im Homeoffice oder auf dem Sofa mit einem Buch. Mit einer Powerbank bewegen Sie sich freier durch die Wohnung. In beiden Fällen haben Sie sehr weichen Samt an den Füßen, auch auf kaltem Boden.",
       ],
       es: [
         "Calcetines de casa de terciopelo muy suave que calientan con alimentación USB. Pensados para el hogar: teletrabajo, lectura, tardes en el sofá con suelo frío.",
         "Talla única, de 24 a 28 cm, para hombre y mujer. Se conectan por USB a una batería externa o un cargador (no incluidos). El fabricante no indica temperatura ni autonomía, así que no las anunciamos.",
+        "Están pensados para quedarse en casa, no para salir. Te los pones como unos calcetines normales y luego los conectas por USB a una batería externa o a un cargador; ninguno de los dos viene incluido. Este par es rojo.",
+        "Conectados a un cargador, te mantienen cerca de un enchufe: en el escritorio mientras teletrabajas o en el sofá con un libro. Con una batería externa, te mueves con más libertad por la casa. En ambos casos, llevas en los pies un terciopelo muy suave, incluso sobre un suelo frío.",
       ],
     },
     highlights: {

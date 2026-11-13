@@ -367,7 +367,7 @@ export default async function ProductPage({ params }: Props) {
 
       {/* ── Moins cher en pack ── */}
       {packsWithProduct.length > 0 ? (
-        <section className="on-cream-2 py-14 sm:py-24">
+        <section className="defer on-cream-2 py-14 sm:py-24">
           <div className={wrap}>
             <h2 className={sectionTitle}>{t("packsLabel")}</h2>
             <PackRail
@@ -380,7 +380,7 @@ export default async function ProductPage({ params }: Props) {
       ) : null}
 
       {/* ── Vente croisée ── */}
-      <section className="py-14 sm:py-24">
+      <section className="defer py-14 sm:py-24">
         <div className={wrap}>
           <h2 className={sectionTitle}>{t("rangeLabel")}</h2>
           <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
@@ -397,7 +397,7 @@ export default async function ProductPage({ params }: Props) {
       />
 
       {guides.length > 0 ? (
-        <section className="pb-14 sm:pb-24">
+        <section className="defer pb-14 sm:pb-24">
           <div className={wrap}>
             <h2 className={sectionTitle}>{t("guidesLabel")}</h2>
             <div className="grid gap-3 sm:gap-5 md:grid-cols-3">

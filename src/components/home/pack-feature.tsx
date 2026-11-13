@@ -12,7 +12,7 @@ export function PackFeature({ locale }: { locale: Locale }) {
   if (packs.length === 0) return null;
 
   return (
-    <section id="pack" className="scroll-mt-24 pb-14 sm:pb-24">
+    <section id="pack" className="defer scroll-mt-24 pb-14 sm:pb-24">
       <div className="mx-auto max-w-[1240px] px-4 sm:px-8">
         <div className="reveal">
           <SectionHeading title={t("title")} description={t("description")} />

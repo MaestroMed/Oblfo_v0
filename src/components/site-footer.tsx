@@ -31,7 +31,7 @@ export function SiteFooter() {
   const products = getProducts(locale).filter((p) => p.available && p.image);
 
   return (
-    <footer className="on-choco mt-auto">
+    <footer className="defer on-choco mt-auto">
       <div className="mx-auto max-w-[1240px] px-4 py-14 sm:px-8 sm:py-24">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
           <div className="flex flex-col gap-6">

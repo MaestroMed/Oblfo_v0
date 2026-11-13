@@ -57,18 +57,26 @@ export const productsA: ProductSource[] = [
       fr: [
         "Des gants thermiques coupe-vent avec fermeture zippée, qui chauffent par alimentation USB. Pour les mains qui gèlent au guidon, à l'arrêt de bus ou devant l'ordinateur.",
         "Nous proposons la version à câble USB : les gants se branchent directement sur une batterie externe (non incluse) gardée dans la poche. Le fabricant n'annonce ni température, ni niveaux, ni autonomie : nous ne les affirmons donc pas.",
+        "Même débranchés, ce sont des gants thermiques et coupe-vent, en tissu, qui se ferment par un zip. Quand le froid devient pénible, vous reliez le câble USB à une batterie externe et la chaleur s'ajoute à cette protection. Ils sont mixtes, en taille adulte.",
+        "Pour vous en servir, il vous faut donc une batterie externe, qui n'est pas fournie. Elle se range dans une poche pendant que les gants chauffent. Vous gardez ainsi les mains au chaud au guidon, en attendant le bus ou devant l'ordinateur, sans chercher de prise. Faute de chiffres du fabricant, nous ne promettons ni durée de chauffe ni température précise.",
       ],
       en: [
         "Windproof thermal gloves with a zip fastening, heated through USB power. For hands that freeze on handlebars, at the bus stop or at the computer.",
         "We offer the USB-cable version: the gloves plug straight into a power bank (not included) kept in your pocket. The manufacturer gives no temperature, levels or battery life, so we do not state any.",
+        "Even unplugged, these are thermal, windproof fabric gloves that close with a zip. When the cold starts to bite, connect the USB cable to a power bank and the heat adds to that protection. They are unisex, in adult sizing.",
+        "So you will need a power bank, which is not supplied. It slips into a pocket while the gloves heat. That way you keep your hands warm on the handlebars, waiting for the bus or at the computer, without looking for a socket. As the manufacturer gives no figures, we promise neither a heating time nor a precise temperature.",
       ],
       de: [
         "Winddichte Thermohandschuhe mit Reißverschluss, die per USB-Strom heizen. Für Hände, die am Lenker, an der Haltestelle oder am Computer frieren.",
         "Wir bieten die Version mit USB-Kabel an: Die Handschuhe werden direkt an eine Powerbank (nicht enthalten) in der Tasche angeschlossen. Der Hersteller nennt weder Temperatur noch Stufen oder Laufzeit, daher geben wir keine an.",
+        "Auch ohne Strom sind es thermische, winddichte Handschuhe aus Stoff mit Reißverschluss. Wird die Kälte unangenehm, verbinden Sie das USB-Kabel mit einer Powerbank, und die Wärme kommt zu diesem Schutz hinzu. Sie sind unisex und für Erwachsene geschnitten.",
+        "Sie brauchen also eine Powerbank, die nicht mitgeliefert wird. Sie steckt in der Tasche, während die Handschuhe heizen. So bleiben Ihre Hände am Lenker, beim Warten auf den Bus oder am Computer warm, ohne dass Sie eine Steckdose suchen müssen. Da der Hersteller keine Zahlen nennt, versprechen wir weder eine Heizdauer noch eine genaue Temperatur.",
       ],
       es: [
         "Guantes térmicos cortavientos con cremallera, que calientan por alimentación USB. Para manos que se congelan en el manillar, en la parada o frente al ordenador.",
         "Ofrecemos la versión con cable USB: los guantes se conectan directamente a una batería externa (no incluida) en el bolsillo. El fabricante no indica temperatura, niveles ni autonomía, así que no los afirmamos.",
+        "Incluso sin conectar, son guantes térmicos y cortavientos, de tela, que se cierran con cremallera. Cuando el frío aprieta, conectas el cable USB a una batería externa y el calor se suma a esa protección. Son unisex, en talla de adulto.",
+        "Para usarlos necesitas, por tanto, una batería externa, que no viene incluida. Se guarda en un bolsillo mientras los guantes calientan. Así mantienes las manos calientes en el manillar, esperando el autobús o frente al ordenador, sin buscar un enchufe. Como el fabricante no da cifras, no prometemos ni tiempo de calor ni una temperatura concreta.",
       ],
     },
     highlights: {
@@ -189,18 +197,26 @@ export const productsA: ProductSource[] = [
       fr: [
         "Ce n'est pas un chausson qu'on porte pour marcher : c'est une pochette en peluche, à poser sous le bureau ou devant le canapé, dans laquelle on glisse les pieds (ou les mains). Elle mesure environ 32 × 28 cm pour 12 cm de haut.",
         "La peluche (imitation lapin) recouvre un film chauffant alimenté en USB. Le fabricant annonce une montée en chaleur en 3 minutes et une housse amovible, facile à laver. Câble USB fourni, batterie externe ou chargeur non inclus.",
+        "L'usage est simple : vous posez la pochette au sol, vous la branchez avec le câble USB fourni et vous y glissez les pieds. Selon le fabricant, elle chauffe en 3 minutes. Elle accueille aussi les mains, si ce sont elles qui ont froid.",
+        "Comme elle ne se porte pas pour marcher, elle reste à un poste fixe : sous le bureau pendant le télétravail, au pied du canapé pour un moment de lecture. Prévoyez une batterie externe ou un chargeur USB, car ni l'un ni l'autre n'est inclus. Et quand la peluche a besoin d'être lavée, la housse se retire, d'après le fabricant.",
       ],
       en: [
         "This is not a slipper you walk in: it is a plush pouch to place under the desk or by the sofa, where you slide your feet (or hands). It measures about 32 × 28 cm and 12 cm high.",
         "Imitation-rabbit plush covers a USB-powered heating film. The manufacturer states it heats up in 3 minutes and has a removable cover that is easy to wash. USB cable supplied; power bank or charger not included.",
+        "It is simple to use: set the pouch on the floor, plug it in with the supplied USB cable and slide your feet in. According to the manufacturer, it heats up in 3 minutes. It takes your hands too, if they are the ones feeling the cold.",
+        "Since it is not made for walking, it stays in one spot: under the desk while you work from home, or by the sofa while you read. You will need a power bank or USB charger, as neither is included. And when the plush needs washing, the cover comes off, according to the manufacturer.",
       ],
       de: [
         "Das ist kein Hausschuh zum Laufen: Es ist eine Plüschtasche, die unter dem Schreibtisch oder am Sofa steht und in die man die Füße (oder Hände) steckt. Sie misst etwa 32 × 28 cm bei 12 cm Höhe.",
         "Kunstkaninchen-Plüsch umgibt eine USB-betriebene Heizfolie. Laut Hersteller heizt sie in 3 Minuten auf und hat einen abnehmbaren, leicht waschbaren Bezug. USB-Kabel im Lieferumfang; Powerbank oder Ladegerät nicht enthalten.",
+        "Die Handhabung ist einfach: Tasche auf den Boden stellen, mit dem mitgelieferten USB-Kabel anschließen und die Füße hineinstecken. Laut Hersteller ist sie in 3 Minuten warm. Auch die Hände finden darin Platz, wenn eher sie frieren.",
+        "Da sie nicht zum Laufen gedacht ist, bleibt sie an einem festen Platz: unter dem Schreibtisch im Homeoffice oder am Sofa beim Lesen. Sie brauchen eine Powerbank oder ein USB-Ladegerät, denn beides ist nicht enthalten. Und wenn der Plüsch eine Wäsche braucht, lässt sich der Bezug laut Hersteller abnehmen.",
       ],
       es: [
         "No es una zapatilla para caminar: es una bolsa de peluche que se coloca bajo el escritorio o junto al sofá y en la que se meten los pies (o las manos). Mide unos 32 × 28 cm y 12 cm de alto.",
         "La peluche (imitación de conejo) cubre una lámina calefactora alimentada por USB. El fabricante indica que se calienta en 3 minutos y que la funda es desmontable y fácil de lavar. Cable USB incluido; batería externa o cargador no incluidos.",
+        "Su uso es sencillo: colocas la bolsa en el suelo, la conectas con el cable USB incluido y metes los pies. Según el fabricante, se calienta en 3 minutos. También caben las manos, si son ellas las que tienen frío.",
+        "Como no está pensada para caminar, se queda en un sitio fijo: bajo el escritorio mientras teletrabajas o junto al sofá mientras lees. Necesitarás una batería externa o un cargador USB, porque ninguno de los dos está incluido. Y cuando la peluche necesite un lavado, la funda se desmonta, según el fabricante.",
       ],
     },
     highlights: {
@@ -308,18 +324,26 @@ export const productsA: ProductSource[] = [
       fr: [
         "Chauffer toute la maison pour une seule personne assise à son bureau, c'est payer pour des mètres carrés vides. Ce mini chauffage soufflant fait l'inverse : posé à vos pieds ou sur le bureau, il envoie un flux d'air chaud là où vous êtes.",
         "250 W seulement, un interrupteur marche/arrêt, une coupure automatique en cas de surchauffe et 720 g sur la balance : il se déplace d'une pièce à l'autre et se range dans un tiroir. Ce n'est pas un radiateur pour chauffer une chambre entière — c'est un chauffage personnel.",
+        "Il se branche sur une prise secteur ordinaire (220–240 V, prise européenne) et se commande avec un seul interrupteur marche/arrêt. Vous l'allumez en vous installant, vous l'éteignez en partant. En cas de surchauffe, il se coupe de lui-même.",
+        "Ses 250 W en font un appareil pensé pour une personne, avec une consommation maîtrisée. Placez-le près de vous, au sol en direction de vos pieds ou sur le bureau : c'est là qu'il est utile. Avec ses 720 g, il vous suit d'une pièce à l'autre, puis retourne dans son tiroir quand vous n'en avez plus besoin.",
       ],
       en: [
         "Heating the whole house for one person sitting at a desk means paying for empty square metres. This mini fan heater does the opposite: at your feet or on the desk, it blows warm air right where you are.",
         "Only 250 W, an on/off rocker switch, automatic overheat cut-off and 720 g on the scale: it moves from room to room and fits in a drawer. It's not a radiator for a whole bedroom — it's a personal heater.",
+        "It plugs into an ordinary mains socket (220–240 V, EU plug) and is controlled by a single on/off rocker switch. Switch it on when you sit down, off when you leave. If it overheats, it cuts out by itself.",
+        "Its 250 W make it a heater designed for one person, with controlled consumption. Place it close to you, on the floor aimed at your feet or on the desk: that is where it does its job. At 720 g, it follows you from room to room, then goes back in its drawer when you no longer need it.",
       ],
       de: [
         "Das ganze Haus für eine Person am Schreibtisch zu heizen heißt, für leere Quadratmeter zu zahlen. Dieser Mini-Heizlüfter macht das Gegenteil: zu Ihren Füßen oder auf dem Schreibtisch bläst er warme Luft genau dorthin, wo Sie sind.",
         "Nur 250 W, ein Ein/Aus-Schalter, automatische Abschaltung bei Überhitzung und 720 g Gewicht: Er wandert von Raum zu Raum und passt in eine Schublade. Kein Heizkörper für ein ganzes Zimmer — ein persönlicher Heizlüfter.",
+        "Er wird an eine normale Steckdose angeschlossen (220–240 V, EU-Stecker) und mit einem einzigen Ein/Aus-Wippschalter bedient. Einschalten, wenn Sie sich hinsetzen, ausschalten, wenn Sie gehen. Bei Überhitzung schaltet er sich von selbst ab.",
+        "Mit 250 W ist er für eine Person gedacht, bei überschaubarem Verbrauch. Stellen Sie ihn in Ihre Nähe, auf den Boden in Richtung Ihrer Füße oder auf den Schreibtisch: Dort ist er nützlich. Mit 720 g wandert er mit Ihnen von Raum zu Raum und kommt wieder in die Schublade, wenn Sie ihn nicht mehr brauchen.",
       ],
       es: [
         "Calentar toda la casa para una persona sentada en su escritorio es pagar por metros cuadrados vacíos. Este mini calefactor hace lo contrario: a tus pies o sobre el escritorio, sopla aire caliente justo donde estás.",
         "Solo 250 W, un interruptor de encendido/apagado, corte automático por sobrecalentamiento y 720 g de peso: pasa de una habitación a otra y cabe en un cajón. No es un radiador para toda una habitación — es un calefactor personal.",
+        "Se enchufa a una toma de corriente normal (220–240 V, enchufe EU) y se maneja con un único interruptor de encendido/apagado. Lo enciendes al sentarte y lo apagas al irte. Si se sobrecalienta, se apaga solo.",
+        "Sus 250 W lo convierten en un aparato pensado para una persona, con un consumo controlado. Colócalo cerca de ti, en el suelo apuntando a tus pies o sobre el escritorio: ahí es donde resulta útil. Con 720 g, te acompaña de una habitación a otra y vuelve a su cajón cuando ya no lo necesitas.",
       ],
     },
     highlights: {
@@ -443,18 +467,26 @@ export const productsA: ProductSource[] = [
       fr: [
         "Un petit plateau chauffant de 118 × 132 mm sur lequel on pose sa tasse, pour que le café ou le thé ne refroidisse pas pendant qu'on travaille. Il se branche sur un port USB.",
         "Le fabricant annonce trois réglages de température constante. Il ne précise pas les températures exactes ni la puissance en watts, nous ne les indiquons donc pas. À poser sur une surface plane, avec une tasse à fond plat.",
+        "Il est fait pour les boissons qu'on laisse un peu de côté : la tasse posée près du clavier pendant une réunion, le thé qu'on reprend entre deux tâches, le café du soir. Vous posez la tasse sur le plateau et choisissez l'un des trois réglages ; selon le fabricant, la température reste ensuite constante.",
+        "Avec ses 118 × 132 mm, le plateau prend peu de place sur un bureau. Il s'alimente en USB 5 V, sur un simple port USB. Le colis contient le plateau chauffant, de couleur noire. Comme indiqué plus haut, utilisez-le sur une surface plane, avec une tasse à fond plat.",
       ],
       en: [
         "A small 118 × 132 mm heated plate to rest your cup on, so coffee or tea does not go cold while you work. It plugs into a USB port.",
         "The manufacturer states three constant-temperature settings. Exact temperatures and wattage are not given, so we do not state them. Place on a flat surface, with a flat-bottomed cup.",
+        "It is made for drinks that get set aside for a while: the cup next to the keyboard during a meeting, the tea you come back to between two tasks, the evening coffee. Set the cup on the plate and pick one of the three settings; according to the manufacturer, the temperature then stays constant.",
+        "At 118 × 132 mm, the plate takes up little room on a desk. It runs on USB 5 V, from a standard USB port. The box contains the heated plate, in black. As noted above, use it on a flat surface, with a cup that has a flat bottom.",
       ],
       de: [
         "Eine kleine beheizte Platte von 118 × 132 mm für die Tasse, damit Kaffee oder Tee beim Arbeiten nicht kalt wird. Sie wird an einen USB-Anschluss gesteckt.",
         "Der Hersteller nennt drei Einstellungen mit konstanter Temperatur. Genaue Temperaturen und Wattzahl werden nicht angegeben, daher nennen wir sie nicht. Auf eine ebene Fläche stellen, mit flachem Tassenboden.",
+        "Die Platte ist für Getränke gedacht, die eine Weile stehen bleiben: die Tasse neben der Tastatur während eines Meetings, der Tee zwischen zwei Aufgaben, der Kaffee am Abend. Tasse auf die Platte stellen und eine der drei Einstellungen wählen; laut Hersteller bleibt die Temperatur dann konstant.",
+        "Mit 118 × 132 mm braucht die Platte wenig Platz auf dem Schreibtisch. Sie läuft mit USB 5 V an einem normalen USB-Anschluss. Im Paket ist die Heizplatte in Schwarz. Wie oben erwähnt: auf eine ebene Fläche stellen und eine Tasse mit flachem Boden verwenden.",
       ],
       es: [
         "Una pequeña placa calefactora de 118 × 132 mm sobre la que apoyar la taza, para que el café o el té no se enfríen mientras trabajas. Se conecta a un puerto USB.",
         "El fabricante indica tres ajustes de temperatura constante. No da las temperaturas exactas ni la potencia en vatios, así que no las indicamos. Colócala en una superficie plana, con una taza de base plana.",
+        "Está pensada para las bebidas que se quedan un rato a un lado: la taza junto al teclado durante una reunión, el té que retomas entre dos tareas, el café de la noche. Colocas la taza sobre la placa y eliges uno de los tres ajustes; según el fabricante, la temperatura se mantiene constante.",
+        "Con sus 118 × 132 mm, la placa ocupa poco sitio en el escritorio. Funciona con USB 5 V, en un puerto USB normal. La caja contiene la placa calefactora, de color negro. Como se indica arriba, úsala sobre una superficie plana y con una taza de base plana.",
       ],
     },
     highlights: {

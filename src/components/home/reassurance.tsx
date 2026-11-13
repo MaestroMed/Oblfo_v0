@@ -14,7 +14,7 @@ export function Reassurance() {
   const t = useTranslations("HomeV2");
 
   return (
-    <section className="on-cream-2 py-14 sm:py-24">
+    <section className="defer on-cream-2 py-14 sm:py-24">
       <div className="mx-auto max-w-[1240px] px-4 sm:px-8">
         <h2 className="reveal mb-8 text-[clamp(28px,5vw,44px)] sm:mb-12">{t("reassuranceTitle")}</h2>
         <ul className="reveal-kids grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">

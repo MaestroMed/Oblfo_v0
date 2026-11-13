@@ -276,6 +276,11 @@ details > summary::-webkit-details-marker {
 .heat-waves path:nth-child(2) { animation-delay: 0.3s; }
 .heat-waves path:nth-child(3) { animation-delay: 0.6s; }
 
+/* Brief perf : le navigateur ne calcule une section du bas qu'à son approche de l'écran (style et mise en page en moins au chargement). */
+.defer { content-visibility: auto; contain-intrinsic-size: auto 900px; }
+/* Arrivée sur une ancre (#faq…) : tout est calculé, sinon les hauteurs estimées décalent la cible. */
+:root:has(:target) .defer { content-visibility: visible; }
+
 /* Accueil : texte du haut qui monte, photo qui respire, produits qui flottent. */
 @keyframes rise-in { from { opacity: 0; transform: translateY(18px); } }
 .rise { animation: rise-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; animation-delay: var(--d, 0s); }

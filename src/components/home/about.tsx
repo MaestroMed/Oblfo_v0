@@ -19,7 +19,7 @@ export function About() {
   const t = useTranslations("HomeV2");
 
   return (
-    <section id="apropos" className="scroll-mt-24 py-14 sm:py-24">
+    <section id="apropos" className="defer scroll-mt-24 py-14 sm:py-24">
       <div className="mx-auto grid max-w-[1240px] gap-10 px-4 sm:px-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12">
         <div className="reveal flex flex-col gap-5">
           <h2 className="text-[clamp(28px,5vw,44px)] text-balance">{t("aboutTitle")}</h2>

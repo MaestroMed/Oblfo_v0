@@ -50,18 +50,26 @@ export const productsB: ProductSource[] = [
       fr: [
         "Le froid s'attaque d'abord au tronc — et c'est le tronc qui commande la sensation de chaleur de tout le corps. Le gilet chauffant OBFLO diffuse une chaleur graphène sur plusieurs zones indépendantes, du col aux lombaires, sous n'importe quelle veste.",
         "Trois niveaux de chauffe, un textile matelassé léger qui se porte discrètement, et une alimentation USB universelle : branchez votre powerbank (non incluse — 20 W recommandés pour une chauffe optimale) dans la poche intérieure et gardez les mains libres.",
+        "Les trois niveaux correspondent à des températures annoncées d'environ 25, 35 et 45 °C. Sur une powerbank de 10 000 mAh, le gilet tient jusqu'à environ 3 heures à pleine puissance, et plus longtemps en mode éco. Pour un trajet en ville ou une longue attente dehors, vous ajustez la chaleur selon le moment.",
+        "Le gilet existe du S au 3XL, en coupe asiatique : prenez une taille au-dessus de votre taille EU habituelle. Il se lave en machine à froid ; évitez simplement de le tordre. Son textile matelassé reste léger et se porte discrètement sous un manteau.",
       ],
       en: [
         "Cold goes for your core first — and your core drives how warm your whole body feels. The OBFLO heated vest delivers graphene warmth across several independent zones, from collar to lower back, under any jacket.",
         "Three heat levels, a light quilted fabric that wears discreetly, and universal USB power: plug your power bank (not included — 20 W recommended for best heat) into the inner pocket and keep your hands free.",
+        "The three levels correspond to claimed temperatures of about 25, 35 and 45 °C. On a 10,000 mAh power bank, the vest lasts up to about 3 hours at full power, and longer in eco mode. On a city commute or during a long wait outdoors, you adjust the heat to the moment.",
+        "The vest comes in sizes S to 3XL, in an Asian cut: order one size up from your usual EU size. It is cold machine-washable; just avoid wringing it. The quilted fabric stays light and wears discreetly under a coat.",
       ],
       de: [
         "Kälte greift zuerst den Rumpf an — und der Rumpf bestimmt, wie warm sich der ganze Körper anfühlt. Die beheizbare OBFLO-Weste verteilt Graphen-Wärme über mehrere unabhängige Zonen, vom Kragen bis zum unteren Rücken, unter jeder Jacke.",
         "Drei Heizstufen, ein leichtes Steppgewebe, das unauffällig trägt, und universelle USB-Versorgung: Powerbank (nicht enthalten — 20 W für optimale Wärme empfohlen) in die Innentasche stecken und die Hände frei behalten.",
+        "Die drei Stufen entsprechen laut Hersteller etwa 25, 35 und 45 °C. Mit einer 10.000-mAh-Powerbank hält die Weste bei voller Leistung bis zu etwa 3 Stunden, im Eco-Modus länger. Ob auf dem Weg durch die Stadt oder beim langen Warten im Freien: Sie passen die Wärme dem Moment an.",
+        "Die Weste gibt es von S bis 3XL im asiatischen Schnitt: Bestellen Sie eine Größe größer als Ihre gewohnte EU-Größe. Sie ist kalt maschinenwaschbar, nur bitte nicht auswringen. Das Steppgewebe bleibt leicht und trägt sich unauffällig unter einem Mantel.",
       ],
       es: [
         "El frío ataca primero el tronco — y el tronco decide cuánto calor siente todo el cuerpo. El chaleco calefactable OBFLO reparte calor de grafeno en varias zonas independientes, del cuello a la zona lumbar, bajo cualquier chaqueta.",
         "Tres niveles de calor, un tejido acolchado ligero que se lleva con discreción y alimentación USB universal: conecta tu powerbank (no incluida — 20 W recomendados para el mejor calor) en el bolsillo interior y mantén las manos libres.",
+        "Los tres niveles corresponden a temperaturas anunciadas de unos 25, 35 y 45 °C. Con una powerbank de 10.000 mAh, el chaleco aguanta hasta unas 3 horas a plena potencia, y más en modo eco. En un trayecto por la ciudad o en una larga espera al aire libre, ajustas el calor según el momento.",
+        "El chaleco está disponible de la S a la 3XL, con corte asiático: pide una talla más que tu talla EU habitual. Se lava a máquina en frío; solo evita retorcerlo. El tejido acolchado sigue siendo ligero y se lleva con discreción bajo un abrigo.",
       ],
     },
     highlights: {
@@ -209,18 +217,26 @@ export const productsB: ProductSource[] = [
       fr: [
         "Le canapé d'hiver a un problème : la couverture met vingt minutes à devenir agréable. Le plaid chauffant OBFLO chauffe vite grâce à huit zones en fibre de carbone, cachées dans une flanelle gris chiné très douce.",
         "Trois niveaux de 40 à 60 °C, commande placée sur la poitrine. Il se branche sur n'importe quel port USB : batterie externe, ordinateur ou chargeur. Format plaid-châle de 150 × 85 cm qui se boutonne, à poser sur les jambes ou sur les épaules, au bureau comme en voyage.",
+        "Le plaid s'utilise de deux façons. Posé à plat, il couvre les jambes sur le canapé, en soirée d'hiver. Boutonné, il devient un châle qui reste sur les épaules pendant que vous travaillez.",
+        "Comme il fonctionne sur un simple port USB 5 V, il vous suit partout où vous avez une batterie externe, un ordinateur ou un chargeur ; aucun d'eux n'est fourni. Les trois niveaux, d'environ 40 à 60 °C, se règlent depuis la commande placée sur la poitrine. Une protection contre la surchauffe et le court-circuit est intégrée.",
       ],
       en: [
         "Winter sofas have a problem: blankets take twenty minutes to feel good. The OBFLO heated throw warms up fast thanks to eight carbon-fibre heating zones hidden in soft heather-grey flannel.",
         "Three levels from 40 to 60 °C, with the control on the chest. It plugs into any USB port: power bank, laptop or charger. A 150 × 85 cm button-up throw-shawl to wrap around your legs or shoulders, at the office or on the road.",
+        "The throw works two ways. Laid flat, it covers your legs on the sofa on winter evenings. Buttoned up, it becomes a shawl that stays on your shoulders while you work.",
+        "Because it runs on a simple 5 V USB port, it goes wherever you have a power bank, laptop or charger; none of these is supplied. The three levels, from about 40 to 60 °C, are set from the chest-mounted control. Overheat and short-circuit protection is built in.",
       ],
       de: [
         "Das Wintersofa hat ein Problem: Die Decke braucht zwanzig Minuten, bis sie angenehm ist. Die OBFLO-Kuscheldecke wird dank acht Heizzonen aus Carbonfaser schnell warm, verborgen in weichem grau meliertem Flanell.",
         "Drei Stufen von 40 bis 60 °C, Bedienteil auf Brusthöhe. Sie läuft an jedem USB-Anschluss: Powerbank, Laptop oder Ladegerät. Ein knöpfbarer Decken-Schal im Format 150 × 85 cm für Beine oder Schultern, im Büro wie auf Reisen.",
+        "Die Decke lässt sich auf zwei Arten nutzen. Flach ausgebreitet liegt sie an Winterabenden über den Beinen auf dem Sofa. Zugeknöpft wird sie zum Umhang, der beim Arbeiten auf den Schultern bleibt.",
+        "Da sie an einem einfachen USB-Anschluss mit 5 V läuft, kommt sie überall mit, wo eine Powerbank, ein Laptop oder ein Ladegerät bereitsteht; keines davon ist im Lieferumfang. Die drei Stufen von etwa 40 bis 60 °C stellen Sie am Bedienteil auf Brusthöhe ein. Ein Überhitzungs- und Kurzschlussschutz ist integriert.",
       ],
       es: [
         "El sofá de invierno tiene un problema: la manta tarda veinte minutos en estar agradable. La manta eléctrica OBFLO calienta rápido gracias a ocho zonas de fibra de carbono ocultas en una franela gris jaspeado muy suave.",
         "Tres niveles de 40 a 60 °C, con el mando a la altura del pecho. Se conecta a cualquier puerto USB: batería externa, portátil o cargador. Formato manta-chal de 150 × 85 cm con botones para las piernas o los hombros, en la oficina o de viaje.",
+        "La manta se usa de dos maneras. Extendida, cubre las piernas en el sofá en las noches de invierno. Abotonada, se convierte en un chal que se queda sobre los hombros mientras trabajas.",
+        "Como funciona con un simple puerto USB de 5 V, te acompaña allí donde tengas una batería externa, un portátil o un cargador; ninguno de ellos viene incluido. Los tres niveles, de unos 40 a 60 °C, se ajustan con el mando situado a la altura del pecho. Incluye protección contra sobrecalentamiento y cortocircuito.",
       ],
     },
     highlights: {
@@ -341,18 +357,26 @@ export const productsB: ProductSource[] = [
       fr: [
         "Un coussin chauffant de 45 × 45 cm en velours, à poser sur une chaise, un fauteuil de bureau ou le canapé. Le fabricant le destine à la maison, au bureau et à la voiture.",
         "Il s'alimente en USB (10 W) et propose trois niveaux de chaleur réglables. Les températures exactes ne sont pas indiquées par le fabricant. Existe en noir, gris, marron ou beige. Batterie externe ou chargeur USB non inclus.",
+        "Au bureau, posez-le sur votre chaise ou votre fauteuil. Le soir, il retrouve sa place sur le canapé, comme un coussin en velours ordinaire. En voiture, usage également prévu par le fabricant, il lui faut une source USB : batterie externe ou chargeur.",
+        "La chaleur se règle sur trois niveaux. Comme le fabricant n'indique pas les températures exactes, nous ne les annonçons pas non plus : commencez par le niveau le plus bas, puis montez selon votre envie. Choisissez le coloris qui s'accorde à votre intérieur : noir, gris, marron ou beige.",
       ],
       en: [
         "A 45 × 45 cm velvet heated cushion to place on a chair, office seat or sofa. The manufacturer intends it for home, office and car.",
         "It runs on USB (10 W) and offers three adjustable heat levels. Exact temperatures are not stated by the manufacturer. Available in black, grey, brown or beige. Power bank or USB charger not included.",
+        "At the office, place it on your chair or desk seat. In the evening, it goes back on the sofa like an ordinary velvet cushion. In the car, which the manufacturer also intends it for, it needs a USB source: a power bank or a charger.",
+        "Heat is set on three levels. Since the manufacturer does not state exact temperatures, we do not quote any either: start on the lowest level and go up as you like. Pick the colour that suits your interior: black, grey, brown or beige.",
       ],
       de: [
         "Ein 45 × 45 cm großes Heizkissen aus Samt für Stuhl, Bürostuhl oder Sofa. Laut Hersteller für Zuhause, Büro und Auto gedacht.",
         "Es wird per USB betrieben (10 W) und bietet drei einstellbare Wärmestufen. Genaue Temperaturen nennt der Hersteller nicht. In Schwarz, Grau, Braun oder Beige erhältlich. Powerbank oder USB-Ladegerät nicht enthalten.",
+        "Im Büro legen Sie es auf Ihren Stuhl oder Bürostuhl. Abends kommt es zurück aufs Sofa, wie ein gewöhnliches Samtkissen. Im Auto, für das der Hersteller es ebenfalls vorsieht, braucht es eine USB-Quelle: eine Powerbank oder ein Ladegerät.",
+        "Die Wärme wird in drei Stufen eingestellt. Da der Hersteller keine genauen Temperaturen nennt, geben auch wir keine an: Beginnen Sie mit der niedrigsten Stufe und erhöhen Sie nach Belieben. Wählen Sie die Farbe, die zu Ihrer Einrichtung passt: Schwarz, Grau, Braun oder Beige.",
       ],
       es: [
         "Un cojín calefactable de terciopelo de 45 × 45 cm para silla, sillón de oficina o sofá. El fabricante lo destina a casa, oficina y coche.",
         "Funciona por USB (10 W) y ofrece tres niveles de calor ajustables. El fabricante no indica las temperaturas exactas. Disponible en negro, gris, marrón o beige. Batería externa o cargador USB no incluidos.",
+        "En la oficina, colócalo en tu silla o sillón de escritorio. Por la noche vuelve al sofá, como un cojín de terciopelo más. En el coche, uso que también prevé el fabricante, necesita una fuente USB: una batería externa o un cargador.",
+        "El calor se ajusta en tres niveles. Como el fabricante no indica las temperaturas exactas, nosotros tampoco las anunciamos: empieza por el nivel más bajo y sube a tu gusto. Elige el color que mejor encaje con tu casa: negro, gris, marrón o beige.",
       ],
     },
     highlights: {
@@ -473,18 +497,26 @@ export const productsB: ProductSource[] = [
       fr: [
         "Un petit chauffe-mains à batterie intégrée, dans un boîtier en alliage d'aluminium. On le glisse dans la poche ou on le tient dans la main pendant une pause, une attente ou un trajet.",
         "La batterie se recharge en USB. Le fabricant indique une capacité d'au moins 4 000 mAh (modèles 4 000 ou 6 000 mAh) et une chauffe de 2 à 6 heures, mais ses chiffres d'autonomie ne sont pas cohérents entre eux : nous ne promettons donc pas de durée précise.",
+        "Il produit sa propre chaleur grâce à sa batterie intégrée : aucune autre source n'est nécessaire pendant que vous l'utilisez. Quand la batterie est vide, rechargez-le en USB 5 V, puis il retrouve sa place dans la poche de votre manteau.",
+        "Son boîtier en alliage d'aluminium tient dans la main et se glisse dans la poche. Il peut aussi rester sur le bureau, à portée de main, pour vous réchauffer les doigts entre deux tâches. Contenu : un chauffe-mains. Le fabricant indique une puissance de 7 à 10 sans en préciser l'unité ; nous reprenons ce chiffre tel quel, sans l'interpréter.",
       ],
       en: [
         "A small hand warmer with a built-in battery, in an aluminium-alloy case. Slip it into a pocket or hold it during a break, a wait or a commute.",
         "The battery recharges over USB. The manufacturer states a capacity of at least 4,000 mAh (4,000 or 6,000 mAh models) and 2 to 6 hours of heating, but its run-time figures are not consistent with each other, so we do not promise a specific duration.",
+        "It produces its own heat from its built-in battery, so it needs no other source while you use it. When the battery runs out, recharge it over 5 V USB and it goes back into your coat pocket.",
+        "The aluminium-alloy case fits in your hand and slips into a pocket. It can also stay on your desk, within reach, to warm your fingers between two tasks. Contents: one hand warmer. The manufacturer gives a power rating of 7 to 10 without specifying the unit; we quote that figure as is, without interpreting it.",
       ],
       de: [
         "Ein kleiner Handwärmer mit integriertem Akku im Aluminiumlegierungs-Gehäuse. In die Tasche stecken oder in einer Pause, beim Warten oder unterwegs in der Hand halten.",
         "Der Akku wird per USB aufgeladen. Der Hersteller nennt mindestens 4.000 mAh (Modelle mit 4.000 oder 6.000 mAh) und 2 bis 6 Stunden Heizdauer, die Laufzeitangaben widersprechen sich jedoch, daher versprechen wir keine genaue Dauer.",
+        "Er erzeugt seine Wärme selbst über den integrierten Akku und braucht während der Nutzung keine andere Quelle. Ist der Akku leer, laden Sie ihn per USB 5 V auf, und er kommt zurück in die Manteltasche.",
+        "Das Gehäuse aus Aluminiumlegierung liegt in der Hand und passt in die Tasche. Er kann auch griffbereit auf dem Schreibtisch liegen, um zwischen zwei Aufgaben die Finger zu wärmen. Im Lieferumfang ist ein Handwärmer enthalten. Der Hersteller nennt eine Leistung von 7 bis 10 ohne Einheit; wir geben diesen Wert unverändert wieder, ohne ihn zu deuten.",
       ],
       es: [
         "Un pequeño calentador de manos con batería integrada, en carcasa de aleación de aluminio. Se mete en el bolsillo o se sostiene en una pausa, una espera o un trayecto.",
         "La batería se recarga por USB. El fabricante indica una capacidad de al menos 4.000 mAh (modelos de 4.000 o 6.000 mAh) y 2 a 6 horas de calor, pero sus cifras de autonomía no son coherentes entre sí, así que no prometemos una duración concreta.",
+        "Genera su propio calor gracias a la batería integrada, sin necesitar otra fuente mientras lo usas. Cuando la batería se agota, lo recargas por USB 5 V y vuelve al bolsillo del abrigo.",
+        "La carcasa de aleación de aluminio cabe en la mano y en el bolsillo. También puede quedarse en el escritorio, al alcance de la mano, para calentarte los dedos entre dos tareas. Contenido: un calentador de manos. El fabricante indica una potencia de 7 a 10 sin precisar la unidad; reproducimos esa cifra tal cual, sin interpretarla.",
       ],
     },
     highlights: {
@@ -598,18 +630,26 @@ export const productsB: ProductSource[] = [
       fr: [
         "Les pieds sont les premiers à geler et les derniers à se réchauffer. Ces semelles chauffent sur toute leur surface, du talon aux orteils, et se glissent dans vos chaussures ou bottes d'hiver.",
         "Elles se branchent par un câble jack vers USB sur une batterie externe (non incluse) gardée dans la poche. Une seule température, douce et constante : rien à régler, il suffit de brancher.",
+        "Le câble jack vers USB relie les semelles à la batterie externe que vous gardez dans la poche. Dès que tout est branché, la chaleur arrive sur l'ensemble du pied, sans niveau à choisir. Vous pouvez les porter dans des bottes d'hiver pour sortir, ou dans vos chaussures au bureau.",
+        "Deux tailles sont proposées : EU 35–40 et EU 41–46 ; choisissez celle qui couvre votre pointure. Nettoyez-les avec un chiffon humide et ne les immergez jamais dans l'eau. La batterie externe n'est pas fournie : prévoyez la vôtre, chargée, avant de sortir.",
       ],
       en: [
         "Feet freeze first and warm up last. These insoles heat across their whole surface, heel to toe, and slip into your shoes or winter boots.",
         "They connect with a jack-to-USB cable to a power bank (not included) kept in your pocket. One gentle, steady temperature: nothing to adjust, just plug in.",
+        "The jack-to-USB cable links the insoles to the power bank you keep in your pocket. Once everything is plugged in, warmth reaches the whole foot, with no level to choose. Wear them in winter boots to go out, or in your shoes at the office.",
+        "Two sizes are available: EU 35–40 and EU 41–46; pick the one that covers your shoe size. Clean them with a damp cloth and never immerse them in water. The power bank is not supplied: bring your own, charged, before heading out.",
       ],
       de: [
         "Füße frieren zuerst und wärmen zuletzt auf. Diese Sohlen heizen auf ganzer Fläche, von der Ferse bis zu den Zehen, und passen in Schuhe oder Winterstiefel.",
         "Sie werden per Klinke-auf-USB-Kabel an eine Powerbank (nicht enthalten) in der Tasche angeschlossen. Eine sanfte, gleichmäßige Temperatur: nichts einzustellen, einfach einstecken.",
+        "Das Klinke-auf-USB-Kabel verbindet die Sohlen mit der Powerbank in Ihrer Tasche. Sobald alles eingesteckt ist, kommt die Wärme am ganzen Fuß an, ohne dass Sie eine Stufe wählen müssen. Tragen Sie sie in Winterstiefeln für draußen oder in Ihren Schuhen im Büro.",
+        "Es gibt zwei Größen: EU 35–40 und EU 41–46; wählen Sie die, die Ihre Schuhgröße abdeckt. Reinigen Sie die Sohlen mit einem feuchten Tuch und tauchen Sie sie nie in Wasser. Die Powerbank ist nicht enthalten: Nehmen Sie Ihre eigene, aufgeladen, mit nach draußen.",
       ],
       es: [
         "Los pies se congelan primero y se calientan los últimos. Estas plantillas calientan toda su superficie, del talón a los dedos, y se colocan en tus zapatos o botas de invierno.",
         "Se conectan con un cable jack a USB a una batería externa (no incluida) que llevas en el bolsillo. Una sola temperatura, suave y constante: nada que ajustar, solo enchufar.",
+        "El cable jack a USB une las plantillas a la batería externa que llevas en el bolsillo. En cuanto todo está conectado, el calor llega a todo el pie, sin niveles que elegir. Puedes llevarlas en botas de invierno para salir o en tus zapatos en la oficina.",
+        "Hay dos tallas: EU 35–40 y EU 41–46; elige la que corresponda a tu número de pie. Límpialas con un paño húmedo y no las sumerjas nunca en agua. La batería externa no viene incluida: lleva la tuya, cargada, antes de salir.",
       ],
     },
     highlights: {

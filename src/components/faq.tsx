@@ -16,7 +16,7 @@ export function Faq({
   const faqItems = items ?? getFaqItems(locale);
 
   return (
-    <section id="faq" className="on-cream-2 scroll-mt-24 py-14 sm:py-24">
+    <section id="faq" className="defer on-cream-2 scroll-mt-24 py-14 sm:py-24">
       <div className="mx-auto grid max-w-[1240px] gap-8 px-4 sm:px-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:gap-16">
         <div className="flex flex-col gap-3">
           <h2 className="text-[clamp(28px,5vw,44px)]">{title ?? t("title")}</h2>

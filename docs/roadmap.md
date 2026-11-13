@@ -9,7 +9,12 @@ Mesures prises sur obflo.com (script `audit_brief.py`, Lighthouse mobile), sur 6
 - Images AVIF, polices auto-hébergées et préchargées, CLS 0 à 0,014, page d'accueil 653 Ko.
 - Barre d'achat collante sur mobile avec `safe-area-inset`, un seul bouton d'achat sur la fiche.
 
-## Phase 1 : sans attendre Mehdi
+## Phase 1 : sans attendre Mehdi (en ligne le 13/11, main 8c8017e)
+
+Fait : 1.1 à 1.9, 1.11 à 1.13 (mesure après mise en ligne : 0 texte sous 16 px, 0 cible sous 48 px, 0 H3, 19 à 37 requêtes,
+Lighthouse accessibilité 100, SEO 100). Reste : 1.10 (performance 90-91, LCP 2,4 s simulé, blocage 310-350 ms) et 1.14
+(Stripe a refusé la session avec reprise + accord marketing : paiement en erreur 5 min, réglages retirés, cause à lire dans les journaux).
+Aussi : descriptions produit sous 150 mots (59 à 92) à enrichir sans rien inventer.
 
 | # | Point du brief | Mesuré | À faire |
 |---|---|---|---|

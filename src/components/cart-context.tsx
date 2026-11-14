@@ -8,7 +8,6 @@ import {
   useState,
 } from "react";
 import { useTranslations } from "next-intl";
-import { toast } from "sonner";
 import { useCatalog } from "@/components/catalog-provider";
 import type { Sellable } from "@/data/catalog";
 import { trackEvent } from "@/components/ga4";
@@ -145,15 +144,16 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     return () => window.removeEventListener("storage", onStorage);
   }, [sellables]);
 
-  const showToast = useCallback(
-    (label: string) => {
-      toast(t("toastAdded", { name: label }), {
-        id: "cart-added",
-        action: { label: tUx("toastAction"), onClick: () => setDrawerOpen(true) },
-      });
-    },
-    [t, tUx],
-  );
+  // Notification « ajouté au panier » maison (remplace Sonner : ~9 Ko de JavaScript en moins).
+  const [toast, setToast] = useState<{ label: string; n: number } | null>(null);
+  useEffect(() => {
+    if (!toast) return;
+    const timer = window.setTimeout(() => setToast(null), 4000);
+    return () => window.clearTimeout(timer);
+  }, [toast]);
+  const showToast = useCallback((label: string) => {
+    setToast((prev) => ({ label, n: (prev?.n ?? 0) + 1 }));
+  }, []);
 
   const addItem = useCallback(
     (
@@ -218,6 +218,23 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       }}
     >
       {children}
+      <div role="status" aria-live="polite" className="cart-toast-zone">
+        {toast ? (
+          <div key={toast.n} className="cart-toast">
+            <span>{t("toastAdded", { name: toast.label })}</span>
+            <button
+              type="button"
+              className="keep-light btn btn-sm shrink-0 bg-moutarde text-choco"
+              onClick={() => {
+                setToast(null);
+                setDrawerOpen(true);
+              }}
+            >
+              {tUx("toastAction")}
+            </button>
+          </div>
+        ) : null}
+      </div>
     </CartContext.Provider>
   );
 }

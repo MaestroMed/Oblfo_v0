@@ -2,7 +2,8 @@
 
 import { useLocale } from "next-intl";
 import { usePathname as useRawPathname } from "next/navigation";
-import { translateProductSlug } from "@/data/catalog";
+import { useCatalog } from "@/components/catalog-provider";
+import type { LiteProduct } from "@/data/catalog-lite";
 import { translateCategorySlug } from "@/data/category-slugs";
 import { translateGuideSlug } from "@/data/guides-slugs";
 import { routing, type Locale } from "@/i18n/routing";
@@ -17,7 +18,7 @@ function externalPattern(value: PathnameValue, locale: Locale): string {
  * Reconstruit l'URL courante dans l'autre locale à partir de la config de
  * routage (chemins localisés + slugs produits localisés). Fallback : accueil.
  */
-function alternateHref(rawPathname: string, from: Locale, to: Locale): string {
+function alternateHref(rawPathname: string, from: Locale, to: Locale, products: LiteProduct[]): string {
   const stripped = rawPathname.replace(new RegExp(`^/${from}(?=/|$)`), "") || "/";
 
   for (const [internal, value] of Object.entries(routing.pathnames)) {
@@ -31,7 +32,7 @@ function alternateHref(rawPathname: string, from: Locale, to: Locale): string {
 
     let param = match[1];
     if (param && internal === "/produits/[slug]") {
-      param = translateProductSlug(param, from, to) ?? param;
+      param = products.find((p) => p.slugs[from] === param)?.slugs[to] ?? param;
     }
     if (param && internal === "/guides/[slug]") {
       const translated = translateGuideSlug(param, from, to);
@@ -54,6 +55,7 @@ function alternateHref(rawPathname: string, from: Locale, to: Locale): string {
 export function LocaleSwitcher({ label }: { label?: string }) {
   const locale = useLocale() as Locale;
   const rawPathname = useRawPathname();
+  const { products } = useCatalog();
 
   return (
     <nav aria-label={label} className="flex items-center gap-1 font-display text-caption font-semibold">
@@ -69,7 +71,7 @@ export function LocaleSwitcher({ label }: { label?: string }) {
         ) : (
           <a
             key={l}
-            href={alternateHref(rawPathname, locale, l)}
+            href={alternateHref(rawPathname, locale, l, products)}
             hrefLang={l}
             className="flex h-12 min-w-12 items-center justify-center rounded-full px-2 no-underline hover:underline hover:decoration-2 hover:underline-offset-4"
           >

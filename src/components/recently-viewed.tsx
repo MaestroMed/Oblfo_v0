@@ -2,8 +2,8 @@
 
 import { useEffect, useMemo, useSyncExternalStore } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { ProductCard, toCardProduct } from "@/components/product-card";
-import { getProducts } from "@/data/catalog";
+import { ProductCard } from "@/components/product-card";
+import { useCatalog } from "@/components/catalog-provider";
 import type { Locale } from "@/i18n/routing";
 
 // Personnalisation minimale et honnête : l'historique vit dans le navigateur
@@ -63,6 +63,7 @@ export function RecentlyViewed({
 }) {
   const t = useTranslations("RecentlyViewed");
   const locale = useLocale() as Locale;
+  const { products } = useCatalog();
   const raw = useSyncExternalStore(subscribe, getSnapshot, () => "");
 
   const items = useMemo(() => {
@@ -75,13 +76,13 @@ export function RecentlyViewed({
     } catch {
       // historique corrompu — section masquée
     }
-    const byId = new Map(getProducts(locale).map((p) => [p.id, p]));
+    const byId = new Map(products.map((p) => [p.id, p]));
     return ids
       .filter((id) => !exclude?.includes(id))
       .map((id) => byId.get(id))
       .filter((p): p is NonNullable<typeof p> => Boolean(p))
       .slice(0, SHOWN_MAX);
-  }, [raw, locale, exclude]);
+  }, [raw, products, exclude]);
 
   if (items.length === 0) return null;
 
@@ -91,7 +92,7 @@ export function RecentlyViewed({
         <h2 className="mb-6 text-display sm:mb-8">{t("title")}</h2>
         <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
           {items.map((p) => (
-            <ProductCard key={p.id} product={toCardProduct(p)} locale={locale} />
+            <ProductCard key={p.id} product={p} locale={locale} />
           ))}
         </div>
       </div>

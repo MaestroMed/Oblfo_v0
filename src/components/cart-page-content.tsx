@@ -3,9 +3,10 @@
 import { useTranslations } from "next-intl";
 import { useCart } from "@/components/cart-context";
 import { CartCheckout, CartEmpty, CartLines, FreeShippingBar, PackSuggestion } from "@/components/cart-parts";
-import { ProductCard, toCardProduct } from "@/components/product-card";
+import { ProductCard } from "@/components/product-card";
 import { useFreeShippingPromo } from "@/components/use-free-shipping-promo";
-import { formatPrice, getListedProducts } from "@/data/catalog";
+import { useCatalog } from "@/components/catalog-provider";
+import { formatPrice } from "@/lib/format-price";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import { shippingCostFor } from "@/lib/shipping";
@@ -14,12 +15,14 @@ export function CartPageContent({ locale }: { locale: Locale }) {
   const t = useTranslations("CartPage");
   const tCart = useTranslations("Cart");
   const { items, total, hydrated } = useCart();
+  const { products } = useCatalog();
 
   const promo = useFreeShippingPromo();
   const shipping = promo ? 0 : shippingCostFor(total);
   const grandTotal = total + shipping;
   const inCart = new Set(items.map((i) => i.id));
-  const crossSell = getListedProducts(locale)
+  const crossSell = products
+    .filter((p) => p.image)
     .filter((p) => !inCart.has(p.id))
     .slice(0, 4);
 
@@ -84,7 +87,7 @@ export function CartPageContent({ locale }: { locale: Locale }) {
               <h2 className="mb-6 text-display sm:mb-8">{t("crossSellTitle")}</h2>
               <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
                 {crossSell.map((product) => (
-                  <ProductCard key={product.id} product={toCardProduct(product)} locale={locale} />
+                  <ProductCard key={product.id} product={product} locale={locale} />
                 ))}
               </div>
             </section>

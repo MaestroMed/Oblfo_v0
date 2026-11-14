@@ -306,9 +306,4 @@ export function translateProductSlug(
   return source ? pickL(source.slug, to) : undefined;
 }
 
-export function formatPrice(value: number, locale: Locale): string {
-  const formatted = Number.isInteger(value)
-    ? String(value)
-    : value.toFixed(2).replace(".", locale === "en" ? "." : ",");
-  return locale === "en" ? `€${formatted}` : `${formatted} €`;
-}
+export { formatPrice } from "@/lib/format-price";

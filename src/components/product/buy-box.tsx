@@ -5,7 +5,7 @@ import { PaymentIcons } from "@/components/payment-icons";
 import { StockLine } from "@/components/product/stock-line";
 import { useLocale, useTranslations } from "next-intl";
 import { useCart } from "@/components/cart-context";
-import { formatPrice } from "@/data/catalog";
+import { formatPrice } from "@/lib/format-price";
 import type { Locale } from "@/i18n/routing";
 
 type Variant = { label: string; options: string[] };

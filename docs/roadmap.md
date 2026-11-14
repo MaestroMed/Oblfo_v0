@@ -70,3 +70,17 @@ Reste :
 - Délai affiché : 8 à 20 jours (vrai délai), pas « 2-4 j ».
 - Note /5 et avis : seulement avec de vrais avis clients.
 - « Plus que X en stock » : seulement un stock réel qui baisse à chaque vente.
+
+## LCP (14/11/2026, main b993e1a)
+
+Allègement : catalogue complet retiré du JavaScript client (CatalogProvider léger), Sonner remplacé, textes client filtrés,
+icônes compressées. JavaScript 237 → 193 Ko, HTML de l'accueil 47 → 43 Ko, icône 25 → 15 Ko. Lighthouse 98, accessibilité 100.
+
+| Mesure de la photo d'accueil | Résultat |
+|---|---|
+| 4G normale, bridage réel (9 Mb/s, 85 ms) | 0,44 à 0,49 s ✅ |
+| 4G lente, bridage réel (1,6 Mb/s, 150 ms) | 2,45 à 2,7 s |
+| 4G lente simulée (score Lighthouse) | 2,26 s (avant : 2,56 à 2,76 s) |
+
+Plancher restant : ~150 Ko de JavaScript du socle Next.js/React et 51 Ko de polices téléchargés en même temps que la photo.
+Passer sous 1,8 s en 4G lente simulée demanderait de retirer React des pages (refonte) ou une seule police.

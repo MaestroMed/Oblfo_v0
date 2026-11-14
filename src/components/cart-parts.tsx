@@ -10,7 +10,10 @@ import { TermsConsent } from "@/components/terms-consent";
 import { HeatWaves } from "@/components/ui/heat-waves";
 import { useCheckout } from "@/components/use-checkout";
 import { useFreeShippingPromo } from "@/components/use-free-shipping-promo";
-import { formatPrice, getPacks, getProductById, getSellableById, type Pack } from "@/data/catalog";
+import { useCatalog } from "@/components/catalog-provider";
+import type { Pack } from "@/data/catalog";
+import type { LiteCatalog } from "@/data/catalog-lite";
+import { formatPrice } from "@/lib/format-price";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import { FREE_SHIPPING_THRESHOLD } from "@/lib/shipping";
@@ -22,9 +25,10 @@ import { TILE_CLASS, productTile } from "@/lib/tile";
 const THUMB_CUTOUT = "cutout";
 
 /** Vignette d'une ligne : détouré sur l'aplat du produit ; pour un pack, ses deux premiers articles sur miel. */
-function Thumb({ id, locale, roomy }: { id: string; locale: Locale; roomy: boolean }) {
-  const product = getProductById(id, locale);
-  const pack = product ? undefined : getPacks(locale).find((p) => p.id === id);
+function Thumb({ id, roomy }: { id: string; roomy: boolean }) {
+  const { products, packs } = useCatalog();
+  const product = products.find((p) => p.id === id);
+  const pack = product ? undefined : packs.find((p) => p.id === id);
   const hasCutout = product?.cutout && product.cutout !== product.image;
 
   return (
@@ -72,7 +76,7 @@ export function CartLines({ roomy = false }: { roomy?: boolean }) {
             key={key}
             className={`flex gap-4 border-b border-choco/15 py-4 last:border-b-0 ${roomy ? "sm:gap-6 sm:py-6" : ""}`}
           >
-            <Thumb id={item.id} locale={locale} roomy={roomy} />
+            <Thumb id={item.id} roomy={roomy} />
             <div className="flex min-w-0 flex-1 flex-col gap-2">
               <div className="flex items-start gap-1">
                 <p
@@ -139,11 +143,11 @@ export function CartLines({ roomy = false }: { roomy?: boolean }) {
 }
 
 // Pack qui contient le plus d'articles déjà au panier, absent du panier et ajoutable sans choix de variante.
-function suggestPack(items: CartItem[], locale: Locale): Pack | undefined {
+function suggestPack(items: CartItem[], { packs, sellables }: LiteCatalog): Pack | undefined {
   const ids = new Set(items.map((i) => i.id));
   let best: { pack: Pack; hits: number } | undefined;
-  for (const pack of getPacks(locale)) {
-    if (ids.has(pack.id) || !pack.available || getSellableById(pack.id, locale)?.variant) continue;
+  for (const pack of packs) {
+    if (ids.has(pack.id) || !pack.available || sellables[pack.id]?.variant) continue;
     const hits = pack.items.filter((id) => ids.has(id)).length;
     if (hits && (!best || hits > best.hits)) best = { pack, hits };
   }
@@ -156,7 +160,8 @@ export function PackSuggestion({ className = "" }: { className?: string }) {
   const tPacks = useTranslations("Packs");
   const locale = useLocale() as Locale;
   const { items, setQty, addItem } = useCart();
-  const pack = items.length ? suggestPack(items, locale) : undefined;
+  const catalog = useCatalog();
+  const pack = items.length ? suggestPack(items, catalog) : undefined;
   if (!pack) return null;
 
   return (

@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { useCart } from "@/components/cart-context";
 import { CartCheckout, CartEmpty, CartLines, FreeShippingBar, PackSuggestion } from "@/components/cart-parts";
-import { formatPrice } from "@/data/catalog";
+import { formatPrice } from "@/lib/format-price";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 

@@ -7,11 +7,11 @@ import {
   useEffect,
   useState,
 } from "react";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { toast } from "sonner";
-import { getSellableById } from "@/data/catalog";
+import { useCatalog } from "@/components/catalog-provider";
+import type { Sellable } from "@/data/catalog";
 import { trackEvent } from "@/components/ga4";
-import type { Locale } from "@/i18n/routing";
 import { MAX_QTY } from "@/lib/cart";
 
 export type CartItem = {
@@ -56,7 +56,7 @@ const STORAGE_KEY = "obflo-cart-v1";
  * Revalide un contenu de localStorage : structure saine + ids existants,
  * nom/prix resynchronisés depuis le catalogue (source de vérité, bonne locale).
  */
-function sanitizeStoredItems(raw: string | null, locale: Locale): CartItem[] {
+function sanitizeStoredItems(raw: string | null, sellables: Record<string, Sellable>): CartItem[] {
   if (!raw) return [];
   let parsed: unknown;
   try {
@@ -76,7 +76,7 @@ function sanitizeStoredItems(raw: string | null, locale: Locale): CartItem[] {
     };
     if (typeof id !== "string" || typeof qty !== "number") continue;
     if (!Number.isFinite(qty) || qty < 1) continue;
-    const sellable = getSellableById(id, locale);
+    const sellable = sellables[id];
     if (!sellable) continue;
     // Une variante requise absente/invalide rend la ligne invendable : on la retire.
     if (sellable.variant) {
@@ -99,7 +99,7 @@ function sanitizeStoredItems(raw: string | null, locale: Locale): CartItem[] {
 }
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
-  const locale = useLocale() as Locale;
+  const { sellables } = useCatalog();
   const [items, setItems] = useState<CartItem[]>([]);
   const [hydrated, setHydrated] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -113,12 +113,12 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     try {
       // eslint-disable-next-line react-hooks/set-state-in-effect
-      setItems(sanitizeStoredItems(window.localStorage.getItem(STORAGE_KEY), locale));
+      setItems(sanitizeStoredItems(window.localStorage.getItem(STORAGE_KEY), sellables));
     } catch {
       // stockage indisponible — panier vide
     }
     setHydrated(true);
-  }, [locale]);
+  }, [sellables]);
 
   useEffect(() => {
     if (!hydrated) return;
@@ -139,11 +139,11 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const onStorage = (e: StorageEvent) => {
       if (e.key !== STORAGE_KEY) return;
-      setItems(sanitizeStoredItems(e.newValue, locale));
+      setItems(sanitizeStoredItems(e.newValue, sellables));
     };
     window.addEventListener("storage", onStorage);
     return () => window.removeEventListener("storage", onStorage);
-  }, [locale]);
+  }, [sellables]);
 
   const showToast = useCallback(
     (label: string) => {

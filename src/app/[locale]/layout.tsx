@@ -4,7 +4,7 @@ import { ConversionTracking } from "@/components/conversion-tracking";
 import { CookieBanner } from "@/components/cookie-banner";
 import { Ga4 } from "@/components/ga4";
 import { NextIntlClientProvider } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { Figtree, Fredoka } from "next/font/google";
 import "../globals.css";
 import { AnnouncementBar } from "@/components/announcement-bar";
@@ -12,7 +12,6 @@ import { CartDrawer } from "@/components/cart-drawer";
 import { CartProvider } from "@/components/cart-context";
 import { CatalogProvider } from "@/components/catalog-provider";
 import { buildLiteCatalog } from "@/data/catalog-lite";
-import { Toaster } from "sonner";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { isLocale, ogLocale, routing } from "@/i18n/routing";
@@ -74,10 +73,21 @@ export async function generateMetadata({
   };
 }
 
+// Textes envoyés au navigateur : seulement les espaces utilisés par useTranslations (CGV, confidentialité… restent côté serveur).
+// Un nouvel espace lu par useTranslations dans un composant client doit ajouter "X" ici.
+const CLIENT_NAMESPACES = [
+  "Announcement", "Cart", "CartPage", "Categories", "CategoryPage", "CookieBanner", "Faq", "Footer", "Guides",
+  "HomeV2", "Nav", "NotFound", "Packs", "Plp", "ProductPage", "RecentlyViewed", "SearchPage", "ToComplete", "Ux",
+] as const;
+
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   setRequestLocale(locale);
+  const messages = await getMessages();
+  const clientMessages = Object.fromEntries(
+    CLIENT_NAMESPACES.filter((ns) => ns in messages).map((ns) => [ns, messages[ns]]),
+  );
 
   return (
     <html
@@ -85,7 +95,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       className={`${fredoka.variable} ${figtree.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <NextIntlClientProvider>
+        <NextIntlClientProvider messages={clientMessages}>
           <CatalogProvider value={buildLiteCatalog(locale)}>
           <CartProvider>
             <AnnouncementBar promo={isFreeShippingPromo(new Date())} />
@@ -93,7 +103,6 @@ export default async function LocaleLayout({ children, params }: Props) {
             {children}
             <SiteFooter />
             <CartDrawer />
-            <Toaster position="bottom-center" offset={88} mobileOffset={{ bottom: 88 }} toastOptions={{ className: "obflo-toast" }} />
           </CartProvider>
           </CatalogProvider>
           {/* Dans le provider : le bandeau lit ses libellés via useTranslations. */}

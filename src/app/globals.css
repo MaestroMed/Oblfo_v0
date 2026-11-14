@@ -420,6 +420,7 @@ details > summary::-webkit-details-marker {
   html { scroll-behavior: auto; }
   .marquee-track,
   .heat-waves path,
+  .cart-toast,
   .rise,
   .kenburns,
   .float,
@@ -432,22 +433,31 @@ details > summary::-webkit-details-marker {
   .btn { transition: none; }
 }
 
-/* Le sélecteur double la spécificité de Sonner, dont la feuille est injectée après la nôtre. */
-[data-sonner-toaster] [data-sonner-toast].obflo-toast {
+/* Notification « ajouté au panier » (cart-context) : au-dessus de la barre d'achat collante. */
+.cart-toast-zone {
+  position: fixed;
+  inset-inline: 16px;
+  bottom: calc(88px + env(safe-area-inset-bottom));
+  z-index: 120; /* au-dessus du bandeau cookies (110), comme l'ancienne notification */
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+.cart-toast {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 480px;
+  padding: 8px 8px 8px 16px;
   background: var(--choco);
   color: var(--cream);
-  border: 0;
   border-radius: var(--radius);
   box-shadow: var(--shadow-modal);
   font-family: var(--font-display);
   font-weight: 600;
   font-size: var(--text-caption);
-}
-[data-sonner-toaster] [data-sonner-toast].obflo-toast [data-button] {
-  background: var(--base-moutarde);
-  color: var(--base-choco);
-  font-weight: 600;
-  border-radius: var(--radius);
+  animation: rise-in 0.3s ease-out both;
 }
 
 /* Bandeau d'annonce : en mobile les trois messages se relaient au même endroit. */
